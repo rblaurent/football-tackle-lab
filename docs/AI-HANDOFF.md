@@ -1,74 +1,55 @@
 # Handoff to the next AI and developer
 
-Latest required scope: extract the entire installed motion library, including celebrations and victory. Read [FULL-LIBRARY.md](FULL-LIBRARY.md) first for all tools, stages, codec counts, remaining work and acceptance criteria. The old controller subset is not the extraction scope.
+## Ready-to-use brief
 
+> Build on https://github.com/rblaurent/football-tackle-lab for a small football manager/referee game for a child. Read docs/START-HERE.md and docs/ANIMATION-SYSTEM.md, then docs/FULL-LIBRARY.md and docs/TACKLE-DIAGNOSIS.md. Inspect the actual source and evidence. The playable home page selects and streams from 2,313 measured native body clips across 17 families. It has continuous state/gait transitions, pursuit, contact-driven passing/shooting, tackles/falls/get-ups, native shirt-pull pairs, a native pusher composed with a native reaction at contact, arm grab and handball using native body bases with authored hand targeting, simple opponent pursuit/interception, goals and queued celebrations. The selector, transitions, navigation and physics are original code. Recovered knee-IK weights provide an analytic solver hint. No complete FC engine, PTM feature policy, ML-Flow, HyperMotion or match AI was recovered. Preserve the controller and run all 47 tests plus the runtime browser verifier. The complete installed extraction contains 46,351 resources, of which 44,037 decode; the automatic gameplay subset has measured admission gates and is not the entire library. Keep complete raw export/SDK/game binaries, codec reference source and credentials out of Git. Read provenance and qualifications before making claims. Build the smallest complete referee incident/decision/replay loop on this foundation.
 
-Read `docs/START-HERE.md`, `docs/INTERACTIONS.md`, `docs/CONTROLLER.md`, `docs/REPRODUCING.md`, `docs/FORMATS.md`, `docs/TOOLS-AND-SOURCES.md`, `README.md` and `THIRD_PARTY.md` before proposing a rewrite. Inspect `controller-core.js`, `animation.js`, `foot-planting.js`, `neural-ik.js`, `human.js`, `controller-view.js`, `app.js`, `tools/fc27/`, `physics.js` and the existing evidence. The project is a working prototype with a verified extraction path, not a blank design exercise.
+## Source map
 
-## Paste this into your AI session
+- `controller-core.js`: fixed-step world, actor scheduler, navigation, kicks, tackle/fall/recovery, goals and simple opponent.
+- `animation.js`: native registration, source sampling, gait phases/blends, inertial transitions, capture frames and recovery matching.
+- `motion-database.js`, `motion-codec.js`: role/pose/context scoring, asynchronous integrity-checked streaming, cache/pinning and validated binary reader.
+- `interactions.js`: shared-clock pairs, approaches, actual hand/torso/ball contact and release into the actor controller.
+- `foot-planting.js`, `neural-ik.js`, `human.js`: grounded target rig and recovered knee hint.
+- `controller-view.js`, `index.html`: desktop/touch input, rendering, score, action controls and inspector.
+- `runtime/`: compiled measured metadata and 2,313 lazy native payloads. `controller-data.json` remains the small safe baseline, not the extraction scope.
+- `tools/fc27/compile_runtime.py`, `audit_runtime.py`: build and validate the gameplay pack, including exact source-frame comparison.
+- [Full extraction pipeline](FULL-LIBRARY.md), [all tools/provenance](TOOLS-AND-SOURCES.md), [binary formats](FORMATS.md), [original IK/controller research](CONTROLLER.md).
 
-> We are building a small football manager/referee game for a child, starting from https://github.com/rblaurent/football-tackle-lab. Read docs/START-HERE.md, docs/INTERACTIONS.md, docs/CONTROLLER.md and docs/TACKLE-DIAGNOSIS.md, then inspect the actual source and evidence. The home page already has a controllable state/transition system using seventeen FC Lite clips and a recovered knee-IK network, with foot planting, ball chase, tackles and automatic recovery. All five hand interactions are actionable in the main lab: native front/side shirt pairs and authored arm grab/push/handball. They approach, act and release in one world. Idle gaze and target-skin boot grounding are corrected. clips.html preserves the original eleven-clip capture viewer; collision-lab.html is the earlier Gameplay Football study. The new controller and contacts are ours, not EA native runtime code. Three complete locomotion IK models and 33 inspected controller/weight assets are supplied. Do not claim full PTM search, match AI, rule logic, ML-Flow or HyperMotion was recovered. Preserve the working system and run its thirty-one tests plus browser verifier before changing it. Use the expanded Windows extractor profile for reproduction. Keep game archives, raw caches, decompression/SDK binaries, downloaded codec source and credentials out of Git. Build the smallest complete referee incident/decision/replay loop on the existing controller. Ask only for information you cannot determine from the repo or installed files.
+## Preserve these invariants
 
-## Ground truth to preserve
+1. Source rest offsets are metres; selected animated translations are feet, converted once by 0.3048. XYZW quaternions, Y-up. The earlier standalone physics experiment is Z-up.
+2. Native captures sample at 30Hz; simulation runs at 120Hz. Frame ranges are inclusive. Source skeleton has 369 bones, target skin has 65. Channel counts vary by binding; do not assume one universal 34/12/8 layout.
+3. Paired performers share a capture origin, frame and clock. Never independently zero the actor trajectories or run a second animation clock.
+4. Navigation owns ordinary movement; locked actions use their native root in a fixed capture frame with bounded corrections. Heading changes must preserve rendered pose continuity. Never restore the old whole-body-spin or end-of-tackle snap.
+5. Start from the actual outgoing pose/velocity. Preserve phase and inertial transitions when a newly streamed gait replaces another. Match get-ups to the grounded pose and rejoin useful movement.
+6. Ball/leg/hand outcomes require measured contact. Moving the ball away must produce a miss. A goal during a locked shooting follow-through queues celebration rather than interrupting or losing it.
+7. Missing, corrupted or pending streamed candidates must leave a valid resident/baseline action available. Keep active/pair clips pinned; do not block simulation on network fetches.
+8. Complete source extraction, decoded/bound status, admission into automatic play and visual approval are separate facts. Unsupported/unknown motions remain explicitly indexed. Do not claim every resource is playable.
+9. Hand/shirt proximity is not cloth simulation. Arm grab and deliberate handball retain authored hand targeting; the push is a composition of separate native performances, not a verified original paired capture.
+10. Native learned scalar arrays alone do not establish feature layout, normalization or an executable motion-matching policy. Original scorer weights must not be attributed to EA.
 
-- Source units: native skeleton rest offsets are meters; selected motion translations are feet. Convert animated positions once with 0.3048. Quaternions are XYZW.
-- Current viewer is Y-up. Earlier physics/demo is Z-up. Convert explicitly when integrating them.
-- Source frames are sampled at 30 Hz in this proof. EndFrame is a last index, not a duration.
-- Main source render skeleton has 369 bones; target skin has 65. Gameplay channels are 34/12/8; cinematic/idle 74/14/8.
-- Native paired captures need shared time and a shared origin. Do not independently zero the actor trajectories.
-- World-space rest/bind-direction correction matters. Copying local quaternions by similar names is insufficient.
-- A hand near a shirt is not cloth deformation. The shirt is currently a material region on the skin, not simulated cloth.
-- Recovery is now selected and blended automatically in the new controller. The old capture viewer still treats it as a separate clip. Do not replace the working chain with an end-frame hold.
-- Indexed motion-resource count is not an export count. The expanded profile decodes 22 candidates; seventeen drive the new controller and eleven remain in the original viewer. Several overlap.
-- The original idle name contains getup but plays standing idle. Inspect before labeling or selecting clips.
+## Verify before changing or publishing
 
-## First milestones, in order
+```sh
+npm ci
+npm test
+python -m http.server 8080 --bind 127.0.0.1
+```
 
-1. **Preserve a runnable baseline.** Clone, run local HTTP server, run the controller browser verifier, old-viewer verifier and thirty-one Node tests. Save screenshots and the tested revision. Do not redesign everything before this passes.
-2. **Author three complete referee incidents.** One clear clean challenge, one clear late trip, one clear holding/pulling incident. Choose clips deliberately; do not pretend the cinematic tackle pair itself dynamically distinguishes clean from late contact.
-3. **Extend the existing controller.** Preserve its action locks, current-pose inertial transitions, gait phases, bounded root correction and automatic recoveries. Extend interactions.js and its existing shared-clock paired states; do not start a second animation clock. Preserve native pair origins and the source-versus-authored distinction. Add more variants and better surface contact instead of replacing the working scheduler.
-4. **Add interaction metadata.** For each usable clip/pair, annotate approach angle, relative speed, actor roles, ball state, contact interval, hand/foot target, reaction direction, ending posture and compatible recovery. Keep annotations separate from source keys.
-5. **Integrate bounded collisions.** Reuse/adapt the earlier swept sphere/capsule ideas with an explicit coordinate conversion. Tie foul decisions to measured contacts and authored scenario rules. Avoid frame-rate-dependent contact guesses.
-6. **Improve retarget contact.** Preserve source foot planting and its neural knee hint; add target-rig foot correction and a limited hand constraint where proportions cause visible gaps. Root warp within bounded ranges; select another clip if alignment exceeds those ranges. Start with plausible contact before attempting cloth deformation.
-7. **Make the child's decision loop enjoyable.** Replay/slow motion, a clear play-on/foul/card choice, understandable feedback and a restart. Keep real implementation details out of the child's interface.
-8. **Only then expand the match.** Add manager decisions or a lightweight match simulation that selects incidents. Full 22-player real-time AI and FIFA parity are later work.
+In another terminal:
 
-These are recommendations, not claims about EA's proprietary implementation.
+```sh
+node tools/verify-runtime.cjs http://127.0.0.1:8080/ /path/to/evidence
+python tools/fc27/audit_runtime.py --report /path/to/evidence/runtime-audit.json
+```
 
-## Acceptance evidence for the next change
+Use `python3` on Mac. The optional audit `--source native-library` additionally compares every byte against the complete decoded source export; install the pinned library requirements for NumPy. Browser verification uses installed Chrome and Playwright. Physical phone and Mac/Safari acceptance remain unverified.
 
-| Area | Required evidence |
-| --- | --- |
-| Extraction | Every source payload size/hash checked; unresolved channels fail; raw quaternion validity checked before normalization. |
-| Decode reproduction | `compare_output.py` or an explicit versioned fixture comparison; explain any expected build/clip differences. |
-| Poses | Source and target checked at start, contact and end; no invalid matrices or unexplained unit/axis changes. |
-| Paired contact | Original relative trajectories preserved before warping; hands/feet/contact alignment inspected visually. |
-| Sequence/recovery | Complete replay shows fall, settle/get-up and return to useful movement; no frozen ending or large root teleport. |
-| Ball/player collisions | Fast ball crossing, near miss, moving-foot impulse, degenerate/crossed capsules and ground support checked. |
-| Timing | Source clock is independent of rendering; normal and slow playback show the same event order. |
-| Browser | Desktop and phone-sized touch viewport, controls, network requests and page errors checked. State honestly whether actual Safari/mobile hardware was tested. |
-| Deployment | Intended commit built; public URL and assets verified after publishing. |
+The 47 tests include every connected standing interaction, real kick/contact misses, rotated native tackle encounters, get-up/release, cache/pinning/failure fallback, angular quality and newly streamed gait continuity. A normal-play test includes the opponent and scores from an actual approach/native shot, then completes celebration and returns to idle. `evidence/runtime-gameplay.mp4` is one continuous rendered sequence.
 
-Do not add tests that merely mirror the implementation. Prefer observable failure cases: a ball tunnels through a shin, a paired actor loses their shared origin, a recovery finishes below ground, or a replay clock never resets.
+## Next useful work
 
-## Avoid these shortcuts
+Implement referee incidents and explicit outcome/replay metadata on this scheduler. Clean/late/missed challenges and holding/pushing rules should derive from contact timing and scenario rules. Add teammates, pass targets and goalkeepers as bounded behaviors, each with measured motion admission, correct entry/exit and negative tests. Expand airborne/header actions deliberately instead of assigning unknown clips by filename alone.
 
-- Do not invent a successful game export from a modding tool's support table.
-- Do not normalize exploding quaternion values until they look finite.
-- Do not iterate a sentinel DOF index as a count; stop on invalid ranges.
-- Do not hardcode one EBX absolute offset or assume import 0 is the channel map.
-- Do not replace a proper skinned human with stick/capsule art as the final presentation. Capsules remain useful invisible collision/debug proxies.
-- Do not use generated video as evidence that extracted runtime motion works.
-- Do not add heavy server infrastructure to a static prototype unless a concrete game feature needs it.
-- Do not commit game installations, proprietary decompression DLLs, downloaded FMT binaries, private upstream codec copies or credentials.
-- Do not claim the manager/referee game's rules are complete from a ball-first heuristic.
-- Do not use FC26 field offsets blindly on FC27, convert internal RIFF references as unsigned displacements, or ignore the extractor's unresolved fields.
-- Do not call the recovered knee network an animation selector. Its coordinate conventions are inferred and its measured scope is documented; the native 31-feature PTM search is not running in our controller.
-
-## Working with another game build
-
-First record title, platform, install/build IDs and source file hashes. Rebuild route metadata after updates. Inspect one motion EBX/RES and one source skeleton/rig. Validate codec type, object/relative pointer rules, compressed block boundaries, channel maps, units and timebase. Decode one clip, compare against in-game movement where possible, then test a native pair. Extend the profile only after those checks pass. A bounded failure is preferable to silently corrupting a large library.
-
-## Where to leave your work
-
-Keep reusable implementation and documentation in the repository. Keep generated output in an ignored work directory. Store small validation summaries and intentional screenshots/videos with the corresponding change. Write down the exact revision, what actually passed, what still looks wrong and which assumptions remain unverified. The next person should not need access to the original chat or the original machine.
+The full extraction pipeline and 2,314 pending codecs are documented in FULL-LIBRARY.md. A larger decoded catalogue does not automatically create appropriate live behavior: characterize the role/contact/ending posture and connect it to the scheduler. Preserve the known working game build/tool pins and original source hashes when extending extraction.

@@ -1,5 +1,8 @@
 # Continuous football motion: controller, extraction and neural IK
 
+**Live animation-system update:** the home page now automatically selects and streams from 2,313 measured native body clips, with continuous gait/action transitions, contact-driven passing/shooting, native pushes/reactions and goal celebrations. [Architecture, setup, tools and AI guide](ANIMATION-SYSTEM.md). Earlier fixed-subset descriptions below are historical implementation context.
+
+
 This is the continuation of the [original extraction handbook](START-HERE.md). The public home page now runs a small, controllable football animation system. The old eight-scene capture viewer is preserved at [`clips.html`](../clips.html), and the older Gameplay Football contact experiment remains at [`collision-lab.html`](../collision-lab.html).
 
 **[Play](https://rblaurent.github.io/football-tackle-lab/)**. The automatic demo chases a rolling ball, stops, changes direction, slides for the ball, gets up, walks and settles into idle. **Player tackle** starts a separate two-player encounter: an animated foot hits the opponent's leg capsule, the opponent falls, and both players recover. You can steer with WASD/arrows or the touch pad, hold Shift to sprint, select walking/jogging/sprinting, chase the ball, stop, and tackle with Space/the button. Tap the grass to place a new ball. Drag/pinch the scene to orbit/zoom. Open Motion inspector to see states, weights and foot planting.

@@ -1,0 +1,180 @@
+{
+  "score": [
+    1,
+    0
+  ],
+  "states": [
+    "start",
+    "move",
+    "stop",
+    "kick",
+    "celebrate",
+    "idle"
+  ],
+  "events": [
+    {
+      "time": 0,
+      "type": "play started"
+    },
+    {
+      "time": 0,
+      "type": "kick requested",
+      "kind": "shoot"
+    },
+    {
+      "time": 2.3333333333333277,
+      "type": "native kick contact",
+      "actor": 0,
+      "kind": "shoot",
+      "motion": "af9c11e8e24bf7c7eedff02e_0_69"
+    },
+    {
+      "time": 2.3333333333333277,
+      "type": "ball contact",
+      "actor": 0,
+      "foot": 0,
+      "closing": 1.0656207554961379
+    },
+    {
+      "time": 3.5583333333333234,
+      "type": "goal",
+      "team": 0,
+      "score": [
+        1,
+        0
+      ]
+    }
+  ],
+  "ball": [
+    16.645754365810266,
+    0.11,
+    0.14977834713076962
+  ],
+  "actors": [
+    {
+      "position": [
+        -0.11789759405912989,
+        0,
+        0.10138182814812667
+      ],
+      "state": "idle",
+      "history": [
+        {
+          "from": "idle",
+          "to": "start",
+          "action": "e3fe21ddb006dcc01d2882cc_0_33",
+          "entry": 0.12,
+          "cost": 0.9432803730907185
+        },
+        {
+          "from": "start",
+          "to": "move",
+          "action": "move",
+          "entry": 0,
+          "cost": 0.979123389110814
+        },
+        {
+          "from": "move",
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48",
+          "entry": 0.5133333333333333,
+          "cost": 0.9142074360600793
+        },
+        {
+          "from": "stop",
+          "to": "kick",
+          "action": "af9c11e8e24bf7c7eedff02e_0_69",
+          "entry": 0,
+          "cost": 0
+        },
+        {
+          "from": "kick",
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48",
+          "entry": 0.06999999999999999,
+          "cost": 1.4197172549953183
+        },
+        {
+          "from": "stop",
+          "to": "celebrate",
+          "action": "6100751fd1988f59819f551f_0_97",
+          "entry": 0.1,
+          "cost": 0.9017205168654963
+        },
+        {
+          "from": "celebrate",
+          "to": "idle",
+          "action": "idle",
+          "entry": 0,
+          "cost": null
+        }
+      ]
+    },
+    {
+      "position": [
+        3.1570375728712494,
+        0,
+        0.7827515667321444
+      ],
+      "state": "idle",
+      "history": [
+        {
+          "from": "idle",
+          "to": "start",
+          "action": "e3fe21ddb006dcc01d2882cc_0_33",
+          "entry": 0.12,
+          "cost": 0.9432803730907185
+        },
+        {
+          "from": "start",
+          "to": "move",
+          "action": "move",
+          "entry": 0,
+          "cost": 0.979123389110814
+        },
+        {
+          "from": "move",
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48",
+          "entry": 0.5366666666666666,
+          "cost": 0.857749535339017
+        },
+        {
+          "from": "stop",
+          "to": "idle",
+          "action": "idle",
+          "entry": 0,
+          "cost": null
+        },
+        {
+          "from": "idle",
+          "to": "start",
+          "action": "e3fe21ddb006dcc01d2882cc_0_33",
+          "entry": 0.09999999999999999,
+          "cost": 0.5279923572811395
+        },
+        {
+          "from": "start",
+          "to": "move",
+          "action": "move",
+          "entry": 0,
+          "cost": 0.9814594874499248
+        },
+        {
+          "from": "move",
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48",
+          "entry": 0,
+          "cost": 1.4161726474216463
+        },
+        {
+          "from": "stop",
+          "to": "idle",
+          "action": "idle",
+          "entry": 0,
+          "cost": null
+        }
+      ]
+    }
+  ]
+}

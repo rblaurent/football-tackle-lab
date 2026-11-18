@@ -1,21 +1,18 @@
 # Football Tackle Lab
 
-**Complete library update:** [Browse all 46,351 extracted resources](https://rblaurent.github.io/football-tackle-lab/library.html), including victory and celebrations. 44,037 decode; 2,314 are preserved with explicit unsupported-codec status. [Full extraction/setup/AI guide](docs/FULL-LIBRARY.md). The older 22-clip/17-runtime subset described below belongs to the prototype controller, not the full export.
+**[Play football](https://rblaurent.github.io/football-tackle-lab/)** · [Animation-system guide](docs/ANIMATION-SYSTEM.md) · [Friend/AI handoff](docs/START-HERE.md) · [Download source and playable data](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip)
 
+A playable two-player football animation foundation for a small manager/referee game. Proper skinned human characters select and stream suitable native FC motions from **2,313 measured body clips across 17 action families**. Starts, running, braking, turns, ball pursuit, kicks, tackles, falls, get-ups, standing interactions and celebrations share one controller.
 
-**[Play the continuous controller](https://rblaurent.github.io/football-tackle-lab/)** · [Original clip viewer](https://rblaurent.github.io/football-tackle-lab/clips.html) · [Complete setup/extraction handoff](docs/START-HERE.md)
+[Watch one continuous gameplay sequence](evidence/runtime-gameplay.mp4): approach, shot, physical goal, celebration, then push and contact-triggered reaction in the same world.
 
-[Watch the connected interactions](evidence/interaction-showcase.mp4) · [Watch the tackle](evidence/tackle-corrected.mp4) · [Download the latest complete ZIP](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip)
-
-![Arm grabbing in the same actionable lab](evidence/interaction-grab.png)
-
-A small, playable football animation system using selected **native FC 27 Lite motions** on proper skinned human characters. It can idle, start, walk, jog, sprint, stop, turn, chase a ball, tackle, fall and get back up. It also approaches and performs front/side shirt pulls, arm grabbing, pushing and an authored handball block through the same action system. The home page runs the latest controller; the original eight-scene clip viewer and earlier collision experiment are preserved.
-
-The new controller has phase-aligned speed blends, pose-matched entries/get-ups, interruptible inertial transitions, bounded foot planting, animated foot/ball and foot/leg contact, and a two-player tackle scenario. It uses **recovered FC knee-IK neural weights** as a bend hint for an analytic two-bone solve. The state machine, navigation, blending and contact logic are original project code. It does not run EA's native motion-matching engine or complete match simulation.
+![Live football animation system](evidence/runtime-play.jpg)
 
 ## Play
 
-Steer blue with WASD/arrows or the touch pad. Shift sprints; Space tackles. Use Chase ball, Stop and the pace selector. Tap the grass to place the ball, or press Player tackle for an arranged two-player encounter. Choose an **Interaction** and press **Do interaction**. Both players approach, act, release and return to movement; **Stop** cancels. Idle uses a neutral forward gaze and rendered support-foot grounding. Both players recover automatically. Drag/pinch to orbit/zoom and open Motion inspector to see the current action and weights.
+Steer blue with WASD/arrows or the touch pad. Shift sprints, Space tackles, F shoots and E passes. Play match enables the opponent's pursuit/interception behavior. Pass and Shoot approach the ball and select a native kick; the animated foot must actually contact it. A goal queues celebration after the follow-through.
+
+Challenge selects a standing encounter from relative angle, distance and pace. The Interaction selector also gives direct access to front/side shirt pulls, arm grabbing, pushing and handball. Both players approach, act, release and return to movement; Stop cancels. Player tackle sets up a repeatable slide encounter. Tap the pitch to place the ball, drag/pinch to orbit/zoom, and open Motion inspector to inspect actual source names and selection/streaming state.
 
 ## Run locally
 
@@ -25,26 +22,27 @@ cd football-tackle-lab
 python -m http.server 8080 --bind 127.0.0.1
 ```
 
-On macOS use `python3` if necessary. Open `http://127.0.0.1:8080`. Playback requires no build, npm install, account, remote CDN or installed game. Do not open the HTML with `file://`.
+On macOS use `python3` if necessary. Open `http://127.0.0.1:8080`. Playback needs no build, npm install, account, remote CDN or installed game. Use HTTP rather than opening the HTML directly.
 
-## Build on it
+## How it works and what was extracted
 
-**[Start here](docs/START-HERE.md)** for the complete friend/AI handoff. **[Controller, transitions and recovered weights](docs/CONTROLLER.md)** documents every new layer, what was extracted versus implemented, the exact reproduction commands, source formats, numerical evidence and remaining limitations.
+The **[animation-system guide](docs/ANIMATION-SYSTEM.md)** documents automatic selection, feature measurements, asynchronous streaming/cache, transitions, root ownership, contact, recovery, goals, every new tool and extension instructions. The runtime's selector weights, state machine, blending and physics are original project code. It does not run EA's native animation engine or constitute a complete football match simulator.
 
-The expanded extraction profile decodes 22 selected clips and inspects 33 controller/weight assets. `controller-data.json` holds seventeen runtime clips; `data.json` preserves the original eleven. Three recovered neural IK models are in `research/fc27-neural-ik.json`; only the knee model is used in the live controller. The motion library and full FC runtime have not been extracted.
+Native shirt-pull pairs retain their shared capture frame and clock. Push combines a native pusher and a separately selected native reaction at physical hand/torso contact. Arm grabbing and handball use native body performances with authored hand/arm adaptations; those complete interactions are not claimed as recovered native paired captures. Recovered FC knee-IK weights provide a bend hint for an analytic two-bone solve.
 
-Knee, elbow and Spine3 networks were checked against 240 native idle/walk/jog/sprint poses each. Knee reconstruction has 2.47 cm RMSE per coordinate; this is an inferred convention checked against extracted clips, not EA runtime equivalence. Thirty-one Node tests and desktop/touch browser acceptance cover the new state sequence and contacts. See `evidence/` for reports. Phone emulation was tested; physical phones and Mac/Safari were not.
+**[Browse the entire extraction catalogue](https://rblaurent.github.io/football-tackle-lab/library.html)**: 46,351 discoverable installed animation resources, including victory and celebrations. 44,037 decode; 2,314 retain explicit unsupported-codec status. The whole extraction and original files live in the local ignored `native-library/` export, which is separate from the source ZIP. The ZIP includes the measured runtime pack and 338 additional catalogue previews. **[Full extraction/setup guide](docs/FULL-LIBRARY.md)** explains how to reproduce or transfer the complete export.
 
-## Original studies
+## Verification
 
-- [`clips.html`](clips.html): native paired tackle and front/side shirt pulls, untrimmed gameplay slides, standalone recovery and idle. It retains source trajectories and timing; it is a capture viewer, not the new controller.
-- [18-second original motion capture](evidence/fc-lite-human-motion.mp4): the earlier skinned-character extraction showcase.
-- [`collision-lab.html`](collision-lab.html): earlier independent Gameplay Football clean/late/missed challenge simulation. [Technical notes](GAMEPLAY-FOOTBALL.md).
+47 Node tests cover controller regressions, selection, actual native kick/contact misses, every connected interaction, eight rotated tackles, streamed gait continuity, integrity failure fallback, cache eviction, and a full approach/shot/goal/celebration sequence. Desktop and emulated-touch browser acceptance checks rendered skeletons, controls, action release, layout and asset failures. Physical phones and Mac/Safari have not been tested.
 
-## Terms
+Every shipped runtime payload has been checked for hash integrity, binding/shape, finite samples and quaternion norms, and byte-for-byte equality to its decoded source frame range. See [evidence](evidence/README.md). This is a two-player foundation; team tactics, goalkeepers, richer airborne actions and full referee rules remain work.
 
-Original project code is Unlicense, Quaternius human meshes/hair are CC0, and Three.js is MIT. **FC-derived motions, skeleton, controller data and neural weights are separate and are not covered by those licenses; no redistribution permission is asserted for them.** No installed game, native EA runtime, Oodle binary, FMT binary or third-party reference codec source is included. Read [THIRD_PARTY.md](THIRD_PARTY.md). This independent experiment is not endorsed by EA or FIFA.
+## Further documentation and earlier studies
 
-The tackle orientation, victim reaction and recovery endpoint were corrected after a native-decoder and coordinate-frame investigation. [Diagnosis, fixes and reproducible measurements](docs/TACKLE-DIAGNOSIS.md).
+- [Start here](docs/START-HERE.md): setup, extraction routes and AI handoff.
+- [Original controller/IK guide](docs/CONTROLLER.md), [formats](docs/FORMATS.md), [tools and provenance](docs/TOOLS-AND-SOURCES.md), [interaction details](docs/INTERACTIONS.md).
+- [Original source-clip viewer](https://rblaurent.github.io/football-tackle-lab/clips.html): captured paired tackles, shirt pulls and selected motions.
+- [Earlier contact experiment](https://rblaurent.github.io/football-tackle-lab/collision-lab.html) and [Gameplay Football notes](GAMEPLAY-FOOTBALL.md).
 
-[Connected interactions, arm IK, handball contacts and idle grounding](docs/INTERACTIONS.md) explains the new system, native versus authored motion, tests and recording commands. Existing Git users can update with `git pull --ff-only`; ZIP users should extract a fresh copy.
+Original project code is under [the project license](LICENSE). Third-party code, models and extracted motion data retain their own provenance and rights; the code license does not grant rights to EA data. See [third-party provenance](THIRD_PARTY.md).

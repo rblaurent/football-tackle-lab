@@ -34,6 +34,15 @@ export class MotionLibrary {
   this.poseJoints=['Hips','Spine1','Spine3','LeftUpLeg','RightUpLeg','LeftLeg','RightLeg','LeftFoot','RightFoot','LeftArm','RightArm'].map(n=>this.index[n]);
   this.fkP=this.names.map(()=>new T.Vector3());this.fkQ=this.names.map(()=>new T.Quaternion());this.forwardKinematics(this.rest);this.restWorldQ=this.fkQ.map(q=>q.clone());
  }
+ registerNative(meta,clip){
+  if(this.motions[meta.id])return this.motions[meta.id];
+  const m={id:meta.id,clip,family:meta.family,meta,start:0,end:(clip.frameCount-1)/30,duration:(clip.frameCount-1)/30,loop:['idle','walk','jog','sprint'].includes(meta.family),capture:meta.family==='shirtPair'};
+  m.q=clip.qNames.map(n=>this.index[n]);m.v=clip.vNames.map(n=>({i:this.index[n.split('.')[0]],scale:n.endsWith('.s')}));
+  const ti=clip.vNames.indexOf('AITrajectory.t'),qi=clip.qNames.indexOf('AITrajectory');if(ti<0||qi<0)throw Error('Runtime body clip lacks root channels');m.trajectory=clip.vectors.map(f=>new T.Vector3().fromArray(f[ti]).multiplyScalar(.3048));
+  m.preserveTrajectory=m.capture||!['idle','walk','jog','sprint','start','stop','turn'].includes(meta.family);m.referenceYaw=m.preserveTrajectory&&!m.capture?yawOf(new T.Quaternion().fromArray(clip.quaternions[0][qi]).normalize()):0;m.nativeSpeed=meta.speed;
+  if(m.loop){m.first=clonePose(this.rest);m.last=clonePose(this.rest);this.sampleRaw(m,0,m.first);this.sampleRaw(m,m.duration,m.last);m.phaseOffset=0;const fi=clip.fNames.indexOf('LeftFoot.height');if(fi>=0&&meta.family!=='idle'){let low=Infinity;clip.floats.forEach((f,i)=>{if(f[fi]<low){low=f[fi];m.phaseOffset=i/Math.max(1,clip.frameCount-1);}});}}
+  this.motions[meta.id]=m;return m;
+ }
  createPose(){return clonePose(this.rest);}
  sampleRaw(m,t,out){
   copyPose(out,this.rest);const f=clamp(t*30,0,m.clip.frameCount-1),i=Math.floor(f),j=Math.min(i+1,m.clip.frameCount-1),w=f-i;
@@ -48,7 +57,7 @@ export class MotionLibrary {
   let phase=((time/m.duration+(m.phaseOffset||0))%1+1)%1;this.sampleRaw(m,m.start+phase*m.duration,out);
   // Close small capture seams with a distributed, zero-slope correction, rather than snapping at wrap.
   const w=smooth(phase);out.positions.forEach((p,i)=>p.addScaledVector(V.copy(m.first.positions[i]).sub(m.last.positions[i]),w));
-  out.quaternions.forEach((q,i)=>{Q.copy(m.last.quaternions[i]).invert().multiply(m.first.quaternions[i]);Q2.identity().slerp(Q,w);q.multiply(Q2).normalize();});if(id==='idle')this.neutralGaze(out);return out;
+  out.quaternions.forEach((q,i)=>{Q.copy(m.last.quaternions[i]).invert().multiply(m.first.quaternions[i]);Q2.identity().slerp(Q,w);q.multiply(Q2).normalize();});if(id==='idle'||m.family==='idle')this.neutralGaze(out);return out;
  }
  neutralGaze(pose){
   this.forwardKinematics(pose);const hi=this.index.Hips,forward=new T.Vector3(0,0,1).applyQuaternion(this.fkQ[hi].clone().multiply(this.restWorldQ[hi].clone().invert()));forward.y=0;forward.normalize();const facing=new T.Quaternion().setFromAxisAngle(UP,Math.atan2(forward.x,forward.z));
@@ -65,8 +74,8 @@ export class MotionLibrary {
   return {yaw,cost:cost+8*(a.positions[this.index.Hips].y-b.positions[this.index.Hips].y)**2};
  }
  alignedMatch(id,current,{min=0,max=.14,steps=6}={}){let best={time:min,cost:Infinity,yaw:0};for(let i=0;i<=steps;i++){const time=min+(max-min)*i/steps;this.sample(id,time,this.scratch);const fit=this.alignment(current,this.scratch);if(fit.cost<best.cost)best={time,...fit};}return best;}
- recovery(current){return ['recoverSlide','recoverSide','recoverBack','recoverFront'].map(id=>({id,...this.alignedMatch(id,current,{max:.14,steps:6})})).sort((a,b)=>a.cost-b.cost)[0];}
- locomotion(speed,phase,out){let a,b,w;if(speed<1.37){a='idle';b='walk';w=clamp(speed/1.37,0,1);}else if(speed<2.91){a='walk';b='jog';w=(speed-1.37)/(2.91-1.37);}else{a='jog';b='sprint';w=clamp((speed-2.91)/(7.8-2.91),0,1);}this.sample(a,phase*this.motions[a].duration,this.startPose);this.sample(b,phase*this.motions[b].duration,this.endPose);blendPose(out,this.startPose,this.endPose,w);return {[a]:1-w,[b]:w};}
+ recovery(current){const ids=['recoverSlide','recoverSide','recoverBack','recoverFront'];if(this.database){const ranked=this.database.rank('recover',this.database.context(current,{speed:1}));ranked.slice(0,2).forEach(r=>this.database.ensure(r.entry));ids.push(...ranked.filter(r=>this.database.loaded.has(r.entry.id)).slice(0,8).map(r=>r.entry.id));}return ids.map(id=>({id,...this.alignedMatch(id,current,{max:Math.min(.14,this.motions[id].duration*.2),steps:6})})).sort((a,b)=>a.cost-b.cost)[0];}
+ locomotion(speed,phase,out){let a,b,w;if(speed<1.37){a='idle';b='walk';w=clamp(speed/1.37,0,1);}else if(speed<2.91){a='walk';b='jog';w=(speed-1.37)/(2.91-1.37);}else{a='jog';b='sprint';w=clamp((speed-2.91)/(7.8-2.91),0,1);}if(this.database){a=this.database.gait(a,speed,this.selectionPose||out,this.selectionActor||0);b=this.database.gait(b,speed,this.selectionPose||out,this.selectionActor||0);}this.sample(a,phase*this.motions[a].duration,this.startPose);this.sample(b,phase*this.motions[b].duration,this.endPose);blendPose(out,this.startPose,this.endPose,w);return {[a]:1-w,[b]:w};}
 }
 
 /** Finite-duration inertial offsets. Interrupted blends start from the actual displayed pose. */

@@ -1,0 +1,602 @@
+[
+  {
+    "angle": 0,
+    "states": [
+      "idle",
+      "idle"
+    ],
+    "maxStep": 0.037772237098156115,
+    "contacts": [
+      {
+        "time": 0.4416666666666672,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 0,
+        "closing": 5.499605077237732
+      },
+      {
+        "time": 0.45000000000000057,
+        "type": "ball contact",
+        "actor": 1,
+        "foot": 1,
+        "closing": 3.02577914313658
+      },
+      {
+        "time": 0.4583333333333339,
+        "type": "leg contact",
+        "actor": 0,
+        "target": 1
+      },
+      {
+        "time": 0.783333333333333,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 1,
+        "closing": 2.0823656626395337
+      }
+    ],
+    "history": [
+      [
+        {
+          "to": "tackle",
+          "action": "f27e40350d57089205074366_0_57"
+        },
+        {
+          "to": "recover",
+          "action": "recoverSide"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ],
+      [
+        {
+          "to": "fall",
+          "action": "37ae1692a11bbcc18cbf91bc_0_48"
+        },
+        {
+          "to": "recover",
+          "action": "e5c30ea0ef5d9a801742ded0_0_39"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ]
+    ]
+  },
+  {
+    "angle": 0.5,
+    "states": [
+      "idle",
+      "idle"
+    ],
+    "maxStep": 0.03777223709815608,
+    "contacts": [
+      {
+        "time": 0.4416666666666672,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 0,
+        "closing": 5.499605077237738
+      },
+      {
+        "time": 0.45000000000000057,
+        "type": "ball contact",
+        "actor": 1,
+        "foot": 1,
+        "closing": 3.0257791431366696
+      },
+      {
+        "time": 0.4583333333333339,
+        "type": "leg contact",
+        "actor": 0,
+        "target": 1
+      },
+      {
+        "time": 0.783333333333333,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 1,
+        "closing": 2.0823656626398512
+      }
+    ],
+    "history": [
+      [
+        {
+          "to": "tackle",
+          "action": "f27e40350d57089205074366_0_57"
+        },
+        {
+          "to": "recover",
+          "action": "recoverSide"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ],
+      [
+        {
+          "to": "fall",
+          "action": "37ae1692a11bbcc18cbf91bc_0_48"
+        },
+        {
+          "to": "recover",
+          "action": "e5c30ea0ef5d9a801742ded0_0_39"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ]
+    ]
+  },
+  {
+    "angle": 1.1,
+    "states": [
+      "idle",
+      "idle"
+    ],
+    "maxStep": 0.03777223709815607,
+    "contacts": [
+      {
+        "time": 0.4416666666666672,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 0,
+        "closing": 5.49960507723774
+      },
+      {
+        "time": 0.45000000000000057,
+        "type": "ball contact",
+        "actor": 1,
+        "foot": 1,
+        "closing": 3.0257791431366363
+      },
+      {
+        "time": 0.4583333333333339,
+        "type": "leg contact",
+        "actor": 0,
+        "target": 1
+      },
+      {
+        "time": 0.783333333333333,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 1,
+        "closing": 2.0823656626397566
+      }
+    ],
+    "history": [
+      [
+        {
+          "to": "tackle",
+          "action": "f27e40350d57089205074366_0_57"
+        },
+        {
+          "to": "recover",
+          "action": "recoverSide"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ],
+      [
+        {
+          "to": "fall",
+          "action": "37ae1692a11bbcc18cbf91bc_0_48"
+        },
+        {
+          "to": "recover",
+          "action": "e5c30ea0ef5d9a801742ded0_0_39"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ]
+    ]
+  },
+  {
+    "angle": 1.7,
+    "states": [
+      "idle",
+      "idle"
+    ],
+    "maxStep": 0.03777223709815608,
+    "contacts": [
+      {
+        "time": 0.4416666666666672,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 0,
+        "closing": 5.49960507723774
+      },
+      {
+        "time": 0.45000000000000057,
+        "type": "ball contact",
+        "actor": 1,
+        "foot": 1,
+        "closing": 3.025779143136614
+      },
+      {
+        "time": 0.4583333333333339,
+        "type": "leg contact",
+        "actor": 0,
+        "target": 1
+      },
+      {
+        "time": 0.783333333333333,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 1,
+        "closing": 2.0823656626396274
+      }
+    ],
+    "history": [
+      [
+        {
+          "to": "tackle",
+          "action": "f27e40350d57089205074366_0_57"
+        },
+        {
+          "to": "recover",
+          "action": "recoverSide"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ],
+      [
+        {
+          "to": "fall",
+          "action": "37ae1692a11bbcc18cbf91bc_0_48"
+        },
+        {
+          "to": "recover",
+          "action": "e5c30ea0ef5d9a801742ded0_0_39"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ]
+    ]
+  },
+  {
+    "angle": 2.4,
+    "states": [
+      "idle",
+      "idle"
+    ],
+    "maxStep": 0.03777223709815606,
+    "contacts": [
+      {
+        "time": 0.4416666666666672,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 0,
+        "closing": 5.499605077237739
+      },
+      {
+        "time": 0.45000000000000057,
+        "type": "ball contact",
+        "actor": 1,
+        "foot": 1,
+        "closing": 3.0257791431365115
+      },
+      {
+        "time": 0.4583333333333339,
+        "type": "leg contact",
+        "actor": 0,
+        "target": 1
+      },
+      {
+        "time": 0.783333333333333,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 1,
+        "closing": 2.0823656626392735
+      }
+    ],
+    "history": [
+      [
+        {
+          "to": "tackle",
+          "action": "f27e40350d57089205074366_0_57"
+        },
+        {
+          "to": "recover",
+          "action": "recoverSide"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ],
+      [
+        {
+          "to": "fall",
+          "action": "37ae1692a11bbcc18cbf91bc_0_48"
+        },
+        {
+          "to": "recover",
+          "action": "e5c30ea0ef5d9a801742ded0_0_39"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ]
+    ]
+  },
+  {
+    "angle": 3.14,
+    "states": [
+      "idle",
+      "idle"
+    ],
+    "maxStep": 0.03777223709815609,
+    "contacts": [
+      {
+        "time": 0.4416666666666672,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 0,
+        "closing": 5.499605077237732
+      },
+      {
+        "time": 0.45000000000000057,
+        "type": "ball contact",
+        "actor": 1,
+        "foot": 1,
+        "closing": 3.025779143136544
+      },
+      {
+        "time": 0.4583333333333339,
+        "type": "leg contact",
+        "actor": 0,
+        "target": 1
+      },
+      {
+        "time": 0.783333333333333,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 1,
+        "closing": 2.0823656626394436
+      }
+    ],
+    "history": [
+      [
+        {
+          "to": "tackle",
+          "action": "f27e40350d57089205074366_0_57"
+        },
+        {
+          "to": "recover",
+          "action": "recoverSide"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ],
+      [
+        {
+          "to": "fall",
+          "action": "37ae1692a11bbcc18cbf91bc_0_48"
+        },
+        {
+          "to": "recover",
+          "action": "e5c30ea0ef5d9a801742ded0_0_39"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ]
+    ]
+  },
+  {
+    "angle": -0.7,
+    "states": [
+      "idle",
+      "idle"
+    ],
+    "maxStep": 0.03777223709815609,
+    "contacts": [
+      {
+        "time": 0.4416666666666672,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 0,
+        "closing": 5.499605077237743
+      },
+      {
+        "time": 0.45000000000000057,
+        "type": "ball contact",
+        "actor": 1,
+        "foot": 1,
+        "closing": 3.0257791431365906
+      },
+      {
+        "time": 0.4583333333333339,
+        "type": "leg contact",
+        "actor": 0,
+        "target": 1
+      },
+      {
+        "time": 0.783333333333333,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 1,
+        "closing": 2.08236566263952
+      }
+    ],
+    "history": [
+      [
+        {
+          "to": "tackle",
+          "action": "f27e40350d57089205074366_0_57"
+        },
+        {
+          "to": "recover",
+          "action": "recoverSide"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ],
+      [
+        {
+          "to": "fall",
+          "action": "37ae1692a11bbcc18cbf91bc_0_48"
+        },
+        {
+          "to": "recover",
+          "action": "e5c30ea0ef5d9a801742ded0_0_39"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ]
+    ]
+  },
+  {
+    "angle": -1.5,
+    "states": [
+      "idle",
+      "idle"
+    ],
+    "maxStep": 0.03777223709815611,
+    "contacts": [
+      {
+        "time": 0.4416666666666672,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 0,
+        "closing": 5.499605077237735
+      },
+      {
+        "time": 0.45000000000000057,
+        "type": "ball contact",
+        "actor": 1,
+        "foot": 1,
+        "closing": 3.025779143136614
+      },
+      {
+        "time": 0.4583333333333339,
+        "type": "leg contact",
+        "actor": 0,
+        "target": 1
+      },
+      {
+        "time": 0.783333333333333,
+        "type": "ball contact",
+        "actor": 0,
+        "foot": 1,
+        "closing": 2.0823656626396767
+      }
+    ],
+    "history": [
+      [
+        {
+          "to": "tackle",
+          "action": "f27e40350d57089205074366_0_57"
+        },
+        {
+          "to": "recover",
+          "action": "recoverSide"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ],
+      [
+        {
+          "to": "fall",
+          "action": "37ae1692a11bbcc18cbf91bc_0_48"
+        },
+        {
+          "to": "recover",
+          "action": "e5c30ea0ef5d9a801742ded0_0_39"
+        },
+        {
+          "to": "stop",
+          "action": "6663b5e1cf3855bfce9c02ff_0_48"
+        },
+        {
+          "to": "idle",
+          "action": "idle"
+        }
+      ]
+    ]
+  }
+]

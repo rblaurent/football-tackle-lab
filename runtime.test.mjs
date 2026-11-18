@@ -1,0 +1,41 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs/promises';import zlib from 'node:zlib';import * as T from './vendor/three.module.js';import {FootballWorld} from './controller-core.js';import {MotionDatabase} from './motion-database.js';import {decodeMotion} from './motion-codec.js';
+const data=JSON.parse(await fs.readFile(new URL('./controller-data.json',import.meta.url))),manifest=JSON.parse(zlib.gunzipSync(await fs.readFile(new URL('./runtime/manifest.json.gz',import.meta.url))));
+async function setup(options={}){const db=new MotionDatabase(manifest,{fetchClip:e=>fs.readFile(new URL('./runtime/clips/'+e.id+'.bin.gz',import.meta.url)),...options}),world=new FootballWorld(data,null,db);world.demo=false;await db.prime();return {db,world};}
+const finite=a=>a.renderPose.positions.every(p=>p.toArray().every(Number.isFinite))&&a.renderPose.quaternions.every(q=>q.toArray().every(Number.isFinite)&&Math.abs(q.length()-1)<1e-5);
+async function run(world,seconds){let maxStep=0;for(let i=0;i<seconds*120;i++){const old=world.actors.map(a=>a.position.clone());world.step();for(let j=0;j<2;j++){assert.ok(finite(world.actors[j]));maxStep=Math.max(maxStep,old[j].distanceTo(world.actors[j].position));}if(i%120===0)await new Promise(r=>setImmediate(r));}return maxStep;}
+test('compiled database has measured native motions for every supported gameplay family',()=>{assert.ok(manifest.entries.length>2000);for(const family of ['idle','walk','jog','sprint','start','stop','turn','tackle','fall','recover','pass','shoot','push','pushReaction','block','celebrate'])assert.ok(manifest.entries.some(e=>e.family===family),family);for(const e of manifest.entries){assert.ok(e.frames>1&&e.duration>0&&e.entry.every(f=>f.q.every(Number.isFinite)));if(e.family==='recover')assert.ok(e.entryHeight<.72&&e.exitHeight>.78);}});
+test('native selector changes gait with speed and turn clips with turn sign',async()=>{const {db,world}=await setup();const slow=db.rank('walk',{speed:1.4})[0],fast=db.rank('sprint',{speed:7})[0];assert.ok(fast.entry.speed>slow.entry.speed+2);const left=db.rank('turn',{speed:3,turn:1.5})[0],right=db.rank('turn',{speed:3,turn:-1.5})[0];assert.ok(left.entry.turn>0);assert.ok(right.entry.turn<0);const a=world.actors[0];a.intent.mode='move';a.intent.direction.set(1,0,0);a.intent.pace=3;await run(world,2);assert.ok(Object.keys(a.weights).some(id=>db.byId.has(id)));a.intent.mode='idle';await run(world,4);assert.equal(a.state,'idle');});
+test('native shots use foot contact, finish and return to controllable movement',async()=>{const {db,world}=await setup();world.actors[0].position.set(-1,0,0);world.ball.position.set(0,.11,0);assert.ok(world.requestKick('shoot'));await db.prepare('shoot');const max=await run(world,8);assert.ok(world.events.some(e=>e.type==='native kick contact'&&e.kind==='shoot'));assert.equal(world.actors[0].state,'idle');assert.ok(max<.15);world.manual('move');world.actors[0].intent.direction.set(0,0,1);await run(world,.8);assert.ok(world.actors[0].speed>1);});
+test('kick timer cannot report a strike after the ball is moved away',async()=>{const {db,world}=await setup();world.actors[0].position.set(-1,0,0);world.ball.position.set(0,.11,0);world.requestKick('pass');await db.prepare('pass');for(let i=0;i<6*120;i++){if(world.actors[0].state==='kick'){world.ball.position.set(13,.11,9);world.ball.velocity.set(0,0,0);}world.step();}assert.ok(!world.events.some(e=>e.type==='native kick contact'));});
+for(const [type,event] of [['shirtFront','shirt pull contact'],['shirtSide','shirt pull contact'],['push','push contact'],['grab','arm grab contact'],['handball','handball offence']])test('database-backed '+type+' completes without pose or root discontinuity',async()=>{const {db,world}=await setup();assert.ok(world.requestInteraction(type));const max=await run(world,14);assert.ok(world.events.some(e=>e.type===event),JSON.stringify(world.events));assert.equal(world.interaction,null);assert.ok(world.actors.every(a=>a.state==='idle'));assert.ok(max<.15,'No root jump: '+max);if(type==='push'){const e=world.events.find(e=>e.type==='interaction started');assert.equal(e.source,'native push and collision-triggered native reaction');}});
+test('goal line crossing updates score and selects a native celebration with a return path',async()=>{const {world,db}=await setup();world.play();world.ball.position.set(16.55,.2,0);world.ball.velocity.set(8,0,0);await run(world,.1);assert.equal(world.score[0],1);assert.ok(world.events.some(e=>e.type==='goal'));assert.equal(db.byId.get(world.actors[0].action)?.family,'celebrate');await run(world,9);assert.equal(world.actors[0].state,'idle');});
+test('corrupt clip data fails closed, leaving a working fallback and bounded request queue',async()=>{const db=new MotionDatabase(manifest,{fetchClip:async()=>new Uint8Array([1,2,3])});const world=new FootballWorld(data,null,db);await db.prime();assert.ok(db.failed.size>0);assert.equal(db.loaded.size,0);world.actors[0].requestTackle(world.ball);for(let i=0;i<5*120;i++)world.step();assert.ok(world.actors.every(finite));assert.equal(world.actors[0].state,'idle');assert.throws(()=>decodeMotion(new Uint8Array(12),{qNames:[],vNames:[],fNames:[]}),/Truncated/);});
+test('cache eviction keeps pinned active motions and respects the resident budget',async()=>{const {db,world}=await setup({budget:9*1024*1024,maxClips:20});const pinned=[...db.loaded.keys()][0];db.pin([pinned]);for(const e of manifest.entries.filter(e=>e.family==='celebrate').slice(0,30))await db.ensure(e);assert.ok(db.loaded.has(pinned));assert.ok(db.loaded.size<=20);assert.ok(db.resident<=db.budget);assert.ok(db.stats.evictions>0);});
+
+test('native tackle contact, fall and recovery remain consistent across encounter angles',async()=>{
+ let reference=null;
+ for(const angle of [0,.5,1.1,1.7,2.4,Math.PI,-.7,-1.5]){
+  const {world}=await setup();world.duel();const up=new T.Vector3(0,1,0);world.ball.position.applyAxisAngle(up,angle);
+  world.actors.forEach(a=>{a.position.applyAxisAngle(up,angle);a.heading+=angle;a.updateFeet();a.oldFeet.forEach((p,i)=>p.copy(a.feet[i]));});
+  const max=await run(world,8),contacts=world.events.filter(e=>e.type.includes('contact')).map(e=>e.type);
+  assert.ok(contacts.includes('leg contact'));assert.ok(world.actors.every(a=>a.state==='idle'));assert.ok(max<.1);
+  if(reference)assert.deepEqual(contacts,reference);else reference=contacts;
+ }
+});
+test('ordinary automatic falls cannot select rolling or discontinuous source clips',()=>{
+ for(const e of manifest.entries){assert.ok(e.maxJointStep<=1.4);if(e.family==='fall'){assert.ok(e.hipAngularTravel<=4.5);assert.ok(e.maxHipStep<=.5);}}
+});
+
+
+test('a newly streamed gait variant enters through a pose transition during continuous running',async()=>{
+ const {db,world}=await setup(),a=world.actors[0];a.intent.mode='move';a.intent.direction.set(1,0,0);a.intent.pace=3;await run(world,2);
+ const current=Object.keys(a.weights),other=manifest.entries.find(e=>e.family==='jog'&&!current.includes(e.id));await db.ensure(other);
+ const choose=db.gait.bind(db);db.gait=(family,speed,pose,actor)=>family==='jog'?other.id:choose(family,speed,pose,actor);
+ const before=a.mixer.output.quaternions.map(q=>q.clone()),transitions=a.gaitTransitions||0;world.step();assert.ok((a.gaitTransitions||0)>transitions);assert.ok(a.mixer.age<.02);
+ assert.ok(Math.max(...before.map((q,i)=>q.angleTo(a.mixer.output.quaternions[i])))<.2,'No instantaneous whole-body pop');assert.ok(finite(a));
+});
+test('normal play completes approach, actual shot, flight, goal, queued celebration and idle',async()=>{
+ const {db,world}=await setup();await db.prepare('shoot');world.play();assert.ok(world.requestKick('shoot'));const seen=new Set();
+ for(let i=0;i<16*120;i++){world.step();seen.add(world.actors[0].state);if(i%60===0)await new Promise(r=>setImmediate(r));}
+ const strike=world.events.find(e=>e.type==='native kick contact'),goal=world.events.find(e=>e.type==='goal');assert.ok(strike&&goal&&goal.time>strike.time);assert.equal(world.score[0],1);assert.ok(seen.has('celebrate'));assert.equal(world.actors[0].state,'idle');
+});

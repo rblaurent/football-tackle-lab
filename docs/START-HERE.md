@@ -1,5 +1,8 @@
 # Start here: football game handoff
 
+**Live animation-system update:** the home page now automatically selects and streams from 2,313 measured native body clips, with continuous gait/action transitions, contact-driven passing/shooting, native pushes/reactions and goal celebrations. [Architecture, setup, tools and AI guide](ANIMATION-SYSTEM.md). Earlier fixed-subset descriptions below are historical implementation context.
+
+
 **Complete library update:** [Browse all 46,351 extracted resources](https://rblaurent.github.io/football-tackle-lab/library.html), including victory and celebrations. 44,037 decode; 2,314 are preserved with explicit unsupported-codec status. [Full extraction/setup/AI guide](FULL-LIBRARY.md). The older 22-clip/17-runtime subset described below belongs to the prototype controller, not the full export.
 
 
@@ -7,7 +10,7 @@ This repository is a working starting point for a small football manager/referee
 
 **[Play the latest system](https://rblaurent.github.io/football-tackle-lab/)** · [Original source-clip viewer](https://rblaurent.github.io/football-tackle-lab/clips.html) · [Earlier contact experiment](https://rblaurent.github.io/football-tackle-lab/collision-lab.html)
 
-**Latest update:** neutral forward idle gaze, rendered boot grounding, corrected tackle/recovery, and five actionable interactions in the main lab. **[Interaction controls and implementation](INTERACTIONS.md)**. [Download the latest complete ZIP](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip).
+**Latest update:** neutral forward idle gaze, rendered boot grounding, corrected tackle/recovery, and five actionable interactions in the main lab. **[Interaction controls and implementation](INTERACTIONS.md)**. [Download the latest source and playable-data ZIP](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip).
 
 ## Pick your route
 
@@ -16,7 +19,7 @@ This repository is a working starting point for a small football manager/referee
 | Test it on a phone or Mac | Open the live system. No account or installation required. |
 | Run or modify the project | Clone and start the static server below. All runtime data is included. |
 | Try shirt pulls, grabbing, pushing and handball | Choose an **Interaction**, then **Do interaction** on the main page. See [INTERACTIONS.md](INTERACTIONS.md). |
-| Understand transitions, locomotion, contact and recovered weights | **[Controller and neural IK guide](CONTROLLER.md)**. This is the main new technical handoff. |
+| Understand transitions, locomotion, contact and recovered weights | **[Live animation-system guide](ANIMATION-SYSTEM.md)**, then the [baseline controller/IK guide](CONTROLLER.md). |
 | Reproduce the original eleven-clip extraction | [Windows setup and reproduction](REPRODUCING.md) with the baseline profile. |
 | Reproduce the expanded clips/controller/weight extraction | [Expanded extraction commands](CONTROLLER.md#reproduce-the-expanded-extraction), using `controller-profile.json`. |
 | Understand archive, compression, codec, rig and retargeting details | [Binary formats and runtime math](FORMATS.md). |

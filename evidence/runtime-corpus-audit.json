@@ -1,0 +1,28 @@
+{
+  "entries": 2313,
+  "families": {
+    "celebrate": 102,
+    "jog": 102,
+    "walk": 23,
+    "idle": 466,
+    "recover": 376,
+    "push": 2,
+    "turn": 92,
+    "sprint": 65,
+    "pushReaction": 31,
+    "block": 119,
+    "fall": 23,
+    "shirtPair": 62,
+    "start": 32,
+    "stop": 30,
+    "pass": 512,
+    "shoot": 263,
+    "tackle": 13
+  },
+  "compressedPayloadBytes": 95403500,
+  "hashesVerified": 2313,
+  "finiteAndQuaternionChecks": 2313,
+  "exactSourceSlices": 2313,
+  "unreferencedFiles": 0,
+  "manifestSha256": "c7207fb4d457fff1720660b2e57fa57273ccc280637c923de8553e9d7dd71c9a"
+}

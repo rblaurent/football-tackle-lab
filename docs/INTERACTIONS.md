@@ -8,13 +8,13 @@ Open [the lab](https://rblaurent.github.io/football-tackle-lab/). Choose an **In
 
 | Action | Animation source | Runtime behavior |
 | --- | --- | --- |
-| Front shirt pull | Recovered FC `stand_front_v1__p01` and `p02` | Shared capture frame and clock, pose transitions, hand-to-torso contact event, release |
-| Side shirt pull | Recovered FC `jog_in90__p03` and `p01` | Same scheduler, native side-on motion and paths |
-| Arm grab | Authored arm targets and finger curl over a native idle base | Reach toward a presented forearm, register nearby hand/arm contact, hold and release |
-| Push | Authored two-hand reach and victim balance/step response over native pose bases | Approach within reach, hand/body contact, bounded retreat and return |
-| Handball offence | Authored deliberate arm block over a native idle base | Serve a free aerial ball, detect hand/forearm contact, rebound and record the scenario offence |
+| Front shirt pull | Native front capture selected from matching compiled actor pairs; original front pair is a fallback | Shared capture frame and clock, pose transitions, hand-to-torso contact event, release |
+| Side shirt pull | Native side capture selected by approach context; original side pair is a fallback | Same scheduler, native side-on motion and paths |
+| Arm grab | Native paired full-body base with authored forearm targets and finger curl | Reach toward a presented forearm, register nearby hand/arm contact, hold and release |
+| Push | Native full-body pusher plus a separately selected native pushed reaction | Tight approach, measured hand/torso capsule contact, reaction trajectory and return; no fixed retreat |
+| Handball offence | Native block body base with an authored deliberate arm target | Serve a free aerial ball, detect hand/forearm contact, rebound and record the scenario offence |
 
-The last three are **our animation/control code**, not newly extracted FC actions or FC executable logic. Their quality is a prototype baseline. The source search did not establish a usable native handball clip. The knee neural weights and native locomotion/paired shirt motions remain the previously recovered data. No full native interaction-selection engine is running.
+The push now uses native full-body motion and a contact-triggered native reaction, combined by our scheduler rather than claimed as an original paired capture. Grab/handball use native body bases with authored hand adaptations; a dedicated native handball performance remains unverified. See [the live animation-system guide](ANIMATION-SYSTEM.md) for source provenance, selection, streaming and current validation. The old interaction video above predates this update.
 
 The runtime uses **17 native clips**, selected from the same **22 decoded candidates**. Four shirt-pull actor clips were added to the previous thirteen-clip runtime subset. The baseline eleven-clip source viewer and its unmodified captured head/body motion remain available at `clips.html`.
 
