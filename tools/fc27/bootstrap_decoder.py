@@ -46,6 +46,17 @@ def prepare_decoder(folder, source=None):
     require(text.count('if (kk < keys.GetLength(0))') == 1, 'Expected one offset-ramp padded-key guard')
     text = text.replace('if (kk < keys.GetLength(0))', 'if (kk < nk)')
     text = text.replace(old_ramp, new_ramp)
+    # FC27 palettes can exceed 256 entries. Constant indices then occupy uint16.
+    # The original FIFA17 reference assumes one byte, which shifts every later field.
+    text = text.replace('o += 4 * CQ + 3 * CV + CF;', 'o += (4 * CQ + 3 * CV + CF) * (ConstPaletteSize > 256 ? 2 : 1);')
+    old_palette = 'Palette[Data[ConstOff + i]]'
+    require(text.count(old_palette) == 1, 'Expected one constant-palette lookup')
+    text = text.replace(old_palette, 'Palette[ConstPaletteSize > 256 ? BitConverter.ToUInt16(Data, ConstOff + 2 * i) : Data[ConstOff + i]]')
+    # Constant-only clips need no key-time seek. Their sparse tables may omit a
+    # trailing RLE sentinel; every key has exactly the same channel values.
+    seek = "public void Seek(double t, out int keyA, out int keyB, out double frac)\n        {"
+    require(text.count(seek) == 1, 'Expected one VBR key-time seek')
+    text = text.replace(seek, seek + "\n            if (NScal == 0) { keyA = 0; keyB = 0; frac = 0; return; }")
     (folder / 'VbrClip.cs').write_text(text, encoding='utf-8')
     here = Path(__file__).resolve().parent / 'decode'
     for name in ('Program.cs', 'Adapter.cs', 'Decoder.csproj'):

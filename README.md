@@ -1,5 +1,8 @@
 # Football Tackle Lab
 
+**Complete library update:** [Browse all 46,351 extracted resources](https://rblaurent.github.io/football-tackle-lab/library.html), including victory and celebrations. 44,037 decode; 2,314 are preserved with explicit unsupported-codec status. [Full extraction/setup/AI guide](docs/FULL-LIBRARY.md). The older 22-clip/17-runtime subset described below belongs to the prototype controller, not the full export.
+
+
 **[Play the continuous controller](https://rblaurent.github.io/football-tackle-lab/)** · [Original clip viewer](https://rblaurent.github.io/football-tackle-lab/clips.html) · [Complete setup/extraction handoff](docs/START-HERE.md)
 
 [Watch the connected interactions](evidence/interaction-showcase.mp4) · [Watch the tackle](evidence/tackle-corrected.mp4) · [Download the latest complete ZIP](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip)

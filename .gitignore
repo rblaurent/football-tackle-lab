@@ -6,3 +6,5 @@ fc27-work/
 .venv/
 **/bin/
 **/obj/
+
+native-library/

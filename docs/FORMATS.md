@@ -236,3 +236,8 @@ The viewer follows the mean hip position horizontally, keeps a readable vertical
 For the next game, maintain a deterministic simulation clock separate from rendering. Decide an incident/action from positions, approach angle, relative speed and ball possession; choose a compatible source clip or pair; align roots within bounded tolerances; record timed foot/hand/contact windows; then blend into locomotion or recovery. Use ball sweeps and limb/body proxies to check actual contacts. Add foot IK and hand constraints where proportions or root warping disturb placement.
 
 Start with a few authored scenarios and preserve clean transitions. Do not use arbitrary ragdoll motion to replace every fall, or select a front/side/back clip by a name alone. Those are next implementation steps, not features already present in the current viewer.
+
+
+## Complete-library codec coverage
+
+The full installed scan and the additional RAW/Eclipse/frame layouts, wide VBR constant indices, constant-only seeking and FCL1 binary schema are documented in [FULL-LIBRARY.md](FULL-LIBRARY.md). This supersedes any implication that the original eleven or22 selected clips cover the installed library. The remaining DCT/Curve/Eclipse quaternion-vector variants retain original EBX/RES payloads and explicit statuses.

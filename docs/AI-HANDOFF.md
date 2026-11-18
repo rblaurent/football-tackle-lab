@@ -1,5 +1,8 @@
 # Handoff to the next AI and developer
 
+Latest required scope: extract the entire installed motion library, including celebrations and victory. Read [FULL-LIBRARY.md](FULL-LIBRARY.md) first for all tools, stages, codec counts, remaining work and acceptance criteria. The old controller subset is not the extraction scope.
+
+
 Read `docs/START-HERE.md`, `docs/INTERACTIONS.md`, `docs/CONTROLLER.md`, `docs/REPRODUCING.md`, `docs/FORMATS.md`, `docs/TOOLS-AND-SOURCES.md`, `README.md` and `THIRD_PARTY.md` before proposing a rewrite. Inspect `controller-core.js`, `animation.js`, `foot-planting.js`, `neural-ik.js`, `human.js`, `controller-view.js`, `app.js`, `tools/fc27/`, `physics.js` and the existing evidence. The project is a working prototype with a verified extraction path, not a blank design exercise.
 
 ## Paste this into your AI session

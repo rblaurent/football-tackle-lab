@@ -1,5 +1,8 @@
 # Start here: football game handoff
 
+**Complete library update:** [Browse all 46,351 extracted resources](https://rblaurent.github.io/football-tackle-lab/library.html), including victory and celebrations. 44,037 decode; 2,314 are preserved with explicit unsupported-codec status. [Full extraction/setup/AI guide](FULL-LIBRARY.md). The older 22-clip/17-runtime subset described below belongs to the prototype controller, not the full export.
+
+
 This repository is a working starting point for a small football manager/referee game for a child. It includes a controllable animation system, extracted native motions and neural IK weights, proper skinned human characters, portable extraction tools and documentation for the friend and their AI.
 
 **[Play the latest system](https://rblaurent.github.io/football-tackle-lab/)** · [Original source-clip viewer](https://rblaurent.github.io/football-tackle-lab/clips.html) · [Earlier contact experiment](https://rblaurent.github.io/football-tackle-lab/collision-lab.html)
