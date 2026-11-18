@@ -6,6 +6,10 @@
 
 An interactive football animation study using **actual selected FC 27 Lite motion clips**, retargeted onto a proper skinned human model. The athletic characters have a continuous body mesh, face, finger bones, hair, team shirts, shorts, socks and boots. The human mesh and hair are Quaternius CC0 assets; kit shading and boots are original project additions.
 
+## Complete developer handoff
+
+**[Start here: setup, extraction, formats, tools and AI guide](docs/START-HERE.md).** The handoff includes a runnable Windows extractor, pinned codec bootstrap, named rig bindings, validation/comparison tools, portable browser capture scripts and the remaining game work. It does not require access to the original chat or machine.
+
 ## Try it
 
 Open the live page on a WebGL-capable desktop or phone browser. Choose a scene, play/pause, scrub the timeline, switch between half/normal speed, and drag or pinch to orbit/zoom.

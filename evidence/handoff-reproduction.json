@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-18",
+  "baselineViewerCommit": "6dea11b0ec43debcfd9a52426817648a2c3b7e00",
+  "sourceBuild": {
+    "platform": "Windows x64",
+    "steamApp": 4407750,
+    "steamBuild": 22116598,
+    "game": "1.0.142.20665"
+  },
+  "reproduction": {
+    "freshWorkDirectory": true,
+    "decodedClips": 11,
+    "sourceSkeletonBones": 369,
+    "comparedNumbers": 207938,
+    "maxAbsoluteDifference": 0.0,
+    "comparisonIgnoresOnly": [
+      "removeAt",
+      "padding"
+    ],
+    "retainedIndexEntries": 35718,
+    "allSourcePayloadHashesChecked": true,
+    "allNamedChannelsResolved": true
+  },
+  "decoderReference": {
+    "commit": "8a9868a5649aa5b296b1c6e66c7c583469d7a017",
+    "sha256": "7344e3275871c34ac5618bf731b92a5e503ecf1092d9ba786420111f32bd1809",
+    "localNetworkBootstrapVerified": true,
+    "vendorSourceNotBundled": true
+  },
+  "modelArchiveSha256": "fdbf1804c90dfc1ea03e992bff7da2dfd1a79318e13270a660180f9308455f40",
+  "tools": {
+    "python": "3.11.9 x64",
+    "dotnetSDK": "9.0.303",
+    "node": "22.23.4",
+    "playwright": "1.65.1",
+    "chrome": "157.0.8103.79",
+    "lz4": "4.4.5",
+    "zstandard": "0.25.0",
+    "ffmpeg": "8.0",
+    "gh": "2.89.0",
+    "ilspycmd": "9.1.0.7988",
+    "FMTpublic": "26.10.9654.14105",
+    "FMTCoreNuget": "2026.16.4"
+  },
+  "portableBrowserVerification": {
+    "url": "local static repository preview",
+    "browser": "157.0.8103.79",
+    "date": "2026-11-18T16:20:21.924Z",
+    "viewports": [
+      {
+        "mobile": false,
+        "skinChecks": 24,
+        "loopVerified": true,
+        "sceneSelect": true,
+        "scrub": true,
+        "speed": true,
+        "legacyDemo": true,
+        "errors": [],
+        "failed": []
+      },
+      {
+        "mobile": true,
+        "skinChecks": 24,
+        "loopVerified": true,
+        "sceneSelect": true,
+        "scrub": true,
+        "speed": true,
+        "legacyDemo": true,
+        "errors": [],
+        "failed": []
+      }
+    ]
+  },
+  "portableCaptureSmokeCheck": {
+    "scene": 6,
+    "frames": 73,
+    "width": 1280,
+    "height": 800,
+    "fps": 30,
+    "duration": 2.433333333333333,
+    "h264EncodingVerified": true
+  },
+  "optionalBundleInspector": {
+    "format": "6.0",
+    "entries": 629,
+    "selectedFiles": 21,
+    "testedAgainstPublicFMT": true
+  }
+}

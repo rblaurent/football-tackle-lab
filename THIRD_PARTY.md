@@ -10,3 +10,5 @@ The repository contains components with different licenses. The root Unlicense a
 | Earlier Gameplay Football assets, including `upstream/`, `extracted.json`, `animation-library.json` and `football-player-animations.glb` | Bastiaan Konings Schuiling; google-research/football at 3d9e754720a95621bba6475c4d3b0d56fe919014, third_party/gfootball_engine | Unlicense; included `LICENSE-GAMEPLAY-FOOTBALL.txt`. |
 
 The FC motion study includes only eleven selected decoded clips and their render rig; it does not include the installed game, the full motion library, game executables, Oodle, FMT binaries or the privately adapted reference codec. Screenshots/videos identify the study they capture. This project is an independent experiment and is not affiliated with or endorsed by EA, FIFA or Quaternius.
+
+The extraction helper fetches an external reference VbrClip.cs locally at a pinned commit and SHA256; its license was not established. It is not vendored here or covered by the root Unlicense. See docs/TOOLS-AND-SOURCES.md. New tools/fc27/decode host/adapter code is original project glue. Playwright is an optional npm development dependency, not a browser runtime asset.

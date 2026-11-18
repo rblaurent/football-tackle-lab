@@ -1,1 +1,11 @@
-{"name":"football-tackle-lab","private":true,"type":"module","scripts":{"test":"node --test physics.test.mjs"}}
+{
+  "name": "football-tackle-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test physics.test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.65.1"
+  }
+}
