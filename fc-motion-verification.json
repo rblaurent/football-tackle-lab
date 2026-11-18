@@ -1,0 +1,645 @@
+{
+  "errors": [],
+  "checks": [
+    {
+      "scene": 0,
+      "time": 0,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        },
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 0,
+      "time": 0.9166666666666666,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        },
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 0,
+      "time": 1.8333333333333333,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        },
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 1,
+      "time": 0,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 1,
+      "time": 4.033333333333333,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 1,
+      "time": 8.066666666666666,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 2,
+      "time": 0,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        },
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 2,
+      "time": 0.7666666666666667,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        },
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 2,
+      "time": 1.5333333333333334,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        },
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 3,
+      "time": 0,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        },
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 3,
+      "time": 1,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        },
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 3,
+      "time": 2,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        },
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 4,
+      "time": 0,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 4,
+      "time": 1.0166666666666666,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 4,
+      "time": 2.033333333333333,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 5,
+      "time": 0,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 5,
+      "time": 0.7333333333333333,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 5,
+      "time": 1.4666666666666666,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 6,
+      "time": 0,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 6,
+      "time": 0.48333333333333334,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 6,
+      "time": 0.9666666666666667,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 7,
+      "time": 0,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 7,
+      "time": 0.8166666666666667,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    },
+    {
+      "scene": 7,
+      "time": 1.6333333333333333,
+      "skin": [
+        {
+          "name": "Eyebrows",
+          "bones": 65,
+          "vertices": 646
+        },
+        {
+          "name": "Eyes",
+          "bones": 65,
+          "vertices": 556
+        },
+        {
+          "name": "SuperHero_Male",
+          "bones": 65,
+          "vertices": 7281
+        }
+      ]
+    }
+  ],
+  "frames": 543
+}

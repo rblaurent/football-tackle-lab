@@ -1,3 +1,7 @@
+Scope: this license covers the original project code and contributions.
+Third-party code and assets retain the terms listed in THIRD_PARTY.md.
+In particular, data.json is game-derived and is not covered by this license.
+
 This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or
