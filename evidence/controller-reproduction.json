@@ -4,6 +4,7 @@
   "research/fc27-controller-assets.json": true,
   "sourceBuild": "22116598 / 1.0.142.20665",
   "indexedAssets": 35762,
-  "stageHistory": "Initial clean index/extraction; all 22 clips decoded and packed again with overlapping-tail correction, then controller export rerun. Index and raw extracted inputs reused.",
-  "runtimeVictim": "f23_mx_siz_flb_tackle_vara_c01_charplayerh04_body"
+  "decodedCandidates": 22,
+  "runtimeClips": 17,
+  "stageHistory": "Existing verified index/raw assets; all22 decoded with corrected tail; current17-clip subset re-exported. Three networks and33 reports unchanged."
 }

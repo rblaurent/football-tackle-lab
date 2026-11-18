@@ -103,7 +103,7 @@ def main():
         report.append({'name':name,'fileGuid':fix['fileGuid'],'sha1':hashlib.sha1(data).hexdigest(),'archiveSha1':index[key]['sha1'],'rawFile':'raw/'+filename,'checks':checks,'objects':objects})
     networks=networks_from(report);write_json(args.out/'controller-assets.json',report);write_json(args.out/'neural-ik.json',networks)
     if (args.work/'data.json').exists():
-        data=read_json(args.work/'data.json');data['clips']={k:c for k,c in data['clips'].items() if any(s in k for s in profile['runtimeClipStems'])};require(len(data['clips'])==13,'Expected thirteen controller clips');write_json(args.out/'controller-data.json',data)
+        data=read_json(args.work/'data.json');data['clips']={k:c for k,c in data['clips'].items() if any(s in k for s in profile['runtimeClipStems'])};require(len(data['clips'])==len(profile['runtimeClipStems']),'Expected one runtime clip per configured stem');write_json(args.out/'controller-data.json',data)
     summary={'assets':len(report),'networks':{k:{'inputs':m['NumInputs'],'outputs':m['NumOutputs'],'layers':m['NumLayers'],'denseWeights':sum(len(l['Weights']) for l in m['Layers'])} for k,m in networks.items()},'unresolvedFields':sum(len(o['unresolved']) for a in report for o in a['objects']),'interpretation':'SDK-assisted, bounded structural validation. Native runtime equivalence is not established.'}
     write_json(args.out/'validation.json',summary);print(json.dumps(summary,indent=2))
 if __name__=='__main__':

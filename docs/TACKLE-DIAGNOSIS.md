@@ -1,5 +1,7 @@
 # Tackle orientation, fall rotation and recovery rubber band
 
+**Historical diagnosis:** measurements and twenty-two tests below refer to the tackle correction at `282a13e`. The current runtime has seventeen clips, thirty-one tests, neutral idle/support corrections and a connected interaction scheduler described in [INTERACTIONS.md](INTERACTIONS.md).
+
 This investigation corrects the controller published at commit `5c0f865`. All observations below are from our decoded source data and prototype, not a comparison against EA's running engine. [Play the current controller](https://rblaurent.github.io/football-tackle-lab/) and press **Player tackle**. [Watch the corrected 4.5-second sequence](../evidence/tackle-corrected.mp4).
 
 ## What went wrong

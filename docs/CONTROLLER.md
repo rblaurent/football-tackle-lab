@@ -6,6 +6,8 @@ This is the continuation of the [original extraction handbook](START-HERE.md). T
 
 This is a working foundation for a small referee/manager game. It is not a recreation of a complete FC match engine. Read the limitations at the end before building on it.
 
+**Current hand/incident controls:** see [INTERACTIONS.md](INTERACTIONS.md) for front/side shirt pulls, arm grabbing, pushing and a contact-triggered handball block in the same lab. It also documents the neutral idle gaze and rendered boot support correction.
+
 ## The distinction that matters
 
 There are three different kinds of information here:
@@ -23,7 +25,7 @@ There are three different kinds of information here:
 
 The read-only probe used the installed PC Lite build described in [REPRODUCING.md](REPRODUCING.md): Steam build 22116598, game 1.0.142.20665. No game process, anti-cheat component, or executable patch is involved.
 
-The expanded extraction profile decodes **22 selected clips**: the original eleven plus eleven locomotion/recovery candidates. The runtime controller uses thirteen of these. Some other candidates were useful to inspect but are not chosen by the running controller. `data.json` remains the original eleven-clip dataset; `controller-data.json` is the thirteen-clip runtime subset.
+The expanded extraction profile decodes **22 selected clips**: the original eleven plus eleven locomotion/recovery candidates. The runtime controller uses seventeen of these. Some other candidates were useful to inspect but are not chosen by the running controller. `data.json` remains the original eleven-clip dataset; `controller-data.json` is the seventeen-clip runtime subset.
 
 The optional controller extraction reads **33 named EBX assets** and resolves their embedded objects. The exact names, decoded/packed SHA1s, class GUIDs, fields, references and unresolved fields are in [`research/fc27-controller-assets.json`](../research/fc27-controller-assets.json). The report's `rawFile` fields refer to private local extraction outputs, not public repository files. No raw game archives, native SDK binaries or Oodle library are shipped.
 
@@ -174,12 +176,12 @@ The second command writes:
 - `raw/`: locally extracted EBX samples, with collision-resistant filenames.
 - `controller-assets.json`: decoded object/parameter/dependency report with explicit unresolved fields.
 - `neural-ik.json`: the three complete, ordered locomotion IK networks.
-- `controller-data.json`: thirteen motion clips selected from the first command's packed data.
+- `controller-data.json`: seventeen motion clips selected from the first command's packed data.
 - `validation.json`: asset counts, network dimensions/coefficient counts and unresolved-field total.
 
 To use a new extraction locally, copy `controller-data.json` to the repository root and `neural-ik.json` to `research/fc27-neural-ik.json`. Keep the extraction report and raw payloads for your own evidence; the browser does not need raw EBX or installed-game access. The provided sample files already let your friend run the demo on a Mac without extraction.
 
-The initial expanded pipeline was run from an **empty work folder**. After the tackle investigation, all 22 clips were decoded/packed again with corrected overlapping-tail indexing, and the controller export was rerun using that verified index/extracted input. All thirteen current runtime clips, all three networks and the complete controller report match the committed JSON after parsing. The runtime victim clip now replaces the stunt clip; the expanded 22 and baseline eleven selections are unchanged. The filtered index retained 35,762 entries on this tested build; it is intentionally much smaller than the historical all-asset research index. See [`evidence/controller-reproduction.json`](../evidence/controller-reproduction.json) for the authoritative count if a later profile changes it.
+The initial expanded pipeline was run from an **empty work folder**. After the tackle investigation, all 22 clips were decoded/packed again with corrected overlapping-tail indexing, and the current seventeen-clip controller export was rerun using that verified index/extracted input. All seventeen current runtime clips, all three networks and the complete controller report match the committed JSON after parsing. The runtime victim clip replaces the stunt clip, and the current subset adds the four shirt-pull actor clips; the expanded 22 and baseline eleven selections are unchanged. The filtered index retained 35,762 entries on this tested build; it is intentionally much smaller than the historical all-asset research index. See [`evidence/controller-reproduction.json`](../evidence/controller-reproduction.json) for the authoritative count if a later profile changes it.
 
 The profile is tied to the tested build. On another patch/game, reject missing assets, hash/size failures, invalid pointers, missing DOFs, unsupported codecs, bad quaternion norms or neural dimensions. Do not suppress failures or replace missing values with zero. The scalar sampling and codec timebase details remain in [FORMATS.md](FORMATS.md).
 
@@ -201,7 +203,7 @@ node tools/verify-viewer.cjs --url http://127.0.0.1:8080/clips.html --out clip-c
 
 Omit `--channel chrome` to use a Playwright-managed Chromium installation. The controller verifier checks native skinned poses across the automatic sequence, actual ball contact, the two-player fall/recovery, chase/stop/tackle controls, and pad movement. Its phone pass sends actual touch events through Chromium's protocol; this is still **phone emulation**, not a test on Android/iOS hardware. Mac/Safari hardware has not been tested.
 
-The twenty-two Node tests cover the integrated state sequence, interrupted-blend pose continuity, closed gait seams, victim recovery, action locking/resumption, chase hysteresis, swept contact degeneracies, neural layer shapes and invariant leg lengths, plus overlapping-tail regression values, shared pose/path capture frames, world-pose continuity across frame changes, velocity continuity into braking, victim-clip selection, rotation-equivariant encounters and the seven earlier physics checks. Two actors and this selected action vocabulary are the measured scope. No 22-player load test has been run.
+The thirty-one Node tests cover the integrated state sequence, interrupted-blend pose continuity, closed gait seams, victim recovery, action locking/resumption, chase hysteresis, swept contact degeneracies, neural layer shapes and invariant leg lengths, plus overlapping-tail regression values, shared pose/path capture frames, world-pose continuity across frame changes, velocity continuity into braking, victim-clip selection, rotation-equivariant encounters and the seven earlier physics checks. Two actors and this selected action vocabulary are the measured scope. No 22-player load test has been run.
 
 To record and encode the showcase:
 
@@ -210,7 +212,7 @@ node tools/capture-controller.cjs --url http://127.0.0.1:8080/ --out capture --c
 ffmpeg -framerate 30 -i capture/frame-%05d.jpg -c:v libx264 -crf 20 -pix_fmt yuv420p -movflags +faststart controller.mp4
 ```
 
-[Watch the corrected 4.5-second tackle](../evidence/tackle-corrected.mp4). It includes the fall, both get-ups and braking to idle. The earlier 18.5-second `controller-motion.mp4` is historical pre-fix footage and should not be used to judge the current tackle.
+[Watch the connected interactions](../evidence/interaction-showcase.mp4), [the full controller sequence](../evidence/controller-motion.mp4), or [the focused tackle](../evidence/tackle-corrected.mp4). Current captures and historical artifacts are distinguished in [the evidence index](../evidence/README.md).
 
 The portable [`tools/capture-controller.cjs`](../tools/capture-controller.cjs) records real WebGL frames from the controller with deterministic fixed simulation steps. It can capture the automatic sequence or a duel; see its `--help`/usage text. The rendered MP4 is ordinary browser footage, not generated video.
 
@@ -218,9 +220,9 @@ The portable [`tools/capture-controller.cjs`](../tools/capture-controller.cjs) r
 
 Keep this controller as the animation presentation layer. Add a small match simulation with explicit intents, possession/contact events, foul decisions, and replayable scenario seeds. A referee game can start with two to six players and a small set of curated incidents rather than requiring a complete competitive 11v11 simulation.
 
-The main remaining animation work is a richer tagged entry/exit vocabulary, contact timing annotations, acceleration-specific gait coverage, better action-facing alignment, target-rig contact IK, synchronized paired interactions and layered gestures. Shirt pulling needs a shared interaction frame, hand-to-torso constraint and eventually a garment response. The original shirt-pull clips are available in the separate viewer, but this controller does not yet select or blend paired shirt pulls automatically.
+The main remaining animation work is a richer tagged entry/exit vocabulary, contact timing annotations, acceleration-specific gait coverage, broader action-facing coverage, stronger target-rig contact constraints, additional synchronized interaction variants and layered gestures. The main lab now has a shared-frame scheduler for the two extracted shirt pairs. Arm grab, push and handball are authored actions with hand targets/contact events. Further work includes impact-specific action choice, more capture variants, tighter clothing-surface constraints and garment response.
 
-The current ball remains on a flat plane with rolling drag and planar impulses. There are no aerial passes, headers, spin model, goalkeeper controller or full dynamic ragdoll. A generic paired-tackle victim fall (source 0.55-1.60 s) is chosen after contact rather than synthesizing an impact-specific physical response. Different tackle approach angles still need more motion variants and a tested paired interaction scheduler. Severe turns can foot slide despite bounded planting; retargeted hands/feet are approximate. These are real remaining tasks, not features implicitly supplied by extracting clips.
+The ball normally rolls on a flat pitch; the authored handball scenario serves a free aerial ball with gravity and bounce. There is no general passing/header/spin system, goalkeeper controller or full dynamic ragdoll. A generic paired-tackle victim fall (source 0.55-1.60 s) is chosen after contact rather than synthesizing an impact-specific physical response. Different tackle approach angles still need more motion variants and a tested paired interaction scheduler. Severe turns can foot slide despite bounded planting; retargeted hands/feet are approximate. These are real remaining tasks, not features implicitly supplied by extracting clips.
 
 For FC research, the next useful step is reconstructing the remaining trajectory feature ordering and tracing the actual PTM database records/filters into their search representation. Then compare candidate choices against observed in-game behavior on controlled inputs. A separate effort could validate neural output conventions against EA runtime samples. Do not conflate either task with the working small controller already provided.
 

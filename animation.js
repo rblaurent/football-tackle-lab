@@ -16,23 +16,23 @@ export class MotionLibrary {
   this.rest={positions:[],quaternions:[]};for(const m of data.skeleton.LocalPose){const mat=new T.Matrix4().fromArray(m);mat.elements[15]=1;const p=new T.Vector3(),q=new T.Quaternion(),s=new T.Vector3();mat.decompose(p,q,s);this.rest.positions.push(p);this.rest.quaternions.push(q);}
   this.scratch=clonePose(this.rest);this.endPose=clonePose(this.rest);this.startPose=clonePose(this.rest);
   const find=s=>{const key=Object.keys(data.clips).find(k=>k.includes(s));if(!key)throw Error('Missing motion '+s);return data.clips[key];};
-  this.motions={idle:{clip:find('idle_front_getup'),loop:true,start:0,end:8},walk:{clip:find('cycle_walkom'),loop:true,start:151/30,end:183/30},jog:{clip:find('cycle_jogke'),loop:true,start:11/30,end:33/30},sprint:{clip:find('cycle_sprintal'),loop:true,start:7/30,end:25/30},start:{clip:find('start_idle_to_jog'),start:0,end:1.3},stop:{clip:find('stop_jog_to_idle_0_0'),start:.7,end:2.5},turn:{clip:find('jog_to_jog_90_rfoot'),start:0,end:49/30},tackle:{clip:find('basic_near_sprint'),start:.3,end:1.12},fall:{clip:find('charplayerh04'),start:.55,end:1.6},recoverSlide:{clip:find('11a395p1'),start:0,end:32/30},recoverSide:{clip:find('getups_fromslide_tojog'),start:0,end:35/30},recoverBack:{clip:find('11a382a1'),start:0,end:29/30},recoverFront:{clip:find('fall45r'),start:0,end:29/30}};
+  this.motions={idle:{clip:find('idle_front_getup'),loop:true,start:0,end:8},walk:{clip:find('cycle_walkom'),loop:true,start:151/30,end:183/30},jog:{clip:find('cycle_jogke'),loop:true,start:11/30,end:33/30},sprint:{clip:find('cycle_sprintal'),loop:true,start:7/30,end:25/30},start:{clip:find('start_idle_to_jog'),start:0,end:1.3},stop:{clip:find('stop_jog_to_idle_0_0'),start:.7,end:2.5},turn:{clip:find('jog_to_jog_90_rfoot'),start:0,end:49/30},tackle:{clip:find('basic_near_sprint'),start:.3,end:1.12},fall:{clip:find('charplayerh04'),start:.55,end:1.6},recoverSlide:{clip:find('11a395p1'),start:0,end:32/30},recoverSide:{clip:find('getups_fromslide_tojog'),start:0,end:35/30},recoverBack:{clip:find('11a382a1'),start:0,end:29/30},recoverFront:{clip:find('fall45r'),start:0,end:29/30},shirtFrontA:{clip:find('stand_front_v1__p01'),start:0,end:46/30,capture:true},shirtFrontB:{clip:find('stand_front_v1__p02'),start:0,end:46/30,capture:true},shirtSideA:{clip:find('jog_in90__p01'),start:0,end:2,capture:true},shirtSideB:{clip:find('jog_in90__p03'),start:0,end:2,capture:true}};
   for(const [id,m] of Object.entries(this.motions)){
    m.id=id;m.end=Math.min(m.end,(m.clip.frameCount-1)/30);m.duration=m.end-m.start;
    m.q=m.clip.qNames.map(n=>this.index[n]);m.v=m.clip.vNames.map(n=>({i:this.index[n.split('.')[0]],scale:n.endsWith('.s')}));
    const ti=m.clip.vNames.indexOf('AITrajectory.t');m.trajectory=m.clip.vectors.map(f=>new T.Vector3().fromArray(f[ti]).multiplyScalar(.3048));
    // Action poses and displacement share one capture frame, canonicalized once at entry.
-   m.preserveTrajectory=['tackle','fall','recoverSlide','recoverSide','recoverBack','recoverFront'].includes(id);
+   m.preserveTrajectory=!!m.capture||['tackle','fall','recoverSlide','recoverSide','recoverBack','recoverFront'].includes(id);
    const qi=m.clip.qNames.indexOf('AITrajectory'),sf=m.start*30,si=Math.floor(sf);
    const entryQ=new T.Quaternion().fromArray(m.clip.quaternions[si][qi]).normalize().slerp(new T.Quaternion().fromArray(m.clip.quaternions[Math.min(si+1,m.clip.frameCount-1)][qi]).normalize(),sf-si);
-   m.referenceYaw=m.preserveTrajectory?yawOf(entryQ):0;
+   m.referenceYaw=m.preserveTrajectory&&!m.capture?yawOf(entryQ):0;
    m.nativeSpeed=m.trajectory[Math.round(m.end*30)].distanceTo(m.trajectory[Math.round(m.start*30)])/m.duration;
    if(m.loop){m.first=clonePose(this.rest);m.last=clonePose(this.rest);this.sampleRaw(m,m.start,m.first);this.sampleRaw(m,m.end,m.last);m.phaseOffset=0;
     if(id!=='idle'){let min=Infinity;for(let f=Math.ceil(m.start*30);f<m.end*30;f++){const fi=m.clip.fNames.indexOf('LeftFoot.height'),h=m.clip.floats[f][fi];if(h<min){min=h;m.phaseOffset=(f/30-m.start)/m.duration;}}}
    }
   }
   this.poseJoints=['Hips','Spine1','Spine3','LeftUpLeg','RightUpLeg','LeftLeg','RightLeg','LeftFoot','RightFoot','LeftArm','RightArm'].map(n=>this.index[n]);
-  this.fkP=this.names.map(()=>new T.Vector3());this.fkQ=this.names.map(()=>new T.Quaternion());
+  this.fkP=this.names.map(()=>new T.Vector3());this.fkQ=this.names.map(()=>new T.Quaternion());this.forwardKinematics(this.rest);this.restWorldQ=this.fkQ.map(q=>q.clone());
  }
  createPose(){return clonePose(this.rest);}
  sampleRaw(m,t,out){
@@ -48,7 +48,11 @@ export class MotionLibrary {
   let phase=((time/m.duration+(m.phaseOffset||0))%1+1)%1;this.sampleRaw(m,m.start+phase*m.duration,out);
   // Close small capture seams with a distributed, zero-slope correction, rather than snapping at wrap.
   const w=smooth(phase);out.positions.forEach((p,i)=>p.addScaledVector(V.copy(m.first.positions[i]).sub(m.last.positions[i]),w));
-  out.quaternions.forEach((q,i)=>{Q.copy(m.last.quaternions[i]).invert().multiply(m.first.quaternions[i]);Q2.identity().slerp(Q,w);q.multiply(Q2).normalize();});return out;
+  out.quaternions.forEach((q,i)=>{Q.copy(m.last.quaternions[i]).invert().multiply(m.first.quaternions[i]);Q2.identity().slerp(Q,w);q.multiply(Q2).normalize();});if(id==='idle')this.neutralGaze(out);return out;
+ }
+ neutralGaze(pose){
+  this.forwardKinematics(pose);const hi=this.index.Hips,forward=new T.Vector3(0,0,1).applyQuaternion(this.fkQ[hi].clone().multiply(this.restWorldQ[hi].clone().invert()));forward.y=0;forward.normalize();const facing=new T.Quaternion().setFromAxisAngle(UP,Math.atan2(forward.x,forward.z));
+  for(const [name,weight] of [['Neck',.7],['Head',1]]){const i=this.index[name],parent=this.data.skeleton.Hierarchy[i],desired=facing.clone().multiply(this.restWorldQ[i]);this.fkQ[i].slerp(desired,weight);pose.quaternions[i].copy(this.fkQ[parent]).invert().multiply(this.fkQ[i]).normalize();this.forwardKinematics(pose);}return pose;
  }
  rootDelta(id,t0,t1){const m=this.motions[id],at=t=>{const f=clamp((m.start+t)*30,0,m.clip.frameCount-1),i=Math.floor(f);return m.trajectory[i].clone().lerp(m.trajectory[Math.min(i+1,m.clip.frameCount-1)],f-i);};return at(t1).sub(at(t0)).applyAxisAngle(UP,-m.referenceYaw);}
  forwardKinematics(pose){for(let i=0;i<this.names.length;i++){const parent=this.data.skeleton.Hierarchy[i];if(parent<0){this.fkP[i].copy(pose.positions[i]);this.fkQ[i].copy(pose.quaternions[i]);}else{this.fkP[i].copy(pose.positions[i]).applyQuaternion(this.fkQ[parent]).add(this.fkP[parent]);this.fkQ[i].copy(this.fkQ[parent]).multiply(pose.quaternions[i]);}}return this.fkP;}

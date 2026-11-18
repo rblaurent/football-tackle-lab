@@ -1,0 +1,430 @@
+{
+  "url": "http://127.0.0.1:8131/",
+  "date": "2026-11-18T18:32:12.787Z",
+  "viewports": [
+    {
+      "mobile": false,
+      "idle": [
+        {
+          "faceY": -2.109659349663407e-10,
+          "soles": [
+            0.0041764288456956,
+            1.4489414417589996e-7
+          ]
+        },
+        {
+          "faceY": -2.109659349663407e-10,
+          "soles": [
+            0.004176428845694965,
+            1.4489414387405808e-7
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "shirtFront",
+          "last": {
+            "type": "shirtFront",
+            "contact": true
+          },
+          "states": [
+            "idle",
+            "idle"
+          ],
+          "events": [
+            {
+              "time": 3.358333333333324,
+              "type": "shirt pull contact",
+              "interaction": "shirtFront",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.29713525879221353
+            }
+          ]
+        },
+        {
+          "type": "shirtSide",
+          "last": {
+            "type": "shirtSide",
+            "contact": true
+          },
+          "states": [
+            "idle",
+            "idle"
+          ],
+          "events": [
+            {
+              "time": 3.358333333333324,
+              "type": "shirt pull contact",
+              "interaction": "shirtFront",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.29713525879221353
+            },
+            {
+              "time": 6.4750000000001116,
+              "type": "shirt pull contact",
+              "interaction": "shirtSide",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.2861464681272065
+            }
+          ]
+        },
+        {
+          "type": "grab",
+          "last": {
+            "type": "grab",
+            "contact": true
+          },
+          "states": [
+            "idle",
+            "idle"
+          ],
+          "events": [
+            {
+              "time": 3.358333333333324,
+              "type": "shirt pull contact",
+              "interaction": "shirtFront",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.29713525879221353
+            },
+            {
+              "time": 6.4750000000001116,
+              "type": "shirt pull contact",
+              "interaction": "shirtSide",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.2861464681272065
+            },
+            {
+              "time": 11.141666666666675,
+              "type": "arm grab contact",
+              "interaction": "grab",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.13577695754840738
+            }
+          ]
+        },
+        {
+          "type": "push",
+          "last": {
+            "type": "push",
+            "contact": true
+          },
+          "states": [
+            "idle",
+            "idle"
+          ],
+          "events": [
+            {
+              "time": 3.358333333333324,
+              "type": "shirt pull contact",
+              "interaction": "shirtFront",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.29713525879221353
+            },
+            {
+              "time": 6.4750000000001116,
+              "type": "shirt pull contact",
+              "interaction": "shirtSide",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.2861464681272065
+            },
+            {
+              "time": 11.141666666666675,
+              "type": "arm grab contact",
+              "interaction": "grab",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.13577695754840738
+            },
+            {
+              "time": 13.199999999999891,
+              "type": "push contact",
+              "interaction": "push",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.18340053060409003
+            }
+          ]
+        },
+        {
+          "type": "handball",
+          "last": {
+            "type": "handball",
+            "contact": true
+          },
+          "states": [
+            "idle",
+            "idle"
+          ],
+          "events": [
+            {
+              "time": 3.358333333333324,
+              "type": "shirt pull contact",
+              "interaction": "shirtFront",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.29713525879221353
+            },
+            {
+              "time": 6.4750000000001116,
+              "type": "shirt pull contact",
+              "interaction": "shirtSide",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.2861464681272065
+            },
+            {
+              "time": 11.141666666666675,
+              "type": "arm grab contact",
+              "interaction": "grab",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.13577695754840738
+            },
+            {
+              "time": 13.199999999999891,
+              "type": "push contact",
+              "interaction": "push",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.18340053060409003
+            },
+            {
+              "time": 17.249999999999662,
+              "type": "hand contact",
+              "actor": 0,
+              "hand": 1
+            },
+            {
+              "time": 17.249999999999662,
+              "type": "handball offence",
+              "actor": 0,
+              "interaction": "handball",
+              "reason": "deliberate extended-arm block in this authored scenario"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "mobile": true,
+      "idle": [
+        {
+          "faceY": -2.109659349663407e-10,
+          "soles": [
+            0.0041764288456956,
+            1.4489414417589996e-7
+          ]
+        },
+        {
+          "faceY": -2.109659349663407e-10,
+          "soles": [
+            0.004176428845694965,
+            1.4489414387405808e-7
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "shirtFront",
+          "last": {
+            "type": "shirtFront",
+            "contact": true
+          },
+          "states": [
+            "idle",
+            "idle"
+          ],
+          "events": [
+            {
+              "time": 3.358333333333324,
+              "type": "shirt pull contact",
+              "interaction": "shirtFront",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.29713525879221353
+            }
+          ]
+        },
+        {
+          "type": "shirtSide",
+          "last": {
+            "type": "shirtSide",
+            "contact": true
+          },
+          "states": [
+            "idle",
+            "idle"
+          ],
+          "events": [
+            {
+              "time": 3.358333333333324,
+              "type": "shirt pull contact",
+              "interaction": "shirtFront",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.29713525879221353
+            },
+            {
+              "time": 6.4750000000001116,
+              "type": "shirt pull contact",
+              "interaction": "shirtSide",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.2861464681272065
+            }
+          ]
+        },
+        {
+          "type": "grab",
+          "last": {
+            "type": "grab",
+            "contact": true
+          },
+          "states": [
+            "idle",
+            "idle"
+          ],
+          "events": [
+            {
+              "time": 3.358333333333324,
+              "type": "shirt pull contact",
+              "interaction": "shirtFront",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.29713525879221353
+            },
+            {
+              "time": 6.4750000000001116,
+              "type": "shirt pull contact",
+              "interaction": "shirtSide",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.2861464681272065
+            },
+            {
+              "time": 11.141666666666675,
+              "type": "arm grab contact",
+              "interaction": "grab",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.13577695754840738
+            }
+          ]
+        },
+        {
+          "type": "push",
+          "last": {
+            "type": "push",
+            "contact": true
+          },
+          "states": [
+            "idle",
+            "idle"
+          ],
+          "events": [
+            {
+              "time": 3.358333333333324,
+              "type": "shirt pull contact",
+              "interaction": "shirtFront",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.29713525879221353
+            },
+            {
+              "time": 6.4750000000001116,
+              "type": "shirt pull contact",
+              "interaction": "shirtSide",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.2861464681272065
+            },
+            {
+              "time": 11.141666666666675,
+              "type": "arm grab contact",
+              "interaction": "grab",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.13577695754840738
+            },
+            {
+              "time": 13.199999999999891,
+              "type": "push contact",
+              "interaction": "push",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.18340053060409003
+            }
+          ]
+        },
+        {
+          "type": "handball",
+          "last": {
+            "type": "handball",
+            "contact": true
+          },
+          "states": [
+            "idle",
+            "idle"
+          ],
+          "events": [
+            {
+              "time": 3.358333333333324,
+              "type": "shirt pull contact",
+              "interaction": "shirtFront",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.29713525879221353
+            },
+            {
+              "time": 6.4750000000001116,
+              "type": "shirt pull contact",
+              "interaction": "shirtSide",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.2861464681272065
+            },
+            {
+              "time": 11.141666666666675,
+              "type": "arm grab contact",
+              "interaction": "grab",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.13577695754840738
+            },
+            {
+              "time": 13.199999999999891,
+              "type": "push contact",
+              "interaction": "push",
+              "actor": 0,
+              "target": 1,
+              "distance": 0.18340053060409003
+            },
+            {
+              "time": 17.249999999999662,
+              "type": "hand contact",
+              "actor": 0,
+              "hand": 1
+            },
+            {
+              "time": 17.249999999999662,
+              "type": "handball offence",
+              "actor": 0,
+              "interaction": "handball",
+              "reason": "deliberate extended-arm block in this authored scenario"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

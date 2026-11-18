@@ -4,12 +4,15 @@ This repository is a working starting point for a small football manager/referee
 
 **[Play the latest system](https://rblaurent.github.io/football-tackle-lab/)** · [Original source-clip viewer](https://rblaurent.github.io/football-tackle-lab/clips.html) · [Earlier contact experiment](https://rblaurent.github.io/football-tackle-lab/collision-lab.html)
 
+**Latest update:** neutral forward idle gaze, rendered boot grounding, corrected tackle/recovery, and five actionable interactions in the main lab. **[Interaction controls and implementation](INTERACTIONS.md)**. [Download the latest complete ZIP](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip).
+
 ## Pick your route
 
 | Goal | Read/use |
 | --- | --- |
 | Test it on a phone or Mac | Open the live system. No account or installation required. |
 | Run or modify the project | Clone and start the static server below. All runtime data is included. |
+| Try shirt pulls, grabbing, pushing and handball | Choose an **Interaction**, then **Do interaction** on the main page. See [INTERACTIONS.md](INTERACTIONS.md). |
 | Understand transitions, locomotion, contact and recovered weights | **[Controller and neural IK guide](CONTROLLER.md)**. This is the main new technical handoff. |
 | Reproduce the original eleven-clip extraction | [Windows setup and reproduction](REPRODUCING.md) with the baseline profile. |
 | Reproduce the expanded clips/controller/weight extraction | [Expanded extraction commands](CONTROLLER.md#reproduce-the-expanded-extraction), using `controller-profile.json`. |
@@ -30,19 +33,23 @@ On macOS use `python3` if necessary. Open `http://127.0.0.1:8080` in a WebGL-cap
 
 The automatic demo shows chase, stop, tackle, get-up, walking and idle. Use **Player tackle** for the two-person fall/recovery scenario. Steer with the touch pad or WASD/arrows, select the pace, hold Shift to sprint, press Space/Tackle, or use Chase ball and Stop. Tap the grass to place the ball. Motion inspector reveals state, blend and foot-plant information.
 
+## Update an existing copy
+
+For a Git checkout, run `git pull --ff-only` from its folder, then reload the browser. If Git reports local edits or diverged history, preserve those changes and reconcile them before updating. For a ZIP download, extract the latest ZIP into a new folder and serve that folder; keep any personal work from the old copy. No game extraction is needed to try the supplied browser data.
+
 ## What is established
 
-Native selected FC27 Lite clips drive an independent browser controller through a 369-bone source rig and a 65-bone Quaternius human skin. The mesh has a continuous body, face, fingers, hair, kit and boots. The controller can start, walk/jog/sprint, stop, turn, chase, tackle, fall and recover. The original eight-scene source-capture viewer, including paired shirt pulls, is preserved separately.
+Native selected FC27 Lite clips drive an independent browser controller through a 369-bone source rig and a 65-bone Quaternius human skin. The mesh has a continuous body, face, fingers, hair, kit and boots. The controller can start, walk/jog/sprint, stop, turn, chase, tackle, fall and recover. The same lab now approaches a partner, performs front/side shirt pulls, arm grabs, pushes and an authored handball block, then returns to useful movement. The eight-scene raw source-capture viewer is also preserved separately.
 
-The expanded pipeline decodes 22 clips, uses thirteen in the controller, and inspects 33 controller/feature/weight EBX assets. It recovers three complete locomotion neural IK models. Our standalone inference reconstructs native knee coordinates with approximately 2.47 cm per-coordinate RMSE over 240 sampled gait poses. The live controller uses the knee weights as a bend hint for bounded foot planting; it does not use the arm/chest models yet.
+The expanded pipeline decodes 22 clips, uses seventeen in the controller, and inspects 33 controller/feature/weight EBX assets. It recovers three complete locomotion neural IK models. Our standalone inference reconstructs native knee coordinates with approximately 2.47 cm per-coordinate RMSE over 240 sampled gait poses. The live controller uses the knee weights as a bend hint for bounded foot planting; it does not use the arm/chest models yet.
 
-A fresh extraction matched all committed controller motion data, neural data and parameter reports after JSON parsing. Sixteen Node tests and desktop/touch browser verification cover the integrated action chains, contacts, input and valid skins. Exact reports are in `evidence/`.
+A fresh extraction matched all committed controller motion data, neural data and parameter reports after JSON parsing. Thirty-one Node tests and desktop/touch browser verification cover the integrated action chains, contacts, input and valid skins. Exact reports are in `evidence/`.
 
 ## Keep the limits clear
 
-The intent/state controller, gait blending, pose selection, transition offsets, ball chase, foot planting and collision responses are our implementation. **EA's full PTM motion-search runtime, match AI and rule engine have not been extracted.** Recovered controller settings and feature weights are supplied as inspectable data; our matcher does not claim to apply FC's full feature cost. A generic captured fall is dispatched after a contact, so it is not yet an impact-specific physical reaction.
+The intent/state controller, gait blending, pose selection, transition offsets, ball chase, foot planting and collision responses are our implementation. **EA's full PTM motion-search runtime, match AI and rule engine have not been extracted.** Recovered controller settings and feature weights are supplied as inspectable data; our matcher does not claim to apply FC's full feature cost. The shirt-pull pair scheduler and grab/push/handball logic are original code. A deliberate arm-block scenario emits a contact-based handball event, not a complete football-law ruling. A generic captured fall is dispatched after a tackle contact, so it is not yet an impact-specific physical reaction.
 
-The new simulation has a rolling planar ball, two actors and flat-ground planting. It does not yet provide a complete match, aerial ball flight, target-rig perfect contacts, paired shirt-pull scheduling, garment deformation, ragdolls or referee decisions. More action variants and stronger interaction alignment are required for diverse challenge angles. [The controller guide](CONTROLLER.md#what-to-build-next-for-a-real-game) describes those next steps.
+The new simulation has a rolling ball with aerial gravity/bounce for the handball scenario, two actors and flat-ground planting. It does not yet provide a complete match, aerial ball flight, target-rig perfect contacts, general automatic interaction selection, garment deformation, ragdolls or complete referee decisions. More action variants and stronger interaction alignment are required for diverse challenge angles. [The controller guide](CONTROLLER.md#what-to-build-next-for-a-real-game) describes those next steps.
 
 The source-clip viewer preserves pair timing and trajectories, and remains useful for inspecting what was actually captured. Its standalone recovery and lack of runtime selection should not be confused with the new integrated controller.
 
@@ -62,12 +69,13 @@ The full historical index contained 1,448,373 named EBX/RES entries after overla
 | `controller-core.js`, `animation.js` | Fixed-step simulation, state logic, native sampling and transitions |
 | `neural-ik.js`, `foot-planting.js` | Recovered-network inference, foot constraints and two-bone solving |
 | `human.js`, `character/` | Human skin, native rig retargeting and CC0 model/hair |
-| `controller-data.json` | Thirteen native runtime clips and source rig |
+| `controller-data.json` | Seventeen native runtime clips and source rig |
 | `research/fc27-neural-ik.json` | Three recovered, ordered neural IK models |
 | `research/fc27-controller-assets.json` | Inspected controller/feature/weight data and unresolved fields |
 | `clips.html`, `app.js`, `data.json` | Preserved original eleven-clip viewer |
 | `tools/fc27/` | Portable archive/codec/channel and controller/weight extractors, schemas and profiles |
 | `tools/verify-controller.cjs`, `tools/verify-neural-ik.mjs` | Browser acceptance and numerical network reconstruction |
+| `interactions.js`, `tools/verify-interactions.cjs` | Shared action scheduler, authored hand interactions and browser acceptance |
 | `tools/capture-controller.cjs` | Deterministic rendered controller footage |
 | `collision-lab.html`, `physics.js`, `demo.js` | Earlier Gameplay Football contact study |
 | `docs/`, `evidence/` | Complete handoff and intentional verification artifacts |

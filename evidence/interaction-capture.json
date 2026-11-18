@@ -1,0 +1,1469 @@
+{
+  "url": "http://127.0.0.1:8131/",
+  "date": "2026-11-18T18:36:19.290Z",
+  "browser": "157.0.8103.79",
+  "fps": 30,
+  "frames": 608,
+  "width": 1280,
+  "height": 800,
+  "sequences": [
+    {
+      "sequence": "shirtFront",
+      "firstFrame": 30,
+      "lastFrame": 191,
+      "finalState": {
+        "interaction": null,
+        "lastInteraction": {
+          "type": "shirtFront",
+          "contact": true
+        },
+        "time": 6.400000000000108,
+        "demo": false,
+        "ball": [
+          1,
+          0.11,
+          0
+        ],
+        "ballVelocity": [
+          0,
+          0,
+          0
+        ],
+        "actors": [
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              0.19409284894556292,
+              0,
+              2.301245224956555
+            ],
+            "speed": 0,
+            "heading": -3.4850657519376993,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 1.0450617800738464
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "to": "interaction",
+                "action": "Front shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.21875,
+                "cost": 3.102395487166127
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          },
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -1.6206569652946283,
+              0,
+              -0.04478995067593629
+            ],
+            "speed": 0,
+            "heading": -0.33769958836429526,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "to": "interaction",
+                "action": "Front shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.625,
+                "cost": 1.934663954991353
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "time": 0.9999999999999989,
+            "type": "interaction requested",
+            "interaction": "shirtFront"
+          },
+          {
+            "time": 3.6166666666666565,
+            "type": "interaction started",
+            "interaction": "shirtFront",
+            "source": "native paired capture"
+          },
+          {
+            "time": 3.8583333333333223,
+            "type": "shirt pull contact",
+            "interaction": "shirtFront",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.2976473220593207
+          },
+          {
+            "time": 5.158333333333379,
+            "type": "interaction ended",
+            "interaction": "shirtFront",
+            "contact": true
+          }
+        ],
+        "bones": [
+          {
+            "hip": [
+              0.2637823464702283,
+              0.9226050099985335,
+              2.3007026162237145
+            ],
+            "leftFoot": [
+              0.20535327468874426,
+              0.07061581534732853,
+              2.4795259791952384
+            ],
+            "rightFoot": [
+              0.3094441019848034,
+              0.07082250676516205,
+              2.1566131612018338
+            ]
+          },
+          {
+            "hip": [
+              -1.6961150227734476,
+              0.9245305952550911,
+              -0.050285029465229766
+            ],
+            "leftFoot": [
+              -1.6219330981550106,
+              0.07661208730946589,
+              -0.29745382489106725
+            ],
+            "rightFoot": [
+              -1.726953678616871,
+              0.0708783223513072,
+              0.030990388496921706
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sequence": "shirtSide",
+      "firstFrame": 192,
+      "lastFrame": 303,
+      "finalState": {
+        "interaction": null,
+        "lastInteraction": {
+          "type": "shirtSide",
+          "contact": true
+        },
+        "time": 10.133333333333399,
+        "demo": false,
+        "ball": [
+          1,
+          0.11,
+          0
+        ],
+        "ballVelocity": [
+          0,
+          0,
+          0
+        ],
+        "actors": [
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -8.020193427399091,
+              0,
+              3.1317901177912115
+            ],
+            "speed": 0,
+            "heading": 5.001511951247114,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 1.0450617800738464
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "to": "interaction",
+                "action": "Front shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.21875,
+                "cost": 3.102395487166127
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.5494917104567817
+              },
+              {
+                "to": "interaction",
+                "action": "Side shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.28125,
+                "cost": 3.370916310885434
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          },
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -5.309853012049267,
+              0,
+              2.1481113550253257
+            ],
+            "speed": 0,
+            "heading": 0.9036576014951025,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "to": "interaction",
+                "action": "Front shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.625,
+                "cost": 1.934663954991353
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Side shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "time": 0.9999999999999989,
+            "type": "interaction requested",
+            "interaction": "shirtFront"
+          },
+          {
+            "time": 3.6166666666666565,
+            "type": "interaction started",
+            "interaction": "shirtFront",
+            "source": "native paired capture"
+          },
+          {
+            "time": 3.8583333333333223,
+            "type": "shirt pull contact",
+            "interaction": "shirtFront",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.2976473220593207
+          },
+          {
+            "time": 5.158333333333379,
+            "type": "interaction ended",
+            "interaction": "shirtFront",
+            "contact": true
+          },
+          {
+            "time": 6.400000000000108,
+            "type": "interaction requested",
+            "interaction": "shirtSide"
+          },
+          {
+            "time": 6.9166666666668,
+            "type": "interaction started",
+            "interaction": "shirtSide",
+            "source": "native paired capture"
+          },
+          {
+            "time": 7.258333333333484,
+            "type": "shirt pull contact",
+            "interaction": "shirtSide",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.2861464681272065
+          },
+          {
+            "time": 8.925000000000134,
+            "type": "interaction ended",
+            "interaction": "shirtSide",
+            "contact": true
+          }
+        ],
+        "bones": [
+          {
+            "hip": [
+              -8.061613894552712,
+              0.9226893034749649,
+              3.0757187836180746
+            ],
+            "leftFoot": [
+              -7.905005723865992,
+              0.07063093110087176,
+              3.0438756810791956
+            ],
+            "rightFoot": [
+              -8.20209958895694,
+              0.07082715175745824,
+              3.121952029438071
+            ]
+          },
+          {
+            "hip": [
+              -5.327175564921065,
+              0.9222812868036618,
+              2.2139918440488158
+            ],
+            "leftFoot": [
+              -5.558512028105885,
+              0.07337986574279637,
+              2.084631073568243
+            ],
+            "rightFoot": [
+              -5.297530765535493,
+              0.07091318219598186,
+              2.2610612455282686
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sequence": "grab",
+      "firstFrame": 304,
+      "lastFrame": 423,
+      "finalState": {
+        "interaction": null,
+        "lastInteraction": {
+          "type": "grab",
+          "contact": true
+        },
+        "time": 14.133333333333171,
+        "demo": false,
+        "ball": [
+          1,
+          0.11,
+          0
+        ],
+        "ballVelocity": [
+          0,
+          0,
+          0
+        ],
+        "actors": [
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -5.761553991210489,
+              0,
+              2.4528626645907843
+            ],
+            "speed": 0,
+            "heading": 0.535965922663555,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 1.0450617800738464
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "to": "interaction",
+                "action": "Front shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.21875,
+                "cost": 3.102395487166127
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.5494917104567817
+              },
+              {
+                "to": "interaction",
+                "action": "Side shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.28125,
+                "cost": 3.370916310885434
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.5436582727812899
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "to": "interaction",
+                "action": "Arm grab"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          },
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -5.3056184957820065,
+              0,
+              2.14525443321785
+            ],
+            "speed": 0,
+            "heading": 3.677558576253349,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "to": "interaction",
+                "action": "Front shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.625,
+                "cost": 1.934663954991353
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Side shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Arm grab"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "time": 0.9999999999999989,
+            "type": "interaction requested",
+            "interaction": "shirtFront"
+          },
+          {
+            "time": 3.6166666666666565,
+            "type": "interaction started",
+            "interaction": "shirtFront",
+            "source": "native paired capture"
+          },
+          {
+            "time": 3.8583333333333223,
+            "type": "shirt pull contact",
+            "interaction": "shirtFront",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.2976473220593207
+          },
+          {
+            "time": 5.158333333333379,
+            "type": "interaction ended",
+            "interaction": "shirtFront",
+            "contact": true
+          },
+          {
+            "time": 6.400000000000108,
+            "type": "interaction requested",
+            "interaction": "shirtSide"
+          },
+          {
+            "time": 6.9166666666668,
+            "type": "interaction started",
+            "interaction": "shirtSide",
+            "source": "native paired capture"
+          },
+          {
+            "time": 7.258333333333484,
+            "type": "shirt pull contact",
+            "interaction": "shirtSide",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.2861464681272065
+          },
+          {
+            "time": 8.925000000000134,
+            "type": "interaction ended",
+            "interaction": "shirtSide",
+            "contact": true
+          },
+          {
+            "time": 10.133333333333399,
+            "type": "interaction requested",
+            "interaction": "grab"
+          },
+          {
+            "time": 12.03333333333329,
+            "type": "interaction started",
+            "interaction": "grab",
+            "source": "authored pose and contact logic"
+          },
+          {
+            "time": 12.249999999999945,
+            "type": "arm grab contact",
+            "interaction": "grab",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.1406486353555973
+          },
+          {
+            "time": 13.841666666666521,
+            "type": "interaction ended",
+            "interaction": "grab",
+            "contact": true
+          }
+        ],
+        "bones": [
+          {
+            "hip": [
+              -5.806394862132385,
+              0.922779621170471,
+              2.506139412420382
+            ],
+            "leftFoot": [
+              -5.846445918915033,
+              0.07066273353994534,
+              2.5025695131621886
+            ],
+            "rightFoot": [
+              -5.639226878985407,
+              0.07312100554721168,
+              2.75274724589997
+            ]
+          },
+          {
+            "hip": [
+              -5.26077762486011,
+              0.9227796211704707,
+              2.0919776853882524
+            ],
+            "leftFoot": [
+              -5.220726568077462,
+              0.07066273353994568,
+              2.095547584646446
+            ],
+            "rightFoot": [
+              -5.427945608007088,
+              0.07312100554721296,
+              1.845369851908665
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sequence": "push",
+      "firstFrame": 424,
+      "lastFrame": 486,
+      "finalState": {
+        "interaction": null,
+        "lastInteraction": {
+          "type": "push",
+          "contact": true
+        },
+        "time": 16.233333333333054,
+        "demo": false,
+        "ball": [
+          1,
+          0.11,
+          0
+        ],
+        "ballVelocity": [
+          0,
+          0,
+          0
+        ],
+        "actors": [
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -5.761553991210489,
+              0,
+              2.4528626645907843
+            ],
+            "speed": 0,
+            "heading": 0.5990883923967388,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 1.0450617800738464
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "to": "interaction",
+                "action": "Front shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.21875,
+                "cost": 3.102395487166127
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.5494917104567817
+              },
+              {
+                "to": "interaction",
+                "action": "Side shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.28125,
+                "cost": 3.370916310885434
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.5436582727812899
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "to": "interaction",
+                "action": "Arm grab"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Push"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          },
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -4.766785637548345,
+              0,
+              1.7817174325043825
+            ],
+            "speed": 0,
+            "heading": 3.740681045986532,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "to": "interaction",
+                "action": "Front shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.625,
+                "cost": 1.934663954991353
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Side shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Arm grab"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Push"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "time": 0.9999999999999989,
+            "type": "interaction requested",
+            "interaction": "shirtFront"
+          },
+          {
+            "time": 3.6166666666666565,
+            "type": "interaction started",
+            "interaction": "shirtFront",
+            "source": "native paired capture"
+          },
+          {
+            "time": 3.8583333333333223,
+            "type": "shirt pull contact",
+            "interaction": "shirtFront",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.2976473220593207
+          },
+          {
+            "time": 5.158333333333379,
+            "type": "interaction ended",
+            "interaction": "shirtFront",
+            "contact": true
+          },
+          {
+            "time": 6.400000000000108,
+            "type": "interaction requested",
+            "interaction": "shirtSide"
+          },
+          {
+            "time": 6.9166666666668,
+            "type": "interaction started",
+            "interaction": "shirtSide",
+            "source": "native paired capture"
+          },
+          {
+            "time": 7.258333333333484,
+            "type": "shirt pull contact",
+            "interaction": "shirtSide",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.2861464681272065
+          },
+          {
+            "time": 8.925000000000134,
+            "type": "interaction ended",
+            "interaction": "shirtSide",
+            "contact": true
+          },
+          {
+            "time": 10.133333333333399,
+            "type": "interaction requested",
+            "interaction": "grab"
+          },
+          {
+            "time": 12.03333333333329,
+            "type": "interaction started",
+            "interaction": "grab",
+            "source": "authored pose and contact logic"
+          },
+          {
+            "time": 12.249999999999945,
+            "type": "arm grab contact",
+            "interaction": "grab",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.1406486353555973
+          },
+          {
+            "time": 13.841666666666521,
+            "type": "interaction ended",
+            "interaction": "grab",
+            "contact": true
+          },
+          {
+            "time": 14.133333333333171,
+            "type": "interaction requested",
+            "interaction": "push"
+          },
+          {
+            "time": 14.141666666666504,
+            "type": "interaction started",
+            "interaction": "push",
+            "source": "authored pose and contact logic"
+          },
+          {
+            "time": 14.56666666666648,
+            "type": "push contact",
+            "interaction": "push",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.18537032218440572
+          },
+          {
+            "time": 15.949999999999735,
+            "type": "interaction ended",
+            "interaction": "push",
+            "contact": true
+          }
+        ],
+        "bones": [
+          {
+            "hip": [
+              -5.801941697915731,
+              0.9226893034520693,
+              2.509964820121965
+            ],
+            "leftFoot": [
+              -5.953709086077708,
+              0.07132998955930464,
+              2.3108852932472925
+            ],
+            "rightFoot": [
+              -5.774775776040422,
+              0.07082714685440678,
+              2.6049648739426767
+            ]
+          },
+          {
+            "hip": [
+              -4.7263979308431034,
+              0.9226893034520693,
+              1.7246152769732017
+            ],
+            "leftFoot": [
+              -4.574630542681126,
+              0.07132998955930525,
+              1.9236948038478743
+            ],
+            "rightFoot": [
+              -4.753563852718412,
+              0.07082714685440616,
+              1.6296152231524899
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sequence": "handball",
+      "firstFrame": 487,
+      "lastFrame": 607,
+      "finalState": {
+        "interaction": null,
+        "lastInteraction": {
+          "type": "handball",
+          "contact": true
+        },
+        "time": 20.266666666666158,
+        "demo": false,
+        "ball": [
+          -5.787167062673258,
+          0.1373266965984462,
+          2.7323754644239555
+        ],
+        "ballVelocity": [
+          0.5215112622905231,
+          -0.6944148204093225,
+          0.3983792066227631
+        ],
+        "actors": [
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -6.88769695808336,
+              0,
+              1.159244927897871
+            ],
+            "speed": 0,
+            "heading": -0.28547459534606995,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 1.0450617800738464
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "to": "interaction",
+                "action": "Front shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.21875,
+                "cost": 3.102395487166127
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.5494917104567817
+              },
+              {
+                "to": "interaction",
+                "action": "Side shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.28125,
+                "cost": 3.370916310885434
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.5436582727812899
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "to": "interaction",
+                "action": "Arm grab"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Push"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.5436582727812899
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "to": "interaction",
+                "action": "Handball offence"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          },
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -4.766785637548345,
+              0,
+              1.7817174325043825
+            ],
+            "speed": 0,
+            "heading": 2.856118058243723,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "to": "interaction",
+                "action": "Front shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.625,
+                "cost": 1.934663954991353
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Side shirt pull"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Arm grab"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Push"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "to": "interaction",
+                "action": "Handball offence"
+              },
+              {
+                "from": "interaction",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "time": 0.9999999999999989,
+            "type": "interaction requested",
+            "interaction": "shirtFront"
+          },
+          {
+            "time": 3.6166666666666565,
+            "type": "interaction started",
+            "interaction": "shirtFront",
+            "source": "native paired capture"
+          },
+          {
+            "time": 3.8583333333333223,
+            "type": "shirt pull contact",
+            "interaction": "shirtFront",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.2976473220593207
+          },
+          {
+            "time": 5.158333333333379,
+            "type": "interaction ended",
+            "interaction": "shirtFront",
+            "contact": true
+          },
+          {
+            "time": 6.400000000000108,
+            "type": "interaction requested",
+            "interaction": "shirtSide"
+          },
+          {
+            "time": 6.9166666666668,
+            "type": "interaction started",
+            "interaction": "shirtSide",
+            "source": "native paired capture"
+          },
+          {
+            "time": 7.258333333333484,
+            "type": "shirt pull contact",
+            "interaction": "shirtSide",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.2861464681272065
+          },
+          {
+            "time": 8.925000000000134,
+            "type": "interaction ended",
+            "interaction": "shirtSide",
+            "contact": true
+          },
+          {
+            "time": 10.133333333333399,
+            "type": "interaction requested",
+            "interaction": "grab"
+          },
+          {
+            "time": 12.03333333333329,
+            "type": "interaction started",
+            "interaction": "grab",
+            "source": "authored pose and contact logic"
+          },
+          {
+            "time": 12.249999999999945,
+            "type": "arm grab contact",
+            "interaction": "grab",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.1406486353555973
+          },
+          {
+            "time": 13.841666666666521,
+            "type": "interaction ended",
+            "interaction": "grab",
+            "contact": true
+          },
+          {
+            "time": 14.133333333333171,
+            "type": "interaction requested",
+            "interaction": "push"
+          },
+          {
+            "time": 14.141666666666504,
+            "type": "interaction started",
+            "interaction": "push",
+            "source": "authored pose and contact logic"
+          },
+          {
+            "time": 14.56666666666648,
+            "type": "push contact",
+            "interaction": "push",
+            "actor": 0,
+            "target": 1,
+            "distance": 0.18537032218440572
+          },
+          {
+            "time": 15.949999999999735,
+            "type": "interaction ended",
+            "interaction": "push",
+            "contact": true
+          },
+          {
+            "time": 16.233333333333054,
+            "type": "interaction requested",
+            "interaction": "handball"
+          },
+          {
+            "time": 17.983333333332954,
+            "type": "interaction started",
+            "interaction": "handball",
+            "source": "authored pose and contact logic"
+          },
+          {
+            "time": 18.40833333333293,
+            "type": "ball served",
+            "interaction": "handball"
+          },
+          {
+            "time": 18.9083333333329,
+            "type": "hand contact",
+            "actor": 0,
+            "hand": 1
+          },
+          {
+            "time": 18.9083333333329,
+            "type": "handball offence",
+            "actor": 0,
+            "interaction": "handball",
+            "reason": "deliberate extended-arm block in this authored scenario"
+          },
+          {
+            "time": 19.991666666666173,
+            "type": "interaction ended",
+            "interaction": "handball",
+            "contact": true
+          }
+        ],
+        "bones": [
+          {
+            "hip": [
+              -6.957278242118313,
+              0.9226050099936205,
+              1.1639639604202503
+            ],
+            "leftFoot": [
+              -6.91295809089224,
+              0.07061591128869493,
+              0.9354313986904166
+            ],
+            "rightFoot": [
+              -6.977224909487859,
+              0.07082249150462361,
+              1.2661432251933251
+            ]
+          },
+          {
+            "hip": [
+              -4.69720435332666,
+              0.9226050099936205,
+              1.7769983993457545
+            ],
+            "leftFoot": [
+              -4.741524501974748,
+              0.07061590798717726,
+              2.0055309557281986
+            ],
+            "rightFoot": [
+              -4.677257684425173,
+              0.0708224893639729,
+              1.6748191290566232
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "errors": []
+}
