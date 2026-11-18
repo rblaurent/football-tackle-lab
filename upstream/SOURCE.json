@@ -1,0 +1,1551 @@
+{
+  "repository": "https://github.com/google-research/football",
+  "revision": "3d9e754720a95621bba6475c4d3b0d56fe919014",
+  "files": [
+    {
+      "path": "LICENSE",
+      "gitBlobSha1": "fdddb29aa445bf3d6a5d843d6dd77e10a9f99657",
+      "size": 1211
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/000.anim",
+      "gitBlobSha1": "bc01adaa201ba738c24a707d649edb39cec316ae",
+      "size": 2452
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/000_accel.anim",
+      "gitBlobSha1": "33e5b18a9d1375a501b9eb28f4c41fcf602243f9",
+      "size": 3083
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/000_accel_close.anim",
+      "gitBlobSha1": "1b570c387ee67ccd859f86c917a94812aaf8e658",
+      "size": 3006
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/000_accel_far.anim",
+      "gitBlobSha1": "89a159102db4acea16c08c8c162dd7460f183660",
+      "size": 3315
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/020.anim",
+      "gitBlobSha1": "4981e2a0f45db96ec02f657d6c74b2901adf86f4",
+      "size": 2337
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/020_accel_far.anim",
+      "gitBlobSha1": "86de2bc4e4d0faedb2eddae84d77aabeea142a4a",
+      "size": 3401
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/045.anim",
+      "gitBlobSha1": "e9e780df50f986e53700712b692f6340a73f1f48",
+      "size": 2170
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/045_accel.anim",
+      "gitBlobSha1": "7469c9546a6b5b0f61d8c60f366c5c321f69b257",
+      "size": 3337
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/090.anim",
+      "gitBlobSha1": "b673c0c604180c5db5f11c5e0594460c4d8b5b13",
+      "size": 2132
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/090_accel.anim",
+      "gitBlobSha1": "7c8e03da97c665cfefc121ed492b20996590f607",
+      "size": 3174
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/090_accel_far.anim",
+      "gitBlobSha1": "8729bd6f91d9c9a8cdae6f5cacfb6ef2b963d2f8",
+      "size": 3831
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/135.anim",
+      "gitBlobSha1": "66b0ae27fcdc414ff655672efddcbc3ab2e3c9f4",
+      "size": 3127
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/135_accel.anim",
+      "gitBlobSha1": "a2e4e3e500fc90140c187b2136358e7ec60ac322",
+      "size": 3485
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/180.anim",
+      "gitBlobSha1": "2d01c17d3bd84d41afc9b45453b270be23d754a0",
+      "size": 3684
+    },
+    {
+      "path": "data/media/animations/ballcontrol/idle/180_accel.anim",
+      "gitBlobSha1": "418807883a09781a2e0ad17407c3072d7a28728e",
+      "size": 3364
+    },
+    {
+      "path": "data/media/animations/ballcontrol/sprint/000.anim",
+      "gitBlobSha1": "1d8a64b14a7a9832fd2705bd16f7f4c591021362",
+      "size": 3929
+    },
+    {
+      "path": "data/media/animations/ballcontrol/sprint/000_close.anim",
+      "gitBlobSha1": "70bbbf8090d5ff8f5f78793bde03923f7e608346",
+      "size": 2782
+    },
+    {
+      "path": "data/media/animations/ballcontrol/sprint/000_decel.anim",
+      "gitBlobSha1": "321240a208ea8a22aefd6466f0a85e07081b0a70",
+      "size": 3940
+    },
+    {
+      "path": "data/media/animations/ballcontrol/sprint/020_decel.anim",
+      "gitBlobSha1": "6637ead5f74a7c94cb7299f9e3e94ee320d37a7f",
+      "size": 3852
+    },
+    {
+      "path": "data/media/animations/ballcontrol/sprint/020_right_nondecel_stretch.anim",
+      "gitBlobSha1": "2a71ff0c6a21ae0acb3111d8e4b6831e9992504c",
+      "size": 3705
+    },
+    {
+      "path": "data/media/animations/ballcontrol/sprint/045_decel.anim",
+      "gitBlobSha1": "16e086bce3051a1df5fcbc65e104ba56db629c0c",
+      "size": 4633
+    },
+    {
+      "path": "data/media/animations/ballcontrol/sprint/090_decel_decel.anim",
+      "gitBlobSha1": "2eae836b06773c7e6fdfb78693b78fbceddbb7b5",
+      "size": 5593
+    },
+    {
+      "path": "data/media/animations/ballcontrol/sprint/135_decel_decel_decel.anim",
+      "gitBlobSha1": "98adc44fcff8e3141979aac282bda93f07387466",
+      "size": 5673
+    },
+    {
+      "path": "data/media/animations/ballcontrol/sprint/180_decel_decel_decel.anim",
+      "gitBlobSha1": "5a64d3bd9410d04d0612a4401cc7a510df7ead6e",
+      "size": 5476
+    },
+    {
+      "path": "data/media/animations/ballcontrol/sprint/lastditch/020_decel_stretch.anim",
+      "gitBlobSha1": "c826575cfe9b2bfe1b7defc1e9b6a3d37abc71be",
+      "size": 2889
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/000.anim",
+      "gitBlobSha1": "9299c1605f49833a99e9685c870838fd1fcf4d19",
+      "size": 3015
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/000_accel.anim",
+      "gitBlobSha1": "5da2143ba257f4cfbf34197be0a8c69dfd270ea1",
+      "size": 3078
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/000_accel_ballright.anim",
+      "gitBlobSha1": "cc6e48652ebf34d267896eaf87c55e1c8e811e93",
+      "size": 3180
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/000_accel_close.anim",
+      "gitBlobSha1": "3459035980534c18451c3893878d695a45f6ddcf",
+      "size": 3049
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/000_close.anim",
+      "gitBlobSha1": "5a568751240a8cac4b6cb4542cdc671d772c5e43",
+      "size": 2694
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/000_decel_decel.anim",
+      "gitBlobSha1": "b5de93e37f828f4a3d464aa3520e8d5f0f109cbb",
+      "size": 3706
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/020_accel.anim",
+      "gitBlobSha1": "402d5b156c4860b6945d1155966b9ecada009a12",
+      "size": 3084
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/020_accel_close.anim",
+      "gitBlobSha1": "e002855dcf96f8820c42605913fc898ca174e404",
+      "size": 3057
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/020_decel_decel.anim",
+      "gitBlobSha1": "9c437708a2e895b35ec40d1795e9fe0740655570",
+      "size": 3757
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/020_left.anim",
+      "gitBlobSha1": "5b01860ad85793b98051485b46e82a5132c2706f",
+      "size": 3056
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/020_left_close.anim",
+      "gitBlobSha1": "d222d51967cf47d204a056acf07aebcb7867a995",
+      "size": 3156
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/045.anim",
+      "gitBlobSha1": "9950add1af1f421c3b4e344babd7f52fbea6113f",
+      "size": 4235
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/045_accel_2step.anim",
+      "gitBlobSha1": "4f9ea61439dde688ea876521cbfad12164f56160",
+      "size": 4124
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/045_decel_decel.anim",
+      "gitBlobSha1": "93b20aeaa95ae1aa96ba84645d47b5f9bcfaa62c",
+      "size": 3652
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/090_decel_decel.anim",
+      "gitBlobSha1": "52a6c0a1e3dfd31749c84761f6ae487f91d0bbcc",
+      "size": 3651
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/090_strongfoot.anim",
+      "gitBlobSha1": "004f3d2b7ae319284160dbe07ab0aa3637a5500a",
+      "size": 5415
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/135_decel_decel.anim",
+      "gitBlobSha1": "bc274e2efee311fb599dd51c41c1a5c8bc3671a9",
+      "size": 4785
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/180_decel.anim",
+      "gitBlobSha1": "7eed91033cd368641ab2580c467c2959141a3e6a",
+      "size": 5195
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/180_decel_decel.anim",
+      "gitBlobSha1": "465f3ee51a1fe1a331d80761d30d499c0f8f7129",
+      "size": 4343
+    },
+    {
+      "path": "data/media/animations/ballcontrol/walk/lastditch/045_left_decel_far.anim",
+      "gitBlobSha1": "ce46be5daf81452e123985b7ec0399f2dbf4d1c0",
+      "size": 4155
+    },
+    {
+      "path": "data/media/animations/base.anim.util",
+      "gitBlobSha1": "dc04b3ff231eb2b352217578853114dd2143f2ab",
+      "size": 1252
+    },
+    {
+      "path": "data/media/animations/base.inverse.anim.util",
+      "gitBlobSha1": "6786573b4dfd9ff6df1f45dd32ac98fcaaf26f95",
+      "size": 1253
+    },
+    {
+      "path": "data/media/animations/celebration/happy_extreme/000_decel_decel.anim",
+      "gitBlobSha1": "76e61e0d882b2ffc891d0cfa882fb9aca544aa6e",
+      "size": 6658
+    },
+    {
+      "path": "data/media/animations/celebration/happy_normal/000.anim",
+      "gitBlobSha1": "9b483643332efae4e25806cb03446e65b6f907b0",
+      "size": 2617
+    },
+    {
+      "path": "data/media/animations/celebration/sad_normal/000.anim",
+      "gitBlobSha1": "5292f0aa7f91f166763cb414daaf139d32535efc",
+      "size": 1965
+    },
+    {
+      "path": "data/media/animations/deflect/idle/000_ground_holdball.anim",
+      "gitBlobSha1": "57dae596b167e366aec4bce8c8566dd0e6b11c9b",
+      "size": 3895
+    },
+    {
+      "path": "data/media/animations/deflect/idle/000_high_deflect_close.anim",
+      "gitBlobSha1": "36a7bb9b33926278eda4e111293f41566d47ef97",
+      "size": 2933
+    },
+    {
+      "path": "data/media/animations/deflect/idle/000_high_deflect_far.anim",
+      "gitBlobSha1": "60bf00292785c2e8db3918e14e4a9c5a34c41af1",
+      "size": 6195
+    },
+    {
+      "path": "data/media/animations/deflect/idle/000_high_deflect_sideclose.anim",
+      "gitBlobSha1": "8b47c606909c11c310a1fb365bd55e3f102fb0fe",
+      "size": 4179
+    },
+    {
+      "path": "data/media/animations/deflect/idle/000_high_holdball.anim",
+      "gitBlobSha1": "868fca5c0344d80ef932ad11a1294ba1f8656d7f",
+      "size": 3368
+    },
+    {
+      "path": "data/media/animations/deflect/idle/000_kneeheight_holdball.anim",
+      "gitBlobSha1": "86846be3330eec0f50a7a9194783cdddb587ec70",
+      "size": 2862
+    },
+    {
+      "path": "data/media/animations/deflect/idle/000_trunk_holdball.anim",
+      "gitBlobSha1": "575f87298cac2b1f8684373cdcdcbc0f74b3354e",
+      "size": 3061
+    },
+    {
+      "path": "data/media/animations/deflect/idle/090_ground_deflect_far.anim",
+      "gitBlobSha1": "d687dffb0282c0e61956379c4c72d6d0444e18cf",
+      "size": 4600
+    },
+    {
+      "path": "data/media/animations/deflect/idle/090_ground_holdball_close.anim",
+      "gitBlobSha1": "9ed8abbf665d39087d853319d68268c364ef0233",
+      "size": 4848
+    },
+    {
+      "path": "data/media/animations/deflect/idle/090_high_deflect_far.anim",
+      "gitBlobSha1": "d7db059a678b9da69611e9153244374c3c086bb9",
+      "size": 4450
+    },
+    {
+      "path": "data/media/animations/deflect/idle/090_midheight_deflect_far.anim",
+      "gitBlobSha1": "61fa805b43cded6ee3683b9fe6b8a69e6ac683ed",
+      "size": 5697
+    },
+    {
+      "path": "data/media/animations/deflect/idle/090_midheight_holdball_close.anim",
+      "gitBlobSha1": "45068675e2814776a06f54b811643428df2f6ff8",
+      "size": 4768
+    },
+    {
+      "path": "data/media/animations/deflect/idle/090_trunk_deflect_far.anim",
+      "gitBlobSha1": "5a03bbc69791a6710302d4519f28e935477cbc9e",
+      "size": 5262
+    },
+    {
+      "path": "data/media/animations/deflect/sprint/000_ground_deflect_far.anim",
+      "gitBlobSha1": "843228f5fb1b84a794d5b97cf7e19bce540007a5",
+      "size": 3832
+    },
+    {
+      "path": "data/media/animations/deflect/sprint/000_ground_holdball.anim",
+      "gitBlobSha1": "041d7e7fce610cd7fad4e42a65ecba80b2630b48",
+      "size": 4784
+    },
+    {
+      "path": "data/media/animations/deflect/sprint/000_ground_holdball_ballside.anim",
+      "gitBlobSha1": "9c69150fbf236d1a1c461739713a180d600f6dbf",
+      "size": 3729
+    },
+    {
+      "path": "data/media/animations/deflect/walk/000_ground_holdball_close.anim",
+      "gitBlobSha1": "00353a22430c35a3613caaff40f5039ba531e58c",
+      "size": 4451
+    },
+    {
+      "path": "data/media/animations/deflect/walk/000_kneeheight_holdball_close.anim",
+      "gitBlobSha1": "4b71a0e2127d40178a860465665ba12535d8ecec",
+      "size": 3215
+    },
+    {
+      "path": "data/media/animations/deflect/walk/000_trunk_holdball_close.anim",
+      "gitBlobSha1": "fe75aad505432009b7031b0f6a5ea79182ac6f73",
+      "size": 3772
+    },
+    {
+      "path": "data/media/animations/deflect/walk/045_kneeheight_deflect_far.anim",
+      "gitBlobSha1": "7d7022eb39813b6eb8f6f125700caddc49da6fb9",
+      "size": 4514
+    },
+    {
+      "path": "data/media/animations/deflect/walk/angled/090_ground_deflect_far.anim",
+      "gitBlobSha1": "5add4a0929449c87eeb3bdeea2d82a3c5eb4d793",
+      "size": 5423
+    },
+    {
+      "path": "data/media/animations/deflect/walk/angled/090_ground_holdball_close.anim",
+      "gitBlobSha1": "da93a6c0c78c977377827c39e84f106c30855d92",
+      "size": 4200
+    },
+    {
+      "path": "data/media/animations/deflect/walk/angled/090_high_deflect_far.anim",
+      "gitBlobSha1": "98ab72a4b491805317f8b2a21d12ae05590b8b60",
+      "size": 5103
+    },
+    {
+      "path": "data/media/animations/deflect/walk/angled/090_high_holdball_close.anim",
+      "gitBlobSha1": "b7f236c06663712488a5726647b22f52a4be0111",
+      "size": 4129
+    },
+    {
+      "path": "data/media/animations/deflect/walk/angled/090_midheight_deflect_far.anim",
+      "gitBlobSha1": "f5a72427ff2a86dfb732eee9ae805c8e7d633eb7",
+      "size": 5543
+    },
+    {
+      "path": "data/media/animations/deflect/walk/angled/090_midheight_holdball_close.anim",
+      "gitBlobSha1": "e78d65d20afd969eb87c61a4745eb4bf875794cd",
+      "size": 4243
+    },
+    {
+      "path": "data/media/animations/deflect/walk/angled/090_trunk_deflect_far.anim",
+      "gitBlobSha1": "bc4a1c705807ddbc53a9006aa949127acec5c2d5",
+      "size": 5035
+    },
+    {
+      "path": "data/media/animations/deflect/walk/angled/090_trunk_holdball_close.anim",
+      "gitBlobSha1": "3cfd4a9889c0b957f7004d64d12d8ed4b9d9bcf9",
+      "size": 3939
+    },
+    {
+      "path": "data/media/animations/highpass/dribble/000.anim",
+      "gitBlobSha1": "588e692ac954897c6f3033cf0cc97ab7598e54a3",
+      "size": 5038
+    },
+    {
+      "path": "data/media/animations/highpass/idle/000_long.anim",
+      "gitBlobSha1": "c646146317b3fcba9fc8a490283ff0505a8a4b77",
+      "size": 6557
+    },
+    {
+      "path": "data/media/animations/highpass/idle/020.anim",
+      "gitBlobSha1": "64be46b672be5c92c3b5c3ba0b400dc6c77cb0ee",
+      "size": 4925
+    },
+    {
+      "path": "data/media/animations/highpass/idle/090.anim",
+      "gitBlobSha1": "7ea90de0823e617a5f373d2dcdd84af1b1d087ab",
+      "size": 4911
+    },
+    {
+      "path": "data/media/animations/highpass/idle/special/000_throw.anim",
+      "gitBlobSha1": "ee2abafe616e33add8675c447c4550f297a3d115",
+      "size": 3610
+    },
+    {
+      "path": "data/media/animations/highpass/idle/special/045_throw.anim",
+      "gitBlobSha1": "14509cbd6f035c7e1558b6dde36e3edeeeb6abb0",
+      "size": 3773
+    },
+    {
+      "path": "data/media/animations/highpass/sprint/090.anim",
+      "gitBlobSha1": "a3c25c44187490c6b8f90c362caec33e9d11884b",
+      "size": 5587
+    },
+    {
+      "path": "data/media/animations/highpass/sprint/090_slide.anim",
+      "gitBlobSha1": "f5801b795017b5e255460e00c7b45771fcfd9b2d",
+      "size": 3588
+    },
+    {
+      "path": "data/media/animations/highpass/walk/000.anim",
+      "gitBlobSha1": "bc668f3dda6b4430228709c89959b50816d565c7",
+      "size": 4391
+    },
+    {
+      "path": "data/media/animations/highpass/walk/000_long.anim",
+      "gitBlobSha1": "80401e14be2fddbef914449ba5093e69c6a0083c",
+      "size": 7104
+    },
+    {
+      "path": "data/media/animations/highpass/walk/045_air_left.anim",
+      "gitBlobSha1": "0bf018702418853db4d837c94f9b535f1491308d",
+      "size": 4729
+    },
+    {
+      "path": "data/media/animations/highpass/walk/080.anim",
+      "gitBlobSha1": "2fd37e025be962b67d5102e5341463c44fec2b9a",
+      "size": 3899
+    },
+    {
+      "path": "data/media/animations/highpass/walk/090_long.anim",
+      "gitBlobSha1": "9613b6642e99f3cc5c2bd051f90aa2f39970d93b",
+      "size": 6258
+    },
+    {
+      "path": "data/media/animations/highpass/walk/180_turn.anim",
+      "gitBlobSha1": "568813fa8ac6c8802190a023af88e479896d7ae1",
+      "size": 4632
+    },
+    {
+      "path": "data/media/animations/highpass/walk/special/000_throw.anim",
+      "gitBlobSha1": "b526cfdbcbba931a18b81882ebf6ae98507aa2f0",
+      "size": 4439
+    },
+    {
+      "path": "data/media/animations/interfere/idle/000_front.anim",
+      "gitBlobSha1": "dceb485cf49c8f07736403a4b5f047e499a2a71f",
+      "size": 3210
+    },
+    {
+      "path": "data/media/animations/interfere/idle/000_header_jump.anim",
+      "gitBlobSha1": "76fe44adfcd6003823030a12526800ab5bb8d605",
+      "size": 5719
+    },
+    {
+      "path": "data/media/animations/interfere/idle/000_side.anim",
+      "gitBlobSha1": "37c311cb0ebe8aa7ff48e6b63a9dab552c3d7f52",
+      "size": 3165
+    },
+    {
+      "path": "data/media/animations/interfere/sprint/000_header_jump.anim",
+      "gitBlobSha1": "1354bb90dce628f11b05d6ca5787018c1bbc277d",
+      "size": 5665
+    },
+    {
+      "path": "data/media/animations/interfere/sprint/000_reach.anim",
+      "gitBlobSha1": "34c905d3bdb20daf931760a8857e93e958246ba4",
+      "size": 4957
+    },
+    {
+      "path": "data/media/animations/interfere/walk/000_decel_side_behind.anim",
+      "gitBlobSha1": "94c149c383e0ecd466e96dfe6f2c984cb6968d12",
+      "size": 4970
+    },
+    {
+      "path": "data/media/animations/interfere/walk/000_stretch.anim",
+      "gitBlobSha1": "7725b0b8553097146cb2c0ef95c7046a4de88c69",
+      "size": 2776
+    },
+    {
+      "path": "data/media/animations/movement/dribble/045_decel.anim",
+      "gitBlobSha1": "4a2758cf71bd6914c2b9ffe91fbe385f0ae43aaf",
+      "size": 2347
+    },
+    {
+      "path": "data/media/animations/movement/dribble/090_decel.anim",
+      "gitBlobSha1": "27785a097d6a61a4904cb8f5f509c36e9fd15076",
+      "size": 2391
+    },
+    {
+      "path": "data/media/animations/movement/dribble/135.anim",
+      "gitBlobSha1": "a885085c24124ff142381250335b44ce383610ba",
+      "size": 3683
+    },
+    {
+      "path": "data/media/animations/movement/dribble/135_decel.anim",
+      "gitBlobSha1": "39db267066a975658670f26a245febf46a5f2678",
+      "size": 3367
+    },
+    {
+      "path": "data/media/animations/movement/dribble/180_decel.anim",
+      "gitBlobSha1": "5335958008f861979a1ef0db8470154b5ebf1c2b",
+      "size": 3920
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/D045.anim",
+      "gitBlobSha1": "cda6ff5d2b7be3f1937788cb61e42730f6bc8de5",
+      "size": 3220
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/D045_decel.anim",
+      "gitBlobSha1": "409e137dc4776304329f27aa20b80940de8023e2",
+      "size": 1836
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/D135_045_decel.anim",
+      "gitBlobSha1": "aa13cb8a553ea96128f23fb73155ea721c955175",
+      "size": 2483
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/D135_decel.anim",
+      "gitBlobSha1": "8f184fe185e28cfa744b5d55c40a30f4235e1399",
+      "size": 2563
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/D135_to_D045_045.anim",
+      "gitBlobSha1": "cb4e5a6367f1d1288d4a5c5525bdcce252e993c3",
+      "size": 3378
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D000_to_D045.anim",
+      "gitBlobSha1": "5adc906723657ea3d0222ef7ffd2c7a68159297b",
+      "size": 3024
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D000_to_D045_045.anim",
+      "gitBlobSha1": "fef16c20ebc3500fbd47bf4f163d609e74a8448e",
+      "size": 3115
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D000_to_D045_090_left.anim",
+      "gitBlobSha1": "5279680e574ee3edbaa9b53803d0eeeba1e32727",
+      "size": 3254
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D000_to_D135_090.anim",
+      "gitBlobSha1": "776ffe72923778ed0d3adc580edfd01c63b60d34",
+      "size": 3004
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D000_to_D135_135.anim",
+      "gitBlobSha1": "94873df642b737a1de8be6daa1d6bd3deaa2fa18",
+      "size": 3531
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D045_to_D135.anim",
+      "gitBlobSha1": "e508236f30cff742278800a4883e561f0fe5675b",
+      "size": 2664
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D135_045.anim",
+      "gitBlobSha1": "8ebd21969efebff88f3514362f4a22d9726a5171",
+      "size": 2475
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D135_to_D-135_left.anim",
+      "gitBlobSha1": "5ce0634b6c81eab4cd71e12936f4b27aa39df91b",
+      "size": 2085
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D135_to_D045_000.anim",
+      "gitBlobSha1": "54192d58ec68329faceffeb117d58f356f9fb245",
+      "size": 3225
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D135_to_D045_000_accel.anim",
+      "gitBlobSha1": "cf046044a4099b056a6df8ce5ea75956a89728bf",
+      "size": 3227
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D135_to_D045_045_accel.anim",
+      "gitBlobSha1": "53306c960db1f740fa189ab326cf5f3f873489fb",
+      "size": 3378
+    },
+    {
+      "path": "data/media/animations/movement/dribble/angled/newangles/D135_to_D045_045_left.anim",
+      "gitBlobSha1": "89726f27b838b45c10722b70de5f8abc66c752d5",
+      "size": 2629
+    },
+    {
+      "path": "data/media/animations/movement/idle/000_accel.anim",
+      "gitBlobSha1": "1279373055e12838a1dbf7091e23ca0aa4dbdb5e",
+      "size": 2995
+    },
+    {
+      "path": "data/media/animations/movement/idle/000_idlelevel1.anim",
+      "gitBlobSha1": "1328f31fc62644f6c9c066034c130cacc026df34",
+      "size": 2215
+    },
+    {
+      "path": "data/media/animations/movement/idle/045_accel.anim",
+      "gitBlobSha1": "825ab3b2c52c59e6502fb390ddeaf2dedf391581",
+      "size": 3003
+    },
+    {
+      "path": "data/media/animations/movement/idle/090_accel.anim",
+      "gitBlobSha1": "e92c26e7fa6c7cc3b65ab3e570a46b1eb59dba99",
+      "size": 2995
+    },
+    {
+      "path": "data/media/animations/movement/idle/135_accel.anim",
+      "gitBlobSha1": "da4da02ec758a77f4ba449345369d2e497a4926b",
+      "size": 3076
+    },
+    {
+      "path": "data/media/animations/movement/idle/180_accel.anim",
+      "gitBlobSha1": "40f788b7055c1052d19c96a0e95811feaea82b30",
+      "size": 3084
+    },
+    {
+      "path": "data/media/animations/movement/idle/angled/D045_090_accel.anim",
+      "gitBlobSha1": "ab44ad00127398e7ef4e17bc292aa6dc21679dec",
+      "size": 2755
+    },
+    {
+      "path": "data/media/animations/movement/idle/angled/D045_135_accel.anim",
+      "gitBlobSha1": "10b3e353d230d4423e338d640de3203f0474e90e",
+      "size": 2763
+    },
+    {
+      "path": "data/media/animations/movement/idle/angled/D045_180_accel.anim",
+      "gitBlobSha1": "a10813712555d68993d43979758a69ae980dd229",
+      "size": 2879
+    },
+    {
+      "path": "data/media/animations/movement/sprint/000_decel_decel_decel_todo.anim",
+      "gitBlobSha1": "b32b83ab79f82a728af43b55ebfd7a4d9ba48506",
+      "size": 4299
+    },
+    {
+      "path": "data/media/animations/movement/sprint/000_idlelevel1.anim",
+      "gitBlobSha1": "dd30c8103acfafad9e7ff320035c582ac3b1ed17",
+      "size": 3130
+    },
+    {
+      "path": "data/media/animations/movement/sprint/135_decel_decel_decel.anim",
+      "gitBlobSha1": "a3ae8423529649f3207ee7ce9c6f940d72cf984f",
+      "size": 4550
+    },
+    {
+      "path": "data/media/animations/movement/sprint/newangles/D000_to_D045_045_left_decel_decel.anim",
+      "gitBlobSha1": "a079bd90fa0f693d192baa34c401c35629e782e3",
+      "size": 2398
+    },
+    {
+      "path": "data/media/animations/movement/sprint/newangles/D000_to_D045_decel.anim",
+      "gitBlobSha1": "18d3a5e27f46eb1d1fe22981dbdb8ff0c0c9ca9e",
+      "size": 2541
+    },
+    {
+      "path": "data/media/animations/movement/sprint/newangles/D045_decel_left.anim",
+      "gitBlobSha1": "21ece4d37c4da6b73e44bdd353a9a443286e9db6",
+      "size": 3342
+    },
+    {
+      "path": "data/media/animations/movement/walk/000_accel.anim",
+      "gitBlobSha1": "d701d97d542b46b9167c19e27afe29cbac65cf4d",
+      "size": 3190
+    },
+    {
+      "path": "data/media/animations/movement/walk/045.anim",
+      "gitBlobSha1": "b751487047aa8b670708bb1c48dbb3f4cdeb321a",
+      "size": 2576
+    },
+    {
+      "path": "data/media/animations/movement/walk/045_accel.anim",
+      "gitBlobSha1": "fcf2b8ec352373981de75a158812bd82229a2168",
+      "size": 2768
+    },
+    {
+      "path": "data/media/animations/movement/walk/090_left_decel.anim",
+      "gitBlobSha1": "a3f2ee836fb600f0898dfe01475d5189f95a520a",
+      "size": 3570
+    },
+    {
+      "path": "data/media/animations/movement/walk/135_decel.anim",
+      "gitBlobSha1": "364055193b31ad1ad178d0c7854382a1bf8aa0ff",
+      "size": 3726
+    },
+    {
+      "path": "data/media/animations/movement/walk/angled/D045_to_D000_accel.anim",
+      "gitBlobSha1": "7ba1ae7a0ddcb45890adcf848bad49c0d126cea8",
+      "size": 3007
+    },
+    {
+      "path": "data/media/animations/movement/walk/angled/newangles/D000_to_D045.anim",
+      "gitBlobSha1": "f951060b5a5f1c10f99c93c40976fa9fa33c3839",
+      "size": 3022
+    },
+    {
+      "path": "data/media/animations/movement/walk/angled/newangles/D045_045.anim",
+      "gitBlobSha1": "5de209da37e5bf737798ac66b7acd564348e4b48",
+      "size": 2629
+    },
+    {
+      "path": "data/media/animations/movement/walk/angled/newangles/D045_to_D000.anim",
+      "gitBlobSha1": "1e8ab511e49b76c2d1e54896a6173d516878f164",
+      "size": 2400
+    },
+    {
+      "path": "data/media/animations/movement/walk/angled/newangles/D045_to_D000_045_accel.anim",
+      "gitBlobSha1": "1a44f36a738ad8b715a70227395c0b146f5a56fc",
+      "size": 2942
+    },
+    {
+      "path": "data/media/animations/movement/walk/angled/newangles/D045_to_D000_accel.anim",
+      "gitBlobSha1": "b39108444f826340eb70cf4fefd35f198ee215a5",
+      "size": 2927
+    },
+    {
+      "path": "data/media/animations/movement/walk/angled/newangles/D045_to_D135_decel.anim",
+      "gitBlobSha1": "f66516679d43013c713f5daf8f498d26865e72a5",
+      "size": 2330
+    },
+    {
+      "path": "data/media/animations/movement_special/dribble/angled/special/D000_to_D135_180_holdball.anim",
+      "gitBlobSha1": "01a414fe028c7f57bf1c7f3febac53c667dfa30a",
+      "size": 3404
+    },
+    {
+      "path": "data/media/animations/movement_special/dribble/angled/special/D135_decel_holdball.anim",
+      "gitBlobSha1": "eae05830ba1feb4f08d41fb5cb0d9c46c375c602",
+      "size": 2565
+    },
+    {
+      "path": "data/media/animations/movement_special/dribble/angled/special/D135_holdball.anim",
+      "gitBlobSha1": "605719e28e9da7b1bcedef4c9d0260776056b82a",
+      "size": 2674
+    },
+    {
+      "path": "data/media/animations/movement_special/dribble/angled/special/D135_left_holdball.anim",
+      "gitBlobSha1": "002377196d82858f6bc197268a08cb2d07e06aba",
+      "size": 2365
+    },
+    {
+      "path": "data/media/animations/movement_special/dribble/angled/special/D135_to_D000_holdball.anim",
+      "gitBlobSha1": "e6072cb7db9f98b7ae08ced75e14f428d2225c57",
+      "size": 2775
+    },
+    {
+      "path": "data/media/animations/movement_special/dribble/special/000_decel_holdball.anim",
+      "gitBlobSha1": "f910e65f302b982bf41f5dfdc16cfc391f1ea611",
+      "size": 2481
+    },
+    {
+      "path": "data/media/animations/movement_special/dribble/special/000_holdball.anim",
+      "gitBlobSha1": "b0d4feed4fb4709a4c9cfa7559e04c984afb3b53",
+      "size": 2945
+    },
+    {
+      "path": "data/media/animations/movement_special/dribble/special/090_decel_holdball.anim",
+      "gitBlobSha1": "738bde0fd77d742f8614c52d1566c6e501e165bc",
+      "size": 2912
+    },
+    {
+      "path": "data/media/animations/movement_special/idle/special/000_accel_holdball.anim",
+      "gitBlobSha1": "1c4b15b9f87934d300d9c9686a5c8356c2749e25",
+      "size": 3123
+    },
+    {
+      "path": "data/media/animations/movement_special/idle/special/000_back_to_front_holdball.anim",
+      "gitBlobSha1": "a5fcdb87117923694d5d37c6103112ecf2e40fa2",
+      "size": 2185
+    },
+    {
+      "path": "data/media/animations/movement_special/idle/special/000_holdball.anim",
+      "gitBlobSha1": "0aaa2fcd86d6b13497b92faa50a97751aa61576e",
+      "size": 1730
+    },
+    {
+      "path": "data/media/animations/movement_special/idle/special/000_stand_up_from_back.anim",
+      "gitBlobSha1": "c3317369c1000807b404e7a4261902f565ab875a",
+      "size": 4361
+    },
+    {
+      "path": "data/media/animations/movement_special/idle/special/000_stand_up_from_front.anim",
+      "gitBlobSha1": "15bcc1f48fa5a5299515eae417faf67419232859",
+      "size": 3939
+    },
+    {
+      "path": "data/media/animations/movement_special/idle/special/000_stand_up_from_front_holdball.anim",
+      "gitBlobSha1": "31d6369156e8c304e8b9f0d7079c8e1ac385e28c",
+      "size": 3910
+    },
+    {
+      "path": "data/media/animations/movement_special/idle/special/045_holdball.anim",
+      "gitBlobSha1": "a14e8413ba40fffe7a62d62c2070d55de4ab4ea0",
+      "size": 1974
+    },
+    {
+      "path": "data/media/animations/movement_special/idle/special/135_accel_holdball.anim",
+      "gitBlobSha1": "eba28d94228d990575cd303dba520e48ef5ffe53",
+      "size": 2814
+    },
+    {
+      "path": "data/media/animations/pass/dribble/180_turn.anim",
+      "gitBlobSha1": "1bfc5f89935edb1ffc401891fce41480fbfe1c8b",
+      "size": 5011
+    },
+    {
+      "path": "data/media/animations/pass/dribble/lastditch/090_decel_ballside.anim",
+      "gitBlobSha1": "626e5155e5fd657bab94f2a42c9bac437ad2572b",
+      "size": 5013
+    },
+    {
+      "path": "data/media/animations/pass/dribble/lastditch/090_decel_ballside_otherside.anim",
+      "gitBlobSha1": "c271676f0e8523ab2da8d10a26da204f98c81b4b",
+      "size": 3688
+    },
+    {
+      "path": "data/media/animations/pass/dribble/nonbase/090_highball.anim",
+      "gitBlobSha1": "3833703b2254e422fd2d644ae81143f59b095e56",
+      "size": 4879
+    },
+    {
+      "path": "data/media/animations/pass/idle/000.anim",
+      "gitBlobSha1": "42d48b271ace61835223506cd8a8f09263dc4c12",
+      "size": 4233
+    },
+    {
+      "path": "data/media/animations/pass/idle/090.anim",
+      "gitBlobSha1": "4e8ba0728e8504d0fdef2f0f0de9853b8945c682",
+      "size": 3741
+    },
+    {
+      "path": "data/media/animations/pass/idle/180.anim",
+      "gitBlobSha1": "22f8085da1569a1b18185a096738589e9020fc5c",
+      "size": 4726
+    },
+    {
+      "path": "data/media/animations/pass/idle/nonbase/000_header.anim",
+      "gitBlobSha1": "71cfb0e6c8e468222e53aa102713b3d5884b8579",
+      "size": 3528
+    },
+    {
+      "path": "data/media/animations/pass/idle/nonbase/000_header_jump_backwards.anim",
+      "gitBlobSha1": "f90311bea28acda1051d1bdc2df98d21ca7be60a",
+      "size": 5776
+    },
+    {
+      "path": "data/media/animations/pass/idle/nonbase/000_header_jump_forwards.anim",
+      "gitBlobSha1": "77d433703f6b249e62a854bbb9639f2848994036",
+      "size": 5852
+    },
+    {
+      "path": "data/media/animations/pass/idle/nonbase/070_header_jump.anim",
+      "gitBlobSha1": "b3b8a250803546746f4c2565dce59aeb4c944efd",
+      "size": 5667
+    },
+    {
+      "path": "data/media/animations/pass/idle/nonbase/090_header.anim",
+      "gitBlobSha1": "661faf87d8c8e49282d9416bf9dbdb872cc152f0",
+      "size": 2710
+    },
+    {
+      "path": "data/media/animations/pass/idle/nonbase/090_kneeheight.anim",
+      "gitBlobSha1": "4ab3c942cc494f259fd4e57ebd71fdb9aa18d88b",
+      "size": 4016
+    },
+    {
+      "path": "data/media/animations/pass/idle/nonbase/135_header_jump.anim",
+      "gitBlobSha1": "0ac252f775640ac0e4b5da4bed5037fc705a5ff3",
+      "size": 5935
+    },
+    {
+      "path": "data/media/animations/pass/idle/special/000_throw.anim",
+      "gitBlobSha1": "a86a51aa10181fb551911e8cdeb330856f2c7ebd",
+      "size": 3670
+    },
+    {
+      "path": "data/media/animations/pass/idle/special/045_throw.anim",
+      "gitBlobSha1": "f0a8a961130d809b61f76d3aae259df189ec12a7",
+      "size": 3833
+    },
+    {
+      "path": "data/media/animations/pass/sprint/000.anim",
+      "gitBlobSha1": "6a39fa28160dcfc413d9c6c08d7def1a6955f67d",
+      "size": 5987
+    },
+    {
+      "path": "data/media/animations/pass/sprint/045.anim",
+      "gitBlobSha1": "dc3d38a440a03101752fd63e84500e19d530b0b7",
+      "size": 4855
+    },
+    {
+      "path": "data/media/animations/pass/sprint/090.anim",
+      "gitBlobSha1": "ef797c1db88a01d7bda622faed67a475072e02c7",
+      "size": 6007
+    },
+    {
+      "path": "data/media/animations/pass/sprint/180.anim",
+      "gitBlobSha1": "7386b8f05eb7f8a27f397196e3e6b4b42c7d2a68",
+      "size": 7219
+    },
+    {
+      "path": "data/media/animations/pass/sprint/lastditch/000_reach.anim",
+      "gitBlobSha1": "350f14f6711c9ab8da13ccef7173171b0ffa2ff1",
+      "size": 5087
+    },
+    {
+      "path": "data/media/animations/pass/sprint/lastditch/090_slide.anim",
+      "gitBlobSha1": "97b8ff75cd71292266dc3d020456b422de309023",
+      "size": 3730
+    },
+    {
+      "path": "data/media/animations/pass/sprint/nonbase/000_header_jump.anim",
+      "gitBlobSha1": "420766ff699168b6e723081952f600a6c82c879d",
+      "size": 5859
+    },
+    {
+      "path": "data/media/animations/pass/sprint/nonbase/020_ballside.anim",
+      "gitBlobSha1": "cb493d7cab268ed2fc6cf3f5e97ccb8ef903f2e0",
+      "size": 5017
+    },
+    {
+      "path": "data/media/animations/pass/walk/000.anim",
+      "gitBlobSha1": "e022b3d37691e7c81db90d081f13e18b88ecb0a4",
+      "size": 5372
+    },
+    {
+      "path": "data/media/animations/pass/walk/000_short.anim",
+      "gitBlobSha1": "628deb6771e632c76f42923d6a1744d9fa2e8990",
+      "size": 3587
+    },
+    {
+      "path": "data/media/animations/pass/walk/045.anim",
+      "gitBlobSha1": "7247913e9fc24878ba9133c7bcd0d85fac56fd86",
+      "size": 4818
+    },
+    {
+      "path": "data/media/animations/pass/walk/090.anim",
+      "gitBlobSha1": "b3936d2803c27fab73bb3e77de4f01801d6b9ee0",
+      "size": 5607
+    },
+    {
+      "path": "data/media/animations/pass/walk/090_short.anim",
+      "gitBlobSha1": "f22ff70f13cb632c40e3b3e7b31fff29390d0e7e",
+      "size": 3824
+    },
+    {
+      "path": "data/media/animations/pass/walk/135.anim",
+      "gitBlobSha1": "93c3dd79d8a3b07d3cc46f11d5908846f87f092c",
+      "size": 4293
+    },
+    {
+      "path": "data/media/animations/pass/walk/lastditch/040_reach.anim",
+      "gitBlobSha1": "e62c1e729de8405f6a947f53c5e7b467d8bca927",
+      "size": 2686
+    },
+    {
+      "path": "data/media/animations/pass/walk/lastditch/040_side_reach.anim",
+      "gitBlobSha1": "b236b6ff42a98ce9310b10db7846322d2c5bffe1",
+      "size": 2871
+    },
+    {
+      "path": "data/media/animations/pass/walk/lastditch/090_reach.anim",
+      "gitBlobSha1": "9d09b5183280f33acadb9c3c93430613d372d996",
+      "size": 3732
+    },
+    {
+      "path": "data/media/animations/pass/walk/nonbase/000_kneeheight.anim",
+      "gitBlobSha1": "288c60dabc4b997357cf63339f9e07ae686e39e4",
+      "size": 3174
+    },
+    {
+      "path": "data/media/animations/pass/walk/nonbase/D045_pass00_header_headheight.anim",
+      "gitBlobSha1": "2596a6ac69a5c2e3b885e3c52f440d92b9972e15",
+      "size": 4070
+    },
+    {
+      "path": "data/media/animations/pass/walk/nonbase/D045_pass90_header_headheight.anim",
+      "gitBlobSha1": "5df5e10cd5b08f3c94e104aa10b34cfe9a3a0712",
+      "size": 4335
+    },
+    {
+      "path": "data/media/animations/pass/walk/special/000_throw.anim",
+      "gitBlobSha1": "d67f18800fa380772edaec3d5e8c5c9b1a11a806",
+      "size": 4499
+    },
+    {
+      "path": "data/media/animations/shot/dribble/090_zidane.anim",
+      "gitBlobSha1": "7f199b1f938ba57095b5aa9ae19925fda8165387",
+      "size": 4285
+    },
+    {
+      "path": "data/media/animations/shot/dribble/angled/D135.anim",
+      "gitBlobSha1": "01d7663efe79677d3613e9539bc95cd267eb786c",
+      "size": 4932
+    },
+    {
+      "path": "data/media/animations/shot/idle/020.anim",
+      "gitBlobSha1": "e7193a6a3f35497641275b4e52ccd900bd04c4f3",
+      "size": 4974
+    },
+    {
+      "path": "data/media/animations/shot/idle/090.anim",
+      "gitBlobSha1": "91845f7272c64512d83bede321815dd231dfbd92",
+      "size": 4009
+    },
+    {
+      "path": "data/media/animations/shot/idle/180_bicycle.anim",
+      "gitBlobSha1": "4dd63243aa87229ecad8bb0b9224f3e26f36ba3b",
+      "size": 4695
+    },
+    {
+      "path": "data/media/animations/shot/sprint/000_headerdive.anim",
+      "gitBlobSha1": "10e044011938f4029c3d4251b19a4d34717a43ac",
+      "size": 7188
+    },
+    {
+      "path": "data/media/animations/shot/sprint/010_close.anim",
+      "gitBlobSha1": "9f0a4d164b740d3b8ae57efd30b7ade75b0ab702",
+      "size": 4409
+    },
+    {
+      "path": "data/media/animations/shot/sprint/010_short_bit_longer.anim",
+      "gitBlobSha1": "bd5aa2a168d2b379947997430cbdbde68178d714",
+      "size": 4969
+    },
+    {
+      "path": "data/media/animations/shot/sprint/020_left.anim",
+      "gitBlobSha1": "70cd1b4f31cbe54c718cb87f41800669823c607e",
+      "size": 4708
+    },
+    {
+      "path": "data/media/animations/shot/sprint/030.anim",
+      "gitBlobSha1": "69276965f7985791fe280d162d8acd7b18842cc4",
+      "size": 4527
+    },
+    {
+      "path": "data/media/animations/shot/sprint/090_2step.anim",
+      "gitBlobSha1": "b1f88e1db998684aa673b8761f1c3e2f79617aa1",
+      "size": 5193
+    },
+    {
+      "path": "data/media/animations/shot/walk/010_short.anim",
+      "gitBlobSha1": "d20e2c9a61ff223fe4f32fb557e0ca9c3b29c560",
+      "size": 4451
+    },
+    {
+      "path": "data/media/animations/shot/walk/010_short_bit_longer.anim",
+      "gitBlobSha1": "6bbeba081b3199c1cd7a0fa70e2496f1e5fe3909",
+      "size": 5085
+    },
+    {
+      "path": "data/media/animations/shot/walk/090_2step.anim",
+      "gitBlobSha1": "dc915276d28c29f5b49c28ba660755db8b6dd9f1",
+      "size": 4899
+    },
+    {
+      "path": "data/media/animations/shot/walk/180_turn.anim",
+      "gitBlobSha1": "6e7036b67e89d5e306a242cf7cb6d7f3ca857b96",
+      "size": 4628
+    },
+    {
+      "path": "data/media/animations/shot/walk/angled/D045_20_below.anim",
+      "gitBlobSha1": "8eeb8fcd4fc130d66875822eb4a02662d0e96030",
+      "size": 3775
+    },
+    {
+      "path": "data/media/animations/shot/walk/angled/D045_20_header.anim",
+      "gitBlobSha1": "9148d67aa9cac580c09b891ef8337c85a5fbdf54",
+      "size": 4930
+    },
+    {
+      "path": "data/media/animations/sliding/dribble/angled/D135_decel.anim",
+      "gitBlobSha1": "084f8111f49ea8c56f214a84468275f787533b81",
+      "size": 4610
+    },
+    {
+      "path": "data/media/animations/sliding/idle/000.anim",
+      "gitBlobSha1": "01292e313998f7ffc7cdaf2d9caf8f213cf89f29",
+      "size": 2957
+    },
+    {
+      "path": "data/media/animations/sliding/idle/090.anim",
+      "gitBlobSha1": "01cd04c2ed16610f69200084559eb38061cbcf0b",
+      "size": 2646
+    },
+    {
+      "path": "data/media/animations/sliding/sprint/000.anim",
+      "gitBlobSha1": "825ec796c4e46b45dfdc2346f25f63f964e0a26f",
+      "size": 4364
+    },
+    {
+      "path": "data/media/animations/sliding/sprint/000_ballside.anim",
+      "gitBlobSha1": "3b481364652e2733f88a6f030e6b95cec375f6ba",
+      "size": 7241
+    },
+    {
+      "path": "data/media/animations/sliding/walk/000.anim",
+      "gitBlobSha1": "f47cc09cb2117f80e2f3f9dab1c2bdadb2f2641c",
+      "size": 4128
+    },
+    {
+      "path": "data/media/animations/special/000_showcard.anim",
+      "gitBlobSha1": "05988795d8dcd36212c1161bec0641535b7049a9",
+      "size": 3078
+    },
+    {
+      "path": "data/media/animations/straight.anim.util",
+      "gitBlobSha1": "5f7764019ac169fd07e47de8bf8f62c7e5d586f1",
+      "size": 1245
+    },
+    {
+      "path": "data/media/animations/templates/dribbleD000.anim",
+      "gitBlobSha1": "40e1652241e5a436e6492388a4ab60e64f41dbba",
+      "size": 2382
+    },
+    {
+      "path": "data/media/animations/templates/dribbleD045.anim",
+      "gitBlobSha1": "5e149a63dd98e4c1309b534b5de949d02f0adfc1",
+      "size": 2367
+    },
+    {
+      "path": "data/media/animations/templates/dribbleD045_left.anim",
+      "gitBlobSha1": "306a6c430daa1424800dd7c28e4f776d9cc2782d",
+      "size": 2411
+    },
+    {
+      "path": "data/media/animations/templates/dribbleD135.anim",
+      "gitBlobSha1": "de8c24f40a52d9e837ca0d1244dd34be4a57ea55",
+      "size": 2526
+    },
+    {
+      "path": "data/media/animations/templates/dribbleD135_left.anim",
+      "gitBlobSha1": "c39bc0e6ba36bc8d501c5c263dc37c5e9cc7f8d6",
+      "size": 2241
+    },
+    {
+      "path": "data/media/animations/templates/idleD000.anim",
+      "gitBlobSha1": "5664fe8a803216755fef500e83eabc221a057b3b",
+      "size": 1254
+    },
+    {
+      "path": "data/media/animations/templates/sprintD000.anim",
+      "gitBlobSha1": "f8a4171b119f4c6875676be2a9ac5e882df774f3",
+      "size": 3773
+    },
+    {
+      "path": "data/media/animations/templates/walkD000.anim",
+      "gitBlobSha1": "6cab60e25ff021e9ade97397bdb8cde95c0d1e6e",
+      "size": 3264
+    },
+    {
+      "path": "data/media/animations/templates/walkD045.anim",
+      "gitBlobSha1": "423f5babd1517ba19e87c08ad6e7b2060c67ec8d",
+      "size": 2366
+    },
+    {
+      "path": "data/media/animations/templates/walkD045_left.anim",
+      "gitBlobSha1": "f1099ce8525e507a97d3fbe9d56dac188de9ab76",
+      "size": 2411
+    },
+    {
+      "path": "data/media/animations/trap/idle/000_IB000.anim",
+      "gitBlobSha1": "b56a718795c8effa93d74c686ec1bb4b6b3c9fdd",
+      "size": 3516
+    },
+    {
+      "path": "data/media/animations/trap/idle/090_IB000_accel_optional.anim",
+      "gitBlobSha1": "4dbefd9ca773f9052c921df5a70f105cce0f568b",
+      "size": 2905
+    },
+    {
+      "path": "data/media/animations/trap/idle/135_IB000.anim",
+      "gitBlobSha1": "4dba1f48f74fb3af99e3882a865cc985bb5cac80",
+      "size": 2767
+    },
+    {
+      "path": "data/media/animations/trap/idle/135_IB000_accel_left_shallowangle.anim",
+      "gitBlobSha1": "cb9b9b13b477483605b02d9c80d10a8b3e4c4f51",
+      "size": 2981
+    },
+    {
+      "path": "data/media/animations/trap/idle/135_IB000_accel_right.anim",
+      "gitBlobSha1": "c50611a0230c2ff83ce32788855bd1217d4cf567",
+      "size": 3942
+    },
+    {
+      "path": "data/media/animations/trap/idle/highballs/000_chest.anim",
+      "gitBlobSha1": "f246875b8ffd94799a904525707bce3c7110a892",
+      "size": 3495
+    },
+    {
+      "path": "data/media/animations/trap/idle/highballs/000_chest_jump.anim",
+      "gitBlobSha1": "96edc41c020be79e9da66bd0ac75e1e2e4b8f9cd",
+      "size": 5675
+    },
+    {
+      "path": "data/media/animations/trap/idle/highballs/000_crotch.anim",
+      "gitBlobSha1": "6b6cf44dfb2beeafd1f5ecf2beef20cf24773421",
+      "size": 2044
+    },
+    {
+      "path": "data/media/animations/trap/idle/highballs/000_knee.anim",
+      "gitBlobSha1": "bf0a8198c0853a4a535c0fe0fc619f503b5db5a7",
+      "size": 3647
+    },
+    {
+      "path": "data/media/animations/trap/idle/highballs/020_chest_fromabove.anim",
+      "gitBlobSha1": "89322f37627b8e293b5d464657250ae1c1d7f1f4",
+      "size": 3899
+    },
+    {
+      "path": "data/media/animations/trap/idle/highballs/135_chest.anim",
+      "gitBlobSha1": "681ff05ace31879cb4d576c67cebb58e0a06ded8",
+      "size": 3030
+    },
+    {
+      "path": "data/media/animations/trap/sprint/000_D000_IB090_decel.anim",
+      "gitBlobSha1": "df9aa38b52a7c85320d6719d8186d2494c08e4f6",
+      "size": 4061
+    },
+    {
+      "path": "data/media/animations/trap/sprint/highballs/000_chest.anim",
+      "gitBlobSha1": "7e2726414f1f94b47bdeee755742af0b5fe0c8f8",
+      "size": 4843
+    },
+    {
+      "path": "data/media/animations/trap/sprint/highballs/000_fromside_kneeheight.anim",
+      "gitBlobSha1": "27673aa43f07937b388e74a07cd2eac7c6cd4d27",
+      "size": 5910
+    },
+    {
+      "path": "data/media/animations/trap/sprint/lastditch/000_decel_decel_decel_stretch.anim",
+      "gitBlobSha1": "d73e17c5fc512d3a52c29476341142e48e1e0e4b",
+      "size": 5125
+    },
+    {
+      "path": "data/media/animations/trap/sprint/lastditch/000_decel_decel_stretch.anim",
+      "gitBlobSha1": "2c650ab037b320c9c57374d2bace270dcd6380af",
+      "size": 3151
+    },
+    {
+      "path": "data/media/animations/trap/walk/000_D000_IB000_decel_decel.anim",
+      "gitBlobSha1": "4e0db3050941a2d5d7e8c48fb0b0d5facc89cc7e",
+      "size": 4203
+    },
+    {
+      "path": "data/media/animations/trap/walk/000_D000_IB000_short.anim",
+      "gitBlobSha1": "c30bc2aad2c62f938113b1c8231e94053ccaedfc",
+      "size": 2679
+    },
+    {
+      "path": "data/media/animations/trap/walk/000_D000_IB090.anim",
+      "gitBlobSha1": "b18bbdf353ddd24438f910c7b5cc36aea356e809",
+      "size": 4929
+    },
+    {
+      "path": "data/media/animations/trap/walk/000_D000_IB090_decel_decel.anim",
+      "gitBlobSha1": "5799d2160019cc4c37c7c610bffbd2f15d948bca",
+      "size": 5500
+    },
+    {
+      "path": "data/media/animations/trap/walk/000_D045_IB090.anim",
+      "gitBlobSha1": "463fce2c3d0e099513df504d2cc857e04d9df2e9",
+      "size": 3987
+    },
+    {
+      "path": "data/media/animations/trap/walk/000_D045_IB090_decel_decel.anim",
+      "gitBlobSha1": "d1c95084ca9d8eab6ff40ef832573040a0c26b4e",
+      "size": 4958
+    },
+    {
+      "path": "data/media/animations/trap/walk/000_D045_IB135.anim",
+      "gitBlobSha1": "6e195a4821287cc01dc6741b7e35faf99fe43a9d",
+      "size": 5423
+    },
+    {
+      "path": "data/media/animations/trap/walk/000_D135_IB135_decel_decel.anim",
+      "gitBlobSha1": "20c685e846a6e32b3bf2aabc31db910c4ab48f80",
+      "size": 4351
+    },
+    {
+      "path": "data/media/animations/trap/walk/135_D000_IB000_decel_decel.anim",
+      "gitBlobSha1": "82842353cda6e305ae341a7266379c0b6378ad14",
+      "size": 4473
+    },
+    {
+      "path": "data/media/animations/trap/walk/135_D045_IB090_decel_decel.anim",
+      "gitBlobSha1": "441afdd6a5811f75ada4c8889abaec3d5761e58d",
+      "size": 5435
+    },
+    {
+      "path": "data/media/animations/trap/walk/135_D045_IB135_decel_decel.anim",
+      "gitBlobSha1": "f520a050e48f4c8ead8eee2f4b9b414653b57a78",
+      "size": 5293
+    },
+    {
+      "path": "data/media/animations/trap/walk/135_D135_IB135_decel_decel.anim",
+      "gitBlobSha1": "3dc0186c1bda3b3b95424a893eda355b4c5665d2",
+      "size": 4239
+    },
+    {
+      "path": "data/media/animations/trap/walk/highballs/000_chest_ballfrombelow.anim",
+      "gitBlobSha1": "7a46904d071d1436d382f5cbf9c5accf30c5698a",
+      "size": 4405
+    },
+    {
+      "path": "data/media/animations/trap/walk/highballs/000_chest_jump_decel.anim",
+      "gitBlobSha1": "c8fbce956f7ec29f84d115ddc38fa8421b1a08cb",
+      "size": 4895
+    },
+    {
+      "path": "data/media/animations/trap/walk/highballs/000_control_highball_decel.anim",
+      "gitBlobSha1": "db8676006e3ca57142ad4c409dd6d9687388f4de",
+      "size": 4923
+    },
+    {
+      "path": "data/media/animations/trap/walk/highballs/000_knee.anim",
+      "gitBlobSha1": "32c3857e9154cb5bacbad483eb95785d5153b7d8",
+      "size": 2899
+    },
+    {
+      "path": "data/media/animations/trap/walk/highballs/135_chest.anim",
+      "gitBlobSha1": "122421f49b3bcd7ab746114807d941369a687870",
+      "size": 4406
+    },
+    {
+      "path": "data/media/animations/trap/walk/highballs/D045_chest.anim",
+      "gitBlobSha1": "bb06a30f0216f202856c434499dcf27c390bbf35",
+      "size": 4377
+    },
+    {
+      "path": "data/media/animations/trap/walk/highballs/D045_to_D000_decel_chest.anim",
+      "gitBlobSha1": "e8fdaab70ed1effe60f562599cc9ce665de85305",
+      "size": 5553
+    },
+    {
+      "path": "data/media/animations/trap/walk/highballs/D135_chest_jump_180.anim",
+      "gitBlobSha1": "d67f3101371e216939d6ff8284e351a736a02204",
+      "size": 8183
+    },
+    {
+      "path": "data/media/animations/trap/walk/highballs/D135_chest_jump_decel.anim",
+      "gitBlobSha1": "44a68a08f68df4347a1b350f25aefb1b68629f5d",
+      "size": 8101
+    },
+    {
+      "path": "data/media/animations/trap/walk/lastditch/000_D000_IB090_decel_decel_lastditch.anim",
+      "gitBlobSha1": "cac8be9244bb2640fe15616e8228d89a550cce2c",
+      "size": 3902
+    },
+    {
+      "path": "data/media/animations/trap/walk/lastditch/000_D000_IB090_decel_short_lastditch.anim",
+      "gitBlobSha1": "bf1aff3d5850e9e9ae8c350e7d26542cd66085eb",
+      "size": 2882
+    },
+    {
+      "path": "data/media/animations/trap/walk/lastditch/000_frombehind_decel.anim",
+      "gitBlobSha1": "0687edc99f979c24505e181c32e0b546fd4b482f",
+      "size": 4876
+    },
+    {
+      "path": "data/media/animations/trip/trip_t1/idle/000_protectback.anim",
+      "gitBlobSha1": "a8009546979dcb460407e626dfa17d279b8edba7",
+      "size": 1609
+    },
+    {
+      "path": "data/media/animations/trip/trip_t1/idle/000_protectfront.anim",
+      "gitBlobSha1": "05ff6a15ef8472b7306ca4d9bdd5a49db0d79bbd",
+      "size": 1931
+    },
+    {
+      "path": "data/media/animations/trip/trip_t1/idle/000_protectside.anim",
+      "gitBlobSha1": "2d72fc74773b441b059f9d6ca890f5d191742ac6",
+      "size": 2565
+    },
+    {
+      "path": "data/media/animations/trip/trip_t1/sprint/000_decel.anim",
+      "gitBlobSha1": "d9f98bc6745d50643c8a91a444e59af5452a3a07",
+      "size": 3727
+    },
+    {
+      "path": "data/media/animations/trip/trip_t1/sprint/000_sidebump.anim",
+      "gitBlobSha1": "f0aaee44a768cdd24aa98918c67e73bd122960e9",
+      "size": 4969
+    },
+    {
+      "path": "data/media/animations/trip/trip_t1/sprint/045_decel.anim",
+      "gitBlobSha1": "bb225459c5582524fcf1892ebab06afca6ae948f",
+      "size": 5832
+    },
+    {
+      "path": "data/media/animations/trip/trip_t1/walk/000_protectback.anim",
+      "gitBlobSha1": "236dea08cc32a2f198f590ebca4a936847256d64",
+      "size": 3161
+    },
+    {
+      "path": "data/media/animations/trip/trip_t1/walk/000_protectfront.anim",
+      "gitBlobSha1": "9b9fd0b04a56c1e6581899c874dcb051dc8d1cfb",
+      "size": 3371
+    },
+    {
+      "path": "data/media/animations/trip/trip_t1/walk/028_D045_sidebump.anim",
+      "gitBlobSha1": "e91a7389c69bceec47faa15f87826592a2d00981",
+      "size": 3326
+    },
+    {
+      "path": "data/media/animations/trip/trip_t2/dribble/000_accel.anim",
+      "gitBlobSha1": "beb69011c4741cf43092b3f8b42c475336bb2e97",
+      "size": 5277
+    },
+    {
+      "path": "data/media/animations/trip/trip_t2/dribble/D135_000bump.anim",
+      "gitBlobSha1": "27372d265c498dc27ba5fd696482d6bc91ed7d68",
+      "size": 4737
+    },
+    {
+      "path": "data/media/animations/trip/trip_t2/dribble/D135_180bump.anim",
+      "gitBlobSha1": "070f532c47944f082682c7a5ddfd62dd1d588748",
+      "size": 4888
+    },
+    {
+      "path": "data/media/animations/trip/trip_t2/idle/000_000.anim",
+      "gitBlobSha1": "e3ffda106e187daa973861feaf45faeec753f258",
+      "size": 3870
+    },
+    {
+      "path": "data/media/animations/trip/trip_t2/idle/000_090.anim",
+      "gitBlobSha1": "49ddcad37cc57337b5a11489e10e473eb28514bd",
+      "size": 3979
+    },
+    {
+      "path": "data/media/animations/trip/trip_t2/idle/000_180.anim",
+      "gitBlobSha1": "f6af64804a6f16a180f1986afea4bfb16c8daf53",
+      "size": 3391
+    },
+    {
+      "path": "data/media/animations/trip/trip_t2/sprint/side_behind.anim",
+      "gitBlobSha1": "6ee1987e68077fc40e9f276ae80eb3568a563201",
+      "size": 5073
+    },
+    {
+      "path": "data/media/animations/trip/trip_t3/sprint/000.anim",
+      "gitBlobSha1": "357bcacd52a8eda0a1808d5e319c200fdf679142",
+      "size": 3854
+    },
+    {
+      "path": "data/media/animations/trip/trip_t3/sprint/045.anim",
+      "gitBlobSha1": "8941ec74452e29eb39963204042888dffddead57",
+      "size": 4320
+    },
+    {
+      "path": "data/media/animations/trip/trip_t3/walk/000_000.anim",
+      "gitBlobSha1": "ad9f88cddc47f97034f9f219e93199cf14caa2c5",
+      "size": 4403
+    },
+    {
+      "path": "data/media/objects/players/models/foot.ase",
+      "gitBlobSha1": "5804c6ad34dedf62c8c8602bb48992b01410bbfa",
+      "size": 52328
+    },
+    {
+      "path": "data/media/objects/players/models/fullbody.ase",
+      "gitBlobSha1": "f37dd5e342016aecbcf9fb7425517d0b3b258549",
+      "size": 368395
+    },
+    {
+      "path": "data/media/objects/players/models/fullbody2.ase",
+      "gitBlobSha1": "5183505d41bb44bad77b012dba4cda21b8673ae9",
+      "size": 368395
+    },
+    {
+      "path": "data/media/objects/players/models/head.ase",
+      "gitBlobSha1": "89b27116ef2d71e3934deb6dcc0698231498e068",
+      "size": 164166
+    },
+    {
+      "path": "data/media/objects/players/models/lowerarm.ase",
+      "gitBlobSha1": "56d1e564abe57d6143d555e1cb7f27b08bdfe473",
+      "size": 115844
+    },
+    {
+      "path": "data/media/objects/players/models/lowerleg.ase",
+      "gitBlobSha1": "be3ffa703b8bb39f3ce5cbf762705d6038b0efd9",
+      "size": 164582
+    },
+    {
+      "path": "data/media/objects/players/models/pelvis.ase",
+      "gitBlobSha1": "6eebb1127560a2750ca5d1edc251ffa7c28093ba",
+      "size": 192213
+    },
+    {
+      "path": "data/media/objects/players/models/trunk.ase",
+      "gitBlobSha1": "442fc0a4609c28d2279c51685f1f317c5b7b5772",
+      "size": 138912
+    },
+    {
+      "path": "data/media/objects/players/models/upperarm.ase",
+      "gitBlobSha1": "1a57de4a00e0f6ac51cd1d8e97b9e732b0656e46",
+      "size": 230415
+    },
+    {
+      "path": "data/media/objects/players/models/upperleg.ase",
+      "gitBlobSha1": "2676a051ce8d1bd0654435684a6c64f2dc72115a",
+      "size": 151737
+    },
+    {
+      "path": "data/media/objects/players/player.object",
+      "gitBlobSha1": "e5d21b06b1aef89ae656de99413ae561a40b869b",
+      "size": 2955
+    },
+    {
+      "path": "src/utils/animation.cpp",
+      "gitBlobSha1": "fe83f2c5cb67d7e350daed1dd261ba5395cae0dc",
+      "size": 53687
+    }
+  ]
+}

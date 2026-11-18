@@ -1,0 +1,17 @@
+{
+  "glbVersion": 2,
+  "glbBytes": 132784,
+  "animationNames": [
+    "run_half_cycle_source",
+    "slide",
+    "fall",
+    "idle",
+    "run_full_cycle"
+  ],
+  "channelsPerAnimation": 14,
+  "gltfNodes": 43,
+  "gltfMeshes": 17,
+  "coordinateConversion": "Z-up to glTF Y-up",
+  "sourceClipsValidated": 293,
+  "sourceContactFrame": 32
+}

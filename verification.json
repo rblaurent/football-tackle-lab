@@ -1,0 +1,73 @@
+{
+  "errors": [],
+  "clips": [
+    "run",
+    "slide",
+    "fall",
+    "idle"
+  ],
+  "videoFrames": 192,
+  "fps": 30,
+  "videoDurationSeconds": 6.4,
+  "glbBytes": 132784,
+  "glb": {
+    "glbVersion": 2,
+    "glbBytes": 132784,
+    "animationNames": [
+      "run_half_cycle_source",
+      "slide",
+      "fall",
+      "idle",
+      "run_full_cycle"
+    ],
+    "channelsPerAnimation": 14,
+    "gltfNodes": 43,
+    "gltfMeshes": 17,
+    "coordinateConversion": "Z-up to glTF Y-up",
+    "sourceClipsValidated": 293,
+    "sourceContactFrame": 32
+  },
+  "source": {
+    "commit": "3d9e754720a95621bba6475c4d3b0d56fe919014",
+    "tree": "3d9e754720a95621bba6475c4d3b0d56fe919014",
+    "animationFileCount": 293,
+    "animationBytes": 1146727.0,
+    "verifiedOriginalFileCount": 309
+  },
+  "videos": {
+    "broadcast": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 800,
+          "r_frame_rate": "30/1",
+          "nb_frames": "192"
+        }
+      ],
+      "format": {
+        "duration": "6.400000",
+        "size": "1126087"
+      }
+    },
+    "pitch-side": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 800,
+          "r_frame_rate": "30/1",
+          "nb_frames": "192"
+        }
+      ],
+      "format": {
+        "duration": "6.400000",
+        "size": "1227872"
+      }
+    }
+  }
+}
