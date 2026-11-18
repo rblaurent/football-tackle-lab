@@ -4,12 +4,13 @@ import {MotionLibrary,PoseTransition} from './animation.js';
 import {FootPlanting} from './foot-planting.js';
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),wrap=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const up=new T.Vector3(0,1,0),zero=new T.Vector3();
-function approach(a,b,amount){return a<b?Math.min(b,a+amount):Math.max(b,a-amount);}
 export class FootballActor {
  constructor(library,position,color,network=null){this.lib=library;this.position=position.clone();this.velocity=new T.Vector3();this.heading=0;this.color=color;this.speed=0;this.phase=0;this.state='idle';this.action='idle';this.time=0;this.age=0;this.intent={mode:'idle',direction:new T.Vector3(1,0,0),pace:3};this.target=library.createPose();library.sample('idle',0,this.target);this.mixer=new PoseTransition(this.target);this.planting=new FootPlanting(library,network);this.renderPose=this.mixer.output;this.weights={idle:1};this.history=[];this.eventSequence=0;this.cooldown=0;this.feet=[new T.Vector3(),new T.Vector3()];this.oldFeet=this.feet.map(p=>p.clone());this.knees=this.feet.map(p=>p.clone());this.updateFeet();this.oldFeet.forEach((p,i)=>p.copy(this.feet[i]));}
- enter(state,action=state){const previous=this.state;this.state=state;this.action=action;this.age=0;this.time=0;let entry={time:0,cost:0};
+ rebase(yaw){if(Math.abs(yaw)<1e-10)return;this.heading+=yaw;const q=new T.Quaternion().setFromAxisAngle(up,-yaw),ai=this.lib.index.AITrajectory;for(const pose of new Set([this.mixer.output,this.mixer.previous,this.renderPose,this.planting.output]))pose.quaternions[ai].premultiply(q).normalize();}
+ enter(state,action=state){const previous=this.state,wasLocked=['tackle','fall','recover'].includes(previous);this.state=state;this.action=action;this.age=0;this.time=0;this.rootCarry=['recover','fall'].includes(state)?this.velocity.clone():null;let entry={time:0,cost:0};
   if(state==='move'){entry=this.lib.match('jog',this.mixer.output);this.phase=entry.time/this.lib.motions.jog.duration;this.lib.locomotion(this.speed,this.phase,this.target);}
   else {if(state==='recover'){entry=this.lib.recovery(this.mixer.output);this.action=entry.id;}else if(state==='stop')entry=this.lib.match('stop',this.mixer.output,{max:.75});else if(state==='start')entry=this.lib.match('start',this.mixer.output,{max:.12});this.time=entry.time;this.lib.sample(this.action,this.time,this.target);}
+  if(wasLocked||['tackle','fall','recover'].includes(state)){const fit=this.lib.alignment(this.mixer.output,this.target);this.rebase(fit.yaw);}
   const next=this.lib.createPose();if(state==='move')this.lib.locomotion(this.speed,this.phase+(1/120)/this.lib.motions.jog.duration,next);else this.lib.sample(this.action,this.time+(1/120)*(state==='stop'?1.65:state==='start'||state==='idle'?1.25:1),next);this.mixer.begin(this.target,state==='recover'?.27:state==='tackle'?.13:.22,next);this.history.push({from:previous,to:state,action:this.action,entry:this.time,cost:entry.cost});if(this.history.length>32)this.history.shift();
  }
  requestTackle(ball=this.lastBall){if(['tackle','recover','fall'].includes(this.state)||this.cooldown>0)return false;this.enter('tackle');this.planTackle(ball);this.eventSequence++;return true;}
@@ -30,10 +31,10 @@ export class FootballActor {
   else if(this.state==='stop'&&desired>.1)this.enter('move');
   else if(this.state==='move'&&Math.abs(angle)>1.0&&this.speed>1.7&&this.cooldown===0){this.enter('turn');this.cooldown=2;}
   const locked=['tackle','recover','fall'].includes(this.state),m=this.lib.motions[this.action];
-  if(locked){const last=this.time;this.time=Math.min(m.duration,this.time+dt);const delta=this.lib.rootDelta(this.action,last,this.time).applyAxisAngle(up,this.heading);delta.y=0;if(this.state==='tackle'){delta.multiplyScalar(.72);if(this.tacklePlan){const smooth=t=>{const u=clamp(t/this.tacklePlan.time,0,1);return u*u*(3-2*u);};delta.addScaledVector(this.tacklePlan.correction.clone().applyAxisAngle(up,this.heading),smooth(this.time)-smooth(last));}}delta.clampLength(0,dt*12);this.position.add(delta);this.velocity.copy(delta).multiplyScalar(1/dt);this.speed=this.velocity.length();this.lib.sample(this.action,this.time,this.target);this.weights={[this.action]:1};
-   if(this.time>=m.duration){if(this.state==='recover'){this.cooldown=.45;this.enter(desired>.1?'move':'idle');}else this.enter('recover');}
+  if(locked){const last=this.time;this.time=Math.min(m.duration,this.time+dt);const delta=this.lib.rootDelta(this.action,last,this.time).applyAxisAngle(up,this.heading);delta.y=0;if(this.state==='tackle'){delta.multiplyScalar(.72);if(this.tacklePlan){const smooth=t=>{const u=clamp(t/this.tacklePlan.time,0,1);return u*u*(3-2*u);};delta.addScaledVector(this.tacklePlan.correction.clone().applyAxisAngle(up,this.heading),smooth(this.time)-smooth(last));}}const elapsed=this.time-last;delta.clampLength(0,elapsed*12);if(elapsed>1e-8)this.velocity.copy(delta).multiplyScalar(1/elapsed);if(this.rootCarry){const u=clamp(this.age/.18,0,1);this.velocity.lerp(this.rootCarry,1-u*u*(3-2*u));}this.position.addScaledVector(this.velocity,dt);this.speed=this.velocity.length();this.lib.sample(this.action,this.time,this.target);this.weights={[this.action]:1};
+   if(this.time>=m.duration){if(this.state==='recover'){this.cooldown=.45;this.enter(desired>.1?'move':this.speed>.2?'stop':'idle');}else this.enter('recover');}
   }else{
-   this.speed=approach(this.speed,desired,dt*(desired>this.speed?5.5:8.5));this.velocity.set(Math.cos(this.heading)*this.speed,0,-Math.sin(this.heading)*this.speed);this.position.addScaledVector(this.velocity,dt);
+   const goal=new T.Vector3(Math.cos(this.heading)*desired,0,-Math.sin(this.heading)*desired),change=goal.sub(this.velocity),limit=dt*(desired>this.speed?5.5:8.5);this.velocity.add(change.clampLength(0,limit));this.speed=this.velocity.length();this.position.addScaledVector(this.velocity,dt);
    if(this.state==='move'){
     const s=this.speed;let frequency=s<2.91?T.MathUtils.lerp(1/this.lib.motions.walk.duration,1/this.lib.motions.jog.duration,clamp((s-1.37)/1.54,0,1)):T.MathUtils.lerp(1/this.lib.motions.jog.duration,1/this.lib.motions.sprint.duration,clamp((s-2.91)/4.89,0,1));if(s<1.37)frequency*=s/1.37;this.phase=(this.phase+dt*frequency)%1;this.weights=this.lib.locomotion(s,this.phase,this.target);
    }else{
@@ -70,7 +71,7 @@ export class FootballWorld {
   }));
  }
  advance(dt){this.accumulator+=Math.min(dt,.1);let steps=0;while(this.accumulator>=this.fixedStep&&steps++<12){this.step();this.accumulator-=this.fixedStep;}}
- duel(){this.demo=false;this.isDuel=true;const [a,b]=this.actors;a.position.set(-2,0,0);b.position.set(0,0,1);b.heading=Math.PI;this.ball.position.set(.25,.11,.45);this.ball.velocity.set(0,0,0);for(const actor of this.actors){actor.updateFeet();actor.oldFeet.forEach((p,i)=>p.copy(actor.feet[i]));}a.requestTackle(this.ball);this.record('player tackle scenario');}
+ duel(){this.demo=false;this.isDuel=true;const [a,b]=this.actors;a.position.set(-2,0,0);b.position.set(.5,0,.6);b.heading=Math.PI;this.ball.position.set(.25,.11,.45);this.ball.velocity.set(0,0,0);for(const actor of this.actors){actor.updateFeet();actor.oldFeet.forEach((p,i)=>p.copy(actor.feet[i]));}a.requestTackle(this.ball);this.record('player tackle scenario');}
  manual(mode){this.demo=false;this.actors[0].intent.mode=mode;}
  snapshot(){return {time:this.time,demo:this.demo,ball:this.ball.position.toArray(),ballVelocity:this.ball.velocity.toArray(),actors:this.actors.map(a=>({state:a.state,action:a.action,position:a.position.toArray(),speed:a.speed,heading:a.heading,weights:a.weights,blend:Math.min(1,a.mixer.age/a.mixer.duration),history:a.history})),events:this.events};}
 }

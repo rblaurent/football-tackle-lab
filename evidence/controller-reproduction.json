@@ -1,7 +1,9 @@
 {
   "controller-data.json": true,
-  "neural-ik.json": true,
-  "controller-assets.json": true,
+  "research/fc27-neural-ik.json": true,
+  "research/fc27-controller-assets.json": true,
   "sourceBuild": "22116598 / 1.0.142.20665",
-  "indexedAssets": 35762
+  "indexedAssets": 35762,
+  "stageHistory": "Initial clean index/extraction; all 22 clips decoded and packed again with overlapping-tail correction, then controller export rerun. Index and raw extracted inputs reused.",
+  "runtimeVictim": "f23_mx_siz_flb_tackle_vara_c01_charplayerh04_body"
 }

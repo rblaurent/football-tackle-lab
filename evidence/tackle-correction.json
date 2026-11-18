@@ -1,0 +1,948 @@
+{
+  "baselineCommit": "5c0f8654f35b872c056ec20237c5f03e93ca11b2",
+  "fixedStep": 0.008333333333333333,
+  "comparisonNote": "Operational old/new arranged duel; victim placement and fall content intentionally changed. Not a same-input ablation or EA-runtime equivalence test.",
+  "before": {
+    "largest": {
+      "0": {
+        "rootStep": [
+          {
+            "at": 1.8666666666666625,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.10000000000000019,
+            "velocity": [
+              -9.722811231965961,
+              0,
+              7.03327389965417
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 1.8499999999999959,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.10000000000000006,
+            "velocity": [
+              -9.722811231965979,
+              0,
+              7.033273899654145
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 1.8583333333333292,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.09999999999999996,
+            "velocity": [
+              -9.72281123196594,
+              0,
+              7.033273899654202
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 1.8416666666666626,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.09166953293291341,
+            "velocity": [
+              -8.8328479679981,
+              0,
+              6.556551215038758
+            ],
+            "blendAge": 0.27
+          }
+        ],
+        "hipStep": [
+          {
+            "at": 1.8499999999999959,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.10419924439174927,
+            "velocity": [
+              -9.722811231965979,
+              0,
+              7.033273899654145
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 1.8666666666666625,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.10419924439174892,
+            "velocity": [
+              -9.722811231965961,
+              0,
+              7.03327389965417
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 1.8583333333333292,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.10419924439174884,
+            "velocity": [
+              -9.72281123196594,
+              0,
+              7.033273899654202
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 1.8416666666666626,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.0948705845010048,
+            "velocity": [
+              -8.8328479679981,
+              0,
+              6.556551215038758
+            ],
+            "blendAge": 0.27
+          }
+        ],
+        "rotationStep": [
+          {
+            "at": 1.8583333333333292,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.11977122445322802,
+            "velocity": [
+              -9.72281123196594,
+              0,
+              7.033273899654202
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 1.8666666666666625,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.11977122445322802,
+            "velocity": [
+              -9.722811231965961,
+              0,
+              7.03327389965417
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 1.8499999999999959,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.11977122445322431,
+            "velocity": [
+              -9.722811231965979,
+              0,
+              7.033273899654145
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 0.41666666666666713,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.1144189610234255,
+            "velocity": [
+              4.90292642335522,
+              0,
+              1.4961837900460904
+            ],
+            "blendAge": 0.13
+          }
+        ],
+        "velocityStep": [
+          {
+            "at": 1.8416666666666626,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 13.71153461726931,
+            "velocity": [
+              -8.8328479679981,
+              0,
+              6.556551215038758
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 1.8749999999999958,
+            "state": "idle",
+            "action": "idle",
+            "value": 9.115055720942065,
+            "velocity": [
+              -2.3374807200017145,
+              0,
+              1.6908836083212184
+            ],
+            "blendAge": 0.008333333333333333
+          },
+          {
+            "at": 1.883333333333329,
+            "state": "idle",
+            "action": "idle",
+            "value": 5.421990784506208,
+            "velocity": [
+              2.814110945724603,
+              0,
+              0
+            ],
+            "blendAge": 0.016666666666666666
+          },
+          {
+            "at": 0.8249999999999995,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 2.055746612330405,
+            "velocity": [
+              1.2459983086081763,
+              0,
+              0.5707471196161122
+            ],
+            "blendAge": 0.008333333333333333
+          }
+        ]
+      },
+      "1": {
+        "rootStep": [
+          {
+            "at": 2.64166666666666,
+            "state": "recover",
+            "action": "recoverFront",
+            "value": 0.03539633280922383,
+            "velocity": [
+              -4.236817536000004,
+              0,
+              -0.30189830400001283
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 2.6499999999999932,
+            "state": "recover",
+            "action": "recoverFront",
+            "value": 0.03539633280922383,
+            "velocity": [
+              -4.236817536000004,
+              0,
+              -0.30189830400001283
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 2.6333333333333266,
+            "state": "recover",
+            "action": "recoverFront",
+            "value": 0.035396332809223795,
+            "velocity": [
+              -4.236817536000004,
+              0,
+              -0.3018983039999595
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 2.6249999999999933,
+            "state": "recover",
+            "action": "recoverFront",
+            "value": 0.03539633280922294,
+            "velocity": [
+              -4.236817535999897,
+              0,
+              -0.3018983040000128
+            ],
+            "blendAge": 0.27
+          }
+        ],
+        "hipStep": [
+          {
+            "at": 0.483333333333334,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.04043915778736457,
+            "velocity": [
+              -4.064270255999958,
+              0,
+              -1.1468496240000021
+            ],
+            "blendAge": 0.12499999999999999
+          },
+          {
+            "at": 0.49166666666666736,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.04042367698519596,
+            "velocity": [
+              -4.064270256000064,
+              0,
+              -1.146849624000002
+            ],
+            "blendAge": 0.13333333333333333
+          },
+          {
+            "at": 0.47500000000000064,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.04039142699980457,
+            "velocity": [
+              -4.064270256000064,
+              0,
+              -1.146849624000002
+            ],
+            "blendAge": 0.11666666666666665
+          },
+          {
+            "at": 0.4666666666666673,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.040281786564117954,
+            "velocity": [
+              -4.064270255999958,
+              0,
+              -1.1468496240000021
+            ],
+            "blendAge": 0.10833333333333332
+          }
+        ],
+        "rotationStep": [
+          {
+            "at": 0.9416666666666658,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.15339990896399336,
+            "velocity": [
+              -2.805095736000105,
+              0,
+              0.564257951999991
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.9333333333333325,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.15339990896398756,
+            "velocity": [
+              -2.805095735999998,
+              0,
+              0.5642579520000042
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.9499999999999991,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.15339990896398464,
+            "velocity": [
+              -2.805095735999998,
+              0,
+              0.5642579520000042
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.9583333333333324,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.15339990896398176,
+            "velocity": [
+              -2.805095735999998,
+              0,
+              0.5642579520000042
+            ],
+            "blendAge": 0.22
+          }
+        ],
+        "velocityStep": [
+          {
+            "at": 1.7666666666666628,
+            "state": "fall",
+            "action": "fall",
+            "value": 6.127991266423578,
+            "velocity": [
+              -1.9883902319982028,
+              0,
+              0.6501694895993367
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 1.7333333333333296,
+            "state": "fall",
+            "action": "fall",
+            "value": 4.594711554316566,
+            "velocity": [
+              3.774158567998782,
+              0,
+              -1.4343708167995213
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 2.6249999999999933,
+            "state": "recover",
+            "action": "recoverFront",
+            "value": 3.222865813322504,
+            "velocity": [
+              -4.236817535999897,
+              0,
+              -0.3018983040000128
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 2.6583333333333266,
+            "state": "recover",
+            "action": "recoverFront",
+            "value": 3.204165110472507,
+            "velocity": [
+              -1.0357866000000016,
+              0,
+              -0.16021202399999282
+            ],
+            "blendAge": 0.27
+          }
+        ]
+      }
+    },
+    "history": [
+      [
+        {
+          "from": "idle",
+          "to": "tackle",
+          "action": "tackle",
+          "entry": 0,
+          "cost": 0
+        },
+        {
+          "from": "tackle",
+          "to": "recover",
+          "action": "recoverSlide",
+          "entry": 0.023333333333333334,
+          "cost": 4.281850657794663
+        },
+        {
+          "from": "recover",
+          "to": "idle",
+          "action": "idle",
+          "entry": 0,
+          "cost": 0
+        }
+      ],
+      [
+        {
+          "from": "idle",
+          "to": "fall",
+          "action": "fall",
+          "entry": 0,
+          "cost": 0
+        },
+        {
+          "from": "fall",
+          "to": "recover",
+          "action": "recoverFront",
+          "entry": 0.11666666666666668,
+          "cost": 11.176218182720245
+        },
+        {
+          "from": "recover",
+          "to": "idle",
+          "action": "idle",
+          "entry": 0,
+          "cost": 0
+        }
+      ]
+    ]
+  },
+  "after": {
+    "largest": {
+      "0": {
+        "rootStep": [
+          {
+            "at": 0.35000000000000026,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.039814669608013754,
+            "velocity": [
+              4.0125211596469965,
+              0,
+              2.5935820661234854
+            ],
+            "blendAge": 0.13
+          },
+          {
+            "at": 0.3583333333333336,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.03981466960801362,
+            "velocity": [
+              4.012521159647,
+              0,
+              2.5935820661234463
+            ],
+            "blendAge": 0.13
+          },
+          {
+            "at": 0.366666666666667,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.03981466960801274,
+            "velocity": [
+              4.0125211596468855,
+              0,
+              2.5935820661234357
+            ],
+            "blendAge": 0.13
+          },
+          {
+            "at": 0.3416666666666669,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.03977966333727574,
+            "velocity": [
+              4.012782768478475,
+              0,
+              2.5854295024755625
+            ],
+            "blendAge": 0.13
+          }
+        ],
+        "hipStep": [
+          {
+            "at": 0.366666666666667,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.05093693156500632,
+            "velocity": [
+              4.0125211596468855,
+              0,
+              2.5935820661234357
+            ],
+            "blendAge": 0.13
+          },
+          {
+            "at": 0.3583333333333336,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.05070618082166106,
+            "velocity": [
+              4.012521159647,
+              0,
+              2.5935820661234463
+            ],
+            "blendAge": 0.13
+          },
+          {
+            "at": 0.4000000000000004,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.05069448228738208,
+            "velocity": [
+              3.9181625146919155,
+              0,
+              2.588454704333293
+            ],
+            "blendAge": 0.13
+          },
+          {
+            "at": 0.35000000000000026,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.05047101862027212,
+            "velocity": [
+              4.0125211596469965,
+              0,
+              2.5935820661234854
+            ],
+            "blendAge": 0.13
+          }
+        ],
+        "rotationStep": [
+          {
+            "at": 0.43333333333333385,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.07180022507294878,
+            "velocity": [
+              3.710234626358822,
+              0,
+              2.3766372236241295
+            ],
+            "blendAge": 0.13
+          },
+          {
+            "at": 0.4250000000000005,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.07180022507293642,
+            "velocity": [
+              3.710234626358903,
+              0,
+              2.3766372236240993
+            ],
+            "blendAge": 0.13
+          },
+          {
+            "at": 0.41666666666666713,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.07180022507293023,
+            "velocity": [
+              3.7102346263588992,
+              0,
+              2.3766372236241375
+            ],
+            "blendAge": 0.13
+          },
+          {
+            "at": 0.40833333333333377,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.07180022507292404,
+            "velocity": [
+              3.710234626358822,
+              0,
+              2.3766372236241295
+            ],
+            "blendAge": 0.13
+          }
+        ],
+        "velocityStep": [
+          {
+            "at": 1.3416666666666643,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.4816053904413711,
+            "velocity": [
+              1.332368561939086,
+              0,
+              -0.11051642188745267
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 1.60833333333333,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.46564519784943864,
+            "velocity": [
+              1.4154814896290668,
+              0,
+              -1.3027014982032306
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 0.3416666666666669,
+            "state": "tackle",
+            "action": "tackle",
+            "value": 0.43754458162528187,
+            "velocity": [
+              4.012782768478475,
+              0,
+              2.5854295024755625
+            ],
+            "blendAge": 0.13
+          },
+          {
+            "at": 1.274999999999998,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.42506274396681404,
+            "velocity": [
+              0.6663505864268473,
+              0,
+              -0.5114034177369235
+            ],
+            "blendAge": 0.27
+          }
+        ]
+      },
+      "1": {
+        "rootStep": [
+          {
+            "at": 0.6000000000000003,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.03200484422658701,
+            "velocity": [
+              -2.376976724317478,
+              0,
+              -2.9381681330323093
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.591666666666667,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.03142823779231244,
+            "velocity": [
+              -2.3769767243166995,
+              0,
+              -2.9381681330326734
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.6166666666666669,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.03058272695582404,
+            "velocity": [
+              -2.4625814511833752,
+              0,
+              -2.6405965072239237
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.6083333333333336,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.030551452150259856,
+            "velocity": [
+              -2.4625814511841955,
+              0,
+              -2.640596507223671
+            ],
+            "blendAge": 0.22
+          }
+        ],
+        "hipStep": [
+          {
+            "at": 0.8333333333333328,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.039847912906512094,
+            "velocity": [
+              -2.0459123069175567,
+              0,
+              -2.9867557765990735
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.8249999999999995,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.039846021323617,
+            "velocity": [
+              -2.045912306918434,
+              0,
+              -2.986755776599014
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.8166666666666662,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.0398391081034531,
+            "velocity": [
+              -2.0459123069175895,
+              0,
+              -2.986755776599175
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.8083333333333329,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.039827172458054096,
+            "velocity": [
+              -2.0459123069184004,
+              0,
+              -2.9867557765989114
+            ],
+            "blendAge": 0.22
+          }
+        ],
+        "rotationStep": [
+          {
+            "at": 0.8749999999999993,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.08631059246915251,
+            "velocity": [
+              -1.5738966390807414,
+              0,
+              -2.2882731773943377
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.8916666666666659,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.08631059246914737,
+            "velocity": [
+              -1.5738966390807414,
+              0,
+              -2.2882731773943377
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.8833333333333326,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.08631059246914222,
+            "velocity": [
+              -1.573896639081552,
+              0,
+              -2.2882731773940748
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.8999999999999992,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.08631059246914222,
+            "velocity": [
+              -1.5738966390807414,
+              0,
+              -2.2882731773943377
+            ],
+            "blendAge": 0.22
+          }
+        ],
+        "velocityStep": [
+          {
+            "at": 1.0749999999999986,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.8040401626089085,
+            "velocity": [
+              -0.799762583411553,
+              0,
+              -1.7753842807935427
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 0.8749999999999993,
+            "state": "fall",
+            "action": "fall",
+            "value": 0.5465794480451377,
+            "velocity": [
+              -1.5738966390807414,
+              0,
+              -2.2882731773943377
+            ],
+            "blendAge": 0.22
+          },
+          {
+            "at": 1.9249999999999956,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.48160539044137146,
+            "velocity": [
+              0.7844168746216097,
+              0,
+              -1.0826403055305582
+            ],
+            "blendAge": 0.27
+          },
+          {
+            "at": 2.1916666666666615,
+            "state": "recover",
+            "action": "recoverSlide",
+            "value": 0.465645197849439,
+            "velocity": [
+              -0.06571251692295745,
+              0,
+              -1.9225766320287767
+            ],
+            "blendAge": 0.27
+          }
+        ]
+      }
+    },
+    "history": [
+      [
+        {
+          "from": "idle",
+          "to": "tackle",
+          "action": "tackle",
+          "entry": 0,
+          "cost": 0
+        },
+        {
+          "from": "tackle",
+          "to": "recover",
+          "action": "recoverSlide",
+          "entry": 0.023333333333333334,
+          "cost": 0.3280590162258099
+        },
+        {
+          "from": "recover",
+          "to": "stop",
+          "action": "stop",
+          "entry": 0.53125,
+          "cost": 5.025940251821259
+        },
+        {
+          "from": "stop",
+          "to": "idle",
+          "action": "idle",
+          "entry": 0,
+          "cost": 0
+        }
+      ],
+      [
+        {
+          "from": "idle",
+          "to": "fall",
+          "action": "fall",
+          "entry": 0,
+          "cost": 0
+        },
+        {
+          "from": "fall",
+          "to": "recover",
+          "action": "recoverSlide",
+          "entry": 0.023333333333333334,
+          "cost": 0.9372158337147022
+        },
+        {
+          "from": "recover",
+          "to": "stop",
+          "action": "stop",
+          "entry": 0.53125,
+          "cost": 5.025940251821259
+        },
+        {
+          "from": "stop",
+          "to": "idle",
+          "action": "idle",
+          "entry": 0,
+          "cost": 0
+        }
+      ]
+    ]
+  },
+  "extraction": {
+    "controller-data.json": true,
+    "research/fc27-neural-ik.json": true,
+    "research/fc27-controller-assets.json": true,
+    "sourceBuild": "22116598 / 1.0.142.20665",
+    "indexedAssets": 35762,
+    "stageHistory": "Initial clean index/extraction; all 22 clips decoded and packed again with overlapping-tail correction, then controller export rerun. Index and raw extracted inputs reused.",
+    "runtimeVictim": "f23_mx_siz_flb_tackle_vara_c01_charplayerh04_body"
+  },
+  "tests": 22,
+  "video": {
+    "file": "tackle-corrected.mp4",
+    "fps": 30,
+    "frames": 135,
+    "width": 1280,
+    "height": 800
+  }
+}

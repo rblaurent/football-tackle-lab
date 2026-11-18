@@ -72,7 +72,7 @@ This is the supported reproduction command. It performs:
 4. Read/decompress selected CAS ranges; check decoded lengths and archive SHA1s.
 5. Parse the source skeleton and compiled rig DOF layouts.
 6. Resolve each VBR object's explicit ChannelToDofAsset reference and bind channel IDs to names/types.
-7. Fetch the pinned public reference codec into the work folder, verify SHA256, apply the tested forward-storage adaptation and compile the original C# host/adapter.
+7. Fetch the pinned public reference codec into the work folder, verify SHA256, apply the tested forward-storage and overlapping-tail adaptations and compile the original C# host/adapter.
 8. Decode/validate raw keys, sample source frames and write `fc27-work/data.json`.
 
 The bootstrap fetches `VbrClip.cs` at commit `8a9868a5649aa5b296b1c6e66c7c583469d7a017`. Expected original SHA256:

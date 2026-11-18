@@ -56,7 +56,7 @@ SHA256 of the original downloaded bytes:
 7344e3275871c34ac5618bf731b92a5e503ecf1092d9ba786420111f32bd1809
 ```
 
-The original codec source is not vendored here and its license was not established. `bootstrap_decoder.py` downloads it into an ignored/local work directory, checks that exact hash and changes the block-body copy to forward order for the tested FC27 resources. The adapter and host in this repository are original glue; they do not imply ownership of the fetched reference. Do not relabel the downloaded source as Unlicense.
+The original codec source is not vendored here and its license was not established. `bootstrap_decoder.py` downloads it into an ignored/local work directory, checks that exact hash, changes the block-body copy to forward order, and corrects final overlapping-block rows and offset ramps for the tested FC27 resources. The adapter and host in this repository are original glue; they do not imply ownership of the fetched reference. Do not relabel the downloaded source as Unlicense.
 
 Our original .NET host supplies VBR metadata, strips only the validated zero tail, checks raw rotation norms and samples frames. [FORMATS.md](FORMATS.md) describes the storage change and metadata fields. No FIFA game executable or closed EA animation runtime is included.
 

@@ -124,7 +124,7 @@ The files have narrow jobs:
 
 ### States and interruptions
 
-The main path is `idle → start → move → stop → idle`. A large heading change while moving can use a turn action. Chase is an intent feeding this same controller, not a separate animation player. A tackle locks the short attack sequence, enters pose-selected recovery, then returns to movement if movement was requested or to idle otherwise. A victim follows `fall → recover → idle/move`. Repeated tackle requests are rejected while tackle/fall/recovery is locked.
+The main path is `idle → start → move → stop → idle`. A large heading change while moving can use a turn action. Chase is an intent feeding this same controller, not a separate animation player. A tackle locks the short attack sequence, enters pose-selected recovery, then returns to movement if movement was requested, otherwise brakes through stop when still moving before idling. A victim follows `fall → recover → stop → idle` in the arranged duel, or resumes requested movement. Repeated tackle requests are rejected while tackle/fall/recovery is locked.
 
 A ball chase uses a bounded prediction horizon, desired heading, acceleration/deceleration and arrival hysteresis. Entering the near-ball waiting region does not repeatedly restart the player every time the distance crosses a single threshold. When the ball moves far enough away, pursuit resumes. This is simple steering, not FC's player/team AI or a guaranteed interception solver.
 
@@ -138,11 +138,13 @@ The walk/jog/sprint capture rates are roughly 1.37 / 2.91 / 7.8 m/s. The control
 
 Useful loop windows were found by comparing hips, legs, feet and arm poses: walk frames 151-183, jog 11-33, sprint 7-25. A distributed zero-slope residual correction closes the remaining capture seam. The source clips remain unchanged in JSON; trimming and closure happen in `animation.js`.
 
-The gameplay slide clip contains running, falling, an embedded rise and a held tail. Playing all 62 frames and then appending another get-up made the player drop to the ground twice. The runtime instead uses source time **0.3-1.12 s** for the tackle segment, then chooses a compatible recovery by current joint pose and hips height. Available recoveries start from slide, side, back and front poses. The original viewer still shows the full untrimmed clip.
+The gameplay slide clip contains running, falling, an embedded rise and a held tail. Playing all 62 frames and then appending another get-up made the player drop to the ground twice. The runtime instead uses source time **0.3-1.12 s** for the tackle segment, then chooses a compatible recovery by hips-relative anatomical landmarks and hips height after fitting a horizontal alignment rotation. Available recoveries start from slide, side, back and front poses. The original viewer still shows the full untrimmed clip.
 
 ### Root motion, contact and planting
 
-World navigation owns horizontal position and facing. The sampled `AITrajectory` translation/rotation is removed from the local pose; captured hips/limbs remain. Actions integrate their extracted planar trajectory deltas without resetting world position. The simplified controller canonicalizes action facing, so it does not reproduce every native turn/trajectory relationship. The slide displacement uses an explicit 0.72 scale.
+World navigation owns horizontal position. For tackle, fall and recoveries, sampled `AITrajectory` translation is consumed as root movement, while its rotation stays in the pose relative to one constant entry-yaw transform. The same transform rotates the trajectory deltas. Removing trajectory yaw every frame breaks the native hips counter-rotation and makes the tackle/fall twist. Locomotion cycles still use navigation facing.
+
+At an action boundary, a horizontal landmark fit aligns the incoming pose. The actor frame is rebased while counter-rotating the displayed trajectory parent, so the world pose stays continuous. Recovery/fall root velocity blends from the outgoing vector over 0.18 s; braking approaches a world velocity vector rather than rebuilding it from facing. A partial final simulation tick uses the actual sampled duration to compute velocity and coasts for the remainder. The slide displacement still uses an explicit 0.72 scale. These are our controller choices. See [the diagnosis and coordinate equations](TACKLE-DIAGNOSIS.md).
 
 The tackle planner searches a short future window for a low-foot contact, predicts the rolling ball's position, and accepts a planar trajectory correction only within a 3.2 m request range and a 1.55 m correction bound. A smooth correction is applied through the contact interval. Root speed is bounded to 12 m/s. This is our bounded motion warp, not a recovered FC interaction scheduler. Out-of-range requests can miss. The ball is never parented to a foot or teleported into possession.
 
@@ -177,7 +179,7 @@ The second command writes:
 
 To use a new extraction locally, copy `controller-data.json` to the repository root and `neural-ik.json` to `research/fc27-neural-ik.json`. Keep the extraction report and raw payloads for your own evidence; the browser does not need raw EBX or installed-game access. The provided sample files already let your friend run the demo on a Mac without extraction.
 
-The expanded pipeline was rerun from an **empty work folder**. All thirteen runtime clips, all three networks and the complete controller report matched the committed JSON exactly after parsing. The filtered index retained 35,762 entries on this tested build; it is intentionally much smaller than the historical all-asset research index. See [`evidence/controller-reproduction.json`](../evidence/controller-reproduction.json) for the authoritative count if a later profile changes it.
+The initial expanded pipeline was run from an **empty work folder**. After the tackle investigation, all 22 clips were decoded/packed again with corrected overlapping-tail indexing, and the controller export was rerun using that verified index/extracted input. All thirteen current runtime clips, all three networks and the complete controller report match the committed JSON after parsing. The runtime victim clip now replaces the stunt clip; the expanded 22 and baseline eleven selections are unchanged. The filtered index retained 35,762 entries on this tested build; it is intentionally much smaller than the historical all-asset research index. See [`evidence/controller-reproduction.json`](../evidence/controller-reproduction.json) for the authoritative count if a later profile changes it.
 
 The profile is tied to the tested build. On another patch/game, reject missing assets, hash/size failures, invalid pointers, missing DOFs, unsupported codecs, bad quaternion norms or neural dimensions. Do not suppress failures or replace missing values with zero. The scalar sampling and codec timebase details remain in [FORMATS.md](FORMATS.md).
 
@@ -199,7 +201,7 @@ node tools/verify-viewer.cjs --url http://127.0.0.1:8080/clips.html --out clip-c
 
 Omit `--channel chrome` to use a Playwright-managed Chromium installation. The controller verifier checks native skinned poses across the automatic sequence, actual ball contact, the two-player fall/recovery, chase/stop/tackle controls, and pad movement. Its phone pass sends actual touch events through Chromium's protocol; this is still **phone emulation**, not a test on Android/iOS hardware. Mac/Safari hardware has not been tested.
 
-The sixteen Node tests cover the integrated state sequence, interrupted-blend pose continuity, closed gait seams, victim recovery, action locking/resumption, chase hysteresis, swept contact degeneracies, neural layer shapes and invariant leg lengths, plus the seven earlier physics checks. Two actors and this selected action vocabulary are the measured scope. No 22-player load test has been run.
+The twenty-two Node tests cover the integrated state sequence, interrupted-blend pose continuity, closed gait seams, victim recovery, action locking/resumption, chase hysteresis, swept contact degeneracies, neural layer shapes and invariant leg lengths, plus overlapping-tail regression values, shared pose/path capture frames, world-pose continuity across frame changes, velocity continuity into braking, victim-clip selection, rotation-equivariant encounters and the seven earlier physics checks. Two actors and this selected action vocabulary are the measured scope. No 22-player load test has been run.
 
 To record and encode the showcase:
 
@@ -208,7 +210,7 @@ node tools/capture-controller.cjs --url http://127.0.0.1:8080/ --out capture --c
 ffmpeg -framerate 30 -i capture/frame-%05d.jpg -c:v libx264 -crf 20 -pix_fmt yuv420p -movflags +faststart controller.mp4
 ```
 
-[Watch the recorded 18.5-second result](../evidence/controller-motion.mp4), including the automatic sequence and two-player encounter.
+[Watch the corrected 4.5-second tackle](../evidence/tackle-corrected.mp4). It includes the fall, both get-ups and braking to idle. The earlier 18.5-second `controller-motion.mp4` is historical pre-fix footage and should not be used to judge the current tackle.
 
 The portable [`tools/capture-controller.cjs`](../tools/capture-controller.cjs) records real WebGL frames from the controller with deterministic fixed simulation steps. It can capture the automatic sequence or a duel; see its `--help`/usage text. The rendered MP4 is ordinary browser footage, not generated video.
 
@@ -218,7 +220,7 @@ Keep this controller as the animation presentation layer. Add a small match simu
 
 The main remaining animation work is a richer tagged entry/exit vocabulary, contact timing annotations, acceleration-specific gait coverage, better action-facing alignment, target-rig contact IK, synchronized paired interactions and layered gestures. Shirt pulling needs a shared interaction frame, hand-to-torso constraint and eventually a garment response. The original shirt-pull clips are available in the separate viewer, but this controller does not yet select or blend paired shirt pulls automatically.
 
-The current ball remains on a flat plane with rolling drag and planar impulses. There are no aerial passes, headers, spin model, goalkeeper controller or full dynamic ragdoll. A generic captured fall is chosen after contact rather than synthesizing an impact-specific physical response. Different tackle approach angles still need more motion variants and a tested paired interaction scheduler. Severe turns can foot slide despite bounded planting; retargeted hands/feet are approximate. These are real remaining tasks, not features implicitly supplied by extracting clips.
+The current ball remains on a flat plane with rolling drag and planar impulses. There are no aerial passes, headers, spin model, goalkeeper controller or full dynamic ragdoll. A generic paired-tackle victim fall (source 0.55-1.60 s) is chosen after contact rather than synthesizing an impact-specific physical response. Different tackle approach angles still need more motion variants and a tested paired interaction scheduler. Severe turns can foot slide despite bounded planting; retargeted hands/feet are approximate. These are real remaining tasks, not features implicitly supplied by extracting clips.
 
 For FC research, the next useful step is reconstructing the remaining trajectory feature ordering and tracing the actual PTM database records/filters into their search representation. Then compare candidate choices against observed in-game behavior on controlled inputs. A separate effort could validate neural output conventions against EA runtime samples. Do not conflate either task with the working small controller already provided.
 

@@ -2,9 +2,9 @@
 
 **[Play the continuous controller](https://rblaurent.github.io/football-tackle-lab/)** · [Original clip viewer](https://rblaurent.github.io/football-tackle-lab/clips.html) · [Complete setup/extraction handoff](docs/START-HERE.md)
 
-[Watch the 18.5-second controller capture](evidence/controller-motion.mp4)
+[Watch the 4.5-second controller capture](evidence/tackle-corrected.mp4)
 
-![Two-player tackle with native motion and automatic recovery](evidence/controller-duel.jpg)
+![Corrected tackle and victim reaction](evidence/tackle-corrected.jpg)
 
 A small, playable football animation system using selected **native FC 27 Lite motions** on proper skinned human characters. It can idle, start, walk, jog, sprint, stop, turn, chase a ball, tackle, fall and get back up. The home page runs the latest controller; the original eight-scene clip viewer and earlier collision experiment are preserved.
 
@@ -41,3 +41,5 @@ Knee, elbow and Spine3 networks were checked against 240 native idle/walk/jog/sp
 ## Terms
 
 Original project code is Unlicense, Quaternius human meshes/hair are CC0, and Three.js is MIT. **FC-derived motions, skeleton, controller data and neural weights are separate and are not covered by those licenses; no redistribution permission is asserted for them.** No installed game, native EA runtime, Oodle binary, FMT binary or third-party reference codec source is included. Read [THIRD_PARTY.md](THIRD_PARTY.md). This independent experiment is not endorsed by EA or FIFA.
+
+The tackle orientation, victim reaction and recovery endpoint were corrected after a native-decoder and coordinate-frame investigation. [Diagnosis, fixes and reproducible measurements](docs/TACKLE-DIAGNOSIS.md).

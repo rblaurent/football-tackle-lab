@@ -1,0 +1,109 @@
+{
+  "url": "http://127.0.0.1:8131/",
+  "date": "2026-11-18T18:02:02.492Z",
+  "browser": "157.0.8103.79",
+  "viewports": [
+    {
+      "mobile": false,
+      "poseChecks": [
+        {
+          "time": 0,
+          "state": "idle"
+        },
+        {
+          "time": 1.4999999999999971,
+          "state": "start"
+        },
+        {
+          "time": 2.499999999999994,
+          "state": "move"
+        },
+        {
+          "time": 4.700000000000023,
+          "state": "idle"
+        },
+        {
+          "time": 6.400000000000108,
+          "state": "start"
+        },
+        {
+          "time": 7.200000000000148,
+          "state": "tackle"
+        },
+        {
+          "time": 8.000000000000187,
+          "state": "recover"
+        },
+        {
+          "time": 9.00000000000013,
+          "state": "recover"
+        },
+        {
+          "time": 11.499999999999988,
+          "state": "move"
+        },
+        {
+          "time": 13.999999999999845,
+          "state": "idle"
+        }
+      ],
+      "duelRecovered": true,
+      "animatedBallContact": true,
+      "controls": true,
+      "actualTouchPad": false,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "mobile": true,
+      "poseChecks": [
+        {
+          "time": 0,
+          "state": "idle"
+        },
+        {
+          "time": 1.4999999999999971,
+          "state": "start"
+        },
+        {
+          "time": 2.499999999999994,
+          "state": "move"
+        },
+        {
+          "time": 4.700000000000023,
+          "state": "idle"
+        },
+        {
+          "time": 6.400000000000108,
+          "state": "start"
+        },
+        {
+          "time": 7.200000000000148,
+          "state": "tackle"
+        },
+        {
+          "time": 8.000000000000187,
+          "state": "recover"
+        },
+        {
+          "time": 9.00000000000013,
+          "state": "recover"
+        },
+        {
+          "time": 11.499999999999988,
+          "state": "move"
+        },
+        {
+          "time": 13.999999999999845,
+          "state": "idle"
+        }
+      ],
+      "duelRecovered": true,
+      "animatedBallContact": true,
+      "controls": true,
+      "actualTouchPad": true,
+      "errors": [],
+      "failed": []
+    }
+  ]
+}
