@@ -16,7 +16,7 @@ python -m http.server 8080 --bind 127.0.0.1
 
 Open `http://127.0.0.1:8080`. No npm installation or remote CDN is needed. Use a browser with WebGL support. Stop the local server with Ctrl+C.
 
-Controls: play/pause, replay, 1x or 0.35x speed, a scrubber, broadcast/pitch-side/tactical cameras, and an optional joint overlay.
+Controls: choose a clean, late or missed tackle; play/pause, replay, 1x or 0.35x speed, scrub, switch cameras, or show the joint overlay.
 
 ## What was extracted
 
@@ -31,9 +31,9 @@ The upstream sprint template is a half stride. The demo mirrors the joint names 
 
 ## What this prototype adds
 
-Three.js rendering, materials, pitch, lighting, camera tracking, quaternion interpolation, brief pose crossfades, and the two-character choreography. The attacker's trip is explicitly sequenced around the source contact marker. The ball's trajectory is authored for the demonstration.
+Three.js rendering, materials, pitch, lighting, camera tracking, quaternion interpolation and brief pose crossfades. The current demo adds a deterministic contact simulation at 120 Hz. Foot, shin, thigh and torso capsules follow the extracted joints. A continuous sphere-versus-capsule sweep catches fast ball contacts, transfers moving-foot velocity, then applies gravity, ground bounce and rolling drag. Possession guides the ball until a challenge or the owner falls. Root alignment predicts the source leading boot near its contact marker, while upper-body overlap correction keeps the solid torsos apart. Actual limb contacts trigger the fall clip; clean and missed tackles do not trigger a fall.
 
-This is an extracted animation player and a staged tackle. It does **not** run FIFA/PES code or Gameplay Football's native match AI, animation search/selection, collision, foul adjudication, foot IK, or recovery logic. It holds the source ending poses, then replays. Importing these clips does not supply those gameplay systems.
+This is an extracted animation player with a small new contact solver. It does **not** run FIFA/PES code or Gameplay Football's native match AI, animation search/selection, collision, foul adjudication, foot IK, or recovery logic. The tackle classifier is a gameplay heuristic based on ball-first versus limb contact, closing speed and contact height; it is not a complete implementation of football's laws. High or forceful contact can still be flagged after touching the ball. Limb rotation is sampled at the fixed timestep; moving ball sweeps approximate capsule motion as translation during each substep. It holds ending slide/fall poses, then replays.
 
 ## Reusable assets
 
@@ -63,7 +63,15 @@ The demo scene, extraction scripts and original orchestration code in this packa
 
 ## Captures
 
-Two deterministic 1280×800, 30 fps MP4s show the same tackle from broadcast and pitch-side views. Each contains a 1x pass followed by a 0.35x replay; the side replay adds the joint overlay. Screenshots show approach, contact and fall. These are browser renders of the extracted assets, not generated video.
+The original `tackle-broadcast.mp4` and `tackle-pitch-side.mp4` preserve the first staged animation extraction study. The current `collision-clean.mp4` and `collision-late.mp4` show actual contact-driven outcomes at 1280×800 / 30 fps, with normal-speed and slow replays. These are browser renders of the extracted assets, not generated video.
 
 See `verification.json` for browser-control checks, capture metadata and GLB validation. Visual quality and contact staging are a prototype, not FIFA 2010 parity.
+
+
+
+## Collision checks
+
+Run `node --test physics.test.mjs`. Tests cover fast-ball tunneling, near misses, crossed and degenerate capsules, rebound impulses, moving-foot momentum, ground support and dangerous contact after ball-first. Browser checks verify all three distinct outcomes, finite ball trajectories and ground support. See `collision-verification.json`.
+
+The design is informed by the general approach discussed in [Animation Warping for Responsiveness in FIFA Soccer](https://gdcvault.com/play/1012464/Animation-Warping-for-Responsiveness-in): adapt motion to the gameplay situation. This is a small independent implementation, not EA code.
 

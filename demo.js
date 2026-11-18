@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {capsuleContact,stepBall,classifyTackle,sub,mul,add,dot,length} from './physics.js';
 
 const data = await (await fetch('./extracted.json')).json();
 const scene = new THREE.Scene();
@@ -137,32 +138,98 @@ const contactRing = new THREE.Mesh(new THREE.RingGeometry(.22,.24,64),new THREE.
 
 // Source slide's extension carries a ball-touch event at frame 32 (0.32 s).
 // Our two-character staging/contact timing is authored, not the native match AI.
-const slideStart=.72,contact=slideStart+.32,fallStart=contact-.035,duration=2.5;
+const slideStart=.72,contact=slideStart+.32,duration=2.5;
 let timeline=0,playing=true,speed=.35,cameraMode='broadcast';
 const $=id=>document.getElementById(id);
+let collisionMode='late';
+const zero=()=>[0,0,0];
+function poseActors(t,fallStart,defenderX,offsets=[zero(),zero()]){
+  let dp,ap;const slideTime=Math.max(0,t-slideStart),fallTime=Math.max(0,t-fallStart);
+  if(t<slideStart){dp=runPose(t*100);dp.player=[0,0,dp.player[2]];apply(defender,dp,defenderX+offsets[0][0],3.55+7*(slideStart-t)+offsets[0][1]);}
+  else{dp=pose('slide',Math.min(62,slideTime*100));if(slideTime<.10)dp=blended(runPose(slideStart*100),dp,slideTime/.1);apply(defender,dp,defenderX+offsets[0][0],3.55+offsets[0][1]);}
+  if(t<fallStart){ap=runPose(t*100+10);ap.player=[0,0,ap.player[2]];apply(attacker,ap,.04+offsets[1][0],.95+5.4*(contact-.035-t)+offsets[1][1]);}
+  else{ap=pose('fall',Math.min(73,fallTime*100));if(fallTime<.08)ap=blended(runPose(fallStart*100+10),ap,fallTime/.08);apply(attacker,ap,.04+offsets[1][0],.95+5.4*(contact-.035-fallStart)+offsets[1][1]);}
+  defender.root.updateMatrixWorld(true);attacker.root.updateMatrixWorld(true);
+}
+function colliders(p,owner){
+  const at=name=>p.nodes[name].getWorldPosition(new THREE.Vector3()).toArray();
+  const out=[];
+  for(const side of ['left','right']){
+    const ankle=p.nodes[side+'_ankle'],toe=ankle.localToWorld(new THREE.Vector3(0,-.17,-.025)).toArray();
+    out.push({id:owner+'-'+side+'-foot',owner,part:'foot',a:at(side+'_ankle'),b:toe,radius:.075});
+    out.push({id:owner+'-'+side+'-shin',owner,part:'shin',a:at(side+'_knee'),b:at(side+'_ankle'),radius:.065});
+    out.push({id:owner+'-'+side+'-thigh',owner,part:'thigh',a:at(side+'_thigh'),b:at(side+'_knee'),radius:.09});
+  }
+  out.push({id:owner+'-torso',owner,part:'torso',a:at('body'),b:at('neck'),radius:.17});return out;
+}
+const center=c=>mul(add(c.a,c.b),.5);
+function simulate(mode){
+  const dt=1/120,frames=[],events=[],offsets=[zero(),zero()];let fallStart=Infinity,free=false;
+  // Predict the native leading boot at the source touch marker. Clean-tackle
+  // alignment translates the trajectory laterally by a bounded amount.
+  poseActors(contact,Infinity,0);
+  const boots=colliders(defender,'defender').filter(c=>c.part==='foot').sort((a,b)=>center(a)[1]-center(b)[1]);
+  const lead=center(boots[0]),ballX=mode==='clean'?.62:.09;
+  const defenderX=mode==='miss'?-1.35:Math.max(-.65,Math.min(.85,ballX-lead[0]));
+  const ballY=lead[1]-(mode==='late'?.95:0);
+  const target=t=>[ballX,ballY+5.4*(contact-t),.115];
+  const state={position:target(0),velocity:[0,-5.4,0],radius:.11};
+  let previous=null,decision='pending';
+  for(let i=0;i<=300;i++){
+    const t=i*dt;poseActors(t,fallStart,defenderX,offsets);
+    let bodies=[...colliders(defender,'defender'),...colliders(attacker,'attacker')];
+    // Separate solid upper bodies. Limb contacts remain available to the tackle
+    // resolver; treating all limbs as rigid blockers would destroy the motion.
+    const torsos=bodies.filter(c=>c.part==='torso'),bodyHit=capsuleContact(torsos[0],torsos[1]);
+    if(bodyHit&&t<slideStart+.2){
+      const horizontal=[bodyHit.normal[0],bodyHit.normal[1],0],n=length(horizontal);
+      if(n>.01){const delta=mul(horizontal,(bodyHit.depth+.001)/n);offsets[0]=add(offsets[0],mul(delta,.5));offsets[1]=sub(offsets[1],mul(delta,.5));poseActors(t,fallStart,defenderX,offsets);bodies=[...colliders(defender,'defender'),...colliders(attacker,'attacker')];}
+    }
+    const moving=bodies.map(c=>{const old=previous?.find(p=>p.id===c.id)||c;return{...c,velocity:mul(sub(center(c),center(old)),1/dt)};});
+    if(i>0){
+      if(!free){state.position=target(t-dt);state.velocity=[0,-5.4,0];}
+      const ballBodies=moving.filter(c=>free||c.owner==='defender').map(c=>({...c,a:sub(c.a,mul(c.velocity,dt)),b:sub(c.b,mul(c.velocity,dt))}));
+      for(const hit of stepBall(state,dt,ballBodies))if(hit.collider.owner==='defender'&&!free){
+        free=true;events.push({kind:'ball',time:t-dt+hit.fraction*dt,point:hit.point,part:hit.collider.part,speed:hit.closingSpeed});decision='ball won';
+      }
+      if(!free){state.position=target(t);state.velocity=[0,-5.4,0];}
+      if(!Number.isFinite(fallStart)&&t>slideStart+.15&&t<slideStart+.8){
+        const feet=moving.filter(c=>c.owner==='defender'&&c.part==='foot'),legs=moving.filter(c=>c.owner==='attacker'&&['shin','thigh'].includes(c.part));
+        for(const foot of feet)for(const leg of legs){
+          const hit=capsuleContact(foot,leg);if(!hit)continue;
+          const closing=Math.max(0,-dot(sub(foot.velocity,leg.velocity),hit.normal));if(closing<1.6)continue;
+          const classification=classifyTackle({ballFirst:free,contactHeight:hit.point[2],closingSpeed:closing});
+          if(classification!=='ball-first'){
+            fallStart=t;free=true;decision=classification==='dangerous'?'forceful contact':'late tackle';events.push({kind:'player',time:t,point:hit.point,part:leg.part,speed:closing,classification});
+          }
+        }
+      }
+    }
+    previous=bodies;frames.push({time:t,ball:[...state.position],velocity:[...state.velocity],fallStart,offsets:offsets.map(a=>[...a]),decision,events:[...events]});
+  }
+  return{frames,events,defenderX,fallStart,decision:events.length?decision:'missed tackle',mode};
+}
+const simulations=Object.fromEntries(['clean','late','miss'].map(mode=>[mode,simulate(mode)]));
+const impactMarker=new THREE.Mesh(new THREE.SphereGeometry(.07,12,8),new THREE.MeshBasicMaterial({color:'#ffba71',depthTest:false}));impactMarker.renderOrder=100;scene.add(impactMarker);
 function renderAt(t,mode=cameraMode) {
   cameraMode=mode;$('camera').value=mode;
   timeline=Math.max(0,Math.min(duration,t));
-  let dp,ap;const slideTime=Math.max(0,timeline-slideStart),fallTime=Math.max(0,timeline-fallStart);
-  // During the run-up, use the source sprint cycle's actual distance (7m/s).
-  if(timeline<slideStart){dp=runPose(timeline*100);dp.player=[0,0,dp.player[2]];apply(defender,dp,-.29,3.55+7*(slideStart-timeline));}
-  else{dp=pose('slide',Math.min(62,slideTime*100));if(slideTime<.10)dp=blended(runPose(slideStart*100),dp,slideTime/.1);apply(defender,dp,-.29,3.55);}
-  if(timeline<fallStart){ap=runPose(timeline*100+10);ap.player=[0,0,ap.player[2]];apply(attacker,ap,.04,.95+5.4*(fallStart-timeline));}
-  else{ap=pose('fall',Math.min(73,fallTime*100));if(fallTime<.08)ap=blended(runPose(fallStart*100+10),ap,fallTime/.08);apply(attacker,ap,.04,.95);}
-  const pre = timeline<contact;
-  if(pre)ball.position.set(.09,.15+5.4*Math.max(0,fallStart-timeline),.12+Math.abs(Math.sin(timeline*24))*.035);
-  else{const dt=timeline-contact;ball.position.set(.09+dt*1.2,.15-dt*4,.12+Math.max(0,Math.sin(dt*9))*.12*Math.exp(-dt*3));}
+  const simulation=simulations[collisionMode],index=Math.min(300,Math.floor(timeline*120)),state=simulation.frames[index],next=simulation.frames[Math.min(300,index+1)],alpha=timeline*120-index;
+  poseActors(timeline,simulation.fallStart,simulation.defenderX,state.offsets);
+  ball.position.fromArray(state.ball.map((v,i)=>v+(next.ball[i]-v)*alpha));
   ball.rotation.set(timeline*17,timeline*4,0);
-  const ringTime=timeline-contact;contactRing.visible=ringTime>=0&&ringTime<.3;contactRing.position.x=.09;contactRing.position.y=.15;contactRing.scale.setScalar(1+Math.max(0,ringTime)*6);contactRing.material.opacity=Math.max(0,1-ringTime/.3)*.7;
+  const lastEvent=state.events.at(-1),ringTime=lastEvent?timeline-lastEvent.time:Infinity;contactRing.visible=ringTime<.35;
+  impactMarker.visible=!!lastEvent&&ringTime<.45;if(lastEvent){impactMarker.position.fromArray(lastEvent.point);impactMarker.material.color.set(lastEvent.kind==='ball'?'#c1f473':'#ff805b');contactRing.position.set(lastEvent.point[0],lastEvent.point[1],.018);contactRing.material.color.copy(impactMarker.material.color);}
+  contactRing.scale.setScalar(1+Math.max(0,Number.isFinite(ringTime)?ringTime:0)*6);contactRing.material.opacity=Math.max(0,1-ringTime/.35)*.7;
   scene.updateMatrixWorld(true);
   for(const p of [defender,attacker])for(const [a,b,l]of p.edges){l.visible=showBones;if(showBones){const va=a.getWorldPosition(new THREE.Vector3()),vb=b.getWorldPosition(new THREE.Vector3());l.position.copy(va).lerp(vb,.5);l.scale.set(1,va.distanceTo(vb),1);l.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),vb.sub(va).normalize());}}
   const targetY=(defender.root.position.y+attacker.root.position.y)*.5-.4;
   if(mode==='side'){camera.position.set(6.7,targetY-1.3,2.8);camera.lookAt(-.25,targetY,.55);}
   else if(mode==='top'){camera.position.set(7,targetY+2,12);camera.lookAt(0,targetY,0);}
   else{camera.position.set(5,targetY-6.7,4.4);camera.lookAt(-.7,targetY,.5);}
-  $('stage').textContent=timeline<slideStart?'01 / Approach':timeline<contact?'02 / Slide tackle':timeline<contact+.22?'03 / Contact':'04 / Fall & settle';
-  $('detail').textContent=timeline<slideStart?'Sprint animation · original skeleton':timeline<contact?'sliding/sprint/000.anim':timeline<contact+.22?'Source ball-touch marker · frame 32':'trip/trip_t3/sprint/000.anim';
-  $('event').style.display=timeline>=contact&&timeline<contact+.12?'block':'none';
+  $('stage').textContent=lastEvent?(state.decision==='ball won'?'03 / Ball won':state.decision==='late tackle'?'03 / Late tackle':'03 / Forceful contact'):timeline<slideStart?'01 / Approach':timeline>1.5?'04 / Missed tackle':'02 / Challenge';
+  $('detail').textContent=lastEvent?(lastEvent.kind==='ball'?'Foot–ball impulse · continuous collision':'Boot–'+lastEvent.part+' contact · fall triggered'):timeline<slideStart?'120 Hz fixed-step contact simulation':'Animated capsules · ball sweep';
+  $('event').textContent=lastEvent?.kind==='ball'?'BALL CONTACT':'PLAYER CONTACT';$('event').style.display=ringTime<.16?'block':'none';
   $('time').textContent=timeline.toFixed(2)+' s';$('scrub').value=timeline;
   renderer.render(scene,camera);
 }
@@ -175,7 +242,7 @@ $('scrub').oninput=e=>{playing=false;$('play').textContent='Play';renderAt(Numbe
 onresize=()=>{camera.aspect=innerWidth/innerHeight;camera.fov=innerWidth<700?60:39;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);renderAt(timeline);};
 let previous=performance.now();
 function tick(now){const dt=Math.min(.05,(now-previous)/1000);previous=now;if(playing)renderAt((timeline+dt*speed)%duration);requestAnimationFrame(tick);}
-window.demo={data,renderAt,pause(){playing=false;$('play').textContent='Play';},setSkeleton(value){showBones=value;$('bones').textContent=value?'Hide skeleton':'Skeleton';renderAt(timeline);},setSpeed(value){speed=value;$('speed').value=String(value);},
+window.demo={data,renderAt,simulations,pause(){playing=false;$('play').textContent='Play';},setScenario(value){collisionMode=value;timeline=0;renderAt(0);},setSkeleton(value){showBones=value;$('bones').textContent=value?'Hide skeleton':'Skeleton';renderAt(timeline);},setSpeed(value){speed=value;$('speed').value=String(value);},
   async exportGLB(){
     const {GLTFExporter}=await import('three/addons/exporters/GLTFExporter.js');
     const p=player('#2f82ed',4);p.root.position.set(0,0,0);p.root.quaternion.identity();
@@ -193,5 +260,6 @@ window.demo={data,renderAt,pause(){playing=false;$('play').textContent='Play';},
     const gltfRoot=new THREE.Group();gltfRoot.name='Z_UP_TO_Y_UP';gltfRoot.rotation.x=-Math.PI/2;gltfRoot.add(p.root);
     const result=await new GLTFExporter().parseAsync(gltfRoot,{binary:true,animations:clips});for(const e of p.edges)scene.remove(e[2]);
     return Array.from(new Uint8Array(result));
-  },ready:true,contact,slideStart,fallStart,duration};
+  },ready:true,contact,slideStart,duration};
+$('scenario').onchange=e=>{window.demo.setScenario(e.target.value);playing=true;$('play').textContent='Pause';};
 $('loading').remove();renderAt(0);requestAnimationFrame(tick);
