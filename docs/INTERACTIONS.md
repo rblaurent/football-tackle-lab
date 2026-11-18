@@ -1,5 +1,7 @@
 # Connected interactions and corrected idle
 
+**Native rig update:** the CC0 mesh now binds directly to the native 369-bone hierarchy, sharing its final pose with gameplay contacts. One sole correction replaces the second render-time IK pass; native hand references and foot-phase matching improve missing fingers and gait changes. [Implementation, measurements and reproduction](NATIVE-RIG.md).
+
 Open [the lab](https://rblaurent.github.io/football-tackle-lab/). Choose an **Interaction**, then press **Do interaction**. The same two players approach one another, perform the action, release and return to movement. You can use another interaction afterward without resetting. **Stop**, steering or **Chase ball** cancels the current interaction through a pose transition. The original tackle/recovery controls remain.
 
 [Watch all five interactions in one simulation](../evidence/interaction-showcase.mp4). [Setup and updating an existing copy](START-HERE.md).

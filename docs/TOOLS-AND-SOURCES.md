@@ -125,3 +125,12 @@ The full-library capture helper is `tools/capture-library.cjs`. Reference inspec
 [ANIMATION-SYSTEM.md](ANIMATION-SYSTEM.md) covers the original runtime compiler (`compile_runtime.py`), shared FCL1 decoder, feature scorer/streaming cache, native motion registration, expanded gameplay graph, adapted/native interactions, runtime corpus,47 tests, browser verifier (`verify-runtime.cjs`) and continuous gameplay capture (`capture-runtime.cjs`). No additional third-party runtime or FC executable was introduced. The existing native knee network remains the only recovered neural model used by the character controller.
 
 - `tools/fc27/audit_runtime.py`: every runtime compressed/raw SHA256, binding/header, finite/quaternion check and optional exact source-frame comparison.
+
+## Native rig correction tools
+
+- `native-skin.js`: native bones/bind matrices, anatomical fitting, remapped normalized skin influences.
+- `human.js`: direct native skin playback, hair and shared-proxy boots; no secondary render IK.
+- `foot-contact.js`, `foot-planting.js`: shared sole geometry and single final simulated grounding pass.
+- `hand-poses.js`: native reference hand poses for missing finger tracks and authored grips.
+- `native-rig.test.mjs`: actual committed glTF/bin skin fixture and six new regressions.
+- `tools/verify-native-rig.cjs`: visible-joint versus contact acceptance, finite skinned vertices and close-ups. See [NATIVE-RIG.md](NATIVE-RIG.md).

@@ -1,6 +1,13 @@
 # Evidence index
 
-Current automatic native animation system:
+Current native skin correction:
+
+- `native-rig-verification.json`: eight rendered/posed scenarios, native skeleton binding, visible wrist/ankle versus simulation errors, finite skinned vertices and sole measurements. It also records remaining extreme fall/side-pull ground intersections; these are not hidden by the passing endpoint checks.
+- `rig-contact-before.json`: prior separate-rig measurements for the same defect, including the grab's 32 cm wrist discrepancy.
+- `native-rig-character.png`, `native-rig-hand.png`, `native-rig-feet.png`: current close-up screenshots.
+- `native-rig-runtime-browser.json`: desktop/touch runtime acceptance after the native skin change.
+
+Automatic native animation system:
 
 - `runtime-gameplay.mp4`, `runtime-capture.json`: one continuous 16-second, 480-frame sequence, approach/native shot, physical goal, celebration, then native push and contact-triggered reaction without resetting the world.
 - `runtime-play.jpg`, `runtime-desktop.png`, `runtime-phone.png`: current rendered gameplay and controls.

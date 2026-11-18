@@ -1,12 +1,14 @@
 # Football Tackle Lab
 
+**Native rig update:** the CC0 mesh now binds directly to the native 369-bone hierarchy, sharing its final pose with gameplay contacts. One sole correction replaces the second render-time IK pass; native hand references and foot-phase matching improve missing fingers and gait changes. [Implementation, measurements and reproduction](docs/NATIVE-RIG.md).
+
 **[Play football](https://rblaurent.github.io/football-tackle-lab/)** · [Animation-system guide](docs/ANIMATION-SYSTEM.md) · [Friend/AI handoff](docs/START-HERE.md) · [Download source and playable data](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip)
 
 A playable two-player football animation foundation for a small manager/referee game. Proper skinned human characters select and stream suitable native FC motions from **2,313 measured body clips across 17 action families**. Starts, running, braking, turns, ball pursuit, kicks, tackles, falls, get-ups, standing interactions and celebrations share one controller.
 
 [Watch one continuous gameplay sequence](evidence/runtime-gameplay.mp4): approach, shot, physical goal, celebration, then push and contact-triggered reaction in the same world.
 
-![Live football animation system](evidence/runtime-play.jpg)
+![Character bound to the native skeleton](evidence/native-rig-character.png)
 
 ## Play
 
@@ -34,7 +36,7 @@ Native shirt-pull pairs retain their shared capture frame and clock. Push combin
 
 ## Verification
 
-47 Node tests cover controller regressions, selection, actual native kick/contact misses, every connected interaction, eight rotated tackles, streamed gait continuity, integrity failure fallback, cache eviction, and a full approach/shot/goal/celebration sequence. Desktop and emulated-touch browser acceptance checks rendered skeletons, controls, action release, layout and asset failures. Physical phones and Mac/Safari have not been tested.
+53 Node tests cover controller regressions, selection, actual native kick/contact misses, every connected interaction, eight rotated tackles, streamed gait continuity, integrity failure fallback, cache eviction, and a full approach/shot/goal/celebration sequence. Desktop and emulated-touch browser acceptance checks rendered skeletons, controls, action release, layout and asset failures. Physical phones and Mac/Safari have not been tested.
 
 Every shipped runtime payload has been checked for hash integrity, binding/shape, finite samples and quaternion norms, and byte-for-byte equality to its decoded source frame range. See [evidence](evidence/README.md). This is a two-player foundation; team tactics, goalkeepers, richer airborne actions and full referee rules remain work.
 

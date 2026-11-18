@@ -1,0 +1,177 @@
+{
+  "units": "metres",
+  "joints": 369,
+  "cases": [
+    {
+      "type": "idle",
+      "samples": 60,
+      "maxHandError": 2.767218361258043e-15,
+      "maxAnkleError": 1.831026719408895e-15,
+      "minSole": -0.0002241133003130745,
+      "maxIdleSole": 4.359821531574326e-12,
+      "nonfiniteVertices": 0,
+      "verticesChecked": 33932,
+      "maxJointStep": 0.0249779840412742,
+      "events": []
+    },
+    {
+      "type": "jog",
+      "samples": 90,
+      "maxHandError": 2.39471271813707e-15,
+      "maxAnkleError": 1.7903959895615594e-15,
+      "minSole": -0.0003621434742361179,
+      "maxIdleSole": 0,
+      "nonfiniteVertices": 0,
+      "verticesChecked": 50898,
+      "maxJointStep": 0.2749948388679642,
+      "events": [
+        {
+          "time": 1.8416666666666626,
+          "type": "ball contact",
+          "actor": 0,
+          "foot": 0,
+          "closing": 5.772787310109322
+        }
+      ]
+    },
+    {
+      "type": "duel",
+      "samples": 270,
+      "maxHandError": 3.396629320202206e-15,
+      "maxAnkleError": 1.793620188084545e-15,
+      "minSole": -0.18059442228557543,
+      "maxIdleSole": 0,
+      "nonfiniteVertices": 0,
+      "verticesChecked": 152694,
+      "maxJointStep": 0.5044388149889804,
+      "events": [
+        {
+          "time": 0.4416666666666672,
+          "type": "ball contact",
+          "actor": 0,
+          "foot": 0,
+          "closing": 5.499605077237732
+        },
+        {
+          "time": 0.45000000000000057,
+          "type": "ball contact",
+          "actor": 1,
+          "foot": 1,
+          "closing": 3.6310458383124486
+        },
+        {
+          "time": 0.4666666666666673,
+          "type": "leg contact",
+          "actor": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "type": "shirtFront",
+      "samples": 270,
+      "maxHandError": 2.8570721860483087e-15,
+      "maxAnkleError": 1.602148379482783e-15,
+      "minSole": -0.003084817441816365,
+      "maxIdleSole": 0,
+      "nonfiniteVertices": 0,
+      "verticesChecked": 152694,
+      "maxJointStep": 0.4522730458354644,
+      "events": [
+        {
+          "time": 2.858333333333326,
+          "type": "shirt pull contact",
+          "interaction": "shirtFront",
+          "actor": 0,
+          "target": 1,
+          "distance": 0.2909930858386
+        }
+      ]
+    },
+    {
+      "type": "shirtSide",
+      "samples": 270,
+      "maxHandError": 5.388872059480397e-15,
+      "maxAnkleError": 3.675492212195508e-15,
+      "minSole": -0.1977696035302468,
+      "maxIdleSole": 0,
+      "nonfiniteVertices": 0,
+      "verticesChecked": 152694,
+      "maxJointStep": 0.4887110346403455,
+      "events": [
+        {
+          "time": 2.4416666666666607,
+          "type": "shirt pull contact",
+          "interaction": "shirtSide",
+          "actor": 0,
+          "target": 1,
+          "distance": 0.2861464681272066
+        }
+      ]
+    },
+    {
+      "type": "push",
+      "samples": 270,
+      "maxHandError": 2.8462662767335154e-15,
+      "maxAnkleError": 1.7783073324607987e-15,
+      "minSole": -0.007746917806162476,
+      "maxIdleSole": 0,
+      "nonfiniteVertices": 0,
+      "verticesChecked": 152694,
+      "maxJointStep": 0.43530296391313333,
+      "events": [
+        {
+          "time": 3.8083333333333225,
+          "type": "push contact",
+          "interaction": "push",
+          "actor": 0,
+          "target": 1,
+          "distance": 0.2747958275735827
+        }
+      ]
+    },
+    {
+      "type": "grab",
+      "samples": 270,
+      "maxHandError": 2.8570721860483087e-15,
+      "maxAnkleError": 1.602148379482783e-15,
+      "minSole": -0.003090031076337152,
+      "maxIdleSole": 0,
+      "nonfiniteVertices": 0,
+      "verticesChecked": 152694,
+      "maxJointStep": 0.4522730458354644,
+      "events": [
+        {
+          "time": 2.8833333333333258,
+          "type": "arm grab contact",
+          "interaction": "grab",
+          "actor": 0,
+          "target": 1,
+          "distance": 0.17764825230957698
+        }
+      ]
+    },
+    {
+      "type": "handball",
+      "samples": 270,
+      "maxHandError": 2.8462662767335154e-15,
+      "maxAnkleError": 1.4087150935148696e-15,
+      "minSole": -0.006752093000886361,
+      "maxIdleSole": 0,
+      "nonfiniteVertices": 0,
+      "verticesChecked": 152694,
+      "maxJointStep": 0.3580941413270342,
+      "events": [
+        {
+          "time": 3.133333333333325,
+          "type": "hand contact",
+          "actor": 0,
+          "hand": 1
+        }
+      ]
+    }
+  ],
+  "url": "http://127.0.0.1:8131/",
+  "date": "2026-11-18T23:48:53.556Z",
+  "errors": []
+}

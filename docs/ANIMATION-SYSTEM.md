@@ -1,5 +1,7 @@
 # Live native animation system
 
+**Native rig update:** the CC0 mesh now binds directly to the native 369-bone hierarchy, sharing its final pose with gameplay contacts. One sole correction replaces the second render-time IK pass; native hand references and foot-phase matching improve missing fingers and gait changes. [Implementation, measurements and reproduction](NATIVE-RIG.md).
+
 [Play the current demo](https://rblaurent.github.io/football-tackle-lab/). The home page now runs a context-driven animation system, not just the small fixed clip playlist or the separate catalogue. The controller selects and streams suitable native performances, transitions between them, and returns to useful movement after each action.
 
 This is our independent two-player animation/gameplay controller using extracted FC motion data. It does not run FC's executable animation engine or claim complete football-game parity. The full extraction remains 46,351 resources, 44,037 decoded. The automatic field-play database admits 2,313 measured body clips across 17 families; cameras, facial weights, unsupported codecs, unsuitable cinematics and unknown actions remain in the full catalogue.
@@ -48,7 +50,7 @@ The public runtime pack is95,403,500 compressed bytes, approximately91MiB, plus 
 | `animation.js` | Native registration/sampling, phase-aligned closed loops, mixed gaits, pose matching, capture-frame/root transforms and inertial transitions. |
 | `controller-core.js` | Deterministic120Hz state graph, navigation, predicted contact placement, native kicks, challenge/fall/get-up, simple opponent play, scoring and queued celebrations. |
 | `interactions.js` | Shared-clock native shirt captures, native pusher plus collision-triggered native reaction, and native body bases with authored hand targets for grabbing/handball. |
-| `foot-planting.js`, `neural-ik.js`, `human.js` | Recovered knee network as bend hint, bounded source foot locks, retargeted skinned human, rendered boot support and arm target correction. |
+| `foot-planting.js`, `neural-ik.js`, `human.js` | Recovered knee network as bend hint, bounded source foot locks, native-bound skinned human and a single simulated sole-support correction. |
 | `controller-view.js`, `index.html` | Phone/desktop controls, rendering, camera, visible goals, score and inspector. |
 | `runtime.test.mjs` | Real native corpus, state/selection, contact/miss, streaming, continuity, recovery, goal and cache regressions. |
 | `tools/verify-runtime.cjs`, `tools/capture-runtime.cjs` | Real browser acceptance and portable deterministic capture. |
@@ -132,7 +134,7 @@ node tools\verify-runtime.cjs http://127.0.0.1:8080/ D:\Evidence
 node tools\capture-runtime.cjs http://127.0.0.1:8080/ D:\Evidence\frames
 ```
 
-The 47 tests cover the previous decoder-tail/root-frame/velocity/IK regressions and the new selector, native contact/miss behavior, every connected interaction, eight rotated tackle encounters, angular admission, newly streamed gait continuity, checksum failure fallback, cache eviction with pinned actions, and a complete normal-play approach/shot/goal/queued-celebration/idle sequence. The normal-play test includes the opponent; it does not place a ball at the goal line to manufacture the outcome.
+The 53 tests cover the previous decoder-tail/root-frame/velocity/IK regressions and the new selector, native contact/miss behavior, every connected interaction, eight rotated tackle encounters, angular admission, newly streamed gait continuity, checksum failure fallback, cache eviction with pinned actions, and a complete normal-play approach/shot/goal/queued-celebration/idle sequence. The normal-play test includes the opponent; it does not place a ball at the goal line to manufacture the outcome.
 
 Real browser checks exercise skinned native passes/shots, consecutive shirt pulls/push/grab/handball, goal selection, mouse and actual emulated touch-pad input, finite skin matrices, layout and asset/page failures on desktop and 412x915 touch viewports. This does not claim testing on physical phone hardware or Mac Safari, or visual approval of every admitted clip.
 

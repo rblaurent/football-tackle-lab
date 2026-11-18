@@ -1,0 +1,326 @@
+{
+  "url": "http://127.0.0.1:8131/",
+  "date": "2026-11-18T23:40:23.740Z",
+  "layouts": [
+    {
+      "mobile": false,
+      "shots": [
+        {
+          "kind": "pass",
+          "events": [
+            {
+              "time": 0,
+              "type": "kick requested",
+              "kind": "pass"
+            },
+            {
+              "time": 0.6833333333333333,
+              "type": "native kick contact",
+              "actor": 0,
+              "kind": "pass",
+              "motion": "6ad50339730a8a504b98d110_0_58"
+            }
+          ],
+          "state": "idle"
+        },
+        {
+          "kind": "shoot",
+          "events": [
+            {
+              "time": 0,
+              "type": "kick requested",
+              "kind": "shoot"
+            },
+            {
+              "time": 0.6833333333333333,
+              "type": "native kick contact",
+              "actor": 0,
+              "kind": "shoot",
+              "motion": "af9c11e8e24bf7c7eedff02e_0_69"
+            }
+          ],
+          "state": "idle"
+        }
+      ],
+      "interactions": [
+        {
+          "type": "shirtFront",
+          "result": {
+            "type": "shirtFront",
+            "contact": true
+          },
+          "source": "native paired capture"
+        },
+        {
+          "type": "push",
+          "result": {
+            "type": "push",
+            "contact": true
+          },
+          "source": "native push and collision-triggered native reaction"
+        },
+        {
+          "type": "shirtSide",
+          "result": {
+            "type": "shirtSide",
+            "contact": true
+          },
+          "source": "native paired capture"
+        },
+        {
+          "type": "grab",
+          "result": {
+            "type": "grab",
+            "contact": true
+          },
+          "source": "native paired base with authored arm targeting"
+        },
+        {
+          "type": "handball",
+          "result": {
+            "type": "handball",
+            "contact": true
+          },
+          "source": "native block base with authored hand targeting"
+        }
+      ],
+      "goal": true,
+      "touch": false,
+      "database": {
+        "eligible": 2313,
+        "families": {
+          "celebrate": 102,
+          "jog": 102,
+          "walk": 23,
+          "idle": 466,
+          "recover": 376,
+          "push": 2,
+          "turn": 92,
+          "sprint": 65,
+          "pushReaction": 31,
+          "block": 119,
+          "fall": 23,
+          "shirtPair": 62,
+          "start": 32,
+          "stop": 30,
+          "pass": 512,
+          "shoot": 263,
+          "tackle": 13
+        },
+        "loaded": 64,
+        "pending": 3,
+        "failed": 0,
+        "residentEstimate": 36456208,
+        "budget": 50331648,
+        "requests": 104,
+        "hits": 95,
+        "loads": 101,
+        "evictions": 37,
+        "lastSelections": [
+          {
+            "id": "6100751fd1988f59819f551f_0_97",
+            "time": 0.3,
+            "score": 0.008085594500000001,
+            "family": "celebrate",
+            "name": "antifreeze/assets/cine/27/ts/emotes/fzn_b005025brec001_1pemote_stand0_fan_celebrate_fistpumpair",
+            "fallback": false
+          },
+          {
+            "id": "4447a0e098b6ee884a06e812_0_122",
+            "time": 0.3,
+            "score": 0.6005050660542625,
+            "family": "celebrate",
+            "name": "antifreeze/assets/gameplay/telstar/emote/f26_b005025brec001_1pemote_stand0_fan_celebrate_fistpumpair_loop",
+            "fallback": false
+          },
+          {
+            "id": "c61ad74137ca7ef30fc473a2_0_34",
+            "time": 0.1,
+            "score": 0.09086891966296065,
+            "family": "start",
+            "name": "antifreeze/assets/gameplay/locomotion/f18_ptm_loco_start_idle_to_sprint_90_90",
+            "fallback": false
+          },
+          {
+            "id": "1686b815aa65d1db925dc27c_0_21",
+            "time": 0,
+            "score": 0.3123257494180914,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/locomotion/01a560k1-jog_cycle_loop",
+            "fallback": false
+          },
+          {
+            "id": "666c60be24c49d9293a3b88f_9_23",
+            "time": 0.2,
+            "score": 0.451327052186269,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/f18_d_419_ptm_loco_dribble_fwd0_start_sprintde002_01_accel_cycle",
+            "fallback": false
+          }
+        ]
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "mobile": true,
+      "shots": [
+        {
+          "kind": "pass",
+          "events": [
+            {
+              "time": 0,
+              "type": "kick requested",
+              "kind": "pass"
+            },
+            {
+              "time": 0.6833333333333333,
+              "type": "native kick contact",
+              "actor": 0,
+              "kind": "pass",
+              "motion": "6ad50339730a8a504b98d110_0_58"
+            }
+          ],
+          "state": "idle"
+        },
+        {
+          "kind": "shoot",
+          "events": [
+            {
+              "time": 0,
+              "type": "kick requested",
+              "kind": "shoot"
+            },
+            {
+              "time": 0.6833333333333333,
+              "type": "native kick contact",
+              "actor": 0,
+              "kind": "shoot",
+              "motion": "af9c11e8e24bf7c7eedff02e_0_69"
+            }
+          ],
+          "state": "idle"
+        }
+      ],
+      "interactions": [
+        {
+          "type": "shirtFront",
+          "result": {
+            "type": "shirtFront",
+            "contact": true
+          },
+          "source": "native paired capture"
+        },
+        {
+          "type": "push",
+          "result": {
+            "type": "push",
+            "contact": true
+          },
+          "source": "native push and collision-triggered native reaction"
+        },
+        {
+          "type": "shirtSide",
+          "result": {
+            "type": "shirtSide",
+            "contact": true
+          },
+          "source": "native paired capture"
+        },
+        {
+          "type": "grab",
+          "result": {
+            "type": "grab",
+            "contact": true
+          },
+          "source": "native paired base with authored arm targeting"
+        },
+        {
+          "type": "handball",
+          "result": {
+            "type": "handball",
+            "contact": true
+          },
+          "source": "native block base with authored hand targeting"
+        }
+      ],
+      "goal": true,
+      "touch": true,
+      "database": {
+        "eligible": 2313,
+        "families": {
+          "celebrate": 102,
+          "jog": 102,
+          "walk": 23,
+          "idle": 466,
+          "recover": 376,
+          "push": 2,
+          "turn": 92,
+          "sprint": 65,
+          "pushReaction": 31,
+          "block": 119,
+          "fall": 23,
+          "shirtPair": 62,
+          "start": 32,
+          "stop": 30,
+          "pass": 512,
+          "shoot": 263,
+          "tackle": 13
+        },
+        "loaded": 64,
+        "pending": 4,
+        "failed": 0,
+        "residentEstimate": 35201968,
+        "budget": 50331648,
+        "requests": 103,
+        "hits": 92,
+        "loads": 99,
+        "evictions": 35,
+        "lastSelections": [
+          {
+            "id": "6100751fd1988f59819f551f_0_97",
+            "time": 0.3,
+            "score": 0.008085594500000001,
+            "family": "celebrate",
+            "name": "antifreeze/assets/cine/27/ts/emotes/fzn_b005025brec001_1pemote_stand0_fan_celebrate_fistpumpair",
+            "fallback": false
+          },
+          {
+            "id": "4447a0e098b6ee884a06e812_0_122",
+            "time": 0.3,
+            "score": 0.6005050660542625,
+            "family": "celebrate",
+            "name": "antifreeze/assets/gameplay/telstar/emote/f26_b005025brec001_1pemote_stand0_fan_celebrate_fistpumpair_loop",
+            "fallback": false
+          },
+          {
+            "id": "c61ad74137ca7ef30fc473a2_0_34",
+            "time": 0.1,
+            "score": 0.09086891966296065,
+            "family": "start",
+            "name": "antifreeze/assets/gameplay/locomotion/f18_ptm_loco_start_idle_to_sprint_90_90",
+            "fallback": false
+          },
+          {
+            "id": "1686b815aa65d1db925dc27c_0_21",
+            "time": 0,
+            "score": 0.3123257494180914,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/locomotion/01a560k1-jog_cycle_loop",
+            "fallback": false
+          },
+          {
+            "id": "666c60be24c49d9293a3b88f_9_23",
+            "time": 0.2,
+            "score": 0.451327052186269,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/f18_d_419_ptm_loco_dribble_fwd0_start_sprintde002_01_accel_cycle",
+            "fallback": false
+          }
+        ]
+      },
+      "errors": [],
+      "failed": []
+    }
+  ]
+}

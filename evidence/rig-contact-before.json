@@ -1,0 +1,64 @@
+{
+  "units": "metres",
+  "meaning": "Visible target wrist/ankle position minus source contact wrist/ankle, both in world space; foot metric is ankle, not shoe sole.",
+  "metrics": {
+    "idle": {
+      "handMean": 0.08209336143875559,
+      "handMax": 0.09158412924532643,
+      "footMean": 0.03490397903139428,
+      "footMax": 0.04098259608344397,
+      "contacts": [],
+      "motion": "idle"
+    },
+    "jog": {
+      "handMean": 0.07856760709436911,
+      "handMax": 0.15229527101846888,
+      "footMean": 0.039171315746678,
+      "footMax": 0.10978879657921849,
+      "contacts": [
+        {
+          "time": 3.8416666666666557,
+          "type": "ball contact",
+          "actor": 0,
+          "foot": 0,
+          "closing": 5.772733995247478
+        }
+      ],
+      "motion": "move"
+    },
+    "shirtFront": {
+      "handMean": 0.08816493512363244,
+      "handMax": 0.14925641962847616,
+      "footMean": 0.03922596745298246,
+      "footMax": 0.10111028576460825,
+      "contacts": [
+        {
+          "time": 2.858333333333326,
+          "type": "shirt pull contact",
+          "interaction": "shirtFront",
+          "actor": 0,
+          "target": 1,
+          "distance": 0.2925956757470956
+        }
+      ],
+      "motion": "idle"
+    },
+    "grab": {
+      "handMean": 0.08742548932149215,
+      "handMax": 0.31558527608463655,
+      "footMean": 0.03922596745298246,
+      "footMax": 0.10111028576460825,
+      "contacts": [
+        {
+          "time": 2.8833333333333258,
+          "type": "arm grab contact",
+          "interaction": "grab",
+          "actor": 0,
+          "target": 1,
+          "distance": 0.17748400374608586
+        }
+      ],
+      "motion": "idle"
+    }
+  }
+}
