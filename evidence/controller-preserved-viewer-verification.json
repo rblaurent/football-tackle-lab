@@ -1,0 +1,29 @@
+{
+  "url": "http://127.0.0.1:8131/clips.html",
+  "browser": "157.0.8103.79",
+  "date": "2026-11-18T16:59:49.474Z",
+  "viewports": [
+    {
+      "mobile": false,
+      "skinChecks": 24,
+      "loopVerified": true,
+      "sceneSelect": true,
+      "scrub": true,
+      "speed": true,
+      "legacyDemo": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "mobile": true,
+      "skinChecks": 24,
+      "loopVerified": true,
+      "sceneSelect": true,
+      "scrub": true,
+      "speed": true,
+      "legacyDemo": true,
+      "errors": [],
+      "failed": []
+    }
+  ]
+}

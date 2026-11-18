@@ -1,0 +1,3446 @@
+{
+  "notice": "Field metadata from the public FMT FC26 SDK. FC27 root controller layout differs; it is intentionally not decoded. See docs/CONTROLLER.md.",
+  "types": {
+    "db2eba1b-a845-9d05-aa16-1a1c32c42dd3": {
+      "classGuid": "db2eba1b-a845-9d05-aa16-1a1c32c42dd3",
+      "name": "BaseFeatureSchemaAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Joint"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "GameStateDriver"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "UpdateFromGameState"
+        },
+        {
+          "encoding": 164,
+          "offset": 72,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "ReferenceJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "ReferenceSlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "OverrideFilter"
+        },
+        {
+          "encoding": 24704,
+          "offset": 112,
+          "type": "PTMPoseFeatureSource",
+          "name": "FeatureSource"
+        },
+        {
+          "encoding": 26656,
+          "offset": 128,
+          "type": "Vec4",
+          "name": "DebugColor"
+        },
+        {
+          "encoding": 24704,
+          "offset": 144,
+          "type": "PoseTime",
+          "name": "PoseTime"
+        },
+        {
+          "encoding": 160,
+          "offset": 148,
+          "type": "bool",
+          "name": "Connect"
+        }
+      ]
+    },
+    "251c98a7-080d-4e6a-20ef-39bf59effe4b": {
+      "classGuid": "251c98a7-080d-4e6a-20ef-39bf59effe4b",
+      "name": "BaseHeadingFeatureSchemaAsset",
+      "parent": "BaseFeatureSchemaAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Joint"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "GameStateDriver"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "UpdateFromGameState"
+        },
+        {
+          "encoding": 164,
+          "offset": 72,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "ReferenceJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "ReferenceSlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "OverrideFilter"
+        },
+        {
+          "encoding": 24704,
+          "offset": 112,
+          "type": "PTMPoseFeatureSource",
+          "name": "FeatureSource"
+        },
+        {
+          "encoding": 26656,
+          "offset": 128,
+          "type": "Vec4",
+          "name": "DebugColor"
+        },
+        {
+          "encoding": 24704,
+          "offset": 144,
+          "type": "PoseTime",
+          "name": "PoseTime"
+        },
+        {
+          "encoding": 160,
+          "offset": 148,
+          "type": "bool",
+          "name": "Connect"
+        }
+      ]
+    },
+    "e26d7266-0c61-1dc3-69c7-ecc13fcc614c": {
+      "classGuid": "e26d7266-0c61-1dc3-69c7-ecc13fcc614c",
+      "name": "DNNAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 308,
+          "offset": 40,
+          "type": "List<float>",
+          "name": "InputMins"
+        },
+        {
+          "encoding": 308,
+          "offset": 48,
+          "type": "List<float>",
+          "name": "InputMaxs"
+        },
+        {
+          "encoding": 308,
+          "offset": 56,
+          "type": "List<float>",
+          "name": "InputMeans"
+        },
+        {
+          "encoding": 308,
+          "offset": 64,
+          "type": "List<float>",
+          "name": "InputScales"
+        },
+        {
+          "encoding": 308,
+          "offset": 72,
+          "type": "List<float>",
+          "name": "OutputMins"
+        },
+        {
+          "encoding": 308,
+          "offset": 80,
+          "type": "List<float>",
+          "name": "OutputMaxs"
+        },
+        {
+          "encoding": 308,
+          "offset": 88,
+          "type": "List<float>",
+          "name": "OutputMeans"
+        },
+        {
+          "encoding": 308,
+          "offset": 96,
+          "type": "List<float>",
+          "name": "OutputScales"
+        },
+        {
+          "encoding": 52,
+          "offset": 104,
+          "type": "List<PointerRef>",
+          "name": "Layers"
+        },
+        {
+          "encoding": 116,
+          "offset": 112,
+          "type": "List<CString>",
+          "name": "InputNames"
+        },
+        {
+          "encoding": 116,
+          "offset": 120,
+          "type": "List<CString>",
+          "name": "OutputNames"
+        },
+        {
+          "encoding": 112,
+          "offset": 128,
+          "type": "CString",
+          "name": "ModelName"
+        },
+        {
+          "encoding": 272,
+          "offset": 136,
+          "type": "long",
+          "name": "AssetGUID"
+        },
+        {
+          "encoding": 240,
+          "offset": 144,
+          "type": "int",
+          "name": "NumInputs"
+        },
+        {
+          "encoding": 240,
+          "offset": 148,
+          "type": "int",
+          "name": "NumOutputs"
+        },
+        {
+          "encoding": 240,
+          "offset": 152,
+          "type": "int",
+          "name": "NumLayers"
+        },
+        {
+          "encoding": 160,
+          "offset": 156,
+          "type": "bool",
+          "name": "EnableNormalize"
+        },
+        {
+          "encoding": 160,
+          "offset": 157,
+          "type": "bool",
+          "name": "EnableScale"
+        }
+      ]
+    },
+    "bf28d4c9-e562-9527-d504-70d5d706a198": {
+      "classGuid": "bf28d4c9-e562-9527-d504-70d5d706a198",
+      "name": "DNNIKNetwork",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "Network"
+        },
+        {
+          "encoding": 24704,
+          "offset": 48,
+          "type": "DNNIKNetworkType",
+          "name": "NetworkType"
+        },
+        {
+          "encoding": 160,
+          "offset": 52,
+          "type": "bool",
+          "name": "IsArm1Network"
+        }
+      ]
+    },
+    "2076b215-0a03-a255-bc01-4cb0bdb49ede": {
+      "classGuid": "2076b215-0a03-a255-bc01-4cb0bdb49ede",
+      "name": "DNNIKNetworkSet",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 52,
+          "offset": 40,
+          "type": "List<PointerRef>",
+          "name": "Network"
+        },
+        {
+          "encoding": 24704,
+          "offset": 48,
+          "type": "DNNIKNetworkSetType",
+          "name": "NetworkSetType"
+        }
+      ]
+    },
+    "16e5ed9a-5308-78b7-a378-e77778082bac": {
+      "classGuid": "16e5ed9a-5308-78b7-a378-e77778082bac",
+      "name": "DNNIKNetworkSetList",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 52,
+          "offset": 40,
+          "type": "List<PointerRef>",
+          "name": "NetworkSet"
+        },
+        {
+          "encoding": 52,
+          "offset": 48,
+          "type": "List<PointerRef>",
+          "name": "SDNNSet"
+        },
+        {
+          "encoding": 24704,
+          "offset": 56,
+          "type": "DNNIKNetworkSetListType",
+          "name": "NetworkSetListType"
+        }
+      ]
+    },
+    "4fc36c3a-e5c1-0969-f3b9-c20915c4c752": {
+      "classGuid": "4fc36c3a-e5c1-0969-f3b9-c20915c4c752",
+      "name": "DNNLayer",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 308,
+          "offset": 40,
+          "type": "List<float>",
+          "name": "Weights"
+        },
+        {
+          "encoding": 308,
+          "offset": 48,
+          "type": "List<float>",
+          "name": "Bias"
+        },
+        {
+          "encoding": 308,
+          "offset": 56,
+          "type": "List<float>",
+          "name": "Alphas"
+        },
+        {
+          "encoding": 24704,
+          "offset": 64,
+          "type": "DNNLayerType",
+          "name": "LayerType"
+        },
+        {
+          "encoding": 240,
+          "offset": 68,
+          "type": "int",
+          "name": "NumInputs"
+        },
+        {
+          "encoding": 240,
+          "offset": 72,
+          "type": "int",
+          "name": "NumNodes"
+        }
+      ]
+    },
+    "3d4cf414-7569-67e9-2c1b-1885a58ef54a": {
+      "classGuid": "3d4cf414-7569-67e9-2c1b-1885a58ef54a",
+      "name": "FloatAsset",
+      "parent": "LayoutValueAsset",
+      "fields": [
+        {
+          "encoding": 304,
+          "offset": 104,
+          "type": "float",
+          "name": "Default"
+        }
+      ]
+    },
+    "ca745b16-441c-142e-c1f5-4abb169dd1fe": {
+      "classGuid": "ca745b16-441c-142e-c1f5-4abb169dd1fe",
+      "name": "HeadingXFeatureSchemaAsset",
+      "parent": "BaseHeadingFeatureSchemaAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Joint"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "GameStateDriver"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "UpdateFromGameState"
+        },
+        {
+          "encoding": 164,
+          "offset": 72,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "ReferenceJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "ReferenceSlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "OverrideFilter"
+        },
+        {
+          "encoding": 24704,
+          "offset": 112,
+          "type": "PTMPoseFeatureSource",
+          "name": "FeatureSource"
+        },
+        {
+          "encoding": 26656,
+          "offset": 128,
+          "type": "Vec4",
+          "name": "DebugColor"
+        },
+        {
+          "encoding": 24704,
+          "offset": 144,
+          "type": "PoseTime",
+          "name": "PoseTime"
+        },
+        {
+          "encoding": 160,
+          "offset": 148,
+          "type": "bool",
+          "name": "Connect"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Joint"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "GameStateDriver"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "UpdateFromGameState"
+        },
+        {
+          "encoding": 164,
+          "offset": 72,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "ReferenceJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "ReferenceSlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "OverrideFilter"
+        },
+        {
+          "encoding": 24704,
+          "offset": 112,
+          "type": "PTMPoseFeatureSource",
+          "name": "FeatureSource"
+        },
+        {
+          "encoding": 26656,
+          "offset": 128,
+          "type": "Vec4",
+          "name": "DebugColor"
+        },
+        {
+          "encoding": 24704,
+          "offset": 144,
+          "type": "PoseTime",
+          "name": "PoseTime"
+        },
+        {
+          "encoding": 160,
+          "offset": 148,
+          "type": "bool",
+          "name": "Connect"
+        }
+      ]
+    },
+    "60962b28-1565-8bbf-3987-02e72528a268": {
+      "classGuid": "60962b28-1565-8bbf-3987-02e72528a268",
+      "name": "HeadingYFeatureSchemaAsset",
+      "parent": "BaseHeadingFeatureSchemaAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Joint"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "GameStateDriver"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "UpdateFromGameState"
+        },
+        {
+          "encoding": 164,
+          "offset": 72,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "ReferenceJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "ReferenceSlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "OverrideFilter"
+        },
+        {
+          "encoding": 24704,
+          "offset": 112,
+          "type": "PTMPoseFeatureSource",
+          "name": "FeatureSource"
+        },
+        {
+          "encoding": 26656,
+          "offset": 128,
+          "type": "Vec4",
+          "name": "DebugColor"
+        },
+        {
+          "encoding": 24704,
+          "offset": 144,
+          "type": "PoseTime",
+          "name": "PoseTime"
+        },
+        {
+          "encoding": 160,
+          "offset": 148,
+          "type": "bool",
+          "name": "Connect"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Joint"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "GameStateDriver"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "UpdateFromGameState"
+        },
+        {
+          "encoding": 164,
+          "offset": 72,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "ReferenceJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "ReferenceSlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "OverrideFilter"
+        },
+        {
+          "encoding": 24704,
+          "offset": 112,
+          "type": "PTMPoseFeatureSource",
+          "name": "FeatureSource"
+        },
+        {
+          "encoding": 26656,
+          "offset": 128,
+          "type": "Vec4",
+          "name": "DebugColor"
+        },
+        {
+          "encoding": 24704,
+          "offset": 144,
+          "type": "PoseTime",
+          "name": "PoseTime"
+        },
+        {
+          "encoding": 160,
+          "offset": 148,
+          "type": "bool",
+          "name": "Connect"
+        }
+      ]
+    },
+    "9ae426f1-17c4-effe-006b-fa8e059723ff": {
+      "classGuid": "9ae426f1-17c4-effe-006b-fa8e059723ff",
+      "name": "HeadingZFeatureSchemaAsset",
+      "parent": "BaseHeadingFeatureSchemaAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Joint"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "GameStateDriver"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "UpdateFromGameState"
+        },
+        {
+          "encoding": 164,
+          "offset": 72,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "ReferenceJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "ReferenceSlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "OverrideFilter"
+        },
+        {
+          "encoding": 24704,
+          "offset": 112,
+          "type": "PTMPoseFeatureSource",
+          "name": "FeatureSource"
+        },
+        {
+          "encoding": 26656,
+          "offset": 128,
+          "type": "Vec4",
+          "name": "DebugColor"
+        },
+        {
+          "encoding": 24704,
+          "offset": 144,
+          "type": "PoseTime",
+          "name": "PoseTime"
+        },
+        {
+          "encoding": 160,
+          "offset": 148,
+          "type": "bool",
+          "name": "Connect"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Joint"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "GameStateDriver"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "UpdateFromGameState"
+        },
+        {
+          "encoding": 164,
+          "offset": 72,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "ReferenceJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "ReferenceSlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "OverrideFilter"
+        },
+        {
+          "encoding": 24704,
+          "offset": 112,
+          "type": "PTMPoseFeatureSource",
+          "name": "FeatureSource"
+        },
+        {
+          "encoding": 26656,
+          "offset": 128,
+          "type": "Vec4",
+          "name": "DebugColor"
+        },
+        {
+          "encoding": 24704,
+          "offset": 144,
+          "type": "PoseTime",
+          "name": "PoseTime"
+        },
+        {
+          "encoding": 160,
+          "offset": 148,
+          "type": "bool",
+          "name": "Connect"
+        }
+      ]
+    },
+    "0b9dcf62-9a68-28d4-ebe8-d7be35d7d24f": {
+      "classGuid": "0b9dcf62-9a68-28d4-ebe8-d7be35d7d24f",
+      "name": "MotionTypeFeatureSchemaAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 52,
+          "offset": 48,
+          "type": "List<PointerRef>",
+          "name": "ValuesRef"
+        }
+      ]
+    },
+    "814c02f2-9f28-8d81-c20d-55f3a5895a88": {
+      "classGuid": "814c02f2-9f28-8d81-c20d-55f3a5895a88",
+      "name": "PositionFeatureSchemaAsset",
+      "parent": "BaseFeatureSchemaAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Joint"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "GameStateDriver"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "UpdateFromGameState"
+        },
+        {
+          "encoding": 164,
+          "offset": 72,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "ReferenceJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "ReferenceSlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "OverrideFilter"
+        },
+        {
+          "encoding": 24704,
+          "offset": 112,
+          "type": "PTMPoseFeatureSource",
+          "name": "FeatureSource"
+        },
+        {
+          "encoding": 26656,
+          "offset": 128,
+          "type": "Vec4",
+          "name": "DebugColor"
+        },
+        {
+          "encoding": 24704,
+          "offset": 144,
+          "type": "PoseTime",
+          "name": "PoseTime"
+        },
+        {
+          "encoding": 160,
+          "offset": 148,
+          "type": "bool",
+          "name": "Connect"
+        }
+      ]
+    },
+    "f427fa81-0dd8-3fe3-714e-1a03853b4bc9": {
+      "classGuid": "f427fa81-0dd8-3fe3-714e-1a03853b4bc9",
+      "name": "PTMBlendParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "InjectedControllerAsset"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "PTMDrivenPointer"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "BlendTicksOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "MaxActiveBlendsOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "DofBlendWeights"
+        },
+        {
+          "encoding": 304,
+          "offset": 80,
+          "type": "float",
+          "name": "BlendTicks"
+        },
+        {
+          "encoding": 240,
+          "offset": 84,
+          "type": "int",
+          "name": "MaxActiveBlends"
+        },
+        {
+          "encoding": 304,
+          "offset": 88,
+          "type": "float",
+          "name": "PoseFeaturesBlendTicks"
+        },
+        {
+          "encoding": 24704,
+          "offset": 92,
+          "type": "PTMBlendType",
+          "name": "BlendType"
+        },
+        {
+          "encoding": 304,
+          "offset": 96,
+          "type": "float",
+          "name": "VelocityWeight"
+        }
+      ]
+    },
+    "2c52e237-3e96-9ef0-4c9b-ac66cdbd650d": {
+      "classGuid": "2c52e237-3e96-9ef0-4c9b-ac66cdbd650d",
+      "name": "PTMClipMotionWarpParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "ClipWarpEnableTrigger"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "ClipWarpCancelTrigger"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "ClipWarpDesiredPos"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "ClipWarpDesiredFacing"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "ClipWarpTicks"
+        },
+        {
+          "encoding": 304,
+          "offset": 80,
+          "type": "float",
+          "name": "ClipWarpBlendOutTicks"
+        },
+        {
+          "encoding": 160,
+          "offset": 84,
+          "type": "bool",
+          "name": "AbortClipWarpIfNewClipSegment"
+        },
+        {
+          "encoding": 160,
+          "offset": 85,
+          "type": "bool",
+          "name": "DisableSearchIfClipWarpActive"
+        },
+        {
+          "encoding": 160,
+          "offset": 86,
+          "type": "bool",
+          "name": "OnlyClipWarpTrajectory"
+        }
+      ]
+    },
+    "a01b861d-a4ef-a934-7a3d-c1b43f331227": {
+      "classGuid": "a01b861d-a4ef-a934-7a3d-c1b43f331227",
+      "name": "PTMDatabaseAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 26656,
+          "offset": 48,
+          "type": "List<IntVec>",
+          "name": "CompressedOffset"
+        },
+        {
+          "encoding": 26656,
+          "offset": 56,
+          "type": "List<IntVec>",
+          "name": "CompressedScale"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "PriorityDatabase"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "PriorityEnable"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "PTMFilter"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "InterruptAnimationOnEnterOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "InterruptAnimationOnExitOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "InterruptAnimationOnLinkedCDBInvalidOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 112,
+          "type": "PointerRef",
+          "name": "RandomValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 120,
+          "type": "PointerRef",
+          "name": "MaxRandomCandidatesOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 128,
+          "type": "PointerRef",
+          "name": "LinkedCDB"
+        },
+        {
+          "encoding": 16416,
+          "offset": 136,
+          "type": "List<EntryRange>",
+          "name": "LinkedCDBEntryFrameRanges"
+        },
+        {
+          "encoding": 48,
+          "offset": 144,
+          "type": "PointerRef",
+          "name": "MotionTypesEnumRef"
+        },
+        {
+          "encoding": 48,
+          "offset": 152,
+          "type": "PointerRef",
+          "name": "SideAccelvsTimeScaleCurve"
+        },
+        {
+          "encoding": 48,
+          "offset": 160,
+          "type": "PointerRef",
+          "name": "FwdBwdAccelvsTimeScaleCurve"
+        },
+        {
+          "encoding": 48,
+          "offset": 168,
+          "type": "PointerRef",
+          "name": "NumNNeighboursOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 176,
+          "type": "PointerRef",
+          "name": "WeightsRuntime"
+        },
+        {
+          "encoding": 32,
+          "offset": 184,
+          "type": "List<EventLookup>",
+          "name": "EventLookup"
+        },
+        {
+          "encoding": 48,
+          "offset": 192,
+          "type": "PointerRef",
+          "name": "MasterDatabase"
+        },
+        {
+          "encoding": 52,
+          "offset": 200,
+          "type": "List<PointerRef>",
+          "name": "MotionClips"
+        },
+        {
+          "encoding": 32,
+          "offset": 208,
+          "type": "PCAData",
+          "name": "PCAData"
+        },
+        {
+          "encoding": 112,
+          "offset": 240,
+          "type": "CString",
+          "name": "DatabaseName"
+        },
+        {
+          "encoding": 288,
+          "offset": 248,
+          "type": "ulong",
+          "name": "DatabaseId"
+        },
+        {
+          "encoding": 244,
+          "offset": 256,
+          "type": "List<int>",
+          "name": "PoseFeatureMirrorIndices"
+        },
+        {
+          "encoding": 244,
+          "offset": 264,
+          "type": "List<int>",
+          "name": "PoseFeatureComponentMirrorIndices"
+        },
+        {
+          "encoding": 244,
+          "offset": 272,
+          "type": "List<int>",
+          "name": "PoseFeatureReferenceSystemState"
+        },
+        {
+          "encoding": 26656,
+          "offset": 280,
+          "type": "List<IntVec>",
+          "name": "PoseFeatureComponentMirrorMultipliers"
+        },
+        {
+          "encoding": 26656,
+          "offset": 288,
+          "type": "List<IntVec>",
+          "name": "PoseFeatureComponentScaleMultipliers"
+        },
+        {
+          "encoding": 48,
+          "offset": 296,
+          "type": "PointerRef",
+          "name": "PTMImplIdxMap_OldAnt"
+        },
+        {
+          "encoding": 196,
+          "offset": 304,
+          "type": "List<byte>",
+          "name": "PTMImplIdxHash"
+        },
+        {
+          "encoding": 32,
+          "offset": 312,
+          "type": "List<PTMKDImpl>",
+          "name": "PTMKDImpls"
+        },
+        {
+          "encoding": 32,
+          "offset": 320,
+          "type": "List<PTMAABBImpl>",
+          "name": "PTMAABBImpls"
+        },
+        {
+          "encoding": 32,
+          "offset": 328,
+          "type": "List<PCAGridImpl>",
+          "name": "PCAGridImpls"
+        },
+        {
+          "encoding": 48,
+          "offset": 336,
+          "type": "PointerRef",
+          "name": "EventTypeMap_OldAnt"
+        },
+        {
+          "encoding": 196,
+          "offset": 344,
+          "type": "List<byte>",
+          "name": "EventTypeMap"
+        },
+        {
+          "encoding": 24704,
+          "offset": 352,
+          "type": "PTMUnits",
+          "name": "Unit"
+        },
+        {
+          "encoding": 304,
+          "offset": 356,
+          "type": "float",
+          "name": "PriorityCostThreshold"
+        },
+        {
+          "encoding": 240,
+          "offset": 360,
+          "type": "int",
+          "name": "FutureTimeHorizon"
+        },
+        {
+          "encoding": 240,
+          "offset": 364,
+          "type": "int",
+          "name": "PastTimeHorizon"
+        },
+        {
+          "encoding": 304,
+          "offset": 368,
+          "type": "float",
+          "name": "ClipTrimEndTicks"
+        },
+        {
+          "encoding": 304,
+          "offset": 372,
+          "type": "float",
+          "name": "ClipTrimEndPercent"
+        },
+        {
+          "encoding": 240,
+          "offset": 376,
+          "type": "int",
+          "name": "MaxRandomCandidates"
+        },
+        {
+          "encoding": 24704,
+          "offset": 380,
+          "type": "PTMClipFilterMode",
+          "name": "ClipFilterMode"
+        },
+        {
+          "encoding": 240,
+          "offset": 384,
+          "type": "int",
+          "name": "NumRefineSubdivs"
+        },
+        {
+          "encoding": 240,
+          "offset": 388,
+          "type": "int",
+          "name": "NumNNeighbours"
+        },
+        {
+          "encoding": 240,
+          "offset": 392,
+          "type": "int",
+          "name": "PCAGridBucketSize"
+        },
+        {
+          "encoding": 240,
+          "offset": 396,
+          "type": "int",
+          "name": "NumComponents"
+        },
+        {
+          "encoding": 304,
+          "offset": 400,
+          "type": "float",
+          "name": "EarlyOutCostThreshold"
+        },
+        {
+          "encoding": 304,
+          "offset": 404,
+          "type": "float",
+          "name": "FootVelocityThreshold"
+        },
+        {
+          "encoding": 240,
+          "offset": 408,
+          "type": "int",
+          "name": "StepSize"
+        },
+        {
+          "encoding": 24704,
+          "offset": 412,
+          "type": "MotionType",
+          "name": "MotionType"
+        },
+        {
+          "encoding": 256,
+          "offset": 416,
+          "type": "uint",
+          "name": "PoseFeatureComponentMirrorMultipliersNumFloats"
+        },
+        {
+          "encoding": 256,
+          "offset": 420,
+          "type": "uint",
+          "name": "PoseFeatureComponentScaleMultipliersNumFloats"
+        },
+        {
+          "encoding": 160,
+          "offset": 424,
+          "type": "bool",
+          "name": "UseCompressedFeatures"
+        },
+        {
+          "encoding": 160,
+          "offset": 425,
+          "type": "bool",
+          "name": "ExcludeNextNaturalFrames"
+        },
+        {
+          "encoding": 160,
+          "offset": 426,
+          "type": "bool",
+          "name": "InterruptAnimationOnEnter"
+        },
+        {
+          "encoding": 160,
+          "offset": 427,
+          "type": "bool",
+          "name": "InterruptAnimationOnExit"
+        },
+        {
+          "encoding": 160,
+          "offset": 428,
+          "type": "bool",
+          "name": "InterruptAnimationOnLinkedCDBInvalid"
+        },
+        {
+          "encoding": 160,
+          "offset": 429,
+          "type": "bool",
+          "name": "FilterMotionInfoTagsByMotionTypesEnum"
+        },
+        {
+          "encoding": 160,
+          "offset": 430,
+          "type": "bool",
+          "name": "UseKNN"
+        },
+        {
+          "encoding": 160,
+          "offset": 431,
+          "type": "bool",
+          "name": "UseAABB"
+        },
+        {
+          "encoding": 160,
+          "offset": 432,
+          "type": "bool",
+          "name": "SortKNNResults"
+        },
+        {
+          "encoding": 160,
+          "offset": 433,
+          "type": "bool",
+          "name": "PCAGridIterateForward"
+        },
+        {
+          "encoding": 160,
+          "offset": 434,
+          "type": "bool",
+          "name": "EnableLegacyLocoFilters"
+        },
+        {
+          "encoding": 160,
+          "offset": 435,
+          "type": "bool",
+          "name": "ReconstructWithMetaData"
+        },
+        {
+          "encoding": 160,
+          "offset": 436,
+          "type": "bool",
+          "name": "PhaseQuotientMethod"
+        },
+        {
+          "encoding": 160,
+          "offset": 437,
+          "type": "bool",
+          "name": "DisableSecondSearch"
+        },
+        {
+          "encoding": 160,
+          "offset": 438,
+          "type": "bool",
+          "name": "HasIdles"
+        },
+        {
+          "encoding": 160,
+          "offset": 439,
+          "type": "bool",
+          "name": "HasStarts"
+        },
+        {
+          "encoding": 160,
+          "offset": 440,
+          "type": "bool",
+          "name": "HasStops"
+        },
+        {
+          "encoding": 160,
+          "offset": 441,
+          "type": "bool",
+          "name": "HasCycles"
+        }
+      ]
+    },
+    "4dc30312-fa5b-63fd-4e37-57119863d866": {
+      "classGuid": "4dc30312-fa5b-63fd-4e37-57119863d866",
+      "name": "PTMEventParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "EventSearchEnable"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "TicksToEvent"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "TicksToEventWeight"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "TicksToEventWeightEarly"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "TicksToEventMaxDiffEarlyOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "TicksToEventMaxDiffLateOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "TicksSinceEvent"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "TicksSinceEventWeight"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "EventType"
+        },
+        {
+          "encoding": 48,
+          "offset": 112,
+          "type": "PointerRef",
+          "name": "EventTypeMismatchPenalty"
+        },
+        {
+          "encoding": 48,
+          "offset": 120,
+          "type": "PointerRef",
+          "name": "EventTypeSecondaryMismatchPenalty"
+        },
+        {
+          "encoding": 48,
+          "offset": 128,
+          "type": "PointerRef",
+          "name": "PastEventTypeMismatchPenalty"
+        },
+        {
+          "encoding": 48,
+          "offset": 136,
+          "type": "PointerRef",
+          "name": "EventTypeSecondary"
+        },
+        {
+          "encoding": 48,
+          "offset": 144,
+          "type": "PointerRef",
+          "name": "PastEventType"
+        },
+        {
+          "encoding": 304,
+          "offset": 152,
+          "type": "float",
+          "name": "TicksToEventMaxDiffEarly"
+        },
+        {
+          "encoding": 304,
+          "offset": 156,
+          "type": "float",
+          "name": "TicksToEventMaxDiffLate"
+        }
+      ]
+    },
+    "d7692669-558d-6b1a-e78c-c0267df3b010": {
+      "classGuid": "d7692669-558d-6b1a-e78c-c0267df3b010",
+      "name": "PTMFootWarpParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "EnableFootWarpOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "FootWarpSpeedDampingOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "FootWarpSpeedTimeScaleWeightOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "FootWarpSpeedMultMinDistPercentOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "FootWarpSpeedMultMaxDistPercentOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "FootWarpAngleDampingOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "FootWarpAnkleRotationWeightOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "FootWarpMaxSpeedMultiplierOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "FootWarpMaxMoveAngleAdjustOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 112,
+          "type": "PointerRef",
+          "name": "FootWarpLeanAccelDampingOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 120,
+          "type": "PointerRef",
+          "name": "FootWarpLeanMaxAccelOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 128,
+          "type": "PointerRef",
+          "name": "FootWarpLeanClipMaxAccelOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 136,
+          "type": "PointerRef",
+          "name": "FootWarpLeanSpineAdjustOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 144,
+          "type": "PointerRef",
+          "name": "FootWarpLeanAnkleRotationWeightOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 152,
+          "type": "PointerRef",
+          "name": "FootWarpLeanNumAdjustJointsOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 160,
+          "type": "PointerRef",
+          "name": "FootWarpLeanMaxSideAngleOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 168,
+          "type": "PointerRef",
+          "name": "FootWarpLeanMaxFwdBackAngleOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 176,
+          "type": "PointerRef",
+          "name": "OutputFootWarpLeanSideAngle"
+        },
+        {
+          "encoding": 48,
+          "offset": 184,
+          "type": "PointerRef",
+          "name": "OutputFootWarpLeanFwdBackAngle"
+        },
+        {
+          "encoding": 48,
+          "offset": 192,
+          "type": "PointerRef",
+          "name": "FootWarpLeanHorizonTicksOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 200,
+          "type": "PointerRef",
+          "name": "FootWarpMoveAngleSpineAdjustOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 208,
+          "type": "PointerRef",
+          "name": "CadenceScaleOverride"
+        },
+        {
+          "encoding": 304,
+          "offset": 216,
+          "type": "float",
+          "name": "FootWarpSpeedDamping"
+        },
+        {
+          "encoding": 304,
+          "offset": 220,
+          "type": "float",
+          "name": "FootWarpSpeedTimeScaleWeight"
+        },
+        {
+          "encoding": 304,
+          "offset": 224,
+          "type": "float",
+          "name": "FootWarpSpeedMultMinDistPercent"
+        },
+        {
+          "encoding": 304,
+          "offset": 228,
+          "type": "float",
+          "name": "FootWarpSpeedMultMaxDistPercent"
+        },
+        {
+          "encoding": 304,
+          "offset": 232,
+          "type": "float",
+          "name": "FootWarpAngleDamping"
+        },
+        {
+          "encoding": 304,
+          "offset": 236,
+          "type": "float",
+          "name": "FootWarpAnkleRotationWeight"
+        },
+        {
+          "encoding": 304,
+          "offset": 240,
+          "type": "float",
+          "name": "FootWarpMaxSpeedMultiplier"
+        },
+        {
+          "encoding": 304,
+          "offset": 244,
+          "type": "float",
+          "name": "FootWarpMinSpeed"
+        },
+        {
+          "encoding": 304,
+          "offset": 248,
+          "type": "float",
+          "name": "FootWarpMaxMoveAngleAdjust"
+        },
+        {
+          "encoding": 304,
+          "offset": 252,
+          "type": "float",
+          "name": "FootWarpLeanAccelDamping"
+        },
+        {
+          "encoding": 304,
+          "offset": 256,
+          "type": "float",
+          "name": "FootWarpLeanMaxAccel"
+        },
+        {
+          "encoding": 304,
+          "offset": 260,
+          "type": "float",
+          "name": "FootWarpLeanClipMaxAccel"
+        },
+        {
+          "encoding": 304,
+          "offset": 264,
+          "type": "float",
+          "name": "FootWarpLeanSpineAdjust"
+        },
+        {
+          "encoding": 304,
+          "offset": 268,
+          "type": "float",
+          "name": "FootWarpLeanAnkleRotationWeight"
+        },
+        {
+          "encoding": 240,
+          "offset": 272,
+          "type": "int",
+          "name": "FootWarpLeanNumAdjustJoints"
+        },
+        {
+          "encoding": 304,
+          "offset": 276,
+          "type": "float",
+          "name": "FootWarpLeanMaxSideAngle"
+        },
+        {
+          "encoding": 304,
+          "offset": 280,
+          "type": "float",
+          "name": "FootWarpLeanMaxFwdBackAngle"
+        },
+        {
+          "encoding": 304,
+          "offset": 284,
+          "type": "float",
+          "name": "FootWarpLeanHorizonTicks"
+        },
+        {
+          "encoding": 304,
+          "offset": 288,
+          "type": "float",
+          "name": "FootWarpMoveAngleSpineAdjust"
+        },
+        {
+          "encoding": 304,
+          "offset": 292,
+          "type": "float",
+          "name": "CadenceScale"
+        },
+        {
+          "encoding": 160,
+          "offset": 296,
+          "type": "bool",
+          "name": "EnableFootWarp"
+        }
+      ]
+    },
+    "b45f8ad1-df2c-ed2a-bada-f5e613dd0b0d": {
+      "classGuid": "b45f8ad1-df2c-ed2a-bada-f5e613dd0b0d",
+      "name": "PTMInterruptParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "InterruptAnimationTrigger"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "InterruptAnimationOnDatabaseChangeOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "InterruptAnimationOnFilterChangeOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "InterruptAnimationOnMirrorChangeOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "InterruptAnimationOnSchemaFiltersFailOverride"
+        },
+        {
+          "encoding": 160,
+          "offset": 80,
+          "type": "bool",
+          "name": "InterruptAnimationOnDatabaseChange"
+        },
+        {
+          "encoding": 160,
+          "offset": 81,
+          "type": "bool",
+          "name": "InterruptAnimationOnFilterChange"
+        },
+        {
+          "encoding": 160,
+          "offset": 82,
+          "type": "bool",
+          "name": "InterruptAnimationOnMirrorChange"
+        },
+        {
+          "encoding": 160,
+          "offset": 83,
+          "type": "bool",
+          "name": "InterruptAnimationOnSchemaFiltersFail"
+        }
+      ]
+    },
+    "71a2dcb1-6081-0b51-a7dd-54c130324e5c": {
+      "classGuid": "71a2dcb1-6081-0b51-a7dd-54c130324e5c",
+      "name": "PTMJointsParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "HipsJoint"
+        },
+        {
+          "encoding": 52,
+          "offset": 48,
+          "type": "List<PointerRef>",
+          "name": "Limbs"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "MoveAngleSpineJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "LeanSpineJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "LeanPivotJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "LeanGroundJoint"
+        },
+        {
+          "encoding": 160,
+          "offset": 88,
+          "type": "bool",
+          "name": "AuxJointsUseToe"
+        }
+      ]
+    },
+    "eed09170-40ee-5f43-58fb-bad456bf5c5c": {
+      "classGuid": "eed09170-40ee-5f43-58fb-bad456bf5c5c",
+      "name": "PTMLocomotionControllerAsset",
+      "parent": "ControllerAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "MotionDatabaseParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "RootMotionWeight"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "PathDistanceCorrectionOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "ScalingParamsAsset"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "BlendParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "TargetPoseWeightOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "TargetPoseControllerAsset"
+        },
+        {
+          "encoding": 48,
+          "offset": 112,
+          "type": "PointerRef",
+          "name": "DebugCategory"
+        },
+        {
+          "encoding": 48,
+          "offset": 120,
+          "type": "PointerRef",
+          "name": "DebugDrawDofSetList"
+        },
+        {
+          "encoding": 48,
+          "offset": 128,
+          "type": "PointerRef",
+          "name": "OutputMotionModelDataOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 136,
+          "type": "PointerRef",
+          "name": "FutureJointPos"
+        },
+        {
+          "encoding": 48,
+          "offset": 144,
+          "type": "PointerRef",
+          "name": "FutureJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 152,
+          "type": "PointerRef",
+          "name": "MotionFilterParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 160,
+          "type": "PointerRef",
+          "name": "InterruptParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 168,
+          "type": "PointerRef",
+          "name": "PhaseFilterParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 176,
+          "type": "PointerRef",
+          "name": "LocomotionFilterParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 184,
+          "type": "PointerRef",
+          "name": "FaceAngleAdjustRateOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 192,
+          "type": "PointerRef",
+          "name": "FaceAngleAdjustHorizonTicksOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 200,
+          "type": "PointerRef",
+          "name": "AdjustFacingToCorrectPosition"
+        },
+        {
+          "encoding": 48,
+          "offset": 208,
+          "type": "PointerRef",
+          "name": "RootMotionWeightQOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 216,
+          "type": "PointerRef",
+          "name": "ClipMotionWarpParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 224,
+          "type": "PointerRef",
+          "name": "TimeScalingParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 232,
+          "type": "PointerRef",
+          "name": "EnableTimeScaling"
+        },
+        {
+          "encoding": 48,
+          "offset": 240,
+          "type": "PointerRef",
+          "name": "FootWarpParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 248,
+          "type": "PointerRef",
+          "name": "JointsParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 256,
+          "type": "PointerRef",
+          "name": "MotionWarpParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 264,
+          "type": "PointerRef",
+          "name": "PoseCorrectionParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 272,
+          "type": "PointerRef",
+          "name": "EventParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 280,
+          "type": "PointerRef",
+          "name": "OutputParams"
+        },
+        {
+          "encoding": 48,
+          "offset": 288,
+          "type": "PointerRef",
+          "name": "InputPathAsset"
+        },
+        {
+          "encoding": 48,
+          "offset": 296,
+          "type": "PointerRef",
+          "name": "TicksBeforeSearch"
+        },
+        {
+          "encoding": 48,
+          "offset": 304,
+          "type": "PointerRef",
+          "name": "RandomValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 312,
+          "type": "PointerRef",
+          "name": "HumanoidTemplate"
+        },
+        {
+          "encoding": 304,
+          "offset": 320,
+          "type": "float",
+          "name": "RootMotionWeightConstant"
+        },
+        {
+          "encoding": 304,
+          "offset": 324,
+          "type": "float",
+          "name": "ClampRootMotionAccel"
+        },
+        {
+          "encoding": 304,
+          "offset": 328,
+          "type": "float",
+          "name": "ClipTrajectoryBlendTicks"
+        },
+        {
+          "encoding": 304,
+          "offset": 332,
+          "type": "float",
+          "name": "ClipMoveDirectionBlendTicks"
+        },
+        {
+          "encoding": 304,
+          "offset": 336,
+          "type": "float",
+          "name": "PathDistanceCorrection"
+        },
+        {
+          "encoding": 304,
+          "offset": 340,
+          "type": "float",
+          "name": "MaxPathDistance"
+        },
+        {
+          "encoding": 304,
+          "offset": 344,
+          "type": "float",
+          "name": "TargetPoseWeight"
+        },
+        {
+          "encoding": 304,
+          "offset": 348,
+          "type": "float",
+          "name": "TargetPoseControllerTicks"
+        },
+        {
+          "encoding": 304,
+          "offset": 352,
+          "type": "float",
+          "name": "ResetHistoryOnTeleportThreshold"
+        },
+        {
+          "encoding": 304,
+          "offset": 356,
+          "type": "float",
+          "name": "DebugScale"
+        },
+        {
+          "encoding": 304,
+          "offset": 360,
+          "type": "float",
+          "name": "FaceAngleAdjustRate"
+        },
+        {
+          "encoding": 304,
+          "offset": 364,
+          "type": "float",
+          "name": "FaceAngleAdjustHorizonTicks"
+        },
+        {
+          "encoding": 304,
+          "offset": 368,
+          "type": "float",
+          "name": "RootMotionWeightQ"
+        },
+        {
+          "encoding": 304,
+          "offset": 372,
+          "type": "float",
+          "name": "TimeScaleDecayRate"
+        },
+        {
+          "encoding": 304,
+          "offset": 376,
+          "type": "float",
+          "name": "TicksBeforeSearchConstant"
+        },
+        {
+          "encoding": 256,
+          "offset": 380,
+          "type": "uint",
+          "name": "ExcludePoseQueueSize"
+        },
+        {
+          "encoding": 160,
+          "offset": 384,
+          "type": "bool",
+          "name": "KDAccuracyTestEnable"
+        },
+        {
+          "encoding": 160,
+          "offset": 385,
+          "type": "bool",
+          "name": "OutputMotionModelData"
+        }
+      ]
+    },
+    "f02838e8-cd7e-022e-f445-a347b65b584c": {
+      "classGuid": "f02838e8-cd7e-022e-f445-a347b65b584c",
+      "name": "PTMLocomotionFilterParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "MotionFilterStartStopOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "FootSweepFilterEnableOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "MaxSpeedToPlayStartOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "MaxSpeedToPlayStopOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "MaxSpeedToPlayTurnOnSpotOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "MaxFacingVelocityToPlayTurnOnSpotOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "MinDrasticTurnAngleOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "MaxConstantCycleSpeedDiffOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "MaxConstantCycleSpeedDiffPercentOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 112,
+          "type": "PointerRef",
+          "name": "MaxConstantCycleMoveAngleDiffOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 120,
+          "type": "PointerRef",
+          "name": "MaxConstantCycleFacingDiffOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 128,
+          "type": "PointerRef",
+          "name": "FaceAngleIdleToleranceOverride"
+        },
+        {
+          "encoding": 304,
+          "offset": 136,
+          "type": "float",
+          "name": "MaxSpeedToPlayStart"
+        },
+        {
+          "encoding": 304,
+          "offset": 140,
+          "type": "float",
+          "name": "MaxSpeedToPlayStop"
+        },
+        {
+          "encoding": 304,
+          "offset": 144,
+          "type": "float",
+          "name": "MaxSpeedToPlayTurnOnSpot"
+        },
+        {
+          "encoding": 304,
+          "offset": 148,
+          "type": "float",
+          "name": "MaxFacingVelocityToPlayTurnOnSpot"
+        },
+        {
+          "encoding": 304,
+          "offset": 152,
+          "type": "float",
+          "name": "MinDrasticTurnAngle"
+        },
+        {
+          "encoding": 304,
+          "offset": 156,
+          "type": "float",
+          "name": "MaxConstantCycleSpeedDiff"
+        },
+        {
+          "encoding": 304,
+          "offset": 160,
+          "type": "float",
+          "name": "MaxConstantCycleSpeedDiffPercent"
+        },
+        {
+          "encoding": 304,
+          "offset": 164,
+          "type": "float",
+          "name": "MaxConstantCycleMoveAngleDiff"
+        },
+        {
+          "encoding": 304,
+          "offset": 168,
+          "type": "float",
+          "name": "MaxConstantCycleFacingDiff"
+        },
+        {
+          "encoding": 304,
+          "offset": 172,
+          "type": "float",
+          "name": "MaxFootSpeedToIdle"
+        },
+        {
+          "encoding": 304,
+          "offset": 176,
+          "type": "float",
+          "name": "FaceAngleIdleTolerance"
+        },
+        {
+          "encoding": 160,
+          "offset": 180,
+          "type": "bool",
+          "name": "MotionFilterStartStop"
+        },
+        {
+          "encoding": 160,
+          "offset": 181,
+          "type": "bool",
+          "name": "FootSweepFilterEnable"
+        }
+      ]
+    },
+    "82177194-1584-c52a-d0cc-0ea73c19b41b": {
+      "classGuid": "82177194-1584-c52a-d0cc-0ea73c19b41b",
+      "name": "PTMMasterDatabaseAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 52,
+          "offset": 40,
+          "type": "List<PointerRef>",
+          "name": "Databases"
+        },
+        {
+          "encoding": 244,
+          "offset": 48,
+          "type": "List<int>",
+          "name": "MotionTypeDatabaseTable"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "EvaluationActorProvider"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "InterruptAnimationOnEnterOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "InterruptAnimationOnExitOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "PreviewScale"
+        },
+        {
+          "encoding": 160,
+          "offset": 88,
+          "type": "bool",
+          "name": "InterruptAnimationOnEnter"
+        },
+        {
+          "encoding": 160,
+          "offset": 89,
+          "type": "bool",
+          "name": "InterruptAnimationOnExit"
+        },
+        {
+          "encoding": 160,
+          "offset": 90,
+          "type": "bool",
+          "name": "FallbackToDefaultDatabase"
+        }
+      ]
+    },
+    "b81b27ec-aee7-0db8-7808-b3e9277d9d48": {
+      "classGuid": "b81b27ec-aee7-0db8-7808-b3e9277d9d48",
+      "name": "PTMMotionDatabaseParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "PTMDatabase"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "PriorityDatabase"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "PriorityEnable"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "ContextArrayPointer"
+        },
+        {
+          "encoding": 304,
+          "offset": 72,
+          "type": "float",
+          "name": "PriorityCostThreshold"
+        }
+      ]
+    },
+    "143e5605-32a2-4ec5-9454-fee9467f8804": {
+      "classGuid": "143e5605-32a2-4ec5-9454-fee9467f8804",
+      "name": "PTMMotionWarpParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "EnableMotionWarpOverride"
+        },
+        {
+          "encoding": 240,
+          "offset": 48,
+          "type": "int",
+          "name": "EnableMotionWarpFilterValue"
+        },
+        {
+          "encoding": 304,
+          "offset": 52,
+          "type": "float",
+          "name": "MotionWarpTimeHorizonTicks"
+        },
+        {
+          "encoding": 304,
+          "offset": 56,
+          "type": "float",
+          "name": "MotionWarpTimeHorizonTicksDynamicShort"
+        },
+        {
+          "encoding": 304,
+          "offset": 60,
+          "type": "float",
+          "name": "MotionWarpMaxJointError"
+        },
+        {
+          "encoding": 304,
+          "offset": 64,
+          "type": "float",
+          "name": "MinSeparatingDist"
+        },
+        {
+          "encoding": 304,
+          "offset": 68,
+          "type": "float",
+          "name": "MotionWarpCorrectionWeight"
+        },
+        {
+          "encoding": 304,
+          "offset": 72,
+          "type": "float",
+          "name": "MotionWarpBlendTicks"
+        },
+        {
+          "encoding": 160,
+          "offset": 76,
+          "type": "bool",
+          "name": "EnableMotionWarp"
+        },
+        {
+          "encoding": 160,
+          "offset": 77,
+          "type": "bool",
+          "name": "EnableStrideLogic"
+        },
+        {
+          "encoding": 160,
+          "offset": 78,
+          "type": "bool",
+          "name": "IgnoreLimbsYCorrection"
+        }
+      ]
+    },
+    "f5b3344f-f171-1f10-8dcc-9baede201e05": {
+      "classGuid": "f5b3344f-f171-1f10-8dcc-9baede201e05",
+      "name": "PTMOutputParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "MotionFilterChosen"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "FutureEventTypeChosen"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "PastEventTypeChosen"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "FutureEventTypeSecondaryChosen"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "TicksToEventChosen"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "TicksSinceEventChosen"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "VelDiffAngle"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "MoveAngleDiff"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "FaceDiff"
+        },
+        {
+          "encoding": 48,
+          "offset": 112,
+          "type": "PointerRef",
+          "name": "IsIdling"
+        },
+        {
+          "encoding": 48,
+          "offset": 120,
+          "type": "PointerRef",
+          "name": "WantTurnOnSpot"
+        },
+        {
+          "encoding": 48,
+          "offset": 128,
+          "type": "PointerRef",
+          "name": "WantIdle"
+        },
+        {
+          "encoding": 48,
+          "offset": 136,
+          "type": "PointerRef",
+          "name": "WantStart"
+        },
+        {
+          "encoding": 48,
+          "offset": 144,
+          "type": "PointerRef",
+          "name": "WantStop"
+        },
+        {
+          "encoding": 48,
+          "offset": 152,
+          "type": "PointerRef",
+          "name": "WantCycle"
+        },
+        {
+          "encoding": 48,
+          "offset": 160,
+          "type": "PointerRef",
+          "name": "WantDrasticTurn"
+        },
+        {
+          "encoding": 48,
+          "offset": 168,
+          "type": "PointerRef",
+          "name": "WantedMotionType"
+        },
+        {
+          "encoding": 48,
+          "offset": 176,
+          "type": "PointerRef",
+          "name": "DatabaseMotionType"
+        },
+        {
+          "encoding": 48,
+          "offset": 184,
+          "type": "PointerRef",
+          "name": "IsMirrored"
+        },
+        {
+          "encoding": 48,
+          "offset": 192,
+          "type": "PointerRef",
+          "name": "NewClipSegment"
+        },
+        {
+          "encoding": 48,
+          "offset": 200,
+          "type": "PointerRef",
+          "name": "PhaseOutput"
+        },
+        {
+          "encoding": 48,
+          "offset": 208,
+          "type": "PointerRef",
+          "name": "MoveAngleAdjustOutput"
+        },
+        {
+          "encoding": 48,
+          "offset": 216,
+          "type": "PointerRef",
+          "name": "OutputClipControllerAssetPointer"
+        },
+        {
+          "encoding": 48,
+          "offset": 224,
+          "type": "PointerRef",
+          "name": "OutputTicksAbsolute"
+        },
+        {
+          "encoding": 48,
+          "offset": 232,
+          "type": "PointerRef",
+          "name": "OutputQueryTotalCost"
+        },
+        {
+          "encoding": 160,
+          "offset": 240,
+          "type": "bool",
+          "name": "OutputPredictedPath"
+        },
+        {
+          "encoding": 160,
+          "offset": 241,
+          "type": "bool",
+          "name": "OutputClipPath"
+        }
+      ]
+    },
+    "82056e1b-ecc9-f853-6585-802afafac4e0": {
+      "classGuid": "82056e1b-ecc9-f853-6585-802afafac4e0",
+      "name": "PTMPhaseFilterParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "PhaseFilterToleranceOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "PhaseOverride"
+        },
+        {
+          "encoding": 304,
+          "offset": 56,
+          "type": "float",
+          "name": "PhaseFilterTolerance"
+        },
+        {
+          "encoding": 240,
+          "offset": 60,
+          "type": "int",
+          "name": "PhaseFilterMotionTypeValue"
+        },
+        {
+          "encoding": 160,
+          "offset": 64,
+          "type": "bool",
+          "name": "EnablePhaseCalculation"
+        }
+      ]
+    },
+    "16c2f1b2-d042-420d-c5ef-74165d3537a3": {
+      "classGuid": "16c2f1b2-d042-420d-c5ef-74165d3537a3",
+      "name": "PTMPoseCorrectionParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "HipsDisplaceDampingOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "MaxLegStretchOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "MaxHipsDisplaceOverride"
+        },
+        {
+          "encoding": 304,
+          "offset": 64,
+          "type": "float",
+          "name": "HipsDisplaceDamping"
+        },
+        {
+          "encoding": 304,
+          "offset": 68,
+          "type": "float",
+          "name": "MaxLegStretch"
+        },
+        {
+          "encoding": 304,
+          "offset": 72,
+          "type": "float",
+          "name": "MaxHipsDisplace"
+        }
+      ]
+    },
+    "6f915e34-cd32-4433-3e2a-49405d30aa93": {
+      "classGuid": "6f915e34-cd32-4433-3e2a-49405d30aa93",
+      "name": "PTMPoseFeaturesRuntimeAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "PoseHistoryPointerAsset"
+        },
+        {
+          "encoding": 52,
+          "offset": 48,
+          "type": "List<PointerRef>",
+          "name": "Schema"
+        },
+        {
+          "encoding": 260,
+          "offset": 56,
+          "type": "List<uint>",
+          "name": "FeatureComponentDataOffsets"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "SlotEnumerationGS"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "PrimarySlot"
+        },
+        {
+          "encoding": 260,
+          "offset": 80,
+          "type": "List<uint>",
+          "name": "MetaDataComponentDataOffsets"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "AnimatableId"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "TrajectoryJoint"
+        },
+        {
+          "encoding": 256,
+          "offset": 104,
+          "type": "uint",
+          "name": "NumFeatureComponents"
+        },
+        {
+          "encoding": 256,
+          "offset": 108,
+          "type": "uint",
+          "name": "NumFeatureComponentsPadded"
+        },
+        {
+          "encoding": 256,
+          "offset": 112,
+          "type": "uint",
+          "name": "NumFeatureComponentsVector"
+        },
+        {
+          "encoding": 304,
+          "offset": 116,
+          "type": "float",
+          "name": "AlternativeTimeHorizonMin"
+        },
+        {
+          "encoding": 304,
+          "offset": 120,
+          "type": "float",
+          "name": "AlternativeTimeHorizonStepSize"
+        },
+        {
+          "encoding": 256,
+          "offset": 124,
+          "type": "uint",
+          "name": "NumAlternativeTimeHorizons"
+        },
+        {
+          "encoding": 256,
+          "offset": 128,
+          "type": "uint",
+          "name": "NumCurrentFeatureComponents"
+        },
+        {
+          "encoding": 256,
+          "offset": 132,
+          "type": "uint",
+          "name": "NumMetaDataComponents"
+        },
+        {
+          "encoding": 256,
+          "offset": 136,
+          "type": "uint",
+          "name": "NumCurrentMetaDataComponents"
+        },
+        {
+          "encoding": 256,
+          "offset": 140,
+          "type": "uint",
+          "name": "MetaDataFrameSize"
+        },
+        {
+          "encoding": 160,
+          "offset": 144,
+          "type": "bool",
+          "name": "UseDebugColoring"
+        },
+        {
+          "encoding": 160,
+          "offset": 145,
+          "type": "bool",
+          "name": "DisableParallelBuild"
+        }
+      ]
+    },
+    "5f8f5ccb-5e03-69b4-b8b2-c6b08e98f602": {
+      "classGuid": "5f8f5ccb-5e03-69b4-b8b2-c6b08e98f602",
+      "name": "PTMScalingParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "TrajectoryScale"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "PoseScaleOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "PathScaleOverride"
+        },
+        {
+          "encoding": 304,
+          "offset": 64,
+          "type": "float",
+          "name": "TrajectoryScaleConstant"
+        },
+        {
+          "encoding": 304,
+          "offset": 68,
+          "type": "float",
+          "name": "PoseScale"
+        },
+        {
+          "encoding": 304,
+          "offset": 72,
+          "type": "float",
+          "name": "PathScale"
+        }
+      ]
+    },
+    "954729b8-ce34-35a3-d6e1-654611af65ac": {
+      "classGuid": "954729b8-ce34-35a3-d6e1-654611af65ac",
+      "name": "PTMTimeScalingParamsAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "TimeInfoGS"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "MaxTimeScaleOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "MinTimeScaleOverride"
+        },
+        {
+          "encoding": 304,
+          "offset": 64,
+          "type": "float",
+          "name": "MaxTimeScale"
+        },
+        {
+          "encoding": 304,
+          "offset": 68,
+          "type": "float",
+          "name": "MinTimeScale"
+        }
+      ]
+    },
+    "ec686059-6bb3-407d-5596-2884f1ff8b8b": {
+      "classGuid": "ec686059-6bb3-407d-5596-2884f1ff8b8b",
+      "name": "PTMWeights",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 40,
+          "type": "PointerRef",
+          "name": "KeepCurrentAnimBiasOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "RandomBiasOverride"
+        },
+        {
+          "encoding": 26656,
+          "offset": 56,
+          "type": "List<IntVec>",
+          "name": "FeatureComponentWeights"
+        },
+        {
+          "encoding": 52,
+          "offset": 64,
+          "type": "List<PointerRef>",
+          "name": "FeatureComponentWeightsOverride"
+        },
+        {
+          "encoding": 48,
+          "offset": 72,
+          "type": "PointerRef",
+          "name": "PoseFeaturesRuntime"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "TweakAsset"
+        },
+        {
+          "encoding": 112,
+          "offset": 88,
+          "type": "CString",
+          "name": "FailingDataminerName"
+        },
+        {
+          "encoding": 304,
+          "offset": 96,
+          "type": "float",
+          "name": "KeepCurrentAnimBias"
+        },
+        {
+          "encoding": 304,
+          "offset": 100,
+          "type": "float",
+          "name": "RandomBias"
+        },
+        {
+          "encoding": 256,
+          "offset": 104,
+          "type": "uint",
+          "name": "FeatureComponentWeightsNumFloats"
+        },
+        {
+          "encoding": 24704,
+          "offset": 108,
+          "type": "DistanceMetric",
+          "name": "CostMetric"
+        },
+        {
+          "encoding": 160,
+          "offset": 112,
+          "type": "bool",
+          "name": "EnableLegacyTrajFacingWeights"
+        }
+      ]
+    },
+    "912f80bb-d8bb-86e1-d233-abae94eaed5b": {
+      "classGuid": "912f80bb-d8bb-86e1-d233-abae94eaed5b",
+      "name": "PTMWeightsTweakAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 308,
+          "offset": 40,
+          "type": "List<float>",
+          "name": "FeatureComponentWeightsToolOverride"
+        },
+        {
+          "encoding": 304,
+          "offset": 48,
+          "type": "float",
+          "name": "KeepCurrentAnimBiasOverride"
+        }
+      ]
+    },
+    "53ee497e-c6a8-ab48-00d2-e16139465eb5": {
+      "classGuid": "53ee497e-c6a8-ab48-00d2-e16139465eb5",
+      "name": "SDNNAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 112,
+          "offset": 40,
+          "type": "CString",
+          "name": "DNNName"
+        },
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Structure"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "Parameters"
+        },
+        {
+          "encoding": 52,
+          "offset": 64,
+          "type": "List<PointerRef>",
+          "name": "NodeReference"
+        },
+        {
+          "encoding": 112,
+          "offset": 72,
+          "type": "CString",
+          "name": "OptionString"
+        }
+      ]
+    },
+    "420d5e3a-19bf-3c0b-a429-dde1312672ad": {
+      "classGuid": "420d5e3a-19bf-3c0b-a429-dde1312672ad",
+      "name": "SDNNLayer",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 112,
+          "offset": 40,
+          "type": "CString",
+          "name": "ActivationType"
+        },
+        {
+          "encoding": 308,
+          "offset": 48,
+          "type": "List<float>",
+          "name": "Weights"
+        },
+        {
+          "encoding": 244,
+          "offset": 56,
+          "type": "List<int>",
+          "name": "NumWeightX"
+        },
+        {
+          "encoding": 244,
+          "offset": 64,
+          "type": "List<int>",
+          "name": "NumWeightY"
+        },
+        {
+          "encoding": 308,
+          "offset": 72,
+          "type": "List<float>",
+          "name": "Weights2nd"
+        },
+        {
+          "encoding": 308,
+          "offset": 80,
+          "type": "List<float>",
+          "name": "Bias"
+        },
+        {
+          "encoding": 308,
+          "offset": 88,
+          "type": "List<float>",
+          "name": "Bias2nd"
+        },
+        {
+          "encoding": 308,
+          "offset": 96,
+          "type": "List<float>",
+          "name": "Alphas"
+        },
+        {
+          "encoding": 308,
+          "offset": 104,
+          "type": "List<float>",
+          "name": "Beta"
+        },
+        {
+          "encoding": 308,
+          "offset": 112,
+          "type": "List<float>",
+          "name": "Gamma"
+        },
+        {
+          "encoding": 308,
+          "offset": 120,
+          "type": "List<float>",
+          "name": "Mean"
+        },
+        {
+          "encoding": 308,
+          "offset": 128,
+          "type": "List<float>",
+          "name": "Variance"
+        },
+        {
+          "encoding": 24704,
+          "offset": 136,
+          "type": "SDNNLayerType",
+          "name": "LayerType"
+        },
+        {
+          "encoding": 240,
+          "offset": 140,
+          "type": "int",
+          "name": "NumInputs"
+        },
+        {
+          "encoding": 240,
+          "offset": 144,
+          "type": "int",
+          "name": "NumNodes"
+        },
+        {
+          "encoding": 240,
+          "offset": 148,
+          "type": "int",
+          "name": "NumLayersInNode"
+        }
+      ]
+    },
+    "24b73b9c-dc51-b324-3905-5becb0f23f74": {
+      "classGuid": "24b73b9c-dc51-b324-3905-5becb0f23f74",
+      "name": "TimeInfoFeatureSchemaAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "TimeInfoGS"
+        }
+      ]
+    },
+    "c21c96e8-a598-ab8b-2913-d78d03f2f446": {
+      "classGuid": "c21c96e8-a598-ab8b-2913-d78d03f2f446",
+      "name": "TrajectoryFeatureSchemaAsset",
+      "parent": "AntAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 164,
+          "offset": 64,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        }
+      ]
+    },
+    "f575f9dd-3086-a4e0-3763-7947f980773d": {
+      "classGuid": "f575f9dd-3086-a4e0-3763-7947f980773d",
+      "name": "TransitionPolicyAsset",
+      "parent": "BlendAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "TransitionBehaviour"
+        }
+      ]
+    },
+    "91dc7c9f-6549-ee8c-976c-23d74f329418": {
+      "classGuid": "91dc7c9f-6549-ee8c-976c-23d74f329418",
+      "name": "VelocityFeatureSchemaAsset",
+      "parent": "BaseFeatureSchemaAsset",
+      "fields": [
+        {
+          "encoding": 48,
+          "offset": 48,
+          "type": "PointerRef",
+          "name": "Joint"
+        },
+        {
+          "encoding": 48,
+          "offset": 56,
+          "type": "PointerRef",
+          "name": "GameStateDriver"
+        },
+        {
+          "encoding": 48,
+          "offset": 64,
+          "type": "PointerRef",
+          "name": "UpdateFromGameState"
+        },
+        {
+          "encoding": 164,
+          "offset": 72,
+          "type": "List<bool>",
+          "name": "StrippedComponents"
+        },
+        {
+          "encoding": 48,
+          "offset": 80,
+          "type": "PointerRef",
+          "name": "SlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 88,
+          "type": "PointerRef",
+          "name": "ReferenceJoint"
+        },
+        {
+          "encoding": 48,
+          "offset": 96,
+          "type": "PointerRef",
+          "name": "ReferenceSlotValue"
+        },
+        {
+          "encoding": 48,
+          "offset": 104,
+          "type": "PointerRef",
+          "name": "OverrideFilter"
+        },
+        {
+          "encoding": 24704,
+          "offset": 112,
+          "type": "PTMPoseFeatureSource",
+          "name": "FeatureSource"
+        },
+        {
+          "encoding": 26656,
+          "offset": 128,
+          "type": "Vec4",
+          "name": "DebugColor"
+        },
+        {
+          "encoding": 24704,
+          "offset": 144,
+          "type": "PoseTime",
+          "name": "PoseTime"
+        },
+        {
+          "encoding": 160,
+          "offset": 148,
+          "type": "bool",
+          "name": "Connect"
+        }
+      ]
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # Tools, versions, provenance and research history
 
+This document covers the original eleven-clip extraction baseline. For the new continuous controller, expanded extraction profile, 33 parameter/weight assets and recovered neural IK, also read [CONTROLLER.md](CONTROLLER.md). The source capture viewer now lives at `clips.html`; the home page runs the controller.
+
 This inventory separates the minimum reproduction path from optional tools used while investigating it. Download from the named project/vendor. Versions below are the ones observed in this session, not a claim that they are the latest releases.
 
 ## Tools used for the successful path

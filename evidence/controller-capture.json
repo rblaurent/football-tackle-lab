@@ -1,0 +1,362 @@
+{
+  "url": "http://127.0.0.1:8131/",
+  "date": "2026-11-18T17:06:54.020Z",
+  "browser": "157.0.8103.79",
+  "fps": 30,
+  "frames": 555,
+  "width": 1280,
+  "height": 800,
+  "sequences": [
+    {
+      "sequence": "demo",
+      "firstFrame": 0,
+      "lastFrame": 419,
+      "finalState": {
+        "time": 13.966666666666514,
+        "demo": true,
+        "ball": [
+          -2.8785122711687383,
+          0.11,
+          8.79481625585025
+        ],
+        "ballVelocity": [
+          -0.018998635391282995,
+          0,
+          -0.054541114586782964
+        ],
+        "actors": [
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -0.6388455274049848,
+              0,
+              5.240541796555459
+            ],
+            "speed": 0,
+            "heading": 0.3805063771123649,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.7536250188787045
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "from": "move",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.28125,
+                "cost": 0.7971812998345155
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.7500894645468407
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "from": "move",
+                "to": "tackle",
+                "action": "tackle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "tackle",
+                "to": "recover",
+                "action": "recoverSlide",
+                "entry": 0.023333333333333334,
+                "cost": 4.281850657794663
+              },
+              {
+                "from": "recover",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "idle",
+                "to": "start",
+                "action": "start",
+                "entry": 0.12,
+                "cost": 0.7032240809927492
+              },
+              {
+                "from": "start",
+                "to": "move",
+                "action": "move",
+                "entry": 0,
+                "cost": 1.4010441387666934
+              },
+              {
+                "from": "move",
+                "to": "stop",
+                "action": "stop",
+                "entry": 0.59375,
+                "cost": 0.9785790175309205
+              },
+              {
+                "from": "stop",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          },
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              2,
+              0,
+              -1.8
+            ],
+            "speed": 0,
+            "heading": 0,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": []
+          }
+        ],
+        "events": [
+          {
+            "time": 5.800000000000078,
+            "type": "ball rolled into a new direction"
+          },
+          {
+            "time": 6.7750000000001265,
+            "type": "tackle requested"
+          },
+          {
+            "time": 7.150000000000145,
+            "type": "ball contact",
+            "actor": 0,
+            "foot": 0,
+            "closing": 4.796690194281284
+          }
+        ],
+        "bones": [
+          {
+            "hip": [
+              -0.7019330673243686,
+              0.9221432324398642,
+              5.257323938533224
+            ],
+            "leftFoot": [
+              -0.6181975290202374,
+              0.1033689572159095,
+              5.089194161401771
+            ],
+            "rightFoot": [
+              -0.6039209663294866,
+              0.10395525098326919,
+              5.370446541420438
+            ]
+          },
+          {
+            "hip": [
+              1.938301348802228,
+              0.9222521693593653,
+              -1.8074454944286296
+            ],
+            "leftFoot": [
+              1.904205540231479,
+              0.10508946909774414,
+              -2.0740989003825745
+            ],
+            "rightFoot": [
+              1.916825500377535,
+              0.10534122344900199,
+              -1.7563519918992156
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sequence": "duel",
+      "firstFrame": 420,
+      "lastFrame": 554,
+      "finalState": {
+        "time": 4.466666666666678,
+        "demo": false,
+        "ball": [
+          7.698024744849835,
+          0.11,
+          -2.1582043327088014
+        ],
+        "ballVelocity": [
+          0.4192807252487954,
+          0,
+          -0.14682682210090378
+        ],
+        "actors": [
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              3.5626685893525925,
+              0,
+              0.706539438997156
+            ],
+            "speed": 0,
+            "heading": 0,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "from": "idle",
+                "to": "tackle",
+                "action": "tackle",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "tackle",
+                "to": "recover",
+                "action": "recoverSlide",
+                "entry": 0.023333333333333334,
+                "cost": 4.281850657794663
+              },
+              {
+                "from": "recover",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          },
+          {
+            "state": "idle",
+            "action": "idle",
+            "position": [
+              -4.601789247,
+              0,
+              1.743618121599998
+            ],
+            "speed": 0,
+            "heading": 3.141592653589793,
+            "weights": {
+              "idle": 1
+            },
+            "blend": 1,
+            "history": [
+              {
+                "from": "idle",
+                "to": "fall",
+                "action": "fall",
+                "entry": 0,
+                "cost": 0
+              },
+              {
+                "from": "fall",
+                "to": "recover",
+                "action": "recoverFront",
+                "entry": 0.11666666666666668,
+                "cost": 11.176218182720245
+              },
+              {
+                "from": "recover",
+                "to": "idle",
+                "action": "idle",
+                "entry": 0,
+                "cost": 0
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "time": 0,
+            "type": "player tackle scenario"
+          },
+          {
+            "time": 0.3583333333333336,
+            "type": "leg contact",
+            "actor": 0,
+            "target": 1
+          },
+          {
+            "time": 0.3833333333333337,
+            "type": "ball contact",
+            "actor": 0,
+            "foot": 0,
+            "closing": 4.902929345127612
+          }
+        ],
+        "bones": [
+          {
+            "hip": [
+              3.489294404187262,
+              0.9109457479113376,
+              0.6977792716455232
+            ],
+            "leftFoot": [
+              3.501681369701225,
+              0.10458399205992241,
+              0.610261527245955
+            ],
+            "rightFoot": [
+              3.5223219520284363,
+              0.10433601279639793,
+              0.9493378018836007
+            ]
+          },
+          {
+            "hip": [
+              -4.539609036866151,
+              0.9192576985664456,
+              1.7455938015749979
+            ],
+            "leftFoot": [
+              -4.493427788593149,
+              0.10489389999643611,
+              2.010019999772548
+            ],
+            "rightFoot": [
+              -4.519447608626871,
+              0.10576102586016639,
+              1.694303237100155
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "errors": []
+}

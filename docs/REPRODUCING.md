@@ -1,5 +1,7 @@
 # Reproducing the extraction and viewer
 
+This document covers the original eleven-clip extraction baseline. For the new continuous controller, expanded extraction profile, 33 parameter/weight assets and recovered neural IK, also read [CONTROLLER.md](CONTROLLER.md). The source capture viewer now lives at `clips.html`; the home page runs the controller.
+
 Read [Start here](START-HERE.md) first. All commands below are run from the repository root unless stated otherwise. They use your own installed game and write generated files to a separate work folder. No game executable or anti-cheat component needs to be started or modified.
 
 ## 1. Install the minimum tools
@@ -209,8 +211,8 @@ npx playwright install chromium
 Serve the repository in another terminal, then:
 
 ```sh
-node tools/verify-viewer.cjs --url http://127.0.0.1:8080/ --out fc27-work/browser-checks
-node tools/capture-motion.cjs --url http://127.0.0.1:8080/ --out fc27-work/capture
+node tools/verify-viewer.cjs --url http://127.0.0.1:8080/clips.html --out fc27-work/browser-checks
+node tools/capture-motion.cjs --url http://127.0.0.1:8080/clips.html --out fc27-work/capture
 ```
 
 The capture tool writes JPEG frames and a manifest for scenes 0, 2, 3, 5 and 6 at half speed. Encode them with FFmpeg:

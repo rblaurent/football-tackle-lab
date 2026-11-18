@@ -1,0 +1,28 @@
+{
+  "samplesPerModel": 240,
+  "units": "metres",
+  "interpretation": "Reconstruction against decoded native clips, not against EA runtime outputs. Hip-local coordinates in feet; input-major dense weights and min/max [0,1] normalization are inferred conventions.",
+  "models": {
+    "arm1_loco_dnn": {
+      "inputs": 16,
+      "outputs": 6,
+      "layers": 8,
+      "coordinateRMSE": 0.039483543192861896,
+      "maxJointError": 0.11914988720613347
+    },
+    "chest_loco_dnn": {
+      "inputs": 7,
+      "outputs": 3,
+      "layers": 8,
+      "coordinateRMSE": 0.020367875798884622,
+      "maxJointError": 0.04800693564484128
+    },
+    "knee_loco_dnn": {
+      "inputs": 7,
+      "outputs": 6,
+      "layers": 8,
+      "coordinateRMSE": 0.024708807516323504,
+      "maxJointError": 0.23459494466768907
+    }
+  }
+}

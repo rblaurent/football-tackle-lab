@@ -97,7 +97,7 @@ class Archives:
         return bytes(output), {'sha1Decoded': raw_hash, 'sha1Packed': packed_hash, 'codecs': dict(codecs)}
 
 def index_archives(archives, profile, clips, work):
-    needed = set(clips) | set(profile['dofAssets'].values()) | {profile['skeleton'], profile['rig']}
+    needed = set(clips) | set(profile.get('researchAssets', [])) | set(profile['dofAssets'].values()) | {profile['skeleton'], profile['rig']}
     assets, report = {}, []
     for area in ('Data', 'Patch'):
         for filename in TOCS:

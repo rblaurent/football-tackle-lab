@@ -1,5 +1,7 @@
 # Binary formats, animation logic and retargeting
 
+This document covers the original eleven-clip extraction baseline. For the new continuous controller, expanded extraction profile, 33 parameter/weight assets and recovered neural IK, also read [CONTROLLER.md](CONTROLLER.md). The source capture viewer now lives at `clips.html`; the home page runs the controller.
+
 These are observations from the tested FC 27 Lite build, not an official universal Frostbite specification. The executable readers in `tools/fc27/` are authoritative for this proof. Unsupported counts, routes, codecs and unresolved bindings should fail rather than be guessed.
 
 ```mermaid

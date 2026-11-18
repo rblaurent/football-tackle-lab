@@ -1,0 +1,1 @@
+{"assets":33,"networks":{"arm1_loco_dnn":{"inputs":16,"outputs":6,"layers":8,"denseWeights":1720},"chest_loco_dnn":{"inputs":7,"outputs":3,"layers":8,"denseWeights":328},"knee_loco_dnn":{"inputs":7,"outputs":6,"layers":8,"denseWeights":720}},"unresolvedFields":46,"interpretation":"SDK-assisted, bounded structural validation. Native runtime equivalence is not established."}

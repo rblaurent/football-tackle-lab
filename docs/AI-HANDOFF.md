@@ -1,10 +1,10 @@
 # Handoff to the next AI and developer
 
-Read `docs/START-HERE.md`, `docs/REPRODUCING.md`, `docs/FORMATS.md`, `docs/TOOLS-AND-SOURCES.md`, `README.md` and `THIRD_PARTY.md` before proposing a rewrite. Inspect `app.js`, `tools/fc27/`, `physics.js` and the existing evidence. The project is a working prototype with a verified extraction path, not a blank design exercise.
+Read `docs/START-HERE.md`, `docs/CONTROLLER.md`, `docs/REPRODUCING.md`, `docs/FORMATS.md`, `docs/TOOLS-AND-SOURCES.md`, `README.md` and `THIRD_PARTY.md` before proposing a rewrite. Inspect `controller-core.js`, `animation.js`, `foot-planting.js`, `neural-ik.js`, `human.js`, `controller-view.js`, `app.js`, `tools/fc27/`, `physics.js` and the existing evidence. The project is a working prototype with a verified extraction path, not a blank design exercise.
 
 ## Paste this into your AI session
 
-> We are building a small football manager/referee game for a child, starting from https://github.com/rblaurent/football-tackle-lab. Read its docs/ handoff and source first. Preserve the working viewer while making small, reviewable improvements. Start by running the existing page, then inspect actual source clips and retargeting before changing them. The latest viewer uses eleven selected FC27 Lite clips retargeted onto a Quaternius skinned human, while collision-lab.html is an older independent solver using Gameplay Football assets. These are separate systems. Do not claim EA's full collision, animation-selection or referee engine was extracted. Use the supplied Windows extraction pipeline if new assets are needed. Keep downloaded reference code, game archives, Oodle and generated caches out of Git. Respect the distinct third-party terms. Propose the smallest playable referee scenario loop and implement it with explicit acceptance evidence. Ask only for information you cannot determine from the repo or installed files.
+> We are building a small football manager/referee game for a child, starting from https://github.com/rblaurent/football-tackle-lab. Read docs/START-HERE.md and docs/CONTROLLER.md, then inspect the actual source and evidence. The home page already has a controllable state/transition system using thirteen FC Lite clips and a recovered knee-IK network, with foot planting, ball chase, tackles and automatic recovery. clips.html preserves the original eleven-clip capture viewer; collision-lab.html is the earlier Gameplay Football study. The new controller and contacts are ours, not EA native runtime code. Three complete locomotion IK models and 33 inspected controller/weight assets are supplied. Do not claim full PTM search, match AI, rule logic, ML-Flow or HyperMotion was recovered. Preserve the working system and run its sixteen tests plus browser verifier before changing it. Use the expanded Windows extractor profile for reproduction. Keep game archives, raw caches, decompression/SDK binaries, downloaded codec source and credentials out of Git. Build the smallest complete referee incident/decision/replay loop on the existing controller. Ask only for information you cannot determine from the repo or installed files.
 
 ## Ground truth to preserve
 
@@ -15,18 +15,18 @@ Read `docs/START-HERE.md`, `docs/REPRODUCING.md`, `docs/FORMATS.md`, `docs/TOOLS
 - Native paired captures need shared time and a shared origin. Do not independently zero the actor trajectories.
 - World-space rest/bind-direction correction matters. Copying local quaternions by similar names is insufficient.
 - A hand near a shirt is not cloth deformation. The shirt is currently a material region on the skin, not simulated cloth.
-- Ground-to-standing recovery is a separate clip. There is no seamless automatic fall-to-recovery controller yet.
-- Indexed motion-resource count is not a count of validated decoded clips. Only the selected eleven are established by this proof.
+- Recovery is now selected and blended automatically in the new controller. The old capture viewer still treats it as a separate clip. Do not replace the working chain with an end-frame hold.
+- Indexed motion-resource count is not an export count. The expanded profile decodes 22 candidates; thirteen drive the new controller and eleven remain in the original viewer. Several overlap.
 - The original idle name contains getup but plays standing idle. Inspect before labeling or selecting clips.
 
 ## First milestones, in order
 
-1. **Preserve a runnable baseline.** Clone, run local HTTP server, run the browser verifier and the seven physics tests. Save screenshots and the tested revision. Do not redesign everything before this passes.
+1. **Preserve a runnable baseline.** Clone, run local HTTP server, run the controller browser verifier, old-viewer verifier and sixteen Node tests. Save screenshots and the tested revision. Do not redesign everything before this passes.
 2. **Author three complete referee incidents.** One clear clean challenge, one clear late trip, one clear holding/pulling incident. Choose clips deliberately; do not pretend the cinematic tackle pair itself dynamically distinguishes clean from late contact.
-3. **Create a sequence controller.** Separate simulation state, source clip time, shared pair transform and camera. Define approach/contact/reaction/recovery/locomotion states. Continue the clock through source end holds. Blend pose and root transforms while maintaining ground support.
+3. **Extend the existing controller.** Preserve its action locks, current-pose inertial transitions, gait phases, bounded root correction and automatic recoveries. Add synchronized paired interaction states and metadata rather than starting a second animation clock. Treat shirt pulling separately from single-player locomotion.
 4. **Add interaction metadata.** For each usable clip/pair, annotate approach angle, relative speed, actor roles, ball state, contact interval, hand/foot target, reaction direction, ending posture and compatible recovery. Keep annotations separate from source keys.
 5. **Integrate bounded collisions.** Reuse/adapt the earlier swept sphere/capsule ideas with an explicit coordinate conversion. Tie foul decisions to measured contacts and authored scenario rules. Avoid frame-rate-dependent contact guesses.
-6. **Improve retarget contact.** Add foot placement and a limited hand constraint where proportions cause visible gaps. Root warp within bounded ranges; select another clip if alignment exceeds those ranges. Start with plausible contact before attempting cloth deformation.
+6. **Improve retarget contact.** Preserve source foot planting and its neural knee hint; add target-rig foot correction and a limited hand constraint where proportions cause visible gaps. Root warp within bounded ranges; select another clip if alignment exceeds those ranges. Start with plausible contact before attempting cloth deformation.
 7. **Make the child's decision loop enjoyable.** Replay/slow motion, a clear play-on/foul/card choice, understandable feedback and a restart. Keep real implementation details out of the child's interface.
 8. **Only then expand the match.** Add manager decisions or a lightweight match simulation that selects incidents. Full 22-player real-time AI and FIFA parity are later work.
 
@@ -59,6 +59,8 @@ Do not add tests that merely mirror the implementation. Prefer observable failur
 - Do not add heavy server infrastructure to a static prototype unless a concrete game feature needs it.
 - Do not commit game installations, proprietary decompression DLLs, downloaded FMT binaries, private upstream codec copies or credentials.
 - Do not claim the manager/referee game's rules are complete from a ball-first heuristic.
+- Do not use FC26 field offsets blindly on FC27, convert internal RIFF references as unsigned displacements, or ignore the extractor's unresolved fields.
+- Do not call the recovered knee network an animation selector. Its coordinate conventions are inferred and its measured scope is documented; the native 31-feature PTM search is not running in our controller.
 
 ## Working with another game build
 
