@@ -1,5 +1,12 @@
 # Evidence index
 
+Arm fitting correction:
+
+- `arm-fit-before-{idle,jog,shirtFrontA}.png`: previous rigid arm fit.
+- `arm-fit-{idle,jog,shirtFrontA}.png`, `arm-fit-visual.json`: corrected arm length fit, repeatable native poses and identical camera on the low-quality profile.
+- `arm-fit-native.json`, `arm-fit-runtime.json`, `arm-fit-mobile.json`: native contact/skin, desktop/touch gameplay and emulated phone acceptance after the correction.
+- [Exact fitting defect, regression and limits](../docs/NATIVE-RIG.md#shoulder-to-elbow-fitting-correction-19-november).
+
 Current phone stability correction:
 
 - `mobile-before.json`: previous public build's phone-sized texture/framebuffer/heap measurements; no physical-device crash reproduction claim.

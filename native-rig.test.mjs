@@ -12,3 +12,16 @@ test('one shared sole proxy grounds both the rendered ellipsoid and the simulate
 test('gait phase matching cannot worsen its outgoing foot position/velocity score',()=>{const lib=new MotionLibrary(data),a=lib.createPose(),b=lib.createPose();lib.locomotion(3,.31,a);lib.locomotion(3,.30,b);const fit=lib.matchGait(3,.8,a,b,1/120,1.2);assert.ok(fit.cost<=fit.originalCost);assert.ok(fit.cost<fit.originalCost*.8);});
 
 test('compact GPU palettes preserve the actual native skinned vertex positions',()=>{const full=createNativeBinding(data,original),compact=createNativeBinding(data,original,{compactPalette:true}),a=meshes.map(m=>full.fit(m)),b=meshes.map(m=>compact.fit(m)),lib=new MotionLibrary(data),pose=lib.createPose();assert.equal(compact.bones.length,369);assert.ok(compact.skeleton.bones.length<100);for(const [id,t] of [['idle',.3],['jog',.2],['shirtFrontA',.7],['fall',.9]]){lib.sample(id,t,pose);for(const rig of [full,compact]){rig.bones.forEach((bone,i)=>{bone.position.copy(pose.positions[i]);bone.quaternion.copy(pose.quaternions[i]);});rig.root.updateMatrixWorld(true);rig.skeleton.update();}for(let j=0;j<a.length;j++)for(let i=0;i<a[j].geometry.attributes.position.count;i+=5)assert.ok(a[j].getVertexPosition(i,new T.Vector3()).distanceTo(b[j].getVertexPosition(i,new T.Vector3()))<1e-7);}});
+
+
+test('both arm fits reach the native shoulder, elbow and wrist while preserving radial thickness',()=>{
+ const binding=createNativeBinding(data,original),old={};original.traverse(o=>{if(o.isBone)old[o.name]=o;});const position=o=>o.getWorldPosition(new T.Vector3());
+ for(const side of ['l','r'])for(const [parent,child] of [['clavicle','upperarm'],['upperarm','lowerarm'],['lowerarm','hand']]){
+  const name=parent+'_'+side,next=child+'_'+side,a=position(old[name]),b=position(old[next]),nativeA=position(binding.target[name]),nativeB=position(binding.target[next]),fit=binding.transforms[name];
+  assert.ok(a.clone().applyMatrix4(fit).distanceTo(nativeA)<1e-8,name+' proximal endpoint');
+  assert.ok(b.clone().applyMatrix4(fit).distanceTo(nativeB)<1e-8,name+' distal endpoint');
+  const axis=b.clone().sub(a).normalize(),radial=new T.Vector3(0,0,1).addScaledVector(axis,-axis.z).normalize().multiplyScalar(.05),middle=a.clone().lerp(b,.5),fittedMiddle=middle.clone().applyMatrix4(fit),fittedRadial=middle.clone().add(radial).applyMatrix4(fit).sub(fittedMiddle);
+  assert.ok(Math.abs(fittedRadial.length()-.05)<1e-8,name+' radial thickness');
+  assert.ok(Math.abs(fittedRadial.dot(nativeB.clone().sub(nativeA).normalize()))<1e-8,name+' no radial shear');
+ }
+});

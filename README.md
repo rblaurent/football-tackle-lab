@@ -1,5 +1,7 @@
 # Football Tackle Lab
 
+**Arm fitting correction:** shoulder, elbow and wrist now align at both ends of each fitted arm segment. This removes a measured 5 cm upper-arm bind mismatch while preserving arm thickness. [Cause, checks and remaining model limitations](docs/NATIVE-RIG.md#shoulder-to-elbow-fitting-correction-19-november).
+
 **Phone stability update:** phones now use smaller textures/framebuffers, bounded compact streaming and a compact GPU palette while retaining the full native rig. The main demo handles WebGL loss/restoration. [Measurements, tools and limits](docs/MOBILE-STABILITY.md).
 
 **Native rig update:** the CC0 mesh now binds directly to the native 369-bone hierarchy, sharing its final pose with gameplay contacts. One sole correction replaces the second render-time IK pass; native hand references and foot-phase matching improve missing fingers and gait changes. [Implementation, measurements and reproduction](docs/NATIVE-RIG.md).

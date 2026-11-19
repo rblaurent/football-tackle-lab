@@ -65,7 +65,7 @@ node tools/verify-runtime.cjs http://127.0.0.1:8080/ /path/to/evidence/runtime
 node tools/verify-native-rig.cjs http://127.0.0.1:8080/ /path/to/evidence/rig
 ```
 
-The 58 Node tests include the original 47 plus actual CC0 geometry/skin rebinding, source immutability, weight normalization, native joint/contact agreement under different headings/actions, tracked/missing fingers, nonaccumulating grip references, shared sole geometry/idle support continuity and gait phase score improvement. The Node skin fixture reads the committed glTF/bin directly; it does not substitute a synthetic stick figure.
+The 59 Node tests include the original 47 plus actual CC0 geometry/skin rebinding, source immutability, weight normalization, native joint/contact agreement under different headings/actions, tracked/missing fingers, nonaccumulating grip references, shared sole geometry/idle support continuity and gait phase score improvement. The Node skin fixture reads the committed glTF/bin directly; it does not substitute a synthetic stick figure.
 
 The native-rig browser verifier measures visible native wrists/ankles against simulated endpoints through idle, jogging, tackle/fall/get-up and all five standing interactions. It checks actual skinned vertex positions for finite values, a shared native skeleton and settled idle soles, then captures character/hand/foot close-ups. The existing runtime browser verifier also checks desktop and touch controls, native kicks, contacts, goals and release. See [the evidence index](../evidence/README.md).
 
@@ -76,3 +76,24 @@ Further work should measure contact surfaces and transition velocity/acceleratio
 In the recorded eight-scenario browser check, visible wrists and ankles match the simulation to numerical precision (maximum below `6e-15` metres). Settled idle soles are within a fraction of a millimetre of the floor; sampled jogging penetration is below a millimetre. These are joint/proxy measurements, not artist approval of the mesh surface.
 
 The same report deliberately records remaining ground intersections: an extreme side-pull and the tackle/fall sequence can put a sole roughly 18–20 cm below the pitch while the body is low. Standing support IK is not a full-body ground collision solver. Those poses need a constrained full-body/recovery policy or exclusion from automatic selection. Fast source limb motion also remains in the measured maximum step values. Do not label all source motions jitter-free or ground-safe based on the native skin correction.
+
+
+## Shoulder-to-elbow fitting correction (19 November)
+
+A second close-up review found that the original bind fit aligned segment directions and proximal joint centres, but used a rigid transform with no length adjustment. The native upper arms are about 20% longer than this model's upper arms. Consequently, transforming the model's elbow with its upper-arm fit missed the native elbow by 50.285 mm on each side. The forearm fit missed the wrist by 20.406 mm, and the clavicle fit missed the shoulder by 32.428 mm. These are **bind-fitting endpoint errors**, not measured visible triangle-to-joint distances during gameplay.
+
+`native-skin.js` now adds an axial affine stretch for clavicle, upper arm and forearm only. For source segment unit direction `a` and target/source length ratio `r`, its linear part is `I + (r - 1) a a^T`, followed by the existing anatomical rotation and translation. This maps both endpoints exactly while preserving distances perpendicular to the segment. It does not scale the entire character or change source animation, native bone lengths, contact anchors, original geometry, or original skin weights. Normals use the inverse transpose of the complete fitting transform. Fitting still happens once at character creation; there is no extra per-frame pass or GPU palette expansion.
+
+The regression uses the committed character's actual joints. Both sides must map clavicle-to-shoulder, shoulder-to-elbow and elbow-to-wrist endpoints within `1e-8` metres, preserve a 5 cm radial offset, and avoid axial/radial shear. The previous implementation fails the distal endpoint assertion. Existing actual-vertex tests continue to compare the compact phone palette with the full native palette.
+
+```sh
+npm test
+node tools/verify-arm-fit.cjs http://127.0.0.1:8080/?quality=low evidence
+node tools/verify-native-rig.cjs http://127.0.0.1:8080/?quality=low /path/to/evidence/rig
+```
+
+`verify-arm-fit.cjs` captures the same camera and native idle/jog/front-pull samples for repeatable comparison. `evidence/arm-fit-before-*.png` preserves the previous fit; `arm-fit-*.png` shows the correction. The native rig browser check still passes all eight scenarios, preserving rendered/contact joint equality to numerical precision. The separate 40-second phone check covers resource limits and deliberate context restoration in emulation, not physical device certification.
+
+This fixes the verified length-fit defect. The CC0 superhero model still has sculpted deltoids/biceps, limited original shoulder weights, and no artist-authored native helper-bone deformation transfer. Close-up shoulder/underarm shapes can remain stylized or pinched in extreme poses. We did not identify and fix a decoder or axial-twist defect in this investigation, and should not claim otherwise. A less muscular model with carefully painted weights/corrective shapes remains the route to a more natural silhouette.
+
+The serial phone verification passed: 40 seconds at about 30 fps, 4.34 MiB estimated 2D texture storage, 24 resident streamed clips, no page/request errors or natural context loss; forced loss restored the same world. A preceding parallel invocation timed out at startup without preserving its page state, so its exact cause is unknown. `verify-mobile.cjs` now saves `mobile-failure.json` with page status/error and available database/graphics state when a future run fails. This diagnostic change is not a claimed fix for that startup timeout.

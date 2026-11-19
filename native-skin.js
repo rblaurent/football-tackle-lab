@@ -11,16 +11,19 @@ export function createNativeBinding(data,template,{compactPalette=false}={}){
  const old={};template.traverse(o=>{if(o.isBone)old[o.name]=o;});const position=o=>o.getWorldPosition(new T.Vector3()),oldSide=position(old.thigh_r).sub(position(old.thigh_l)),newSide=position(byName.RightUpLeg).sub(position(byName.LeftUpLeg));const facing=new T.Quaternion().setFromAxisAngle(new T.Vector3(0,1,0),Math.atan2(-newSide.z,newSide.x)-Math.atan2(-oldSide.z,oldSide.x));
  const transforms={},rotations={},aliases={},index=Object.fromEntries(bones.map((b,i)=>[b.name,i]));
  for(const [name,native] of Object.entries(humanBoneMap)){
-  const a=old[name],b=byName[native];if(!a||!b)continue;aliases[name]=b;let rotation=facing.clone(),child=children[name];
+  const a=old[name],b=byName[native];if(!a||!b)continue;aliases[name]=b;let rotation=facing.clone(),child=children[name];const lengthFit=new T.Matrix4();
   if(child&&old[child]&&byName[humanBoneMap[child]]){
    const pa=position(old[child]).sub(position(a)),pb=position(byName[humanBoneMap[child]]).sub(position(b));let sa=new T.Vector3(0,0,1),sb=sa.clone().applyQuaternion(facing);
+   // The arm mesh must reach both native endpoints, not just the proximal joint.
+   // Preserve cross-sectional thickness; do not globally scale the character.
+   if(/^(clavicle|upperarm|lowerarm)_/.test(name)){const axis=pa.clone().normalize(),stretch=pb.length()/pa.length()-1,{x,y,z}=axis;lengthFit.set(1+stretch*x*x,stretch*x*y,stretch*x*z,0,stretch*y*x,1+stretch*y*y,stretch*y*z,0,stretch*z*x,stretch*z*y,1+stretch*z*z,0,0,0,0,1);}
    const side=name.endsWith('_l')?'l':name.endsWith('_r')?'r':null;
    if(side&&(name.startsWith('hand_')||/^(index|middle|ring|pinky|thumb)_/.test(name))){const long=side==='l'?'Left':'Right';sa=position(old['pinky_01_'+side]).sub(position(old['index_01_'+side]));sb=position(byName[long+'HandPinky1']).sub(position(byName[long+'HandIndex1']));}
    if(name.startsWith('foot_')||name.startsWith('ball_')){sa.set(0,1,0);sb.copy(sa);}
    if(pa.clone().cross(sa).lengthSq()>1e-8&&pb.clone().cross(sb).lengthSq()>1e-8)rotation.setFromRotationMatrix(frame(pb,sb).multiply(frame(pa,sa).invert()));
    else rotation.premultiply(new T.Quaternion().setFromUnitVectors(pa.normalize().applyQuaternion(facing),pb.normalize()));
   }else if(a.parent?.isBone&&rotations[a.parent.name])rotation.copy(rotations[a.parent.name]);
-  rotations[name]=rotation;transforms[name]=new T.Matrix4().compose(position(b),rotation,new T.Vector3(1,1,1)).multiply(new T.Matrix4().makeTranslation(...position(a).negate().toArray()));
+  rotations[name]=rotation;transforms[name]=new T.Matrix4().compose(position(b),rotation,new T.Vector3(1,1,1)).multiply(lengthFit).multiply(new T.Matrix4().makeTranslation(...position(a).negate().toArray()));
  }
  const weighted=new Set();template.traverse(mesh=>{if(!mesh.isSkinnedMesh)return;const si=mesh.geometry.attributes.skinIndex,sw=mesh.geometry.attributes.skinWeight;for(let i=0;i<si.count;i++)for(let k=0;k<4;k++)if(sw.getComponent(i,k)>0){const name=humanBoneMap[mesh.skeleton.bones[si.getComponent(i,k)].name];if(index[name]===undefined)throw Error('Unmapped weighted bone');weighted.add(index[name]);}});
  const palette=compactPalette?[...weighted].sort((a,b)=>a-b).map(i=>bones[i]):bones,paletteIndex=Object.fromEntries(palette.map((b,i)=>[b.name,i]));

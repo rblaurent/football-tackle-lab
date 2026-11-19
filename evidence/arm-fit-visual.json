@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:8131/?quality=low",
+  "date": "2026-11-19T07:38:41.346Z",
+  "errors": [],
+  "poses": [
+    {
+      "pose": "idle",
+      "time": 0.4
+    },
+    {
+      "pose": "jog",
+      "time": 0.2
+    },
+    {
+      "pose": "shirtFrontA",
+      "time": 0.7
+    }
+  ]
+}
