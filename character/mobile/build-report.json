@@ -1,0 +1,22 @@
+{
+  "source": "CC0 Quaternius original committed character assets",
+  "operation": "FFmpeg Lanczos diffuse resize 2048 to 512; original geometry buffers shared; normal/roughness material references removed",
+  "files": {
+    "Hair_Buzzed.gltf": {
+      "bytes": 1472,
+      "sha256": "c427efd47b9a4785eba38a4d8fe91ea5c6708318da784caf0b5869d214e63562"
+    },
+    "Superhero_Male_FullBody.gltf": {
+      "bytes": 22214,
+      "sha256": "345bea3af051bf40d8b450321a138bcaa7f701db9614d4df32557a5ea0edb9e4"
+    },
+    "T_Hair_1_BaseColor.png": {
+      "bytes": 244842,
+      "sha256": "4244d7bd815b28eecd8ce6f3d944744a764db8c131436536ec0de4fd2ae9a56b"
+    },
+    "T_Superhero_Male_Dark.png": {
+      "bytes": 177248,
+      "sha256": "ce44b74c617a5cdf9d82440508c2893b640983095ce4e828f7646feda717e532"
+    }
+  }
+}

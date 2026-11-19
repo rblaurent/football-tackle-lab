@@ -40,16 +40,21 @@ export class MotionLibrary {
   if(this.motions[meta.id])return this.motions[meta.id];
   const m={id:meta.id,clip,family:meta.family,meta,start:0,end:(clip.frameCount-1)/30,duration:(clip.frameCount-1)/30,loop:['idle','walk','jog','sprint'].includes(meta.family),capture:meta.family==='shirtPair'};
   m.q=clip.qNames.map(n=>this.index[n]);m.v=clip.vNames.map(n=>({i:this.index[n.split('.')[0]],scale:n.endsWith('.s')}));
-  const ti=clip.vNames.indexOf('AITrajectory.t'),qi=clip.qNames.indexOf('AITrajectory');if(ti<0||qi<0)throw Error('Runtime body clip lacks root channels');m.trajectory=clip.vectors.map(f=>new T.Vector3().fromArray(f[ti]).multiplyScalar(.3048));
-  m.preserveTrajectory=m.capture||!['idle','walk','jog','sprint','start','stop','turn'].includes(meta.family);m.referenceYaw=m.preserveTrajectory&&!m.capture?yawOf(new T.Quaternion().fromArray(clip.quaternions[0][qi]).normalize()):0;m.nativeSpeed=meta.speed;
-  if(m.loop){m.first=clonePose(this.rest);m.last=clonePose(this.rest);this.sampleRaw(m,0,m.first);this.sampleRaw(m,m.duration,m.last);m.phaseOffset=0;const fi=clip.fNames.indexOf('LeftFoot.height');if(fi>=0&&meta.family!=='idle'){let low=Infinity;clip.floats.forEach((f,i)=>{if(f[fi]<low){low=f[fi];m.phaseOffset=i/Math.max(1,clip.frameCount-1);}});}}
+  const ti=clip.vNames.indexOf('AITrajectory.t'),qi=clip.qNames.indexOf('AITrajectory');if(ti<0||qi<0)throw Error('Runtime body clip lacks root channels');m.trajectory=Array.from({length:clip.frameCount},(_,i)=>clip.values?new T.Vector3().fromArray(clip.values,i*clip.layout.width+4*clip.layout.q+ti*3).multiplyScalar(.3048):new T.Vector3().fromArray(clip.vectors[i][ti]).multiplyScalar(.3048));
+  m.preserveTrajectory=m.capture||!['idle','walk','jog','sprint','start','stop','turn'].includes(meta.family);m.referenceYaw=m.preserveTrajectory&&!m.capture?yawOf((clip.values?new T.Quaternion().fromArray(clip.values,qi*4):new T.Quaternion().fromArray(clip.quaternions[0][qi])).normalize()):0;m.nativeSpeed=meta.speed;
+  if(m.loop){m.first=clonePose(this.rest);m.last=clonePose(this.rest);this.sampleRaw(m,0,m.first);this.sampleRaw(m,m.duration,m.last);m.phaseOffset=0;const fi=clip.fNames.indexOf('LeftFoot.height');if(fi>=0&&meta.family!=='idle'){let low=Infinity;for(let i=0;i<clip.frameCount;i++){const height=clip.values?clip.values[i*clip.layout.width+4*clip.layout.q+3*clip.layout.v+fi]:clip.floats[i][fi];if(height<low){low=height;m.phaseOffset=i/Math.max(1,clip.frameCount-1);}}}}
   this.motions[meta.id]=m;return m;
  }
  createPose(){return clonePose(this.rest);}
  sampleRaw(m,t,out){
   copyPose(out,this.rest);const f=clamp(t*30,0,m.clip.frameCount-1),i=Math.floor(f),j=Math.min(i+1,m.clip.frameCount-1),w=f-i;
+  if(m.clip.values){const values=m.clip.values,stride=m.clip.layout.width,vector=4*m.clip.layout.q;
+   m.q.forEach((n,k)=>{if(n!==undefined)out.quaternions[n].fromArray(values,i*stride+k*4).normalize().slerp(Q.fromArray(values,j*stride+k*4).normalize(),w);});
+   m.v.forEach(({i:n,scale},k)=>{if(n!==undefined&&!scale)out.positions[n].fromArray(values,i*stride+vector+k*3).lerp(V.fromArray(values,j*stride+vector+k*3),w).multiplyScalar(.3048);});
+  }else{
   m.q.forEach((n,k)=>{if(n===undefined)return;out.quaternions[n].fromArray(m.clip.quaternions[i][k]).normalize().slerp(Q.fromArray(m.clip.quaternions[j][k]).normalize(),w);});
   m.v.forEach(({i:n,scale},k)=>{if(n===undefined||scale)return;out.positions[n].fromArray(m.clip.vectors[i][k]).lerp(V.fromArray(m.clip.vectors[j][k]),w).multiplyScalar(.3048);});
+  }
   // Navigation consumes translation; action-body yaw remains relative to its entry frame.
   this.handPoses.fill(out,m);
   const ai=this.index.AITrajectory;out.positions[ai].set(0,0,0);

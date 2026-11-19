@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {renderProfile} from './render-profile.js';
+test('phones and memory-constrained devices automatically select bounded low-power rendering',()=>{for(const input of [{mobile:true},{coarse:true,width:412},{memory:2},{quality:'low'}]){const p=renderProfile(input);assert.equal(p.low,true);assert.equal(p.antialias,false);assert.equal(p.shadows,false);assert.equal(p.pixelRatio,1);assert.equal(p.fps,30);assert.equal(p.maxConcurrent,1);assert.equal(p.maxClips,24);assert.equal(p.cacheBytes,8*1024*1024);}});
+test('desktop rendering and an explicit high-quality override remain available',()=>{assert.equal(renderProfile().low,false);assert.equal(renderProfile({mobile:true,quality:'high'}).low,false);});

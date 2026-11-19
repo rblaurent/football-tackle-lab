@@ -1,5 +1,7 @@
 # Live native animation system
 
+**Phone stability update:** phones now use smaller textures/framebuffers, bounded compact streaming and a compact GPU palette while retaining the full native rig. The main demo handles WebGL loss/restoration. [Measurements, tools and limits](MOBILE-STABILITY.md).
+
 **Native rig update:** the CC0 mesh now binds directly to the native 369-bone hierarchy, sharing its final pose with gameplay contacts. One sole correction replaces the second render-time IK pass; native hand references and foot-phase matching improve missing fingers and gait changes. [Implementation, measurements and reproduction](NATIVE-RIG.md).
 
 [Play the current demo](https://rblaurent.github.io/football-tackle-lab/). The home page now runs a context-driven animation system, not just the small fixed clip playlist or the separate catalogue. The controller selects and streams suitable native performances, transitions between them, and returns to useful movement after each action.
@@ -73,7 +75,7 @@ Each candidate stores speed, travel, local direction, turn, entry/exit height, s
 
 The selector first restricts the query to the requested role. It then scores speed mismatch, turn magnitude/sign, current pose, hip height, foot support, loop quality and continuity bias. Pose comparison uses 12 anatomical joints with extra weight on the hips. The exact weights live in `MotionDatabase.score`: speed weight 2 for locomotion/starts/stops, pose weight 8, hip-height weight 5, support weight 0.12, seam weight 12, plus turn/direction terms and a 0.25 current-candidate bias. They are original project tuning, not recovered FC weights.
 
-Only resident valid candidates may enter the simulation. Missing better candidates are fetched asynchronously; the existing valid motion stays available. There are at most three concurrent fetches, checksum and decoded shape checks, a 12-second clip-fetch timeout, up to 64 resident streamed clips and a 48MiB resident-size estimate target. Active clips and mandatory fallbacks are protected from eviction. The estimate excludes the feature manifest, baseline clips, scene, textures and GPU allocations; it is not a claim about total browser memory. An artificially tiny custom cache can remain above its estimate target when required clips are pinned.
+Only resident valid candidates may enter the simulation. Missing better candidates are fetched asynchronously; the existing valid motion stays available. There are at most three concurrent fetches, checksum and decoded shape checks, a 12-second clip-fetch timeout, up to 64 resident streamed clips and a 32MiB desktop or 8MiB phone resident-size estimate target. Active clips and mandatory fallbacks are protected from eviction. The estimate excludes the feature manifest, baseline clips, scene, textures and GPU allocations; it is not a claim about total browser memory. An artificially tiny custom cache can remain above its estimate target when required clips are pinned.
 
 Gait selection hysteresis uses simulation time, not wall time. Cadence follows the selected cycle and measured speed with bounded time scaling. A newly streamed gait entering continuous running starts an inertial pose transition; it does not instantly replace the current pose. State changes, interruptions, paired-action release and recovery use the same transition machinery. The actual outgoing velocity is carried into braking rather than recomputed from heading.
 
@@ -134,7 +136,7 @@ node tools\verify-runtime.cjs http://127.0.0.1:8080/ D:\Evidence
 node tools\capture-runtime.cjs http://127.0.0.1:8080/ D:\Evidence\frames
 ```
 
-The 53 tests cover the previous decoder-tail/root-frame/velocity/IK regressions and the new selector, native contact/miss behavior, every connected interaction, eight rotated tackle encounters, angular admission, newly streamed gait continuity, checksum failure fallback, cache eviction with pinned actions, and a complete normal-play approach/shot/goal/queued-celebration/idle sequence. The normal-play test includes the opponent; it does not place a ball at the goal line to manufacture the outcome.
+The 58 tests cover the previous decoder-tail/root-frame/velocity/IK regressions and the new selector, native contact/miss behavior, every connected interaction, eight rotated tackle encounters, angular admission, newly streamed gait continuity, checksum failure fallback, cache eviction with pinned actions, and a complete normal-play approach/shot/goal/queued-celebration/idle sequence. The normal-play test includes the opponent; it does not place a ball at the goal line to manufacture the outcome.
 
 Real browser checks exercise skinned native passes/shots, consecutive shirt pulls/push/grab/handball, goal selection, mouse and actual emulated touch-pad input, finite skin matrices, layout and asset/page failures on desktop and 412x915 touch viewports. This does not claim testing on physical phone hardware or Mac Safari, or visual approval of every admitted clip.
 

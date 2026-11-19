@@ -1,5 +1,7 @@
 # Native rig, skin and contact corrections
 
+**Phone stability update:** phones now use smaller textures/framebuffers, bounded compact streaming and a compact GPU palette while retaining the full native rig. The main demo handles WebGL loss/restoration. [Measurements, tools and limits](MOBILE-STABILITY.md).
+
 The playable character now uses the extracted **369-bone native hierarchy directly**. The CC0 Quaternius mesh is fitted and rebound at load time; it no longer follows a separate 65-bone target through runtime rotation retargeting. The source model and its original 65-joint asset remain unchanged on disk.
 
 ## What was wrong
@@ -63,7 +65,7 @@ node tools/verify-runtime.cjs http://127.0.0.1:8080/ /path/to/evidence/runtime
 node tools/verify-native-rig.cjs http://127.0.0.1:8080/ /path/to/evidence/rig
 ```
 
-The 53 Node tests include the original 47 plus actual CC0 geometry/skin rebinding, source immutability, weight normalization, native joint/contact agreement under different headings/actions, tracked/missing fingers, nonaccumulating grip references, shared sole geometry/idle support continuity and gait phase score improvement. The Node skin fixture reads the committed glTF/bin directly; it does not substitute a synthetic stick figure.
+The 58 Node tests include the original 47 plus actual CC0 geometry/skin rebinding, source immutability, weight normalization, native joint/contact agreement under different headings/actions, tracked/missing fingers, nonaccumulating grip references, shared sole geometry/idle support continuity and gait phase score improvement. The Node skin fixture reads the committed glTF/bin directly; it does not substitute a synthetic stick figure.
 
 The native-rig browser verifier measures visible native wrists/ankles against simulated endpoints through idle, jogging, tackle/fall/get-up and all five standing interactions. It checks actual skinned vertex positions for finite values, a shared native skeleton and settled idle soles, then captures character/hand/foot close-ups. The existing runtime browser verifier also checks desktop and touch controls, native kicks, contacts, goals and release. See [the evidence index](../evidence/README.md).
 

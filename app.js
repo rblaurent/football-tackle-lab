@@ -1,14 +1,16 @@
 import * as T from './vendor/three.module.js';
+import {browserRenderProfile} from './render-profile.js';
+const profile=browserRenderProfile();
 import {GLTFLoader} from './vendor/addons/loaders/GLTFLoader.js';
 import {clone as cloneSkeleton} from './vendor/addons/utils/SkeletonUtils.js';
 import {OrbitControls} from './vendor/addons/controls/OrbitControls.js';
-const loader=new GLTFLoader();const [humanTemplate,hairTemplate]=await Promise.all([loader.loadAsync('./character/Superhero_Male_FullBody.gltf'),loader.loadAsync('./character/Hair_Buzzed.gltf')]);
+const loader=new GLTFLoader();const [humanTemplate,hairTemplate]=await Promise.all([loader.loadAsync(profile.assetRoot+'Superhero_Male_FullBody.gltf'),loader.loadAsync(profile.assetRoot+'Hair_Buzzed.gltf')]);
 const data=await (await fetch('data.json')).json();
 const scene=new T.Scene();scene.background=new T.Color('#102d28');scene.fog=new T.Fog('#102d28',18,65);
-const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.outputColorSpace=T.SRGBColorSpace;document.body.prepend(renderer.domElement);
+const renderer=new T.WebGLRenderer({antialias:profile.antialias,preserveDrawingBuffer:false,stencil:false,powerPreference:profile.low?'low-power':'default'});renderer.setPixelRatio(Math.min(devicePixelRatio,profile.pixelRatio));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=profile.shadows;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.outputColorSpace=T.SRGBColorSpace;document.body.prepend(renderer.domElement);
 const camera=new T.PerspectiveCamera(38,innerWidth/innerHeight,.05,100);camera.position.set(4,3.1,6);
 const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,.85,0);controls.enableDamping=true;controls.maxPolarAngle=Math.PI*.49;
-scene.add(new T.HemisphereLight(0xc9efff,0x355a26,2.4));const sun=new T.DirectionalLight(0xffedce,3.3);sun.position.set(4,9,5);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-10,right:10,top:10,bottom:-10});sun.shadow.bias=-.001;scene.add(sun);
+scene.add(new T.HemisphereLight(0xc9efff,0x355a26,2.4));const sun=new T.DirectionalLight(0xffedce,3.3);sun.position.set(4,9,5);sun.castShadow=profile.shadows;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-10,right:10,top:10,bottom:-10});sun.shadow.bias=-.001;scene.add(sun);
 const pitch=new T.Mesh(new T.PlaneGeometry(100,100),new T.MeshStandardMaterial({color:'#285f43',roughness:1}));pitch.rotation.x=-Math.PI/2;pitch.position.y=-.025;pitch.receiveShadow=true;scene.add(pitch);
 const grid=new T.GridHelper(100,100,0x71926b,0x365f42);grid.position.y=-.023;grid.material.transparent=true;grid.material.opacity=.4;scene.add(grid);
 const markmat=new T.MeshBasicMaterial({color:'#b7ceac'});for(let z of [-7,7]){let m=new T.Mesh(new T.PlaneGeometry(40,.055),markmat);m.rotation.x=-Math.PI/2;m.position.set(0,-.02,z);scene.add(m)}
@@ -57,5 +59,5 @@ window.setTime=t=>{time=t;scenes[active].keys.forEach((k,i)=>players[i].pose(dat
 window.setScene=i=>setup(i);window.previewState=()=>({active,time,duration,positions:players.map(p=>p.byName.Hips.getWorldPosition(new T.Vector3()).toArray())});window.pause=()=>{playing=false;document.querySelector('#play').textContent='Play'};
 select.onchange=()=>setup(+select.value);document.querySelector('#play').onclick=()=>{playing=!playing;document.querySelector('#play').textContent=playing?'Pause':'Play'};document.querySelector('#scrub').oninput=e=>{playing=false;window.setTime(e.target.value*duration)};document.querySelector('#speed').onclick=e=>{speed=speed===.5?1:.5;e.target.textContent=speed+'×'};
 window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
-setup(0);let last=performance.now();renderer.setAnimationLoop(now=>{let dt=Math.min((now-last)/1000,.05);last=now;if(playing){let next=time+dt*speed;if(next>duration+1)next=0;window.setTime(next)}controls.update();renderer.render(scene,camera)});window.__players=players;window.ready=true;
+setup(0);let last=performance.now(),lastDraw=0;renderer.setAnimationLoop(now=>{if(document.hidden||renderer.getContext().isContextLost()||now-lastDraw<1000/profile.fps-1)return;lastDraw=now;let dt=Math.min((now-last)/1000,.05);last=now;if(playing){let next=time+dt*speed;if(next>duration+1)next=0;window.setTime(next)}controls.update();renderer.render(scene,camera)});window.__players=players;window.ready=true;
 

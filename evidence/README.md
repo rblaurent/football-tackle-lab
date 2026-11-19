@@ -1,6 +1,12 @@
 # Evidence index
 
-Current native skin correction:
+Current phone stability correction:
+
+- `mobile-before.json`: previous public build's phone-sized texture/framebuffer/heap measurements; no physical-device crash reproduction claim.
+- `mobile-verification.json`, `mobile-stable.png`: constrained 40-second real-loop soak and deliberate WebGL loss/restoration with the same playable world. Texture storage estimates exclude framebuffer/compositor/driver overhead.
+- [Phone implementation and qualification](../docs/MOBILE-STABILITY.md).
+
+Native skin correction:
 
 - `native-rig-verification.json`: eight rendered/posed scenarios, native skeleton binding, visible wrist/ankle versus simulation errors, finite skinned vertices and sole measurements. It also records remaining extreme fall/side-pull ground intersections; these are not hidden by the passing endpoint checks.
 - `rig-contact-before.json`: prior separate-rig measurements for the same defect, including the grab's 32 cm wrist discrepancy.

@@ -1,0 +1,148 @@
+{
+  "url": "http://127.0.0.1:8131/library.html",
+  "browser": "157.0.8103.79",
+  "layouts": [
+    {
+      "mobile": false,
+      "total": 46351,
+      "previews": 338,
+      "checks": [
+        {
+          "id": "ae2348d41b74b87740e241c7",
+          "name": "antifreeze/assets/cine/gen/f17_gen_walk_victory_kk_pos_pumped_m_01",
+          "time": 0,
+          "frames": 463,
+          "visible": true
+        },
+        {
+          "id": "ae2348d41b74b87740e241c7",
+          "name": "antifreeze/assets/cine/gen/f17_gen_walk_victory_kk_pos_pumped_m_01",
+          "time": 7.7,
+          "frames": 463,
+          "visible": true
+        },
+        {
+          "id": "ae2348d41b74b87740e241c7",
+          "name": "antifreeze/assets/cine/gen/f17_gen_walk_victory_kk_pos_pumped_m_01",
+          "time": 15.4,
+          "frames": 463,
+          "visible": true
+        },
+        {
+          "id": "bdb07f1132ec41d132216761",
+          "name": "antifreeze/assets/cine/25/menu/fc25_mm_celebration_heart_01",
+          "time": 0,
+          "frames": 434,
+          "visible": true
+        },
+        {
+          "id": "bdb07f1132ec41d132216761",
+          "name": "antifreeze/assets/cine/25/menu/fc25_mm_celebration_heart_01",
+          "time": 7.216666666666667,
+          "frames": 434,
+          "visible": true
+        },
+        {
+          "id": "bdb07f1132ec41d132216761",
+          "name": "antifreeze/assets/cine/25/menu/fc25_mm_celebration_heart_01",
+          "time": 14.433333333333334,
+          "frames": 434,
+          "visible": true
+        },
+        {
+          "id": "aafefd0629b6cfcdd986f351",
+          "name": "antifreeze/assets/gameplay/clips/f17_g_118_stand_two_hands_push_off_dfwd_008_id1",
+          "time": 0,
+          "frames": 31,
+          "visible": true
+        },
+        {
+          "id": "aafefd0629b6cfcdd986f351",
+          "name": "antifreeze/assets/gameplay/clips/f17_g_118_stand_two_hands_push_off_dfwd_008_id1",
+          "time": 0.5,
+          "frames": 31,
+          "visible": true
+        },
+        {
+          "id": "aafefd0629b6cfcdd986f351",
+          "name": "antifreeze/assets/gameplay/clips/f17_g_118_stand_two_hands_push_off_dfwd_008_id1",
+          "time": 1,
+          "frames": 31,
+          "visible": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "mobile": true,
+      "total": 46351,
+      "previews": 338,
+      "checks": [
+        {
+          "id": "ae2348d41b74b87740e241c7",
+          "name": "antifreeze/assets/cine/gen/f17_gen_walk_victory_kk_pos_pumped_m_01",
+          "time": 0,
+          "frames": 463,
+          "visible": true
+        },
+        {
+          "id": "ae2348d41b74b87740e241c7",
+          "name": "antifreeze/assets/cine/gen/f17_gen_walk_victory_kk_pos_pumped_m_01",
+          "time": 7.7,
+          "frames": 463,
+          "visible": true
+        },
+        {
+          "id": "ae2348d41b74b87740e241c7",
+          "name": "antifreeze/assets/cine/gen/f17_gen_walk_victory_kk_pos_pumped_m_01",
+          "time": 15.4,
+          "frames": 463,
+          "visible": true
+        },
+        {
+          "id": "bdb07f1132ec41d132216761",
+          "name": "antifreeze/assets/cine/25/menu/fc25_mm_celebration_heart_01",
+          "time": 0,
+          "frames": 434,
+          "visible": true
+        },
+        {
+          "id": "bdb07f1132ec41d132216761",
+          "name": "antifreeze/assets/cine/25/menu/fc25_mm_celebration_heart_01",
+          "time": 7.216666666666667,
+          "frames": 434,
+          "visible": true
+        },
+        {
+          "id": "bdb07f1132ec41d132216761",
+          "name": "antifreeze/assets/cine/25/menu/fc25_mm_celebration_heart_01",
+          "time": 14.433333333333334,
+          "frames": 434,
+          "visible": true
+        },
+        {
+          "id": "aafefd0629b6cfcdd986f351",
+          "name": "antifreeze/assets/gameplay/clips/f17_g_118_stand_two_hands_push_off_dfwd_008_id1",
+          "time": 0,
+          "frames": 31,
+          "visible": true
+        },
+        {
+          "id": "aafefd0629b6cfcdd986f351",
+          "name": "antifreeze/assets/gameplay/clips/f17_g_118_stand_two_hands_push_off_dfwd_008_id1",
+          "time": 0.5,
+          "frames": 31,
+          "visible": true
+        },
+        {
+          "id": "aafefd0629b6cfcdd986f351",
+          "name": "antifreeze/assets/gameplay/clips/f17_g_118_stand_two_hands_push_off_dfwd_008_id1",
+          "time": 1,
+          "frames": 31,
+          "visible": true
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

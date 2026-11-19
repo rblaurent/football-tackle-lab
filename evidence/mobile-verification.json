@@ -1,0 +1,1029 @@
+{
+  "url": "http://127.0.0.1:8131/",
+  "date": "2026-11-19T00:19:28.380Z",
+  "constraints": {
+    "viewport": [
+      412,
+      915
+    ],
+    "deviceScaleFactor": 3,
+    "deviceMemoryGiB": 2,
+    "cpuThrottle": 4,
+    "oldSpaceLimitMiB": 192,
+    "soakSeconds": 40
+  },
+  "samples": [
+    {
+      "heapUsed": 24128860,
+      "gl": {
+        "lost": 0,
+        "textureBytes": 4553053.333333333,
+        "textureCount": 9
+      },
+      "attributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "low-power",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "buffer": [
+        412,
+        915
+      ],
+      "profile": {
+        "name": "mobile",
+        "low": true,
+        "antialias": false,
+        "pixelRatio": 1,
+        "fps": 30,
+        "shadows": false,
+        "compactPalette": true,
+        "assetRoot": "./character/mobile/",
+        "cacheBytes": 8388608,
+        "maxClips": 24,
+        "maxConcurrent": 1,
+        "maxPending": 24,
+        "prefetchCount": 1
+      },
+      "database": {
+        "eligible": 2313,
+        "families": {
+          "celebrate": 102,
+          "jog": 102,
+          "walk": 23,
+          "idle": 466,
+          "recover": 376,
+          "push": 2,
+          "turn": 92,
+          "sprint": 65,
+          "pushReaction": 31,
+          "block": 119,
+          "fall": 23,
+          "shirtPair": 62,
+          "start": 32,
+          "stop": 30,
+          "pass": 512,
+          "shoot": 263,
+          "tackle": 13
+        },
+        "loaded": 24,
+        "pending": 0,
+        "failed": 0,
+        "residentEstimate": 4397568,
+        "budget": 8388608,
+        "requests": 28,
+        "hits": 62,
+        "loads": 28,
+        "evictions": 4,
+        "lastSelections": [
+          {
+            "id": "710b8857bc26e0119512ab92_0_36",
+            "time": 0,
+            "score": -0.11335746113890566,
+            "family": "walk",
+            "name": "antifreeze/assets/gameplay/locomotion/f16_450ca1_cycle_fwd_walk_0_nt_lu",
+            "fallback": false
+          },
+          {
+            "id": "e5a1091ae72b3268881a2cf2_0_42",
+            "time": 0.3,
+            "score": -0.14108823010230034,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/f18_d_418_ptm_loco_archtest1_fwd0_cycle_jogde001_01",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.1,
+            "score": -0.09995917388074813,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.1,
+            "score": 0.24998005260244843,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "e389ece0a2441eeffbcf85e8_0_239",
+            "time": 0.2,
+            "score": -0.060179632643604514,
+            "family": "idle",
+            "name": "antifreeze/assets/gameplay/choreo/f18_c_016_post_goal_kick_off_idlesgo004_01",
+            "fallback": false
+          }
+        ]
+      },
+      "graphics": {
+        "lost": 0,
+        "restored": 0,
+        "contextLost": false,
+        "frames": 144
+      },
+      "nativeBones": 369,
+      "gpuBones": 62,
+      "resources": {
+        "geometries": 22,
+        "textures": 7
+      }
+    },
+    {
+      "heapUsed": 30677036,
+      "gl": {
+        "lost": 0,
+        "textureBytes": 4553053.333333333,
+        "textureCount": 9
+      },
+      "attributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "low-power",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "buffer": [
+        412,
+        915
+      ],
+      "profile": {
+        "name": "mobile",
+        "low": true,
+        "antialias": false,
+        "pixelRatio": 1,
+        "fps": 30,
+        "shadows": false,
+        "compactPalette": true,
+        "assetRoot": "./character/mobile/",
+        "cacheBytes": 8388608,
+        "maxClips": 24,
+        "maxConcurrent": 1,
+        "maxPending": 24,
+        "prefetchCount": 1
+      },
+      "database": {
+        "eligible": 2313,
+        "families": {
+          "celebrate": 102,
+          "jog": 102,
+          "walk": 23,
+          "idle": 466,
+          "recover": 376,
+          "push": 2,
+          "turn": 92,
+          "sprint": 65,
+          "pushReaction": 31,
+          "block": 119,
+          "fall": 23,
+          "shirtPair": 62,
+          "start": 32,
+          "stop": 30,
+          "pass": 512,
+          "shoot": 263,
+          "tackle": 13
+        },
+        "loaded": 24,
+        "pending": 0,
+        "failed": 0,
+        "residentEstimate": 4201816,
+        "budget": 8388608,
+        "requests": 30,
+        "hits": 113,
+        "loads": 30,
+        "evictions": 6,
+        "lastSelections": [
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.1,
+            "score": 0.2587201728489661,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.1,
+            "score": -0.22817731982719108,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.2,
+            "score": 0.2530510409073743,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.3,
+            "score": -0.23494473648148628,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.4,
+            "score": 0.14500642122611263,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          }
+        ]
+      },
+      "graphics": {
+        "lost": 0,
+        "restored": 0,
+        "contextLost": false,
+        "frames": 294
+      },
+      "nativeBones": 369,
+      "gpuBones": 62,
+      "resources": {
+        "geometries": 25,
+        "textures": 7
+      }
+    },
+    {
+      "heapUsed": 30959672,
+      "gl": {
+        "lost": 0,
+        "textureBytes": 4553053.333333333,
+        "textureCount": 9
+      },
+      "attributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "low-power",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "buffer": [
+        412,
+        915
+      ],
+      "profile": {
+        "name": "mobile",
+        "low": true,
+        "antialias": false,
+        "pixelRatio": 1,
+        "fps": 30,
+        "shadows": false,
+        "compactPalette": true,
+        "assetRoot": "./character/mobile/",
+        "cacheBytes": 8388608,
+        "maxClips": 24,
+        "maxConcurrent": 1,
+        "maxPending": 24,
+        "prefetchCount": 1
+      },
+      "database": {
+        "eligible": 2313,
+        "families": {
+          "celebrate": 102,
+          "jog": 102,
+          "walk": 23,
+          "idle": 466,
+          "recover": 376,
+          "push": 2,
+          "turn": 92,
+          "sprint": 65,
+          "pushReaction": 31,
+          "block": 119,
+          "fall": 23,
+          "shirtPair": 62,
+          "start": 32,
+          "stop": 30,
+          "pass": 512,
+          "shoot": 263,
+          "tackle": 13
+        },
+        "loaded": 24,
+        "pending": 0,
+        "failed": 0,
+        "residentEstimate": 4208088,
+        "budget": 8388608,
+        "requests": 32,
+        "hits": 154,
+        "loads": 32,
+        "evictions": 8,
+        "lastSelections": [
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.3,
+            "score": 0.25880271520581266,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.4,
+            "score": -0.24724017591719288,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.4,
+            "score": 0.16485466336353605,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0,
+            "score": -0.19649128990739873,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.1,
+            "score": 0.19314519779861572,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          }
+        ]
+      },
+      "graphics": {
+        "lost": 0,
+        "restored": 0,
+        "contextLost": false,
+        "frames": 445
+      },
+      "nativeBones": 369,
+      "gpuBones": 62,
+      "resources": {
+        "geometries": 25,
+        "textures": 7
+      }
+    },
+    {
+      "heapUsed": 32624616,
+      "gl": {
+        "lost": 0,
+        "textureBytes": 4553053.333333333,
+        "textureCount": 9
+      },
+      "attributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "low-power",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "buffer": [
+        412,
+        915
+      ],
+      "profile": {
+        "name": "mobile",
+        "low": true,
+        "antialias": false,
+        "pixelRatio": 1,
+        "fps": 30,
+        "shadows": false,
+        "compactPalette": true,
+        "assetRoot": "./character/mobile/",
+        "cacheBytes": 8388608,
+        "maxClips": 24,
+        "maxConcurrent": 1,
+        "maxPending": 24,
+        "prefetchCount": 1
+      },
+      "database": {
+        "eligible": 2313,
+        "families": {
+          "celebrate": 102,
+          "jog": 102,
+          "walk": 23,
+          "idle": 466,
+          "recover": 376,
+          "push": 2,
+          "turn": 92,
+          "sprint": 65,
+          "pushReaction": 31,
+          "block": 119,
+          "fall": 23,
+          "shirtPair": 62,
+          "start": 32,
+          "stop": 30,
+          "pass": 512,
+          "shoot": 263,
+          "tackle": 13
+        },
+        "loaded": 24,
+        "pending": 0,
+        "failed": 0,
+        "residentEstimate": 4208088,
+        "budget": 8388608,
+        "requests": 32,
+        "hits": 194,
+        "loads": 32,
+        "evictions": 8,
+        "lastSelections": [
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.1,
+            "score": 0.23955466726850183,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.3,
+            "score": -0.22832325258360311,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.4,
+            "score": 0.20860038933680147,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.3,
+            "score": -0.006169193661106437,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0,
+            "score": 0.3351511623116238,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          }
+        ]
+      },
+      "graphics": {
+        "lost": 0,
+        "restored": 0,
+        "contextLost": false,
+        "frames": 595
+      },
+      "nativeBones": 369,
+      "gpuBones": 62,
+      "resources": {
+        "geometries": 25,
+        "textures": 7
+      }
+    },
+    {
+      "heapUsed": 32231540,
+      "gl": {
+        "lost": 0,
+        "textureBytes": 4553053.333333333,
+        "textureCount": 9
+      },
+      "attributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "low-power",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "buffer": [
+        412,
+        915
+      ],
+      "profile": {
+        "name": "mobile",
+        "low": true,
+        "antialias": false,
+        "pixelRatio": 1,
+        "fps": 30,
+        "shadows": false,
+        "compactPalette": true,
+        "assetRoot": "./character/mobile/",
+        "cacheBytes": 8388608,
+        "maxClips": 24,
+        "maxConcurrent": 1,
+        "maxPending": 24,
+        "prefetchCount": 1
+      },
+      "database": {
+        "eligible": 2313,
+        "families": {
+          "celebrate": 102,
+          "jog": 102,
+          "walk": 23,
+          "idle": 466,
+          "recover": 376,
+          "push": 2,
+          "turn": 92,
+          "sprint": 65,
+          "pushReaction": 31,
+          "block": 119,
+          "fall": 23,
+          "shirtPair": 62,
+          "start": 32,
+          "stop": 30,
+          "pass": 512,
+          "shoot": 263,
+          "tackle": 13
+        },
+        "loaded": 24,
+        "pending": 0,
+        "failed": 0,
+        "residentEstimate": 4208088,
+        "budget": 8388608,
+        "requests": 32,
+        "hits": 232,
+        "loads": 32,
+        "evictions": 8,
+        "lastSelections": [
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.4,
+            "score": 0.1515015676244954,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.1,
+            "score": -0.11139463432535995,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.1,
+            "score": 0.23620573044757742,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.1,
+            "score": -0.24872324940717971,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.1,
+            "score": 0.30443513297212066,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          }
+        ]
+      },
+      "graphics": {
+        "lost": 0,
+        "restored": 0,
+        "contextLost": false,
+        "frames": 746
+      },
+      "nativeBones": 369,
+      "gpuBones": 62,
+      "resources": {
+        "geometries": 25,
+        "textures": 7
+      }
+    },
+    {
+      "heapUsed": 25205092,
+      "gl": {
+        "lost": 0,
+        "textureBytes": 4553053.333333333,
+        "textureCount": 9
+      },
+      "attributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "low-power",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "buffer": [
+        412,
+        915
+      ],
+      "profile": {
+        "name": "mobile",
+        "low": true,
+        "antialias": false,
+        "pixelRatio": 1,
+        "fps": 30,
+        "shadows": false,
+        "compactPalette": true,
+        "assetRoot": "./character/mobile/",
+        "cacheBytes": 8388608,
+        "maxClips": 24,
+        "maxConcurrent": 1,
+        "maxPending": 24,
+        "prefetchCount": 1
+      },
+      "database": {
+        "eligible": 2313,
+        "families": {
+          "celebrate": 102,
+          "jog": 102,
+          "walk": 23,
+          "idle": 466,
+          "recover": 376,
+          "push": 2,
+          "turn": 92,
+          "sprint": 65,
+          "pushReaction": 31,
+          "block": 119,
+          "fall": 23,
+          "shirtPair": 62,
+          "start": 32,
+          "stop": 30,
+          "pass": 512,
+          "shoot": 263,
+          "tackle": 13
+        },
+        "loaded": 24,
+        "pending": 0,
+        "failed": 0,
+        "residentEstimate": 4208088,
+        "budget": 8388608,
+        "requests": 32,
+        "hits": 272,
+        "loads": 32,
+        "evictions": 8,
+        "lastSelections": [
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.4,
+            "score": 0.2591649329251281,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.4,
+            "score": -0.2135189353794546,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.4,
+            "score": 0.17514747780434303,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0,
+            "score": -0.2389761025718089,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.1,
+            "score": 0.21040051867758497,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          }
+        ]
+      },
+      "graphics": {
+        "lost": 0,
+        "restored": 0,
+        "contextLost": false,
+        "frames": 896
+      },
+      "nativeBones": 369,
+      "gpuBones": 62,
+      "resources": {
+        "geometries": 25,
+        "textures": 7
+      }
+    },
+    {
+      "heapUsed": 32001972,
+      "gl": {
+        "lost": 0,
+        "textureBytes": 4553053.333333333,
+        "textureCount": 9
+      },
+      "attributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "low-power",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "buffer": [
+        412,
+        915
+      ],
+      "profile": {
+        "name": "mobile",
+        "low": true,
+        "antialias": false,
+        "pixelRatio": 1,
+        "fps": 30,
+        "shadows": false,
+        "compactPalette": true,
+        "assetRoot": "./character/mobile/",
+        "cacheBytes": 8388608,
+        "maxClips": 24,
+        "maxConcurrent": 1,
+        "maxPending": 24,
+        "prefetchCount": 1
+      },
+      "database": {
+        "eligible": 2313,
+        "families": {
+          "celebrate": 102,
+          "jog": 102,
+          "walk": 23,
+          "idle": 466,
+          "recover": 376,
+          "push": 2,
+          "turn": 92,
+          "sprint": 65,
+          "pushReaction": 31,
+          "block": 119,
+          "fall": 23,
+          "shirtPair": 62,
+          "start": 32,
+          "stop": 30,
+          "pass": 512,
+          "shoot": 263,
+          "tackle": 13
+        },
+        "loaded": 24,
+        "pending": 0,
+        "failed": 0,
+        "residentEstimate": 4208088,
+        "budget": 8388608,
+        "requests": 32,
+        "hits": 310,
+        "loads": 32,
+        "evictions": 8,
+        "lastSelections": [
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.1,
+            "score": 0.2524252314765911,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0,
+            "score": -0.2342050066956656,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.2,
+            "score": 0.24194787339745277,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.3,
+            "score": -0.24895693203959535,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.4,
+            "score": 0.15456543429085884,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          }
+        ]
+      },
+      "graphics": {
+        "lost": 0,
+        "restored": 0,
+        "contextLost": false,
+        "frames": 1047
+      },
+      "nativeBones": 369,
+      "gpuBones": 62,
+      "resources": {
+        "geometries": 25,
+        "textures": 7
+      }
+    },
+    {
+      "heapUsed": 34681532,
+      "gl": {
+        "lost": 0,
+        "textureBytes": 4553053.333333333,
+        "textureCount": 9
+      },
+      "attributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "low-power",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "buffer": [
+        412,
+        915
+      ],
+      "profile": {
+        "name": "mobile",
+        "low": true,
+        "antialias": false,
+        "pixelRatio": 1,
+        "fps": 30,
+        "shadows": false,
+        "compactPalette": true,
+        "assetRoot": "./character/mobile/",
+        "cacheBytes": 8388608,
+        "maxClips": 24,
+        "maxConcurrent": 1,
+        "maxPending": 24,
+        "prefetchCount": 1
+      },
+      "database": {
+        "eligible": 2313,
+        "families": {
+          "celebrate": 102,
+          "jog": 102,
+          "walk": 23,
+          "idle": 466,
+          "recover": 376,
+          "push": 2,
+          "turn": 92,
+          "sprint": 65,
+          "pushReaction": 31,
+          "block": 119,
+          "fall": 23,
+          "shirtPair": 62,
+          "start": 32,
+          "stop": 30,
+          "pass": 512,
+          "shoot": 263,
+          "tackle": 13
+        },
+        "loaded": 24,
+        "pending": 0,
+        "failed": 0,
+        "residentEstimate": 4208088,
+        "budget": 8388608,
+        "requests": 32,
+        "hits": 350,
+        "loads": 32,
+        "evictions": 8,
+        "lastSelections": [
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.4,
+            "score": 0.16547054778197728,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0,
+            "score": -0.15999457976856463,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.1,
+            "score": 0.20091656548032355,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          },
+          {
+            "id": "1801228904125616becff595_0_23",
+            "time": 0.2,
+            "score": -0.09864250194430288,
+            "family": "jog",
+            "name": "antifreeze/assets/gameplay/telstar/locomotion/f27_f2020086brec004_ts_ptm_loco_cycles_jog_sm_m_archetype_",
+            "fallback": false
+          },
+          {
+            "id": "5ee554490055a916f2361402_9_27",
+            "time": 0.3,
+            "score": 0.2500891147796809,
+            "family": "sprint",
+            "name": "antifreeze/assets/gameplay/locomotion/clips/clips_locomotion_ptm/ptm_cr7_startstop_sprint_accel_cycle",
+            "fallback": false
+          }
+        ]
+      },
+      "graphics": {
+        "lost": 0,
+        "restored": 0,
+        "contextLost": false,
+        "frames": 1197
+      },
+      "nativeBones": 369,
+      "gpuBones": 62,
+      "resources": {
+        "geometries": 25,
+        "textures": 7
+      }
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "textureEstimateScope": "Allocated 2D texture storage estimate; excludes framebuffer, browser compositor and driver allocations. Not physical GPU telemetry.",
+  "recovery": {
+    "graphics": {
+      "lost": 1,
+      "restored": 1,
+      "contextLost": false,
+      "frames": 1204
+    },
+    "sameWorld": true,
+    "error": "",
+    "pixelRatio": 0.75,
+    "profile": "mobile",
+    "resources": {
+      "geometries": 24,
+      "textures": 7
+    }
+  },
+  "largeTextureRequests": []
+}

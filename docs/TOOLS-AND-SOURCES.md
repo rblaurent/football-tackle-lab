@@ -134,3 +134,10 @@ The full-library capture helper is `tools/capture-library.cjs`. Reference inspec
 - `hand-poses.js`: native reference hand poses for missing finger tracks and authored grips.
 - `native-rig.test.mjs`: actual committed glTF/bin skin fixture and six new regressions.
 - `tools/verify-native-rig.cjs`: visible-joint versus contact acceptance, finite skinned vertices and close-ups. See [NATIVE-RIG.md](NATIVE-RIG.md).
+
+## Phone stability tools
+
+- `render-profile.js`: device/quality renderer and streaming budgets.
+- `tools/build-mobile-assets.cjs`: FFmpeg 512-pixel diffuse variants and glTF material pruning; shared source geometry.
+- `tools/verify-mobile.cjs`: high-DPR/memory-constrained timed soak, resource instrumentation and actual WebGL context-loss/restoration acceptance.
+- `render-profile.test.mjs`: automatic safety profile and explicit overrides. See [MOBILE-STABILITY.md](MOBILE-STABILITY.md).
