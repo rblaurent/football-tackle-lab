@@ -1,6 +1,6 @@
 # Tools, versions, provenance and research history
 
-This document covers the original eleven-clip extraction baseline. For the new continuous controller, expanded extraction profile, 33 parameter/weight assets and recovered neural IK, also read [CONTROLLER.md](CONTROLLER.md). The source capture viewer now lives at `clips.html`; the home page runs the controller.
+This inventory covers the current full extraction and live animation system, plus clearly identified optional historical research. Begin with [START-HERE.md](START-HERE.md), [all animation availability](ANIMATIONS.md) and [FULL-LIBRARY.md](FULL-LIBRARY.md). The obsolete Contact lab and small source viewer have been removed.
 
 This inventory separates the minimum reproduction path from optional tools used while investigating it. Download from the named project/vendor. Versions below are the ones observed in this session, not a claim that they are the latest releases.
 
@@ -15,7 +15,7 @@ This inventory separates the minimum reproduction path from optional tools used 
 | Installed Oodle DLL | oo2core_9_win64.dll from that game | Decompression of codec 17/21/25 blocks via ctypes. Not copied/distributed by this project. |
 | .NET SDK | 9.0.303, net9.0 target | Compile/run original metadata host plus the fetched reference VBR codec. |
 | FIFA17 reference codec | Pinned commit and SHA256 below | Core VBR reconstruction, adapted locally for FC27 block storage. It is not bundled under the project's license. |
-| Three.js | r187 | Browser rendering, skeletons/skin, quaternion/matrix math, glTF loader, SkeletonUtils, OrbitControls and legacy GLTFExporter. Vendored with MIT notice. |
+| Three.js | r187 | Browser rendering, skeletons/skin, quaternion/matrix math, glTF loader, SkeletonUtils, OrbitControls and historical GLTFExporter inspection. Vendored with MIT notice. |
 | Quaternius Universal Base Characters | Standard free archive, CC0 | Human body, eyes/brows and buzzed hair. Official archive SHA256 in handoff evidence. |
 | Git | Local command-line client | Source versioning; not needed if downloading the repo ZIP. |
 | GitHub CLI | 2.89.0 | Repository/Pages status and deployment verification. Playback/extraction do not need it. |
@@ -27,7 +27,7 @@ The human model's football kit is an original shader using rest-position regions
 
 | Tool | Tested version | Role |
 | --- | --- | --- |
-| Node.js | 22.23.4 | Browser automation scripts and independent physics tests. |
+| Node.js | 22.23.4 | Browser automation scripts and current controller/codec/skin regressions. |
 | Playwright | 1.65.1 | Headless browser, deterministic frame stepping, screenshots and desktop/touch viewport verification. |
 | Installed Chrome | Headless Chrome channel used | Original rendering/captures. Scripts also support Playwright Chromium; install it with `npx playwright install chromium`. |
 | FFmpeg/ffprobe | 8.0, Gyan Windows full build | JPEG sequence to H.264 MP4 and media metadata verification. |
@@ -141,3 +141,32 @@ The full-library capture helper is `tools/capture-library.cjs`. Reference inspec
 - `tools/build-mobile-assets.cjs`: FFmpeg 512-pixel diffuse variants and glTF material pruning; shared source geometry.
 - `tools/verify-mobile.cjs`: high-DPR/memory-constrained timed soak, resource instrumentation and actual WebGL context-loss/restoration acceptance.
 - `render-profile.test.mjs`: automatic safety profile and explicit overrides. See [MOBILE-STABILITY.md](MOBILE-STABILITY.md).
+
+
+## Current portable entry points
+
+| Tool | Use |
+| --- | --- |
+| `tools/fc27/extract_fc27.py` | Windows dependency/bootstrap and selected-clip archive/codec pass; baseline and controller profiles are not full-library limits. |
+| `tools/fc27/extract_controller.py` | Selected controller metadata, three ordered neural networks and small fallback corpus. |
+| `tools/fc27/extract_library.py` | All discoverable installed motion EBX/RES; explicit raw/binding/decode statuses and coverage errors. |
+| `tools/fc27/publish_library.py` | Complete searchable catalogue plus selected whole-capture previews. |
+| `tools/fc27/compile_runtime.py` | Measured family admission, segments, features and live streaming payloads. |
+| `tools/fc27/audit_library.py`, `audit_runtime.py` | Original/archive/decoded and admitted-pack integrity checks. |
+| `tools/fc27/document_inventory.py [--check]` | Generate/check ANIMATIONS.md from actual catalogue/manifest; verify all shipped payload hashes and preview paths. |
+| `tools/verify-runtime.cjs` | Desktop/touch live kicks, interactions, goals and input. |
+| `tools/verify-library.cjs`, `tools/capture-library.cjs` | Current full-catalogue preview acceptance/capture. |
+| `tools/verify-native-rig.cjs`, `tools/verify-arm-fit.cjs` | Final native joint/contact/skin and repeatable arm fitting views. |
+| `tools/verify-mobile.cjs` | Constrained phone soak, resource bounds, forced WebGL recovery and failure-state capture. |
+| `tools/capture-runtime.cjs` | One continuous 480-frame, 30 fps gameplay sequence. |
+| `tools/verify-neural-ik.mjs`, `tools/trace-controller.mjs` | Numerical network reconstruction and pose/root/contact traces. |
+| `tools/verify-controller.cjs`, `tools/verify-interactions.cjs`, `tools/capture-controller.cjs` | Focused current-controller diagnostics; full runtime verification is the main acceptance route. |
+
+Retired tools `verify-viewer.cjs`, `capture-motion.cjs` and the Gameplay Football extractor/viewer are no longer present. Useful detailed source research remains above; it does not add prerequisites to normal playback.
+
+Example video encoding after `capture-runtime.cjs`:
+
+```sh
+ffmpeg -framerate 30 -i /path/to/frames/frame-%05d.jpg -c:v libx264 -crf 20 -pix_fmt yuv420p -movflags +faststart gameplay.mp4
+ffprobe -v error -show_entries format=duration,size -show_entries stream=codec_name,width,height,r_frame_rate -of json gameplay.mp4
+```

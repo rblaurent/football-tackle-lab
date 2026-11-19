@@ -1,6 +1,6 @@
 # Full installed animation library
 
-The old 22-clip extraction was a prototype selection. It was not the complete library. The weak main-lab push was an authored arm-IK placeholder, not an extracted native push. This update removes the extraction selection limit and preserves every discovered motion resource from the installed copy.
+This is the complete discoverable installed-resource workflow, rather than the small dependency/bootstrap selection. [Generated availability inventory](ANIMATIONS.md) distinguishes all resources, decoded/bound bodies, public previews and live gameplay families.
 
 [Open the complete catalogue](https://rblaurent.github.io/football-tackle-lab/library.html). Search original names, including `victory`, `celebr`, `push`, `shirt`, `ref`, `idle` and `getup`. The public page includes 338 real native full-body previews, including four victory performances and two two-handed push clips. The complete local export supplies all decoded body clips on demand. The gameplay controller now consumes a measured2,313-clip field database with automatic selection, streaming and transitions. See [ANIMATION-SYSTEM.md](ANIMATION-SYSTEM.md). The catalogue also retains resources outside the supported field roles.
 

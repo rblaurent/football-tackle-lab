@@ -1,6 +1,6 @@
-# Binary formats, animation logic and retargeting
+# Binary formats, animation logic and native skin binding
 
-This document covers the original eleven-clip extraction baseline. For the new continuous controller, expanded extraction profile, 33 parameter/weight assets and recovered neural IK, also read [CONTROLLER.md](CONTROLLER.md). The source capture viewer now lives at `clips.html`; the home page runs the controller.
+Archive/codec/channel details below include the original dependency bootstrap. Complete codec coverage is documented in FULL-LIBRARY.md; live selection is in ANIMATION-SYSTEM.md and every available family is in ANIMATIONS.md. Character fitting and contacts below describe the current native-bound renderer. The fixed scene viewer has been retired.
 
 These are observations from the tested FC 27 Lite build, not an official universal Frostbite specification. The executable readers in `tools/fc27/` are authoritative for this proof. Unsupported counts, routes, codecs and unresolved bindings should fail rather than be guessed.
 
@@ -192,51 +192,23 @@ The extraction pipeline also stores diagnostic padding metadata. That field is n
 
 At display time compute `frame = clamp(t*30,0,last)`, use adjacent source frames and fractional interpolation, normalize validated quaternions and use quaternion slerp. Vectors interpolate linearly. Reset source bones to rest pose before applying channels, preserving unanimated bones.
 
-## 10. Retarget onto the human model
+## 10. Fit the human mesh to the native rig
 
-The target is Quaternius Superhero_Male_FullBody with a 65-bone skin, cloned with `SkeletonUtils.clone` so each player has independent bones. Main mappings include:
+The current renderer uses the extracted 369-bone native hierarchy directly. The original Quaternius 65-joint template supplies geometry and normalized skin weights; it is not separately rotation-retargeted during playback. `native-skin.js` maps anatomical correspondences, fits the geometry once and remaps the weighted indices to native bones. Missing weighted mappings fail explicitly.
 
-| Target | Source |
-| --- | --- |
-| pelvis | Hips |
-| spine_01 / spine_02 / spine_03 | Spine / Spine1 / Spine3 |
-| neck_01 / Head | Neck / Head |
-| clavicle_l / upperarm_l / lowerarm_l / hand_l | LeftShoulder / LeftArm / LeftForeArm / LeftHand |
-| thigh_l / calf_l / foot_l / ball_l | LeftUpLeg / LeftLeg / LeftFoot / LeftToeBase |
+For an old joint A and native joint B, the fit is `translate(B) * anatomicalRotation * axialLengthFit * translate(-A)`. Anatomical child directions define the main axis; palm/finger secondary directions resolve their twist. Clavicle/upperarm/forearm fitting includes `I + (r-1) a a^T`, where a is the old unit segment direction and r is the native/old segment-length ratio. This maps both segment endpoints while preserving radial thickness. Normals use the inverse transpose of the complete transform. The original source geometry/weights stay unchanged; the fitted copy is rebound with native inverse bind matrices.
 
-Right-side mappings mirror names. Finger chains map the three target finger bones to available source finger names. This is a practical mapping for the chosen model, not a universal Humanoid retargeter.
+Runtime samples are native local transforms. State/transition/hand/support corrections produce one final pose; both gameplay anchors and visible bones consume it. There is no second rendering-only pelvis, leg or arm solve. Phone rendering compresses the GPU palette to weighted native bones while retaining the full native hierarchy; actual skinned vertices match the full palette. [NATIVE-RIG.md](NATIVE-RIG.md) documents fitting, hand references, sole geometry, tests and known close-up/extreme-pose limits.
 
-Store source rest-world rotations and target rest-world rotations before posing. For a mapped bone, compute a minimal alignment rotation A from the target rest child direction to the corresponding source rest child direction. Without this correction, target arms were held too high because bind directions differed.
+## 11. Paired frames and clocks
 
-Using quaternion multiplication in Three.js order:
+Matching source actors share capture time/origin and one common world alignment. Subtract the same capture origin from both trajectories; independently zeroing the actors collapses their captured separation. The shared interaction scheduler stages them, drives their native samples from the fixed simulation clock, checks actual contact, and releases through continuous transitions. [INTERACTIONS.md](INTERACTIONS.md) defines the pair equations and source/composed/authored distinctions.
 
-```text
-QtargetDesiredWorld = QsourcePoseWorld
-                    * inverse(QsourceRestWorld)
-                    * A
-                    * QtargetRestWorld
+## 12. Current collision and game logic
 
-QtargetLocal = inverse(QtargetParentPosedWorld) * QtargetDesiredWorld
-```
+`controller-core.js` owns a Y-up, 120 Hz simulation. Navigation controls ordinary locomotion; locked actions consume native root deltas in a fixed capture frame with bounded corrections. Animated foot, leg, hand and forearm proxies are checked against the free ball and partner; contact drives events, fall/recovery and native push reactions. The ball uses gravity, drag, rebound and ground bounce. The retired separate Z-up Contact lab/physics implementation is no longer shipped.
 
-Update target bones from parents to children. Reset target local rest positions/rotations before each pose. Copy the source hip world position into target pelvis-parent space; keep the target's own limb lengths. This can leave residual foot/hand placement differences. Use contact IK/warping later; do not claim perfect source contact after changing proportions.
-
-The current game-derived source is Y-up in the new viewer. The older Gameplay Football physics/demo is Z-up. Integrate them through an explicit axis conversion; do not feed new Y-up positions directly into a solver whose gravity changes component 2.
-
-## 11. Paired playback and camera
-
-Matching source actor clips share a capture frame and trajectory. Play them at the same t. Choose one common scene origin, such as the mean of their initial AITrajectory positions in meters, and subtract it from both. Independently zeroing each actor's trajectory collapses their native relative placement.
-
-The viewer follows the mean hip position horizontally, keeps a readable vertical target and widens camera distance on a narrow viewport. This camera change does not alter source animation. At the end it holds a pose briefly before replay; the clock keeps advancing through the hold. Clamping the playback clock itself to duration prevents replay and creates the old freeze symptom.
-
-## 12. Independent collision prototype and future game logic
-
-`physics.js` provides closest segment points, capsule overlap and conservative swept sphere/capsule contact. The earlier demo updates at 120 Hz, moves limb capsules with animated joints, accounts for moving-foot velocity in the ball impulse, then applies gravity, pitch bounce and damping. Contact triggers a fall; a limited classifier distinguishes ball-first, late and dangerous contact. These are authored gameplay heuristics, not official football-law adjudication or EA code.
-
-For the next game, maintain a deterministic simulation clock separate from rendering. Decide an incident/action from positions, approach angle, relative speed and ball possession; choose a compatible source clip or pair; align roots within bounded tolerances; record timed foot/hand/contact windows; then blend into locomotion or recovery. Use ball sweeps and limb/body proxies to check actual contacts. Add foot IK and hand constraints where proportions or root warping disturb placement.
-
-Start with a few authored scenarios and preserve clean transitions. Do not use arbitrary ragdoll motion to replace every fall, or select a front/side/back clip by a name alone. Those are next implementation steps, not features already present in the current viewer.
-
+These are our gameplay/contact heuristics, not an extracted EA collision engine or complete official foul adjudicator. Joint/proxy agreement does not mean exact cloth/finger/triangle collision. The active state/selection pipeline and extension criteria are documented in [ANIMATION-SYSTEM.md](ANIMATION-SYSTEM.md); source data alone does not create a correct live behavior.
 
 ## Complete-library codec coverage
 

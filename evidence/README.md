@@ -1,5 +1,13 @@
 # Evidence index
 
+The current product has only the playable demo and full catalogue. The old Contact lab and source scene viewer were removed on 19 November; dated evidence from those experiments is retained as history, not as an active alternative demo or current renderer acceptance. See [current setup](../docs/START-HERE.md) and [generated full availability](../docs/ANIMATIONS.md).
+
+Current cleanup and documentation acceptance:
+
+- `cleanup-navigation.json`: main navigation plus all three old-URL redirects; no retired module/data requests or page errors.
+- `cleanup-runtime.json`, `cleanup-library.json`: current desktop/touch gameplay and catalogue preview acceptance after removal.
+- `python tools/fc27/document_inventory.py --check` checks the generated guide, all 2,313 runtime payload hashes and 338 preview paths. The 52 active Node tests pass; seven cases exclusive to the removed standalone physics implementation were retired with it.
+
 Arm fitting correction:
 
 - `arm-fit-before-{idle,jog,shirtFrontA}.png`: previous rigid arm fit.

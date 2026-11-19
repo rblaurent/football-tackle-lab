@@ -1,6 +1,6 @@
 # Tackle orientation, fall rotation and recovery rubber band
 
-**Historical diagnosis:** measurements and twenty-two tests below refer to the tackle correction at `282a13e`. The current runtime has seventeen clips, thirty-one tests, neutral idle/support corrections and a connected interaction scheduler described in [INTERACTIONS.md](INTERACTIONS.md).
+**Historical diagnosis:** measurements and twenty-two tests below refer to the correction at `282a13e`, not current corpus/test counts. The live system now streams 2,313 native clips on the directly bound native rig. See [START-HERE.md](START-HERE.md), [ANIMATIONS.md](ANIMATIONS.md) and [NATIVE-RIG.md](NATIVE-RIG.md). The small original viewer/Contact lab are retired; dated evidence below remains a diagnostic record.
 
 This investigation corrects the controller published at commit `5c0f865`. All observations below are from our decoded source data and prototype, not a comparison against EA's running engine. [Play the current controller](https://rblaurent.github.io/football-tackle-lab/) and press **Player tackle**. [Watch the corrected 4.5-second sequence](../evidence/tackle-corrected.mp4).
 
@@ -27,7 +27,7 @@ The vector/float offset ramp needs the same `rowStart`; fixing only quaternion/t
 
 The independently inspected block rows in the 33-key get-up overlap the previous keys 25-31. The corrected final trajectory key is `[16.748318, 0.00007081032, -3.6295667]` in source feet, not the old `[15.130395, ..., -2.5810256]`. The committed regression checks that native endpoint and continuing displacement, rather than comparing two runs of the same decoder.
 
-All 22 selected clips were decoded/packed again. Both `data.json` and `controller-data.json` were regenerated. The latter still contains thirteen clips, with the paired victim replacing the unused stunt. The original eleven-clip viewer retains both captures. The three networks and 33 controller reports are unchanged. [Reproduction result](../evidence/controller-reproduction.json).
+All 22 selected clips were decoded/packed again. Both `data.json` and `controller-data.json` were regenerated. The latter still contains thirteen clips, with the paired victim replacing the unused stunt. The retained baseline data fixture contains both captures; the former fixed viewer is retired. The three networks and 33 controller reports are unchanged. [Reproduction result](../evidence/controller-reproduction.json).
 
 ## One action frame for both pose and displacement
 
@@ -74,7 +74,7 @@ In a second terminal:
 
 ```sh
 node tools/verify-controller.cjs --url http://127.0.0.1:8080/ --out controller-check --channel chrome
-node tools/verify-viewer.cjs --url http://127.0.0.1:8080/clips.html --out viewer-check --channel chrome
+node tools/verify-native-rig.cjs http://127.0.0.1:8080/ /path/to/evidence/rig
 node tools/capture-controller.cjs --url http://127.0.0.1:8080/ --out capture --channel chrome --sequence duel --duel-duration 4.5
 ffmpeg -framerate 30 -i capture/frame-%05d.jpg -c:v libx264 -crf 20 -pix_fmt yuv420p -movflags +faststart tackle.mp4
 ```

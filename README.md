@@ -6,7 +6,7 @@
 
 **Native rig update:** the CC0 mesh now binds directly to the native 369-bone hierarchy, sharing its final pose with gameplay contacts. One sole correction replaces the second render-time IK pass; native hand references and foot-phase matching improve missing fingers and gait changes. [Implementation, measurements and reproduction](docs/NATIVE-RIG.md).
 
-**[Play football](https://rblaurent.github.io/football-tackle-lab/)** · [Animation-system guide](docs/ANIMATION-SYSTEM.md) · [Friend/AI handoff](docs/START-HERE.md) · [Download source and playable data](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip)
+**[Play football](https://rblaurent.github.io/football-tackle-lab/)** · [All animations](docs/ANIMATIONS.md) · [Animation-system guide](docs/ANIMATION-SYSTEM.md) · [Friend/AI handoff](docs/START-HERE.md) · [Download source and playable data](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip)
 
 A playable two-player football animation foundation for a small manager/referee game. Proper skinned human characters select and stream suitable native FC motions from **2,313 measured body clips across 17 action families**. Starts, running, braking, turns, ball pursuit, kicks, tackles, falls, get-ups, standing interactions and celebrations share one controller.
 
@@ -40,15 +40,17 @@ Native shirt-pull pairs retain their shared capture frame and clock. Push combin
 
 ## Verification
 
-58 Node tests cover controller regressions, selection, actual native kick/contact misses, every connected interaction, eight rotated tackles, streamed gait continuity, integrity failure fallback, cache eviction, and a full approach/shot/goal/celebration sequence. Desktop and emulated-touch browser acceptance checks rendered skeletons, controls, action release, layout and asset failures. Physical phones and Mac/Safari have not been tested.
+52 Node tests cover controller regressions, selection, actual native kick/contact misses, every connected interaction, eight rotated tackles, streamed gait continuity, integrity failure fallback, cache eviction, and a full approach/shot/goal/celebration sequence. Desktop and emulated-touch browser acceptance checks rendered skeletons, controls, action release, layout and asset failures. Physical phones and Mac/Safari have not been tested.
 
 Every shipped runtime payload has been checked for hash integrity, binding/shape, finite samples and quaternion norms, and byte-for-byte equality to its decoded source frame range. See [evidence](evidence/README.md). This is a two-player foundation; team tactics, goalkeepers, richer airborne actions and full referee rules remain work.
 
-## Further documentation and earlier studies
+## Documentation
 
-- [Start here](docs/START-HERE.md): setup, extraction routes and AI handoff.
-- [Original controller/IK guide](docs/CONTROLLER.md), [formats](docs/FORMATS.md), [tools and provenance](docs/TOOLS-AND-SOURCES.md), [interaction details](docs/INTERACTIONS.md).
-- [Original source-clip viewer](https://rblaurent.github.io/football-tackle-lab/clips.html): captured paired tackles, shirt pulls and selected motions.
-- [Earlier contact experiment](https://rblaurent.github.io/football-tackle-lab/collision-lab.html) and [Gameplay Football notes](GAMEPLAY-FOOTBALL.md).
+- [Start here](docs/START-HERE.md): current setup, controls, extraction routes and AI handoff.
+- [All animations](docs/ANIMATIONS.md): every live family, complete catalogue and actual public/local availability.
+- [Animation system](docs/ANIMATION-SYSTEM.md), [native rig](docs/NATIVE-RIG.md), [interactions](docs/INTERACTIONS.md) and [phone stability](docs/MOBILE-STABILITY.md).
+- [Full extraction](docs/FULL-LIBRARY.md), [controller/IK research](docs/CONTROLLER.md), [formats](docs/FORMATS.md) and [tools/provenance](docs/TOOLS-AND-SOURCES.md).
+
+The obsolete Contact lab and small source-clip viewer are retired. Only the current playable demo and full catalogue are linked; old page URLs redirect for existing bookmarks.
 
 Original project code is under [the project license](LICENSE). Third-party code, models and extracted motion data retain their own provenance and rights; the code license does not grant rights to EA data. See [third-party provenance](THIRD_PARTY.md).

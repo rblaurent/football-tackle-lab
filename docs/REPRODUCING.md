@@ -1,6 +1,6 @@
-# Reproducing the extraction and viewer
+# Windows extraction setup and dependency bootstrap
 
-This document covers the original eleven-clip extraction baseline. For the new continuous controller, expanded extraction profile, 33 parameter/weight assets and recovered neural IK, also read [CONTROLLER.md](CONTROLLER.md). The source capture viewer now lives at `clips.html`; the home page runs the controller.
+This guide covers Windows prerequisites and the original eleven-clip dependency/bootstrap extraction. It is not the full-library workflow. For every discoverable installed animation use [FULL-LIBRARY.md](FULL-LIBRARY.md), then compile the live pack as described in [ANIMATION-SYSTEM.md](ANIMATION-SYSTEM.md). [Current availability](ANIMATIONS.md). The former fixed scene viewer has been retired.
 
 Read [Start here](START-HERE.md) first. All commands below are run from the repository root unless stated otherwise. They use your own installed game and write generated files to a separate work folder. No game executable or anti-cheat component needs to be started or modified.
 
@@ -54,7 +54,7 @@ The tested installation had these paths:
 
 The local folder was called `EA SPORTS FC 27 Demo`, despite the store name being Lite. Its physical drive is irrelevant to the format. Do not put an output folder inside the game installation.
 
-## 4. Run the complete extraction
+## 4. Run the dependency/bootstrap extraction
 
 Replace the example game path:
 
@@ -113,7 +113,7 @@ fc27-work/
     <clip>.motion.json
     <clip>.validation.json
   decoder/                  local downloaded codec + host, build/cache outputs
-  data.json                 final viewer input
+  data.json                 baseline comparison/dependency data
 ```
 
 Expected source skeleton: 369 named bones. Expected eleven-clip frame/channel counts are in `tools/fc27/fc27-lite-profile.json`. The cinematic pair has 56 frames each. Front shirt-pull pair: 47 each; side shirt-pull pair: 61 each; angled slide: 45; sprint slide: 62; recovery: 30; stunt: 50; standing idle: 243.
@@ -137,18 +137,11 @@ Important checks already built into extraction:
 - Raw key quaternion norms are checked before the viewer normalizes them. The host rejects p95 norm error above 0.02 or a raw norm outside 0.95–1.05.
 - Vectors/scalars must be finite; malformed input produces a nonzero exit code.
 
-## 6. Put regenerated data into the viewer
+## 6. Use regenerated data correctly
 
-Keep a backup/commit of your existing `data.json`, then:
+The bootstrap `fc27-work/data.json` supplies skeleton/DOF dependencies and a baseline comparison fixture. Do not replace `controller-data.json` or expect it to expand live selection. Continue with [FULL-LIBRARY.md](FULL-LIBRARY.md) for all resources and `compile_runtime.py` for the admitted gameplay pack. Use the catalogue for native body inspection and the main page for interconnected actions.
 
-```powershell
-Copy-Item -LiteralPath fc27-work\data.json -Destination data.json
-python -m http.server 8080 --bind 127.0.0.1
-```
-
-Open `http://127.0.0.1:8080`. Inspect all scene starts, contact frames and endings. Check both players' relative positions, wrists, knees, soles and source root motion. Numeric validity does not establish that the right clip pair or the right semantic incident was chosen.
-
-The source file named `f16_idle_front_getup_02` is standing idle, not recovery. The actual recovery is `f22_d012011trej002_atcp_fall45r_jogsl_getup`. File names are discovery hints, not proof.
+Names are discovery hints: `f16_idle_front_getup_02` is standing idle, while `f22_d012011trej002_atcp_fall45r_jogsl_getup` is recovery. Verify motion and semantic role rather than assigning by substring alone.
 
 ## 7. Rerun individual stages
 
@@ -183,7 +176,7 @@ Copy an exact full asset name from that list and rerun extraction with `--clip`:
 
 The default eleven clips remain included. Indexing is rerun so the additional clip's EBX metadata is retained too. A new clip may use another rig, channel layout or codec; unsupported inputs should fail. Extend the profile/reader only after inspecting them. This is not a generic exporter for every FC version or every animation resource.
 
-Adding a clip to JSON does not add a UI scene. Add its selection to the `scenes` array in `app.js`. Keep paired actors at the same source time and subtract one shared origin, not each player's individual starting position. Preserve the source pair before introducing gameplay offsets or warping.
+Adding a clip to JSON does not add a playable action. Publish catalogue previews with `publish_library.py`; connect live behaviors through `compile_runtime.py`, the selector and scheduler in ANIMATION-SYSTEM.md. Keep paired actors at the same source time and subtract one shared origin, not each player's individual starting position. Preserve the source pair before introducing gameplay offsets or warping.
 
 ## 9. Human model setup
 
@@ -197,37 +190,19 @@ Used assets:
 
 Some exported image URIs used `_png.png` names while files had `.png`. Match each URI to the actual file rather than creating missing-texture guesses. The bundled copies already contain those URI corrections.
 
-The viewer clones the skinned body with SkeletonUtils, attaches static hair to Head while preserving its rest-world placement, maps source/target bones, fixes bind-direction differences, and adds kit shading/boots. It does not need Blender or an FBX conversion.
+The current renderer fits/rebinds the CC0 skin once to the native 369-bone hierarchy, attaches hair to Head and adds kit shading/boots. Arm segment lengths align both endpoints; gameplay contact anchors and rendered joints share the same final native pose. See NATIVE-RIG.md. It does not need Blender or an FBX conversion.
 
-## 10. Browser checks and video
-
-Optional authoring dependencies:
+## 10. Current browser checks and video
 
 ```sh
 npm ci
-npx playwright install chromium
+npm test
+node tools/verify-runtime.cjs http://127.0.0.1:8080/ /path/to/evidence/runtime
+node tools/verify-library.cjs http://127.0.0.1:8080/library.html /path/to/evidence/library
+node tools/capture-runtime.cjs http://127.0.0.1:8080/ /path/to/evidence/frames
 ```
 
-Serve the repository in another terminal, then:
-
-```sh
-node tools/verify-viewer.cjs --url http://127.0.0.1:8080/clips.html --out fc27-work/browser-checks
-node tools/capture-motion.cjs --url http://127.0.0.1:8080/clips.html --out fc27-work/capture
-```
-
-The capture tool writes JPEG frames and a manifest for scenes 0, 2, 3, 5 and 6 at half speed. Encode them with FFmpeg:
-
-```sh
-ffmpeg -y -framerate 30 -i fc27-work/capture/frames/%05d.jpg -c:v libx264 -preset medium -crf 19 -pix_fmt yuv420p -movflags +faststart fc27-work/capture/motion.mp4
-```
-
-Then verify:
-
-```sh
-ffprobe -v error -show_entries format=duration,size -show_entries stream=codec_name,width,height,r_frame_rate -of json fc27-work/capture/motion.mp4
-```
-
-The original capture was 543 frames, 18.1 seconds, 1280×800 at 30 fps. Deterministic screenshot sampling makes video timing independent of the speed of the test computer. Inspect the video; a finite skeleton matrix does not guarantee good-looking motion.
+The browser scripts use installed Chrome and Playwright. Serve the repository in another terminal and run browser jobs sequentially if software WebGL contexts contend. `capture-runtime.cjs` saves one continuous 480-frame/16-second native shot/goal/celebration/push sequence at 30 fps; inspect its output and manifest before using it as evidence. Encode the numbered JPEGs with FFmpeg as documented in TOOLS-AND-SOURCES.md. The old scene-viewer capture tools have been removed.
 
 ## 11. Publish a fork on GitHub Pages
 
@@ -237,7 +212,7 @@ For your own repository, choose Settings → Pages → Deploy from a branch → 
 
 Before committing, review `git status`, `git diff` and [THIRD_PARTY.md](../THIRD_PARTY.md). Publishing authorization is not an asset license. Keep the differing asset/code terms explicit.
 
-After pushing, confirm the Pages build references your intended commit, then load the actual public URL in a fresh browser and test the controls and model requests. A successful local render is not proof of a correct deployment. The exact original public implementation baseline before this handbook is commit `6dea11b0ec43debcfd9a52426817648a2c3b7e00`.
+After pushing, confirm the Pages build references your intended commit, then load the actual public URL in a fresh browser and test the controls and model requests. A successful local render is not proof of a correct deployment. Read the current [start guide](START-HERE.md) and verify the deployed commit rather than treating an early prototype revision as current.
 
 ## Troubleshooting
 

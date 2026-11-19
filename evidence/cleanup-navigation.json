@@ -1,0 +1,68 @@
+{
+  "base": "http://127.0.0.1:8131/",
+  "date": "2026-11-19T08:04:26.629Z",
+  "cases": [
+    {
+      "route": "",
+      "url": "http://127.0.0.1:8131/?quality=low&probe=cleanup",
+      "links": [
+        {
+          "text": "Full library",
+          "url": "http://127.0.0.1:8131/library.html"
+        },
+        {
+          "text": "Guide",
+          "url": "https://github.com/rblaurent/football-tackle-lab/blob/main/docs/START-HERE.md"
+        }
+      ]
+    },
+    {
+      "route": "collision-lab.html",
+      "url": "http://127.0.0.1:8131/?quality=low&probe=cleanup",
+      "links": [
+        {
+          "text": "Full library",
+          "url": "http://127.0.0.1:8131/library.html"
+        },
+        {
+          "text": "Guide",
+          "url": "https://github.com/rblaurent/football-tackle-lab/blob/main/docs/START-HERE.md"
+        }
+      ]
+    },
+    {
+      "route": "clips.html",
+      "url": "http://127.0.0.1:8131/library.html?quality=low&probe=cleanup",
+      "links": [
+        {
+          "text": "Play football",
+          "url": "http://127.0.0.1:8131/"
+        },
+        {
+          "text": "All animation availability",
+          "url": "https://github.com/rblaurent/football-tackle-lab/blob/main/docs/ANIMATIONS.md"
+        },
+        {
+          "text": "Setup guide",
+          "url": "https://github.com/rblaurent/football-tackle-lab/blob/main/docs/START-HERE.md"
+        }
+      ]
+    },
+    {
+      "route": "controller.html",
+      "url": "http://127.0.0.1:8131/?quality=low&probe=cleanup",
+      "links": [
+        {
+          "text": "Full library",
+          "url": "http://127.0.0.1:8131/library.html"
+        },
+        {
+          "text": "Guide",
+          "url": "https://github.com/rblaurent/football-tackle-lab/blob/main/docs/START-HERE.md"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "obsoleteRequests": []
+}

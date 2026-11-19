@@ -1,37 +1,14 @@
-# Start here: football game handoff
+# Football animation project: start here
 
-**Phone stability update:** phones now use smaller textures/framebuffers, bounded compact streaming and a compact GPU palette while retaining the full native rig. The main demo handles WebGL loss/restoration. [Measurements, tools and limits](MOBILE-STABILITY.md).
+Updated 19 November 2026. This is the current handoff for the friend and their AI.
 
-**Native rig update:** the CC0 mesh now binds directly to the native 369-bone hierarchy, sharing its final pose with gameplay contacts. One sole correction replaces the second render-time IK pass; native hand references and foot-phase matching improve missing fingers and gait changes. [Implementation, measurements and reproduction](NATIVE-RIG.md).
+[Play football](https://rblaurent.github.io/football-tackle-lab/) · [Browse every extracted resource](https://rblaurent.github.io/football-tackle-lab/library.html) · [All animation availability](ANIMATIONS.md) · [Download source and playable data](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip).
 
-**Live animation-system update:** the home page now automatically selects and streams from 2,313 measured native body clips, with continuous gait/action transitions, contact-driven passing/shooting, native pushes/reactions and goal celebrations. [Architecture, setup, tools and AI guide](ANIMATION-SYSTEM.md). Earlier fixed-subset descriptions below are historical implementation context.
+There are two current browser pages: the playable two-player demo and the complete motion catalogue. The obsolete Gameplay Football Contact lab and the small source-clip viewer have been retired. Their old URLs redirect to the current demo/catalogue; their implementations and dedicated tools/assets are no longer shipped. Useful extraction research, reproducible tools and dated diagnostic evidence remain.
 
+## Run on a phone, Mac or Windows
 
-**Complete library update:** [Browse all 46,351 extracted resources](https://rblaurent.github.io/football-tackle-lab/library.html), including victory and celebrations. 44,037 decode; 2,314 are preserved with explicit unsupported-codec status. [Full extraction/setup/AI guide](FULL-LIBRARY.md). The older 22-clip/17-runtime subset described below belongs to the prototype controller, not the full export.
-
-
-This repository is a working starting point for a small football manager/referee game for a child. It includes a controllable animation system, extracted native motions and neural IK weights, proper skinned human characters, portable extraction tools and documentation for the friend and their AI.
-
-**[Play the latest system](https://rblaurent.github.io/football-tackle-lab/)** · [Original source-clip viewer](https://rblaurent.github.io/football-tackle-lab/clips.html) · [Earlier contact experiment](https://rblaurent.github.io/football-tackle-lab/collision-lab.html)
-
-**Latest update:** neutral forward idle gaze, rendered boot grounding, corrected tackle/recovery, and five actionable interactions in the main lab. **[Interaction controls and implementation](INTERACTIONS.md)**. [Download the latest source and playable-data ZIP](https://github.com/rblaurent/football-tackle-lab/archive/refs/heads/main.zip).
-
-## Pick your route
-
-| Goal | Read/use |
-| --- | --- |
-| Test it on a phone or Mac | Open the live system. No account or installation required. |
-| Run or modify the project | Clone and start the static server below. All runtime data is included. |
-| Try shirt pulls, grabbing, pushing and handball | Choose an **Interaction**, then **Do interaction** on the main page. See [INTERACTIONS.md](INTERACTIONS.md). |
-| Understand transitions, locomotion, contact and recovered weights | **[Live animation-system guide](ANIMATION-SYSTEM.md)**, then the [baseline controller/IK guide](CONTROLLER.md). |
-| Reproduce the original eleven-clip extraction | [Windows setup and reproduction](REPRODUCING.md) with the baseline profile. |
-| Reproduce the expanded clips/controller/weight extraction | [Expanded extraction commands](CONTROLLER.md#reproduce-the-expanded-extraction), using `controller-profile.json`. |
-| Understand archive, compression, codec, rig and retargeting details | [Binary formats and runtime math](FORMATS.md). |
-| Obtain every tool/source/version | [Tool inventory](TOOLS-AND-SOURCES.md) and the new controller guide's file map. |
-| Hand work to another AI | [AI brief and acceptance criteria](AI-HANDOFF.md). |
-| Understand the old open-source solver | [Gameplay Football notes](../GAMEPLAY-FOOTBALL.md). |
-
-## Run it
+The public links work without an account or installed game. To run a copy locally:
 
 ```sh
 git clone https://github.com/rblaurent/football-tackle-lab.git
@@ -39,57 +16,76 @@ cd football-tackle-lab
 python -m http.server 8080 --bind 127.0.0.1
 ```
 
-On macOS use `python3` if necessary. Open `http://127.0.0.1:8080` in a WebGL-capable browser. Keep the terminal running; Ctrl+C stops it. Do not open through `file://`. No Node/npm install, extraction, installed FC game or remote CDN is needed for playback. Use the public URL for another device.
+On Mac use `python3` if necessary. Open `http://127.0.0.1:8080/` for play or `http://127.0.0.1:8080/library.html` for the catalogue. Keep the terminal open; Ctrl+C stops the server. Use HTTP rather than opening the HTML file. Playback needs no npm build, FC install, Windows extraction tools or remote CDN. A ZIP includes the playable pack and public previews, but not the complete private local export.
 
-The automatic demo shows chase, stop, tackle, get-up, walking and idle. Use **Player tackle** for the two-person fall/recovery scenario. Steer with the touch pad or WASD/arrows, select the pace, hold Shift to sprint, press Space/Tackle, or use Chase ball and Stop. Tap the grass to place the ball. Motion inspector reveals state, blend and foot-plant information.
+For an existing checkout, preserve personal edits and run `git pull --ff-only`, then reload. For a ZIP, unpack the new copy separately and transfer your changes deliberately. Phones automatically use the smaller texture/framebuffer/cache profile. `?quality=low` forces it; [phone budgets and recovery](MOBILE-STABILITY.md) documents the behavior.
 
-## Update an existing copy
+## Play and inspect
 
-For a Git checkout, run `git pull --ff-only` from its folder, then reload the browser. If Git reports local edits or diverged history, preserve those changes and reconcile them before updating. For a ZIP download, extract the latest ZIP into a new folder and serve that folder; keep any personal work from the old copy. No game extraction is needed to try the supplied browser data.
+Steer blue with the touch pad, WASD or arrows. Shift sprints; the pace menu also selects walk/jog/sprint. Pass/E and Shoot/F approach the ball and use native kicks. Space/Tackle challenges; Player tackle stages a repeatable two-person tackle/fall/get-up. Stop cancels an approach or interaction and brakes into idle. Chase ball follows the ball.
 
-## What is established
+Challenge selects a standing interaction from the players' situation. The Interaction menu gives front/side shirt pulls, arm grabbing, pushing and deliberate handball; press Do interaction. The same actors approach, contact, release and return to locomotion. Play match enables the simple opponent. Goals queue celebration after shooting follow-through; Celebrate requests one directly. Tap the pitch to place the ball and drag/pinch to orbit/zoom. Motion inspector shows source names, state, weights and streaming/cache information.
 
-Native selected FC27 Lite clips drive an independent browser controller through a 369-bone source rig and a 65-bone Quaternius human skin. The mesh has a continuous body, face, fingers, hair, kit and boots. The controller can start, walk/jog/sprint, stop, turn, chase, tackle, fall and recover. The same lab now approaches a partner, performs front/side shirt pulls, arm grabs, pushes and an authored handball block, then returns to useful movement. The eight-scene raw source-capture viewer is also preserved separately.
+## Which animations are available?
 
-The expanded pipeline decodes 22 clips, uses seventeen in the controller, and inspects 33 controller/feature/weight EBX assets. It recovers three complete locomotion neural IK models. Our standalone inference reconstructs native knee coordinates with approximately 2.47 cm per-coordinate RMSE over 240 sampled gait poses. The live controller uses the knee weights as a bend hint for bounded foot planting; it does not use the arm/chest models yet.
+| Layer | Current measured content | Where to use it |
+| --- | ---: | --- |
+| Complete discovered extraction | 46,351 original resources | Search all names/statuses in the catalogue; raw EBX/RES live in a full local export. |
+| Decoded channel data | 44,037 resources; 44,005 also have named bindings | Full export; includes body, facial/scalar, camera and prop channels. |
+| Automatic live field system | 2,313 native body clips in 17 families | Included `runtime/` pack, lazy streamed by the playable demo. |
+| Whole-capture browser previews | 338 selected body resources | Included `library/previews/`, selectable in the catalogue. |
+| Preserved but not decoded | 2,314 resources | Explicit codec/layout status; original raw payloads retained locally. |
 
-A fresh extraction matched all committed controller motion data, neural data and parameter reports after JSON parsing. Thirty-one Node tests and desktop/touch browser verification cover the integrated action chains, contacts, input and valid skins. Exact reports are in `evidence/`.
+**[ANIMATIONS.md](ANIMATIONS.md) lists every live family, exact counts, access paths, raw/decode/binding limits and machine-readable inventories.** It is generated from the committed catalogue and runtime manifest. The 338 whole-capture previews are a separate hosting selection from the 2,313 runtime segments; they are not additive and do not limit what the live controller can choose. Not all 46,351 resources are playable body animations.
 
-## Keep the limits clear
+The public site and source ZIP contain every admitted runtime payload. The approximately 3.55 GiB decoded full export is outside Git. To give the friend all decoded local files, copy the entire `native-library/` folder alongside the project, or reproduce it using [FULL-LIBRARY.md](FULL-LIBRARY.md). Never claim a source ZIP includes that export.
 
-The intent/state controller, gait blending, pose selection, transition offsets, ball chase, foot planting and collision responses are our implementation. **EA's full PTM motion-search runtime, match AI and rule engine have not been extracted.** Recovered controller settings and feature weights are supplied as inspectable data; our matcher does not claim to apply FC's full feature cost. The shirt-pull pair scheduler and grab/push/handball logic are original code. A deliberate arm-block scenario emits a contact-based handball event, not a complete football-law ruling. A generic captured fall is dispatched after a tackle contact, so it is not yet an impact-specific physical reaction.
+## Read the right guide
 
-The new simulation has a rolling ball with aerial gravity/bounce for the handball scenario, two actors and flat-ground planting. It does not yet provide a complete match, aerial ball flight, target-rig perfect contacts, general automatic interaction selection, garment deformation, ragdolls or complete referee decisions. More action variants and stronger interaction alignment are required for diverse challenge angles. [The controller guide](CONTROLLER.md#what-to-build-next-for-a-real-game) describes those next steps.
-
-The source-clip viewer preserves pair timing and trajectories, and remains useful for inspecting what was actually captured. Its standalone recovery and lack of runtime selection should not be confused with the new integrated controller.
-
-## Tested platform and reproduction baseline
-
-Extraction was tested on Windows x64 with Steam FC27 Lite app 4407750, Steam build 22116598, game version 1.0.142.20665, on 18 November 2026. The installation folder was named `EA SPORTS FC 27 Demo`. Use your own actual path.
-
-The extractor loads the installed game's Windows Oodle library read-only. It does not run the game or change executables/anti-cheat. The provided browser result runs independently of Windows/game installation. Chrome desktop and a 412×915 touch viewport were tested, including touch events. Physical phones and Mac/Safari hardware have not been tested.
-
-The full historical index contained 1,448,373 named EBX/RES entries after overlays. There are 35,511 named ANT motion resources across the surveyed archives; 23,107 are in the core gameplay set. Those are indexed candidates, **not validated exported clips**. The cleaned expanded profile retains 35,762 index entries and decodes 22 chosen clips.
-
-## Runtime file map
-
-| Files | Purpose |
+| Task | Guide |
 | --- | --- |
-| `index.html`, `controller-view.js` | Latest controllable WebGL/touch scene |
-| `controller-core.js`, `animation.js` | Fixed-step simulation, state logic, native sampling and transitions |
-| `neural-ik.js`, `foot-planting.js` | Recovered-network inference, foot constraints and two-bone solving |
-| `human.js`, `character/` | Human skin, native rig retargeting and CC0 model/hair |
-| `controller-data.json` | Seventeen native runtime clips and source rig |
-| `research/fc27-neural-ik.json` | Three recovered, ordered neural IK models |
-| `research/fc27-controller-assets.json` | Inspected controller/feature/weight data and unresolved fields |
-| `clips.html`, `app.js`, `data.json` | Preserved original eleven-clip viewer |
-| `tools/fc27/` | Portable archive/codec/channel and controller/weight extractors, schemas and profiles |
-| `tools/verify-controller.cjs`, `tools/verify-neural-ik.mjs` | Browser acceptance and numerical network reconstruction |
-| `interactions.js`, `tools/verify-interactions.cjs` | Shared action scheduler, authored hand interactions and browser acceptance |
-| `tools/capture-controller.cjs` | Deterministic rendered controller footage |
-| `collision-lab.html`, `physics.js`, `demo.js` | Earlier Gameplay Football contact study |
-| `docs/`, `evidence/` | Complete handoff and intentional verification artifacts |
+| Understand available motions and browse all names | [Animation inventory](ANIMATIONS.md) |
+| Understand selection, transitions, states, contacts and streaming | [Live animation system](ANIMATION-SYSTEM.md) |
+| Re-extract all discoverable installed resources | [Full-library extraction](FULL-LIBRARY.md) |
+| Windows prerequisites, bootstrap and low-level extraction troubleshooting | [Extraction setup](REPRODUCING.md) |
+| Archive, codec, channel and coordinate math | [Formats](FORMATS.md) |
+| Recover controller metadata and three neural IK networks | [Controller/weight research](CONTROLLER.md) |
+| Work on shirt pulls, hands, pushes or handball | [Interactions](INTERACTIONS.md) |
+| Fix character binding, shoulders, hands or feet | [Native rig](NATIVE-RIG.md) |
+| Keep phone rendering bounded and test context recovery | [Mobile stability](MOBILE-STABILITY.md) |
+| Find tools, exact versions, pins and provenance | [Tools and sources](TOOLS-AND-SOURCES.md) |
+| Give the project to another AI | [AI handoff and invariants](AI-HANDOFF.md) |
 
-## Terms
+## Current architecture and files
 
-Read [THIRD_PARTY.md](../THIRD_PARTY.md). Original code is Unlicense; Quaternius meshes/hair are CC0 and Three.js is MIT. FC-derived motion, rig, controller data and neural weights retain separate rights and are not covered by those licenses. No redistribution permission is asserted for them. The pinned third-party reference codec is downloaded into the extractor's local work folder rather than vendored in Git. No game installation, Oodle/FMT binaries or credentials belong in the repository.
+`controller-core.js` owns a 120 Hz world/state scheduler. `motion-database.js` scores and streams compatible clips from `runtime/manifest.json.gz`; `motion-codec.js` validates/reads them. `animation.js` samples native poses, aligns gaits and performs inertial transitions. `interactions.js` stages shared-clock actions. `foot-planting.js`, `foot-contact.js` and `neural-ik.js` produce one final pose/support correction. `native-skin.js` fits the CC0 mesh once to the native 369-bone hierarchy; `human.js` renders that same hierarchy and final pose. The original template's 65 joints are not a second runtime retarget skeleton. Arm fitting includes the shoulder/elbow/wrist length correction.
+
+`controller-view.js` and `index.html` provide play/input/rendering. `library.js` and `library.html` provide catalogue search and source capture previews using the current native-bound human. `render-profile.js` controls phone/desktop budgets. `controller-data.json` is the small fallback/bootstrap corpus, not the complete library or live selection scope. `data.json` is retained as a baseline extraction comparison fixture. `research/` preserves controller settings and neural data; `tools/fc27/` contains archive, codec, binding, extraction, publication, compilation and audit tools.
+
+## What was extracted and what we implemented
+
+The source is the installed Windows Steam FC27 Demo/Lite, app 4407750, build 22116598, game 1.0.142.20665. Archive reads do not run or modify the game/anti-cheat. This is a verified-build pipeline, not a universal FC exporter.
+
+Native motions, rig/channel data, selected serialized controller settings and three locomotion IK networks were recovered. The live system uses the knee network as a bounded analytic-solver hint. Arm/chest networks are inspectable but are not enabled as a native contact controller. Selection weights, scheduler, transitions, navigation, physics, incident heuristics and simple opponent are our code. EA's full PTM search, normalization, match AI, ML-Flow/HyperMotion runtime and referee engine were not recovered.
+
+Native shirt pairs retain shared capture time/origin. Push combines a native pusher and separately selected native reaction at contact. Arm grab and handball combine native body bases with authored hand targets. They are not all verified native paired interactions. Contact is checked with joint/proxy sweeps; exact finger-to-shirt cloth, garment deformation, ragdolls, full-body ground collision and complete football-law decisions are absent. Some extreme low falls still intersect the pitch. The superhero silhouette and shoulder weights still need artistic refinement. A complete team game, keepers and richer airborne actions remain work.
+
+## Verify and extend
+
+Install development tools only when changing/verifying the project:
+
+```sh
+npm ci
+npm test
+node tools/verify-runtime.cjs http://127.0.0.1:8080/ /path/to/evidence/runtime
+node tools/verify-library.cjs http://127.0.0.1:8080/library.html /path/to/evidence/library
+node tools/verify-native-rig.cjs http://127.0.0.1:8080/ /path/to/evidence/rig
+node tools/verify-mobile.cjs http://127.0.0.1:8080/ /path/to/evidence/mobile
+python tools/fc27/document_inventory.py --check
+```
+
+Browser scripts use Playwright and installed Chrome. Run browser jobs sequentially if software WebGL contexts contend. The current 52 Node tests cover the active system; seven tests belonging exclusively to the removed Z-up contact experiment were retired. Desktop/touch browser checks and constrained phone emulation are available; these are not physical-device or Mac/Safari certification. See the dated [evidence index](../evidence/README.md).
+
+For a new motion family, follow the admission/entry/contact/exit instructions in [ANIMATION-SYSTEM.md](ANIMATION-SYSTEM.md), extend the state graph and add meaningful success/miss/release checks. Importing or decoding a clip alone does not connect it to play.
+
+Read [THIRD_PARTY.md](../THIRD_PARTY.md). Original code is Unlicense, Quaternius is CC0, Three.js is MIT. FC-derived data/weights retain separate rights; no redistribution permission is asserted. Do not commit installed-game binaries, Oodle, downloaded reference codec, raw export, credentials or personal paths.

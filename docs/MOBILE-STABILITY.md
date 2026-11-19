@@ -61,7 +61,7 @@ node tools/verify-mobile.cjs http://127.0.0.1:8080/ /path/to/evidence/mobile
 node tools/verify-runtime.cjs http://127.0.0.1:8080/ /path/to/evidence/runtime
 ```
 
-There are 58 Node tests, including compact GPU-palette equivalence, exact packed animation sampling, phone profile limits and bounded single-fetch streaming. The mobile verifier runs a timed constrained soak, checks resource limits and absence of original large-texture requests, then uses the real `WEBGL_lose_context` extension and verifies restoration preserves the same world and resumes frames. `mobile-verification.json` records constraints, every measurement, resource estimate scope and recovery outcome.
+There are 52 active Node tests, including compact GPU-palette equivalence, exact packed animation sampling, phone profile limits and bounded single-fetch streaming. The mobile verifier runs a timed constrained soak, checks resource limits and absence of original large-texture requests, then uses the real `WEBGL_lose_context` extension and verifies restoration preserves the same world and resumes frames. `mobile-verification.json` records constraints, every measurement, resource estimate scope and recovery outcome.
 
 Desktop/touch gameplay acceptance still covers native passing/shooting, every standing interaction, goals and input. Catalogue and source-clip viewers are also checked. Successful emulation does not replace Laurent retrying on the physical phone; the device/driver-specific crash remains unconfirmed until that happens.
 
